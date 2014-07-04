@@ -22,12 +22,16 @@
 }
 
 /** General Style Info **/
+html{
+    height: 100%;
+}
 body {
 	background: #003d4c;
 	color: #fff;
 	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
 	font-size:90%;
 	margin: 0;
+        height: 80%;
 }
 a {
 	color: #003d4c;
@@ -107,6 +111,7 @@ p {
 #footer {
 	clear: both;
 	padding: 6px 10px;
+        text-align: center;
 }
 #header a, #footer a {
 	color: #fff;
