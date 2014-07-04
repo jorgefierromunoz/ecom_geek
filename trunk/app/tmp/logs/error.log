@@ -1,0 +1,354 @@
+2014-07-04 17:49:44 Error: [MissingControllerException] Controller class HomeController could not be found.
+Exception Attributes: array (
+  'class' => 'HomeController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/home
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-07-04 17:50:12 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php, line 197]
+2014-07-04 17:50:12 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /geek4y/
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 197)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 197, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', 'C:\wamp\www\gee...', 197, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-04 17:57:16 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php, line 197]
+2014-07-04 17:57:16 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /geek4y/
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 197)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 197, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', 'C:\wamp\www\gee...', 197, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-04 17:57:40 Error: [MissingControllerException] Controller class Geek4yController could not be found.
+Exception Attributes: array (
+  'class' => 'Geek4yController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/Geek4y/
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-07-04 17:57:58 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php, line 197]
+2014-07-04 17:57:58 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /geek4y/
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 197)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 197, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', 'C:\wamp\www\gee...', 197, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-04 18:00:47 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [C:\wamp\www\geek4y\lib\Cake\Model\Datasource\CakeSession.php, line 661]
+2014-07-04 18:00:47 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /geek4y/
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 661)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 661, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', 'C:\wamp\www\gee...', 661, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-04 18:00:47 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [C:\wamp\www\geek4y\lib\Cake\Model\Datasource\CakeSession.php, line 661]
+2014-07-04 18:00:47 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /geek4y/
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 661)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 661, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', 'C:\wamp\www\gee...', 661, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-04 18:00:47 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [C:\wamp\www\geek4y\lib\Cake\Model\Datasource\CakeSession.php, line 661]
+2014-07-04 18:00:47 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /geek4y/
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 661)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 661, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', 'C:\wamp\www\gee...', 661, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-04 18:38:33 Error: [ReflectionException] Class CategoriasController does not have a constructor, so you cannot pass any constructor arguments
+Request URL: /geek4y/categorias
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(241): ReflectionClass->newInstance(Object(CakeRequest), Object(CakeResponse))
+#1 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(156): Dispatcher->_getController(Object(CakeRequest), Object(CakeResponse))
+#2 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-07-04 18:39:01 Error: [ReflectionException] Class CategoriasController does not have a constructor, so you cannot pass any constructor arguments
+Request URL: /geek4y/categorias
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(241): ReflectionClass->newInstance(Object(CakeRequest), Object(CakeResponse))
+#1 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(156): Dispatcher->_getController(Object(CakeRequest), Object(CakeResponse))
+#2 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-07-04 18:39:12 Error: [ReflectionException] Class CategoriasController does not have a constructor, so you cannot pass any constructor arguments
+Request URL: /geek4y/categorias
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(241): ReflectionClass->newInstance(Object(CakeRequest), Object(CakeResponse))
+#1 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(156): Dispatcher->_getController(Object(CakeRequest), Object(CakeResponse))
+#2 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-07-04 18:43:11 Error: [MissingActionException] Action CategoriasController::index() could not be found.
+Exception Attributes: array (
+  'controller' => 'CategoriasController',
+  'action' => 'index',
+)
+Request URL: /geek4y/categorias
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriasController), Object(CakeRequest))
+#2 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-07-04 18:44:29 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [1049] Unknown database \'geek4ye\'',
+  'enabled' => true,
+)
+Request URL: /geek4y/categorias
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(260): Mysql->connect()
+#1 C:\wamp\www\geek4y\lib\Cake\Model\ConnectionManager.php(105): DboSource->__construct(Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(3482): ConnectionManager::getDataSource('default')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(1128): Model->setDataSource('default')
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(3504): Model->setSource('categorias')
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(1357): Model->getDataSource()
+#6 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(1449): Model->schema()
+#7 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(1436): Model->hasField('title', false)
+#8 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(880): Model->hasField(Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Controller\Scaffold.php(132): Model->__get('displayField')
+#10 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(535): Scaffold->__construct(Object(CategoriasController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(494): Controller->_getScaffold(Object(CakeRequest))
+#12 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#13 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriasController), Object(CakeRequest))
+#14 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#15 {main}
+2014-07-04 18:45:33 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php, line 197]
+2014-07-04 18:45:33 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /geek4y/categorias
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 197)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 197, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', 'C:\wamp\www\gee...', 197, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-04 18:46:06 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php, line 197]
+2014-07-04 18:46:06 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /geek4y/categorias
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 197)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 197, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', 'C:\wamp\www\gee...', 197, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-04 18:46:39 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`geek4y`.`sub_categorias`, CONSTRAINT `fk_sub_categorias_categorias1` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/sub_categorias/add
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `ge...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `ge...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(1834): DboSource->create(Object(SubCategoria), Array, Array)
+#4 C:\wamp\www\geek4y\lib\Cake\Controller\Scaffold.php(244): Model->save(Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Controller\Scaffold.php(392): Scaffold->_scaffoldSave(Object(CakeRequest), 'add')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Scaffold.php(152): Scaffold->_scaffold(Object(CakeRequest))
+#7 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(535): Scaffold->__construct(Object(SubCategoriasController), Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(494): Controller->_getScaffold(Object(CakeRequest))
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(SubCategoriasController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-07-04 18:47:48 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php, line 197]
+2014-07-04 18:47:48 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /geek4y/categorias
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 197)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 197, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', 'C:\wamp\www\gee...', 197, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-04 18:48:25 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php, line 197]
+2014-07-04 18:48:25 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /geek4y/categorias
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 197)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 197, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', 'C:\wamp\www\gee...', 197, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-04 18:48:56 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php, line 197]
+2014-07-04 18:48:56 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /geek4y/categorias
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 197)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 197, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', 'C:\wamp\www\gee...', 197, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-04 18:58:41 Error: [MissingControllerException] Controller class ProductoController could not be found.
+Exception Attributes: array (
+  'class' => 'ProductoController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/producto
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-07-04 18:58:45 Error: Fatal Error (64): Cannot redeclare Producto::$belongsTo in [C:\wamp\www\geek4y\app\Model\Producto.php, line 18]
+2014-07-04 18:58:45 Error: [FatalErrorException] Cannot redeclare Producto::$belongsTo
+Request URL: /geek4y/productos
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(64, 'Cannot redeclar...', 'C:\wamp\www\gee...', 18)
+#1 [internal function]: ErrorHandler::handleError(64, 'Cannot redeclar...', 'C:\wamp\www\gee...', 18, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 64, 'Cannot redeclar...', 'C:\wamp\www\gee...', 18, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-04 18:59:35 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Producto.sub_categoria_id' in 'on clause'
+Request URL: /geek4y/productos
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Product...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Product...', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Product...', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Producto), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Component\PaginatorComponent.php(196): Model->find('all', Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(1080): PaginatorComponent->paginate(NULL, Array, Array)
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Scaffold.php(191): Controller->paginate()
+#9 C:\wamp\www\geek4y\lib\Cake\Controller\Scaffold.php(385): Scaffold->_scaffoldIndex(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Controller\Scaffold.php(152): Scaffold->_scaffold(Object(CakeRequest))
+#11 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(535): Scaffold->__construct(Object(ProductosController), Object(CakeRequest))
+#12 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(494): Controller->_getScaffold(Object(CakeRequest))
+#13 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#14 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest))
+#15 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-07-04 19:06:41 Error: [MissingControllerException] Controller class TamanosController could not be found.
+Exception Attributes: array (
+  'class' => 'TamanosController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/tamanos/add
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-07-04 19:06:59 Error: [MissingControllerException] Controller class TamanosController could not be found.
+Exception Attributes: array (
+  'class' => 'TamanosController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/tamanos/add
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-07-04 19:07:06 Error: [MissingControllerException] Controller class TamanosController could not be found.
+Exception Attributes: array (
+  'class' => 'TamanosController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/tamanos/add
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-07-04 19:07:08 Error: [MissingControllerException] Controller class TamanosController could not be found.
+Exception Attributes: array (
+  'class' => 'TamanosController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/tamanos
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-07-04 19:12:08 Error: [MissingControllerException] Controller class FotosController could not be found.
+Exception Attributes: array (
+  'class' => 'FotosController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/fotos/add
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-07-04 20:01:04 Error: [MissingControllerException] Controller class CategoriaVendedoresController could not be found.
+Exception Attributes: array (
+  'class' => 'CategoriaVendedoresController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/categoria_vendedores
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-07-04 20:02:55 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`geek4y`.`comunas`, CONSTRAINT `fk_comunas_zonas1` FOREIGN KEY (`zona_id`) REFERENCES `zonas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/comunas/add
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `ge...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `ge...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(1834): DboSource->create(Object(Comuna), Array, Array)
+#4 C:\wamp\www\geek4y\lib\Cake\Controller\Scaffold.php(244): Model->save(Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Controller\Scaffold.php(392): Scaffold->_scaffoldSave(Object(CakeRequest), 'add')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Scaffold.php(152): Scaffold->_scaffold(Object(CakeRequest))
+#7 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(535): Scaffold->__construct(Object(ComunasController), Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(494): Controller->_getScaffold(Object(CakeRequest))
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ComunasController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-07-04 20:02:58 Error: [MissingControllerException] Controller class ZonasController could not be found.
+Exception Attributes: array (
+  'class' => 'ZonasController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/zonas/add
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-07-04 20:04:12 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`geek4y`.`direcciones`, CONSTRAINT `fk_direcciones_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/direcciones/add
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `ge...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `ge...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(1834): DboSource->create(Object(Direccione), Array, Array)
+#4 C:\wamp\www\geek4y\lib\Cake\Controller\Scaffold.php(244): Model->save(Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Controller\Scaffold.php(392): Scaffold->_scaffoldSave(Object(CakeRequest), 'add')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Scaffold.php(152): Scaffold->_scaffold(Object(CakeRequest))
+#7 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(535): Scaffold->__construct(Object(DireccionesController), Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(494): Controller->_getScaffold(Object(CakeRequest))
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(DireccionesController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-07-04 20:09:02 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'User.tipo_cuentas_bancaria_id' in 'on clause'
+Request URL: /geek4y/users
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `User`.`...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `User`.`...', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `User`.`...', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(User), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Component\PaginatorComponent.php(196): Model->find('all', Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(1080): PaginatorComponent->paginate(NULL, Array, Array)
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Scaffold.php(191): Controller->paginate()
+#9 C:\wamp\www\geek4y\lib\Cake\Controller\Scaffold.php(385): Scaffold->_scaffoldIndex(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Controller\Scaffold.php(152): Scaffold->_scaffold(Object(CakeRequest))
+#11 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(535): Scaffold->__construct(Object(UsersController), Object(CakeRequest))
+#12 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(494): Controller->_getScaffold(Object(CakeRequest))
+#13 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#14 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#15 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
