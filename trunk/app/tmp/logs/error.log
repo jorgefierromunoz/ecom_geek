@@ -352,3 +352,211 @@ Stack Trace:
 #14 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
 #15 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #16 {main}
+2014-07-07 20:39:46 Error: Fatal Error (1): Call to a member function isAjax() on a non-object in [C:\wamp\www\geek4y\app\Controller\CategoriasController.php, line 17]
+2014-07-07 20:39:46 Error: [FatalErrorException] Call to a member function isAjax() on a non-object
+Request URL: /geek4y/categorias
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 17)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 17, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\gee...', 17, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-07 20:43:46 Error: [MissingControllerException] Controller class ListacategoriasController could not be found.
+Exception Attributes: array (
+  'class' => 'ListacategoriasController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/listacategorias
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-07-07 20:43:58 Error: [MissingViewException] View file "C:\wamp\www\geek4y\app\View\Categorias\listacategorias.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\geek4y\\app\\View\\Categorias\\listacategorias.ctp',
+)
+Request URL: /geek4y/categorias/listacategorias
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(954): View->render(NULL, NULL)
+#2 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(198): Controller->render()
+#3 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriasController), Object(CakeRequest))
+#4 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-07 21:28:18 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/css/images/ui-icons_222222_256x240.png
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-07-07 21:28:18 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/css/images/ui-bg_highlight-soft_100_eeeeee_1x100.png
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-07-07 21:28:20 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/css/images/ui-bg_gloss-wave_35_f6a828_500x100.png
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-07-07 21:28:20 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/css/images/ui-bg_glass_100_f6f6f6_1x400.png
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-07-07 21:28:20 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/css/images/ui-icons_ef8c08_256x240.png
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-07-07 21:28:22 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/css/images/ui-icons_ef8c08_256x240.png
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-07-07 21:28:22 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/css/images/ui-bg_glass_100_fdf5ce_1x400.png
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-07-07 21:28:23 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/css/images/ui-bg_glass_65_ffffff_1x400.png
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-07-07 21:28:23 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/css/images/ui-icons_ef8c08_256x240.png
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-07-07 21:38:44 Error: [MissingViewException] View file "C:\wamp\www\geek4y\app\View\Categorias\add.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\geek4y\\app\\View\\Categorias\\add.ctp',
+)
+Request URL: /geek4y/Categorias/add
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(954): View->render(NULL, NULL)
+#2 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(198): Controller->render()
+#3 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriasController), Object(CakeRequest))
+#4 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-07 21:40:28 Error: [MissingViewException] View file "C:\wamp\www\geek4y\app\View\Categorias\add.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\geek4y\\app\\View\\Categorias\\add.ctp',
+)
+Request URL: /geek4y/Categorias/add
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(954): View->render(NULL, NULL)
+#2 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(198): Controller->render()
+#3 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriasController), Object(CakeRequest))
+#4 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-07 21:40:32 Error: [MissingViewException] View file "C:\wamp\www\geek4y\app\View\Categorias\add.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\geek4y\\app\\View\\Categorias\\add.ctp',
+)
+Request URL: /geek4y/Categorias/add
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(954): View->render(NULL, NULL)
+#2 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(198): Controller->render()
+#3 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriasController), Object(CakeRequest))
+#4 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-07 21:42:00 Error: [MissingViewException] View file "C:\wamp\www\geek4y\app\View\Categorias\add.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\geek4y\\app\\View\\Categorias\\add.ctp',
+)
+Request URL: /geek4y/Categorias/add
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(954): View->render(NULL, NULL)
+#2 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(198): Controller->render()
+#3 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriasController), Object(CakeRequest))
+#4 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-07 21:44:54 Error: [MissingViewException] View file "C:\wamp\www\geek4y\app\View\Categorias\add.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\geek4y\\app\\View\\Categorias\\add.ctp',
+)
+Request URL: /geek4y/Categorias/add
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(954): View->render(NULL, NULL)
+#2 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(198): Controller->render()
+#3 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriasController), Object(CakeRequest))
+#4 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-07 21:47:12 Error: [MissingViewException] View file "C:\wamp\www\geek4y\app\View\Categorias\add.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\geek4y\\app\\View\\Categorias\\add.ctp',
+)
+Request URL: /geek4y/Categorias/add
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(954): View->render(NULL, NULL)
+#2 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(198): Controller->render()
+#3 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriasController), Object(CakeRequest))
+#4 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-07 21:47:13 Error: [MissingViewException] View file "C:\wamp\www\geek4y\app\View\Categorias\add.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\geek4y\\app\\View\\Categorias\\add.ctp',
+)
+Request URL: /geek4y/Categorias/add
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(954): View->render(NULL, NULL)
+#2 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(198): Controller->render()
+#3 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriasController), Object(CakeRequest))
+#4 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-07 21:47:34 Error: [MissingViewException] View file "C:\wamp\www\geek4y\app\View\Categorias\add.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\geek4y\\app\\View\\Categorias\\add.ctp',
+)
+Request URL: /geek4y/Categorias/add
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(954): View->render(NULL, NULL)
+#2 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(198): Controller->render()
+#3 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriasController), Object(CakeRequest))
+#4 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
