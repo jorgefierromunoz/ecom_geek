@@ -17,7 +17,7 @@
         //-----------------------------------
         $("#btnaddsubcat").click(function() {
             $("#formaddsubcat").trigger("reset");
-            $("#spnaddsubcat").hide();
+            ocultarspan();
             llenarlistboxcategorias("x");
             $("#divaddsubcat").dialog("open");
         });
@@ -25,9 +25,8 @@
         //-------------------------------------
         //LLENAR EDITAR CON DATOS EXISTENTES
         $(document).on("click", ".editar", function() {
-            $("#spneditsubcat").hide();
+            ocultarspan();
             idsubcatglobal = $(this).attr('data-id');
-            $("formedit").trigger("reset");
             $.ajax({
                 url: 'SubCategorias/view/' + idsubcatglobal,
                 dataType: 'json',
@@ -42,9 +41,7 @@
                     console.log(n);
                 }
             });
-
         });
-
         /****************************************************/
         /****************************************************/
         //DECLARACION DIALOG DIV AGREGAR Y EDITAR SUBCATEGORIAS
@@ -88,7 +85,13 @@
         //GUARDAR SUBCATEGORIA BUTTON ADD DIALOG
         $("#addsubcatsave").click(function(e) {
             e.preventDefault();
-              if ( $("#iptsubcategoria").val().trim().length !== 0 ) {
+              if ( $("#iptsubcategoria").val().trim().length == 0) {
+                $("#spnaddsubcat").html("Campo requerido");
+                $("#spnaddsubcat").show();
+                $("#spnaddalert").show();
+              }else if ( $("#iptcategoria_id").val().trim().length == 0){
+                $("#spnaddalert").show();
+              }else{
                 $.ajax({
                     url: "SubCategorias/add",
                     type: "POST",
@@ -100,47 +103,45 @@
                            mostrarDatos();
                            $("#divaddsubcat").dialog("close");
                         }else if (n==0){
-                            $("#spnaddsubcat").html("No se pudo guardar, intentelo de nuevo");
-                            $("#spnaddsubcat").show();
+                            alert("No se pudo guardar, intentelo de nuevo");
                         }
                     },
                     error: function(n) {
                         console.log(n);
                     }
-            });
-            }else{
-            $("#spnaddsubcat").html("Campo requerido");
-            $("#spnaddsubcat").show();
-            }
+                });
+             }
         });
         /****************************************************/
         /****************************************************/
         //EDITAR SUBCATEGORIA BUTTON DIALOG
         $("#editsubcatsave").click(function(e) {      
             e.preventDefault();
-            if ( $("#editsubcatinput").val().trim().length !== 0 ) {
-            $.ajax({
-                url: 'SubCategorias/edit/' + idsubcatglobal,
-                type: "POST",
-                data: $("#formeditsubcat").serialize(),
-                dataType:'json',
-                success: function(n) {
-                    if (n==1) {
-                        mostrarDatos();
-                        alert("Editado con exito");
-                        $("#formeditsubcat").trigger("reset");
-                        $("#diveditsubcat").dialog("close");
-                    }else if (n==0){
-                        $("#spneditsubcat").html("No se pudo editar, intentelo de nuevo");
-                        $("#spneditsubcat").show();                                                  
+            if ( $("#editsubcatinput").val().trim().length == 0) {
+                $("#spneditsubcat").html("Campo requerido");
+                $("#spneditsubcat").show();
+                $("#spnaddalert").show();
+              }else if ( $("#ipteditcategoria_id").val().trim().length == 0){
+                $("#spnaddalert").show();
+              }else{
+                $.ajax({
+                    url: 'SubCategorias/edit/' + idsubcatglobal,
+                    type: "POST",
+                    data: $("#formeditsubcat").serialize(),
+                    dataType:'json',
+                    success: function(n) {
+                        if (n==1) {
+                            mostrarDatos();
+                            alert("Editado con exito");
+                            $("#formeditsubcat").trigger("reset");
+                            $("#diveditsubcat").dialog("close");
+                        }else if (n==0){
+                            $("#spneditsubcat").html("No se pudo editar, intentelo de nuevo");
+                            $("#spneditsubcat").show();                                                  
+                        }
                     }
-                }
-            });
-            }else{
-             $("#spneditsubcat").html("Campo requerido");
-             $("#spneditsubcat").show();
-            }
-
+                 });
+              }
         });
         /****************************************************/
         /****************************************************/
@@ -228,10 +229,20 @@
                     }
                 }else{
                     var list = '<select id="select-editsubcategoria"><option>No hay categorias en la BD</option>';
-                    $('#list-editcategoria').html(list);
+                    if (resp=="x"){
+                         $('#list-categoria').html(list);
+                    }else{
+                         $('#list-editcategoria').html(list);
+                    }
                 }
                }
          });
+    }
+    function ocultarspan(){       
+        $("#spnaddsubcat").hide();
+        $("#spnaddalert").hide();
+        $("#spneditsubcat").hide(); 
+        $("#spneditalert").hide();          
     }
 /********************************************************************/
 //CIERRE SUBCATEGORIAS
@@ -246,11 +257,12 @@
     <form id="formaddsubcat" method="POST">
         <label>Sub-Categoria:</label> 
         <input id="iptsubcategoria" type="text" name="subCategoria">
-        <span id="spnaddsubcat"></span>
+        <span id="spnaddsubcat"></span> 
         <label>Categoria:</label> 
         <div id="list-categoria"></div>
         <input id="iptcategoria_id" type="hidden" name="categoria_id" >
         <button id="addsubcatsave">Guardar</button>
+        <span id="spnaddalert">Debe llenar los campos correctamente</span>
     </form>
 </div>
 
@@ -263,6 +275,7 @@
         <label>Categoria:</label> 
         <div id="list-editcategoria"></div>
         <button id="editsubcatsave">Guardar</button>
+        <span id="spneditalert">Debe llenar los campos correctamente</span>
         <input id="ipteditcategoria_id" type="hidden" name="categoria_id" >
     </form>
 </div>
