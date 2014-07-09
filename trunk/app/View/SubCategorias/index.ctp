@@ -263,6 +263,6 @@
         <label>Categoria:</label> 
         <div id="list-editcategoria"></div>
         <button id="editsubcatsave">Guardar</button>
-        <input id="ipteditcategoria_id" type="text" name="categoria_id" >
+        <input id="ipteditcategoria_id" type="hidden" name="categoria_id" >
     </form>
 </div>
