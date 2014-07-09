@@ -17,7 +17,6 @@
             $("#spneditcat").hide();
             idcatglobal = $(this).attr('data-id');
             var nombre="";
-            $("formedit").trigger("reset");
             $.ajax({
                 url: 'Categorias/view/' + idcatglobal,
                 dataType: 'json',
