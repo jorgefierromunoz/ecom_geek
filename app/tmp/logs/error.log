@@ -712,3 +712,135 @@ Stack Trace:
 #8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(SubCategoriasController), Object(CakeRequest))
 #9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #10 {main}
+2014-07-09 22:50:44 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [1045] Access denied for user \'pruebageek\'@\'localhost\' (using password: YES)',
+  'enabled' => true,
+)
+Request URL: /geek4y/Modelos/listamodelos
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(260): Mysql->connect()
+#1 C:\wamp\www\geek4y\lib\Cake\Model\ConnectionManager.php(105): DboSource->__construct(Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(3482): ConnectionManager::getDataSource('default')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(1128): Model->setDataSource('default')
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(3504): Model->setSource('modelos')
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): Model->getDataSource()
+#6 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#7 C:\wamp\www\geek4y\app\Controller\ModelosController.php(21): Model->find('all')
+#8 [internal function]: ModelosController->listamodelos()
+#9 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ModelosController), Array)
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ModelosController), Object(CakeRequest))
+#12 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2014-07-09 22:50:50 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [1045] Access denied for user \'pruebageek\'@\'localhost\' (using password: YES)',
+  'enabled' => true,
+)
+Request URL: /geek4y/Modelos/add
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(260): Mysql->connect()
+#1 C:\wamp\www\geek4y\lib\Cake\Model\ConnectionManager.php(105): DboSource->__construct(Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(3482): ConnectionManager::getDataSource('default')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(1128): Model->setDataSource('default')
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(3504): Model->setSource('modelos')
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(1357): Model->getDataSource()
+#6 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(1541): Model->schema()
+#7 C:\wamp\www\geek4y\app\Controller\ModelosController.php(27): Model->create()
+#8 [internal function]: ModelosController->add()
+#9 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ModelosController), Array)
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ModelosController), Object(CakeRequest))
+#12 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2014-07-09 22:50:54 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [1045] Access denied for user \'pruebageek\'@\'localhost\' (using password: YES)',
+  'enabled' => true,
+)
+Request URL: /geek4y/Modelos/add
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(260): Mysql->connect()
+#1 C:\wamp\www\geek4y\lib\Cake\Model\ConnectionManager.php(105): DboSource->__construct(Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(3482): ConnectionManager::getDataSource('default')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(1128): Model->setDataSource('default')
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(3504): Model->setSource('modelos')
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(1357): Model->getDataSource()
+#6 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(1541): Model->schema()
+#7 C:\wamp\www\geek4y\app\Controller\ModelosController.php(27): Model->create()
+#8 [internal function]: ModelosController->add()
+#9 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ModelosController), Array)
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ModelosController), Object(CakeRequest))
+#12 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2014-07-09 22:51:05 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [1045] Access denied for user \'pruebageek\'@\'localhost\' (using password: YES)',
+  'enabled' => true,
+)
+Request URL: /geek4y/Modelos/add
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(260): Mysql->connect()
+#1 C:\wamp\www\geek4y\lib\Cake\Model\ConnectionManager.php(105): DboSource->__construct(Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(3482): ConnectionManager::getDataSource('default')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(1128): Model->setDataSource('default')
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(3504): Model->setSource('modelos')
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(1357): Model->getDataSource()
+#6 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(1541): Model->schema()
+#7 C:\wamp\www\geek4y\app\Controller\ModelosController.php(27): Model->create()
+#8 [internal function]: ModelosController->add()
+#9 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ModelosController), Array)
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ModelosController), Object(CakeRequest))
+#12 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2014-07-09 22:53:04 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [1045] Access denied for user \'pruebageek\'@\'localhost\' (using password: YES)',
+  'enabled' => true,
+)
+Request URL: /geek4y/Modelos/listamodelos
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(260): Mysql->connect()
+#1 C:\wamp\www\geek4y\lib\Cake\Model\ConnectionManager.php(105): DboSource->__construct(Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(3482): ConnectionManager::getDataSource('default')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(1128): Model->setDataSource('default')
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(3504): Model->setSource('modelos')
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): Model->getDataSource()
+#6 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#7 C:\wamp\www\geek4y\app\Controller\ModelosController.php(21): Model->find('all')
+#8 [internal function]: ModelosController->listamodelos()
+#9 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ModelosController), Array)
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ModelosController), Object(CakeRequest))
+#12 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2014-07-09 22:53:38 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [1045] Access denied for user \'pruebageek\'@\'localhost\' (using password: YES)',
+  'enabled' => true,
+)
+Request URL: /geek4y/Modelos/listamodelos
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(260): Mysql->connect()
+#1 C:\wamp\www\geek4y\lib\Cake\Model\ConnectionManager.php(105): DboSource->__construct(Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(3482): ConnectionManager::getDataSource('default')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(1128): Model->setDataSource('default')
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(3504): Model->setSource('modelos')
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): Model->getDataSource()
+#6 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#7 C:\wamp\www\geek4y\app\Controller\ModelosController.php(21): Model->find('all')
+#8 [internal function]: ModelosController->listamodelos()
+#9 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ModelosController), Array)
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ModelosController), Object(CakeRequest))
+#12 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}

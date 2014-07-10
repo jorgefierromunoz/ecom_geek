@@ -1,28 +1,28 @@
 <script>
     $(document).ready(function() {
-        idmodglobal = 0;
+        idpaisesglobal = 0;
         //LISTA
         mostrarDatos();
         //OPEN DIV NUEVO BUTTON
         //-----------------------------------
-        $("#btnaddmod").click(function() {
-            $("#formaddmod").trigger("reset");
+        $("#btnaddpais").click(function() {
+            $("#formaddpais").trigger("reset");
             ocultarspan();
-            $("#divaddmod").dialog("open");
+            $("#divaddpais").dialog("open");
         });
         //OPEN DIV EDIT  
         //-------------------------------------
         //LLENAR EDITAR CON DATOS EXISTENTES
         $(document).on("click", ".editar", function() {
             ocultarspan();
-            idmodglobal = $(this).attr('data-id');
+            idpaisesglobal = $(this).attr('data-id');
             $.ajax({
-                url: 'Modelos/view/' + idmodglobal,
+                url: 'Paises/view/' + idpaisesglobal,
                 dataType: 'json',
                 type: "POST",
                 success: function(data) {
-                    $("#editmodinput").val(data.Modelo.modelo);
-                    $("#diveditmod").dialog("open");
+                    $("#editpaisinput").val(data.Paise.pais);
+                    $("#diveditpais").dialog("open");
                 },
                 error: function(n) {
                     console.log(n);
@@ -34,7 +34,7 @@
         /****************************************************/
         /****************************************************/
         //DECLARACION DIALOG DIV AGREGAR Y EDITAR 
-        $("#divaddmod").dialog({
+        $("#divaddpais").dialog({
             height: 'auto',
             width: 'auto',
             autoOpen: false,
@@ -48,12 +48,12 @@
                 duration: 300
             }
         }).css("font-size", "15px", "width", "auto");
-         $('#formaddmod').submit(function(e) {
+         $('#formaddpais').submit(function(e) {
             e.preventDefault();
         });
         /****************************************************/
         /****************************************************/
-        $("#diveditmod").dialog({
+        $("#diveditpais").dialog({
             height: 'auto',
             width: 'auto',
             autoOpen: false,
@@ -67,28 +67,28 @@
                 duration: 300
             }
         }).css("font-size", "15px", "width", "auto");
-        $('#formeditmod').submit(function(e) {
+        $('#formeditpais').submit(function(e) {
             e.preventDefault();
         });
         /****************************************************/
         //GUARDAR BUTTON ADD DIALOG
-        $("#addmodsave").click(function(e) {
+        $("#addpaissave").click(function(e) {
             e.preventDefault();
-             if ( $("#iptmodelo").val().trim().length == 0 ) {
-                $("#spnaddmod").html("Campo requerido");
-                $("#spnaddmod").show();                
+             if ( $("#iptpais").val().trim().length == 0 ) {
+                $("#spnaddpais").html("Campo requerido");
+                $("#spnaddpais").show();                
                 $("#spnaalert").show();
             }else{
                 $.ajax({
-                    url: "Modelos/add",
+                    url: "Paises/add",
                     type: "POST",
-                    data: $("#formaddmod").serialize(),
+                    data: $("#formaddpais").serialize(),
                     dataType:'json',
                     success: function(n) {
                         if (n==1){
-                           $("#formaddmod").trigger("reset");                           
+                           $("#formaddpais").trigger("reset");                           
                            mostrarDatos();
-                           $("#divaddmod").dialog("close");
+                           $("#divaddpais").dialog("close");
                         }else if (n==0){
                             alert("No se pudo guardar, intentelo de nuevo");
                             $("#spnaalert").show();
@@ -103,23 +103,23 @@
         /****************************************************/
         /****************************************************/
         //EDITAR BUTTON DIALOG
-        $("#editmodsave").click(function(e) {      
+        $("#editpaissave").click(function(e) {      
             e.preventDefault();
-            if ( $("#editmodinput").val().trim().length == 0 ) {
-                $("#spneditmod").html("Campo requerido");
-                $("#spneditmod").show();
+            if ( $("#editpaisinput").val().trim().length == 0 ) {
+                $("#spneditpais").html("Campo requerido");
+                $("#spneditpais").show();
                 $("#spnaalertedit").show();
             }else{
             $.ajax({
-                url: 'Modelos/edit/' + idmodglobal,
+                url: 'Paises/edit/' + idpaisesglobal,
                 type: "POST",
-                data: $("#formeditmod").serialize(),
+                data: $("#formeditpais").serialize(),
                 dataType:'json',
                 success: function(n) {
                     if (n==1) {
                         mostrarDatos();
-                        $("#formeditmod").trigger("reset");
-                        $("#diveditmod").dialog("close");
+                        $("#formeditpais").trigger("reset");
+                        $("#diveditpais").dialog("close");
                         alert("Editado con éxito");                       
                     }else if (n==0){
                         alert("No se pudo editar, intentelo de nuevo");                                                
@@ -134,15 +134,15 @@
         //ELIMINAR BUTTON 
         $(document).on("click", ".delete", function(e) {
             e.preventDefault();
-            idmodglobal = $(this).attr('data-id');
+            idpaisesglobal = $(this).attr('data-id');
             $.ajax({
-                url: "Modelos/delete/" + idmodglobal,
+                url: "Paises/delete/" + idpaisesglobal,
                 type: "POST",
                 dataType:'json',
                 success: function(n) {
                     if (n==1){               
                         mostrarDatos();
-                        alert("Modelo id: " + idmodglobal + " eliminado con éxito");          
+                        alert("Pais id: " + idpaisesglobal + " eliminado con éxito");          
                     }else if (n==2){
                         alert("No se pudo eliminar");   
                     }
@@ -154,41 +154,40 @@
     //LISTAR
     function mostrarDatos() {
         $.ajax({
-            url: 'Modelos/listamodelos',
+            url: 'Paises/listapaises',
             type: 'POST',
             dataType: 'json',
                 beforeSend: function() {
-                $('#listamodelos').html("Llenando datos...");
+                $('#listapaises').html("Llenando datos...");
             },
             success: function(data) {
                 if(data!=""){
                 var tabla = '<table>';
                 tabla += '<tr>';
-                tabla += '<th>Id</th><th>Modelos</th><th>Editar</th><th>Eliminar</th>';
+                tabla += '<th>Id</th><th>Paises</th><th>Editar</th><th>Eliminar</th>';
                 tabla += '</tr>';
                 $.each(data, function(index, item) {
                     tabla += '<tr>';
-                    tabla += '<td>' + item.Modelo.id + '</td>';
-                    tabla += '<td>' + item.Modelo.modelo + '</td>';
-                    tabla += '<td><button type="button" class="editar" data-id="' + item.Modelo.id + '">Editar</button></td>';
-                    tabla += '<td><button type="button" class="delete" data-id="' + item.Modelo.id + '">Eliminar</button></td>';
+                    tabla += '<td>' + item.Paise.id + '</td>';
+                    tabla += '<td>' + item.Paise.pais + '</td>';
+                    tabla += '<td><button type="button" class="editar" data-id="' + item.Paise.id + '">Editar</button></td>';
+                    tabla += '<td><button type="button" class="delete" data-id="' + item.Paise.id + '">Eliminar</button></td>';
                     tabla += '</tr>';
                 });
                 tabla += '</table>';
-                $('#listamodelos').html(tabla);
+                $('#listapaises').html(tabla);
                 }else{
-                   tabla = 'No hay Modelos en la base de datos';
-                $('#listamodelos').html(tabla);
+                   tabla = 'No hay Paises en la base de datos';
+                $('#listapaises').html(tabla);
                 }
             }
         });
     }
     function ocultarspan(){
-        $("#spnaddmod").hide();
+        $("#spnaddpais").hide();
         $("#spnaalert").hide(); 
-        $("#spneditmod").hide();
+        $("#spneditpais").hide();
         $("#spnaalertedit").hide();
-          
     }
 /********************************************************************/
 //CIERRE
@@ -196,26 +195,26 @@
 </script>
 
 <!-- LISTA -->
-<div id="listamodelos"></div>
+<div id="listapaises"></div>
 <!-- AGREGAR -->
-<button  id="btnaddmod" class="botones">Nuevo Modelo</button>
-<div id="divaddmod" title="Nuevo Modelo"> 
-    <form id="formaddmod" method="POST">
-        <label>Modelo:</label> 
-        <input id="iptmodelo" type="text" name="modelo">
-        <span id="spnaddmod"></span><br>
-        <button id="addmodsave">Guardar</button>
+<button  id="btnaddpais" class="botones">Nuevo Pais</button>
+<div id="divaddpais" title="Nuevo Pais"> 
+    <form id="formaddpais" method="POST">
+        <label>Pais:</label> 
+        <input id="iptpais" type="text" name="pais">
+        <span id="spnaddpais"></span><br>
+        <button id="addpaissave">Guardar</button>
         <span id="spnaalert">Debe llenar los campos correctamente</span>
     </form>
 </div>
 
 <!--EDITAR -->
-<div id="diveditmod" title="Editar Modelo">
-    <form id="formeditmod" method="POST">
-        <label> Modelo: </label>
-        <input id="editmodinput" type="text" name="modelo">
-        <span id="spneditmod"></span><br>        
-        <button id="editmodsave">Guardar</button>
+<div id="diveditpais" title="Editar Paises">
+    <form id="formeditpais" method="POST">
+        <label> Pais: </label>
+        <input id="editpaisinput" type="text" name="pais">
+        <span id="spneditpais"></span><br>        
+        <button id="editpaissave">Guardar</button>
         <span id="spnaalertedit">Debe llenar los campos correctamente</span>
     </form>
 </div>

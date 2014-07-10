@@ -13,7 +13,51 @@
 class PaisesController extends AppController{
     //put your code here
     public $name = 'Paises';
-    public $scaffold;
+        
+    public function index(){
+      
+    }
+    function listapaises() {
+        $this->set('paises', $this->Paise->find('all'));
+        $this->layout = 'ajax';
+    }
+    public function add() {
+         if ($this->request->is('post')) {
+            if (!empty($this->data)) {
+                $this->Paise->create();
+                if ($this->Paise->save($this->data)) {
+                   $this->set('paises','1');
+                }else{
+                     $this->set('paises','0');
+                }
+            }
+         }
+         $this->layout = 'ajax';
+    }
+      public function view($id = null) {
+        $this->Paise->id = $id;
+        $this->Paise->recursive = -1;
+        $this->set('paises', $this->Paise->read());
+        $this->layout = 'ajax';
+    }
+    function edit($id = null) {
+        $this->Paise->id = $id;
+        if ($this->Paise->save($this->request->data)) {
+            $this->set('paises', '1');
+        }else{
+            $this->set('paises', '0');
+        }
+        $this->layout = 'ajax';
+    }
+    
+    function delete($id) {
+        if ($this->Paise->delete($id)) {
+            $this->set('paises', '1');
+        }else{
+            $this->set('paises', '0');
+        }
+            $this->layout = 'ajax';
+        }
 }
 
 ?>
