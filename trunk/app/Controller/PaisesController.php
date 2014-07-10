@@ -21,6 +21,10 @@ class PaisesController extends AppController{
         $this->set('paises', $this->Paise->find('all'));
         $this->layout = 'ajax';
     }
+      function listapaisesComboBox() {
+        $this->set('paises', $this->Paise->find('all',array('recursive'=>-1)));
+        $this->layout = 'ajax';
+    }
     public function add() {
          if ($this->request->is('post')) {
             if (!empty($this->data)) {

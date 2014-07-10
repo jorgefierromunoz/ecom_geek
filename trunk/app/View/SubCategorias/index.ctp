@@ -198,7 +198,6 @@
             }
         });
     }
-    //resp =true cuando es add False cuando es edit
     function llenarlistboxcategorias(resp) {
         $.ajax({
             url: 'Categorias/listacategoriasComboBox',
@@ -208,7 +207,7 @@
                if(data!=""){
                     var list =""; 
                     if (resp=="x") {
-                        list = '<select id="select-categoria"><option>Seleccione una Categoria</option>';
+                        list = '<select id="select-categoria"><option value="">Seleccione una Categoria</option>';
                     }else{
                         list ='<select id="select-editcategoria">';
                     }     

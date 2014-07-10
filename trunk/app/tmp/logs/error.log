@@ -844,3 +844,130 @@ Stack Trace:
 #11 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ModelosController), Object(CakeRequest))
 #12 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #13 {main}
+2014-07-10 17:23:52 Error: [MissingViewException] View file "C:\wamp\www\geek4y\app\View\Paises\listapaises_combo_box.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\geek4y\\app\\View\\Paises\\listapaises_combo_box.ctp',
+)
+Request URL: /geek4y/Paises/listapaisesComboBox
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(954): View->render(NULL, NULL)
+#2 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(198): Controller->render()
+#3 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#4 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-10 17:26:25 Error: [MissingViewException] View file "C:\wamp\www\geek4y\app\View\Paises\listapaises_combo_box.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\geek4y\\app\\View\\Paises\\listapaises_combo_box.ctp',
+)
+Request URL: /geek4y/paises/listapaisesComboBox
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(954): View->render(NULL, NULL)
+#2 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(198): Controller->render()
+#3 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#4 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-10 17:26:44 Error: [MissingViewException] View file "C:\wamp\www\geek4y\app\View\Paises\listapaises_combo_box.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\geek4y\\app\\View\\Paises\\listapaises_combo_box.ctp',
+)
+Request URL: /geek4y/paises/listapaisesComboBox
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(954): View->render(NULL, NULL)
+#2 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(198): Controller->render()
+#3 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#4 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-10 17:27:23 Error: [MissingViewException] View file "C:\wamp\www\geek4y\app\View\Paises\listapaises_combo_box.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\geek4y\\app\\View\\Paises\\listapaises_combo_box.ctp',
+)
+Request URL: /geek4y/paises/listapaisesComboBox
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(954): View->render(NULL, NULL)
+#2 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(198): Controller->render()
+#3 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#4 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-10 17:27:47 Error: [MissingActionException] Action PaisesController::listapaises_combo_box() could not be found.
+Exception Attributes: array (
+  'controller' => 'PaisesController',
+  'action' => 'listapaises_combo_box',
+)
+Request URL: /geek4y/paises/listapaises_combo_box
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#2 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-07-10 17:28:20 Error: [MissingViewException] View file "C:\wamp\www\geek4y\app\View\Paises\listapaises_combo_box.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\geek4y\\app\\View\\Paises\\listapaises_combo_box.ctp',
+)
+Request URL: /geek4y/paises/listapaisesComboBox
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(954): View->render(NULL, NULL)
+#2 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(198): Controller->render()
+#3 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#4 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-10 17:31:25 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`geek4y`.`regiones`, CONSTRAINT `fk_regiones_paises1` FOREIGN KEY (`paise_id`) REFERENCES `paises` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Regiones/add
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `ge...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `ge...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(1834): DboSource->create(Object(Regione), Array, Array)
+#4 C:\wamp\www\geek4y\app\Controller\RegionesController.php(28): Model->save(Array)
+#5 [internal function]: RegionesController->add()
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(RegionesController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(RegionesController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-10 17:32:47 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`geek4y`.`sub_categorias`, CONSTRAINT `fk_sub_categorias_categorias1` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/SubCategorias/add
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `ge...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `ge...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(1834): DboSource->create(Object(SubCategoria), Array, Array)
+#4 C:\wamp\www\geek4y\app\Controller\SubCategoriasController.php(28): Model->save(Array)
+#5 [internal function]: SubCategoriasController->add()
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(SubCategoriasController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(SubCategoriasController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-10 17:43:24 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`geek4y`.`sub_categorias`, CONSTRAINT `fk_sub_categorias_categorias1` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/SubCategorias/add
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `ge...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `ge...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(1834): DboSource->create(Object(SubCategoria), Array, Array)
+#4 C:\wamp\www\geek4y\app\Controller\SubCategoriasController.php(28): Model->save(Array)
+#5 [internal function]: SubCategoriasController->add()
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(SubCategoriasController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(SubCategoriasController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-10 17:43:24 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`geek4y`.`sub_categorias`, CONSTRAINT `fk_sub_categorias_categorias1` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/SubCategorias/add
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `ge...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `ge...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(1834): DboSource->create(Object(SubCategoria), Array, Array)
+#4 C:\wamp\www\geek4y\app\Controller\SubCategoriasController.php(28): Model->save(Array)
+#5 [internal function]: SubCategoriasController->add()
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(SubCategoriasController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(SubCategoriasController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
