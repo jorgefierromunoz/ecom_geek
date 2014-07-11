@@ -13,7 +13,14 @@
 class CategoriasController extends AppController{
     //put your code here
     public $name = 'Categorias';
-        
+    function beforeDelete(){
+       $count = $this->SubCategoria->find("count", array("conditions" => array("categoria_id" => $this->id)));
+       if ($count == 0) {
+           return true;
+       } else {
+           return false;
+       }
+    }
     public function index(){
       
     }
@@ -55,13 +62,15 @@ class CategoriasController extends AppController{
     }
     
     function delete($id) {
-        if ($this->Categoria->delete($id)) {
-            $this->set('categorias', '1');
+        $cant=$this->Categoria->hasSubCat($id);
+        if ($cant==0){
+            $this->Categoria->delete($id);
+            $this->set('categorias', 't');
         }else{
-            $this->set('categorias', '0');
+            $this->set('categorias', $cant);
         }
-            $this->layout = 'ajax';
-        }
+        $this->layout = 'ajax';
+    }
     
 }
 

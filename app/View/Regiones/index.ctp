@@ -155,11 +155,11 @@
                 type: "POST",
                 dataType:'json',
                 success: function(n) {
-                    if (n==1){          
+                    if (n=='t'){          
                         alert("Region id: " + idregionesglobal + " eliminada con éxito");               
                         mostrarDatos();
-                    }else if (n==2){
-                        alert("No se pudo eliminar");   
+                    }else{
+                        alert("No se pudo eliminar por que hay " + n + " comuna(s) asociada(s)");   
                     }
                     
                 }

@@ -55,13 +55,15 @@ class PaisesController extends AppController{
     }
     
     function delete($id) {
-        if ($this->Paise->delete($id)) {
-            $this->set('paises', '1');
+        $cant=$this->Paise->hasRegiones($id);
+        if ($cant==0){
+            $this->Paise->delete($id);
+            $this->set('paises', 't');
         }else{
-            $this->set('paises', '0');
+            $this->set('paises', $cant);
         }
-            $this->layout = 'ajax';
-        }
+        $this->layout = 'ajax';
+    }
 }
 
 ?>

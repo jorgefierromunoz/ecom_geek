@@ -1213,3 +1213,144 @@ Stack Trace:
 #3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2014-07-11 19:54:09 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`sub_categorias`, CONSTRAINT `fk_sub_categorias_categorias1` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Categorias/delete/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Categor...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Categor...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Categoria), Array)
+#4 C:\wamp\www\geek4y\app\Controller\CategoriasController.php(58): Model->delete('1')
+#5 [internal function]: CategoriasController->delete('1')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(CategoriasController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriasController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-11 19:54:20 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`sub_categorias`, CONSTRAINT `fk_sub_categorias_categorias1` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Categorias/delete/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Categor...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Categor...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Categoria), Array)
+#4 C:\wamp\www\geek4y\app\Controller\CategoriasController.php(58): Model->delete('1')
+#5 [internal function]: CategoriasController->delete('1')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(CategoriasController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriasController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-11 20:13:43 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`sub_categorias`, CONSTRAINT `fk_sub_categorias_categorias1` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Categorias/delete/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Categor...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Categor...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Categoria), Array)
+#4 C:\wamp\www\geek4y\app\Controller\CategoriasController.php(69): Model->delete('1')
+#5 [internal function]: CategoriasController->delete('1')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(CategoriasController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriasController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-11 20:13:59 Error: Fatal Error (1): Call to a member function find() on a non-object in [C:\wamp\www\geek4y\app\Controller\CategoriasController.php, line 18]
+2014-07-11 20:13:59 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /geek4y/categorias/beforeDelete
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 18)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 18, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\gee...', 18, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-11 20:14:36 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'sub_categoria_id' in 'where clause'
+Request URL: /geek4y/categorias/beforeDelete
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT COUNT(*)...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT COUNT(*)...', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT COUNT(*)...', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Categoria), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('count', Array)
+#6 C:\wamp\www\geek4y\app\Controller\CategoriasController.php(20): Model->find('count', Array)
+#7 [internal function]: CategoriasController->beforeDelete()
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(CategoriasController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriasController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-07-11 20:15:05 Error: [MissingActionException] Action CategoriasController::beforeDelete() could not be found.
+Exception Attributes: array (
+  'controller' => 'CategoriasController',
+  'action' => 'beforeDelete',
+)
+Request URL: /geek4y/categorias/beforeDelete
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriasController), Object(CakeRequest))
+#2 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-07-11 20:32:27 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`sub_categorias`, CONSTRAINT `fk_sub_categorias_categorias1` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Categorias/delete/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Categor...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Categor...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Categoria), Array)
+#4 C:\wamp\www\geek4y\app\Controller\CategoriasController.php(65): Model->delete('1')
+#5 [internal function]: CategoriasController->delete('1')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(CategoriasController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriasController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-11 20:32:44 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`sub_categorias`, CONSTRAINT `fk_sub_categorias_categorias1` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Categorias/delete/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Categor...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Categor...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Categoria), Array)
+#4 C:\wamp\www\geek4y\app\Controller\CategoriasController.php(65): Model->delete('1')
+#5 [internal function]: CategoriasController->delete('1')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(CategoriasController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriasController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-11 21:16:18 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'comuna_id' in 'where clause'
+Request URL: /geek4y/Regiones/delete/3
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT COUNT(*)...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT COUNT(*)...', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT COUNT(*)...', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Comuna), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('count', Array)
+#6 C:\wamp\www\geek4y\app\Model\Regione.php(20): Model->find('count', Array)
+#7 C:\wamp\www\geek4y\app\Controller\RegionesController.php(58): Regione->hasComunas('3')
+#8 [internal function]: RegionesController->delete('3')
+#9 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(RegionesController), Array)
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(RegionesController), Object(CakeRequest))
+#12 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2014-07-11 21:17:19 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'comuna_id' in 'where clause'
+Request URL: /geek4y/Regiones/delete/3
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT COUNT(*)...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT COUNT(*)...', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT COUNT(*)...', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Comuna), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('count', Array)
+#6 C:\wamp\www\geek4y\app\Model\Regione.php(20): Model->find('count', Array)
+#7 C:\wamp\www\geek4y\app\Controller\RegionesController.php(58): Regione->hasComunas('3')
+#8 [internal function]: RegionesController->delete('3')
+#9 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(RegionesController), Array)
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(RegionesController), Object(CakeRequest))
+#12 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}

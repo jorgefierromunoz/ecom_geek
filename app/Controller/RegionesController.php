@@ -55,13 +55,17 @@ class RegionesController extends AppController{
     }
     
     function delete($id) {
-        if ($this->Regione->delete($id)) {
-            $this->set('regiones', '1');
-        }else{
-            $this->set('regiones', '0');
-        }
+        $cant=$this->Regione->hasComunas($id);
+        if ($cant==0){
+            $this->Regione->delete($id);
+            $this->set('regiones', 't');
+         }else{
+            $this->set('regiones', $cant);
+         }         
             $this->layout = 'ajax';
         }
+       
+       
 }
 
 ?>

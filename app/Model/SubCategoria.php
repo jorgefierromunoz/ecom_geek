@@ -14,6 +14,7 @@ class SubCategoria extends AppModel{
     //put your code here
     public $name='SubCategoria';
     public $belongsTo = 'Categoria';
+
 }
 
 ?>
