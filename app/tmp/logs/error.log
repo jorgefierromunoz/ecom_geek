@@ -971,3 +971,14 @@ Stack Trace:
 #8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(SubCategoriasController), Object(CakeRequest))
 #9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #10 {main}
+2014-07-11 16:55:15 Error: [MissingActionException] Action TamanosController::listazonas() could not be found.
+Exception Attributes: array (
+  'controller' => 'TamanosController',
+  'action' => 'listazonas',
+)
+Request URL: /geek4y/Tamanos/listazonas
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(TamanosController), Object(CakeRequest))
+#2 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
