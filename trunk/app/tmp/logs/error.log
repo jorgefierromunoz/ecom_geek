@@ -982,3 +982,234 @@ Stack Trace:
 #1 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(TamanosController), Object(CakeRequest))
 #2 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2014-07-11 18:03:30 Error: [MissingViewException] View file "C:\wamp\www\geek4y\app\View\Regiones\listaregiones_combo_box.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\geek4y\\app\\View\\Regiones\\listaregiones_combo_box.ctp',
+)
+Request URL: /geek4y/Regiones/listaregionesComboBox
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(954): View->render(NULL, NULL)
+#2 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(198): Controller->render()
+#3 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(RegionesController), Object(CakeRequest))
+#4 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-11 18:04:47 Error: [MissingViewException] View file "C:\wamp\www\geek4y\app\View\Regiones\listaregiones_combo_box.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\geek4y\\app\\View\\Regiones\\listaregiones_combo_box.ctp',
+)
+Request URL: /geek4y/Regiones/listaregionesComboBox
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(954): View->render(NULL, NULL)
+#2 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(198): Controller->render()
+#3 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(RegionesController), Object(CakeRequest))
+#4 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-11 18:05:22 Error: [MissingViewException] View file "C:\wamp\www\geek4y\app\View\Regiones\listaregiones_combo_box.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\geek4y\\app\\View\\Regiones\\listaregiones_combo_box.ctp',
+)
+Request URL: /geek4y/Regiones/listaregionesComboBox
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(954): View->render(NULL, NULL)
+#2 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(198): Controller->render()
+#3 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(RegionesController), Object(CakeRequest))
+#4 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-11 18:27:57 Error: [MissingControllerException] Controller class ZpnasController could not be found.
+Exception Attributes: array (
+  'class' => 'ZpnasController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/zpnas
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-07-11 18:28:07 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`comunas`, CONSTRAINT `fk_comunas_zonas1` FOREIGN KEY (`zona_id`) REFERENCES `zonas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Zonas/delete/3
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Zona` F...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Zona` F...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Zona), Array)
+#4 C:\wamp\www\geek4y\app\Controller\ZonasController.php(57): Model->delete('3')
+#5 [internal function]: ZonasController->delete('3')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ZonasController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ZonasController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-11 18:28:23 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`comunas`, CONSTRAINT `fk_comunas_zonas1` FOREIGN KEY (`zona_id`) REFERENCES `zonas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Zonas/delete/3
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Zona` F...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Zona` F...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Zona), Array)
+#4 C:\wamp\www\geek4y\app\Controller\ZonasController.php(57): Model->delete('3')
+#5 [internal function]: ZonasController->delete('3')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ZonasController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ZonasController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-11 18:28:43 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`comunas`, CONSTRAINT `fk_comunas_regiones1` FOREIGN KEY (`regione_id`) REFERENCES `regiones` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Regiones/delete/3
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Regione...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Regione...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Regione), Array)
+#4 C:\wamp\www\geek4y\app\Controller\RegionesController.php(58): Model->delete('3')
+#5 [internal function]: RegionesController->delete('3')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(RegionesController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(RegionesController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-11 18:43:05 Error: Fatal Error (64): Default value for parameters with a class type hint can only be NULL in [C:\wamp\www\geek4y\app\Controller\CategoriasController.php, line 57]
+2014-07-11 18:43:05 Error: [FatalErrorException] Default value for parameters with a class type hint can only be NULL
+Request URL: /geek4y/categorias
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(64, 'Default value f...', 'C:\wamp\www\gee...', 57)
+#1 [internal function]: ErrorHandler::handleError(64, 'Default value f...', 'C:\wamp\www\gee...', 57, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 64, 'Default value f...', 'C:\wamp\www\gee...', 57, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-11 18:43:07 Error: Fatal Error (64): Default value for parameters with a class type hint can only be NULL in [C:\wamp\www\geek4y\app\Controller\CategoriasController.php, line 57]
+2014-07-11 18:43:07 Error: [FatalErrorException] Default value for parameters with a class type hint can only be NULL
+Request URL: /geek4y/categorias
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(64, 'Default value f...', 'C:\wamp\www\gee...', 57)
+#1 [internal function]: ErrorHandler::handleError(64, 'Default value f...', 'C:\wamp\www\gee...', 57, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 64, 'Default value f...', 'C:\wamp\www\gee...', 57, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-11 18:43:28 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`sub_categorias`, CONSTRAINT `fk_sub_categorias_categorias1` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Categorias/delete/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Categor...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Categor...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Categoria), Array)
+#4 C:\wamp\www\geek4y\app\Controller\CategoriasController.php(58): Model->delete('1')
+#5 [internal function]: CategoriasController->delete('1')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(CategoriasController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriasController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-11 18:43:44 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`sub_categorias`, CONSTRAINT `fk_sub_categorias_categorias1` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Categorias/delete/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Categor...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Categor...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Categoria), Array)
+#4 C:\wamp\www\geek4y\app\Controller\CategoriasController.php(58): Model->delete('1')
+#5 [internal function]: CategoriasController->delete('1')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(CategoriasController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriasController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-11 18:45:35 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`sub_categorias`, CONSTRAINT `fk_sub_categorias_categorias1` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Categorias/delete/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Categor...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Categor...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Categoria), Array)
+#4 C:\wamp\www\geek4y\app\Controller\CategoriasController.php(58): Model->delete('1', true)
+#5 [internal function]: CategoriasController->delete('1')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(CategoriasController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriasController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-11 18:45:48 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`sub_categorias`, CONSTRAINT `fk_sub_categorias_categorias1` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Categorias/delete/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Categor...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Categor...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Categoria), Array)
+#4 C:\wamp\www\geek4y\app\Controller\CategoriasController.php(58): Model->delete('1', false)
+#5 [internal function]: CategoriasController->delete('1')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(CategoriasController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriasController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-11 18:47:02 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`sub_categorias`, CONSTRAINT `fk_sub_categorias_categorias1` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Categorias/delete/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Categor...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Categor...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Categoria), Array)
+#4 C:\wamp\www\geek4y\app\Controller\CategoriasController.php(58): Model->delete('1', true)
+#5 [internal function]: CategoriasController->delete('1')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(CategoriasController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriasController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-11 19:10:16 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`sub_categorias`, CONSTRAINT `fk_sub_categorias_categorias1` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Categorias/delete/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Categor...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Categor...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Categoria), Array)
+#4 C:\wamp\www\geek4y\app\Controller\CategoriasController.php(58): Model->delete('1')
+#5 [internal function]: CategoriasController->delete('1')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(CategoriasController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriasController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-11 19:11:56 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [C:\wamp\www\geek4y\lib\Cake\Model\Datasource\CakeSession.php, line 661]
+2014-07-11 19:11:56 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /geek4y/Categorias/delete/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 661)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 661, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', 'C:\wamp\www\gee...', 661, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-11 19:11:57 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [C:\wamp\www\geek4y\lib\Cake\Model\Datasource\CakeSession.php, line 661]
+2014-07-11 19:11:57 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /geek4y/categorias
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 661)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 661, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', 'C:\wamp\www\gee...', 661, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-11 19:11:57 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [C:\wamp\www\geek4y\lib\Cake\Model\Datasource\CakeSession.php, line 661]
+2014-07-11 19:11:57 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /geek4y/
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 661)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 661, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', 'C:\wamp\www\gee...', 661, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-11 19:11:57 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [C:\wamp\www\geek4y\lib\Cake\Model\Datasource\CakeSession.php, line 661]
+2014-07-11 19:11:57 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /geek4y/
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 661)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', 'C:\wamp\www\gee...', 661, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', 'C:\wamp\www\gee...', 661, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}

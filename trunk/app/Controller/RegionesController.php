@@ -21,6 +21,10 @@ class RegionesController extends AppController{
         $this->set('regiones', $this->Regione->find('all'));
         $this->layout = 'ajax';
     }
+     function listaregionesComboBox() {
+        $this->set('regiones', $this->Regione->find('all',array('recursive'=>-1)));
+        $this->layout = 'ajax';
+    }
      public function add() {
          if ($this->request->is('post')) {
             if (!empty($this->data)) {

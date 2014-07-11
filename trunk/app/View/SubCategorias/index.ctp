@@ -17,6 +17,7 @@
         //-----------------------------------
         $("#btnaddsubcat").click(function() {
             $("#formaddsubcat").trigger("reset");
+            $("#iptcategoria_id").val("");
             ocultarspan();
             llenarlistboxcategorias("x");
             $("#divaddsubcat").dialog("open");

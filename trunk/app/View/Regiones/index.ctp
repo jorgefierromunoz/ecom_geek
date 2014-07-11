@@ -17,6 +17,7 @@
         //-----------------------------------
         $("#btnaddregiones").click(function() {
             $("#formaddregiones").trigger("reset");
+            $("#iptpaise_id").val("");
             ocultarspan();
             llenarlistboxpaises("x");
             $("#divaddregiones").dialog("open");
