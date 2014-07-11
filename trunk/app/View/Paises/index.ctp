@@ -140,11 +140,11 @@
                 type: "POST",
                 dataType:'json',
                 success: function(n) {
-                    if (n==1){               
+                    if (n=='t'){               
                         mostrarDatos();
                         alert("Pais id: " + idpaisesglobal + " eliminado con éxito");          
-                    }else if (n==2){
-                        alert("No se pudo eliminar");   
+                    }else{
+                        alert("No se pudo eliminar por que hay " + n + " region(es) asociada(s)");   
                     }
                     
                 }

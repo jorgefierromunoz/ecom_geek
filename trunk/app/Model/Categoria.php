@@ -14,6 +14,11 @@ class Categoria extends AppModel{
     //put your code here
     public $name='Categoria';
     public $hasMany='SubCategoria';
+    
+    function hasSubCat($categoria_id){
+        $count = $this->SubCategoria->find("count", array("conditions" => array("categoria_id" => $categoria_id)));
+        return $count;
+    }
 }
 
 ?>

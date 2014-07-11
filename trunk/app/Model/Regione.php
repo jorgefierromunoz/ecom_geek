@@ -15,6 +15,11 @@ class Regione extends AppModel{
     public $name='Regione';
     public $hasMany='Comuna';
     public $belongsTo='Paise';
+    
+    function hasComunas($region_id){
+        $count = $this->Comuna->find("count", array("conditions" => array("regione_id" => $region_id)));
+        return $count;
+    }  
 }
 
 ?>

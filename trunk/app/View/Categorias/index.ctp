@@ -143,13 +143,12 @@
                 type: "POST",
                 dataType:'json',
                 success: function(n) {
-                    if (n==1){          
+                    if (n=='t'){          
                         alert("Categoria id: " + idcatglobal + " eliminada con éxito");               
                         mostrarDatos();
-                    }else if (n==2){
-                        alert("No se pudo eliminar");   
+                    }else{
+                        alert("No se puede eliminar por que hay " + n + " sub-categoria(s) asociada(s)");   
                     }
-                    
                 }
             });
         });
