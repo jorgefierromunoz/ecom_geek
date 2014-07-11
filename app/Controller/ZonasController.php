@@ -20,6 +20,10 @@ class ZonasController extends AppController{
         $this->set('zonas', $this->Zona->find('all'));
         $this->layout = 'ajax';
     }
+     function listazonasComboBox() {
+        $this->set('zonas', $this->Zona->find('all',array('recursive'=>-1)));
+        $this->layout = 'ajax';
+    }
      public function add() {
          if ($this->request->is('post')) {
             if (!empty($this->data)) {
