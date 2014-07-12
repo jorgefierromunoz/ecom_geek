@@ -21,6 +21,10 @@ class ModelosController extends AppController{
         $this->set('modelos', $this->Modelo->find('all'));
         $this->layout = 'ajax';
     }
+      function listamodelosComboBox() {
+        $this->set('modelos', $this->Modelo->find('all',array('recursive'=>-1)));
+        $this->layout = 'ajax';
+    }
     public function add() {
          if ($this->request->is('post')) {
             if (!empty($this->data)) {

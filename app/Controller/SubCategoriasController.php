@@ -21,6 +21,10 @@ class SubCategoriasController extends AppController{
         $this->set('subcategorias', $this->SubCategoria->find('all'));
         $this->layout = 'ajax';
     }
+    function listasubcategoriasComboBox() {
+        $this->set('subcategorias', $this->SubCategoria->find('all',array('recursive'=>-1)));
+        $this->layout = 'ajax';
+    }
      public function add() {
          if ($this->request->is('post')) {
             if (!empty($this->data)) {
