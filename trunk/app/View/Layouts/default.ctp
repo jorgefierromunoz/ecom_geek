@@ -7,7 +7,7 @@
 	</title>
 	<?php
 		echo $this->Html->css(array('cake.generic','jquery-ui'));
-                echo $this->Html->script(array('jquery','jquery-ui'));
+                echo $this->Html->script(array('jquery','jquery-ui','upload'));
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
