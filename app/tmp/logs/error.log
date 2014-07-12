@@ -1354,3 +1354,154 @@ Stack Trace:
 #11 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(RegionesController), Object(CakeRequest))
 #12 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #13 {main}
+2014-07-12 02:24:30 Error: [MissingActionException] Action FotosController::index() could not be found.
+Exception Attributes: array (
+  'controller' => 'FotosController',
+  'action' => 'index',
+)
+Request URL: /geek4y/fotos
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(FotosController), Object(CakeRequest))
+#2 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-07-12 02:28:50 Error: Fatal Error (1): Call to a member function find() on a non-object in [C:\wamp\www\geek4y\app\Controller\ProductosController.php, line 24]
+2014-07-12 02:28:50 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /geek4y/Productos/listaproductosComboBox
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 24)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 24, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\gee...', 24, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-12 02:29:48 Error: Fatal Error (1): Call to a member function find() on a non-object in [C:\wamp\www\geek4y\app\Controller\ProductosController.php, line 24]
+2014-07-12 02:29:48 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /geek4y/productos/listaproductosComboBox
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 24)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 24, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\gee...', 24, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-12 02:30:47 Error: Fatal Error (1): Call to a member function find() on a non-object in [C:\wamp\www\geek4y\app\Controller\ProductosController.php, line 20]
+2014-07-12 02:30:47 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /geek4y/productos/listaproductos
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 20)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 20, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\gee...', 20, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-12 02:31:36 Error: [MissingActionException] Action ProductosController::Categorias() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProductosController',
+  'action' => 'Categorias',
+)
+Request URL: /geek4y/productos/Categorias/listacategorias
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest))
+#2 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-07-12 02:32:02 Error: Fatal Error (1): Call to a member function find() on a non-object in [C:\wamp\www\geek4y\app\Controller\ProductosController.php, line 20]
+2014-07-12 02:32:02 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /geek4y/productos/listaproductos
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 20)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 20, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\gee...', 20, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-12 02:32:57 Error: Fatal Error (1): Call to a member function find() on a non-object in [C:\wamp\www\geek4y\app\Controller\ProductosController.php, line 20]
+2014-07-12 02:32:57 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /geek4y/productos/listaproductos
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 20)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 20, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\gee...', 20, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-12 02:34:38 Error: Fatal Error (1): Call to a member function find() on a non-object in [C:\wamp\www\geek4y\app\Controller\ProductosController.php, line 20]
+2014-07-12 02:34:38 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /geek4y/productos/listaproductos
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 20)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 20, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\gee...', 20, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-12 02:41:52 Error: Fatal Error (1): Call to a member function find() on a non-object in [C:\wamp\www\geek4y\app\Controller\ProductosController.php, line 20]
+2014-07-12 02:41:52 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /geek4y/productos/listaproductos
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 20)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 20, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\gee...', 20, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-12 02:42:52 Error: [MissingActionException] Action ProductosController::listaproductos() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProductosController',
+  'action' => 'listaproductos',
+)
+Request URL: /geek4y/productos/listaproductos
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest))
+#2 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-07-12 02:43:01 Error: Fatal Error (1): Call to a member function find() on a non-object in [C:\wamp\www\geek4y\app\Controller\ProductosController.php, line 17]
+2014-07-12 02:43:01 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /geek4y/productos
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 17)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 17, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\gee...', 17, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-12 02:45:09 Error: Fatal Error (1): Call to a member function find() on a non-object in [C:\wamp\www\geek4y\app\Controller\ProductosController.php, line 21]
+2014-07-12 02:45:09 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /geek4y/productos/listaproductos
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 21)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 21, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\gee...', 21, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-12 02:45:58 Error: Fatal Error (1): Call to a member function find() on a non-object in [C:\wamp\www\geek4y\app\Controller\ProductosController.php, line 21]
+2014-07-12 02:45:58 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /geek4y/productos/listaproductos
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 21)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 21, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\gee...', 21, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-12 06:56:57 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/img/Fotos431955_10200873891707587_1141872749_n.jpg
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-07-12 06:57:07 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/img/Fotos431955_10200873891707587_1141872749_n.jpg
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
