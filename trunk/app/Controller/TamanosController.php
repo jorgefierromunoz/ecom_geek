@@ -21,6 +21,10 @@ class TamanosController extends AppController{
         $this->set('tamanos', $this->Tamano->find('all'));
         $this->layout = 'ajax';
     }
+     function listatamanosComboBox() {
+        $this->set('tamanos', $this->Tamano->find('all',array('recursive'=>-1)));
+        $this->layout = 'ajax';
+    }
      public function add() {
          if ($this->request->is('post')) {
             if (!empty($this->data)) {
