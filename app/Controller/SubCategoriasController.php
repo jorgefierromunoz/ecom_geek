@@ -54,14 +54,16 @@ class SubCategoriasController extends AppController{
         $this->layout = 'ajax';
     }
     
-    function delete($id) {
-        if ($this->SubCategoria->delete($id)) {
-            $this->set('subcategorias', '1');
+        function delete($id) {
+        $cant=$this->SubCategoria->hasProducto($id);
+        if ($cant==0){
+            $this->SubCategoria->delete($id);
+            $this->set('subcategorias', 't');
         }else{
-            $this->set('subcategorias', '0');
+            $this->set('subcategorias', $cant);
         }
-            $this->layout = 'ajax';
-        }
+        $this->layout = 'ajax';
+    }
 
 }
 

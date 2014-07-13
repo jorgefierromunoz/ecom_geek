@@ -149,7 +149,7 @@
         /****************************************************/
         /****************************************************/
         //ELIMINAR BUTTON 
-        $(document).on("click", ".delete", function(e) {
+       $(document).on("click", ".delete", function(e) {
             e.preventDefault();
             idzonaglobal = $(this).attr('data-id');
             $.ajax({
@@ -157,13 +157,12 @@
                 type: "POST",
                 dataType:'json',
                 success: function(n) {
-                    if (n==1){               
+                    if (n=='t'){          
+                        alert("Zona id: " + idzonaglobal + " eliminada con éxito");               
                         mostrarDatos();
-                        alert("Zona id: " + idzonaglobal + " eliminado con éxito");          
-                    }else if (n==2){
-                        alert("No se pudo eliminar");   
+                    }else{
+                        alert("No se puede eliminar por que hay " + n + " comuna(s) asociada(s)");   
                     }
-                    
                 }
             });
         });

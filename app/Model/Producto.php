@@ -15,7 +15,11 @@ class Producto extends AppModel{
     public $name='Producto';
     public $hasMany='Foto';
     public $belongsTo=array('SubCategoria','Modelo','Tamano');
-
+    
+    function hasFotos($id){
+        $count = $this->Foto->find("count", array("conditions" => array("producto_id" => $id)));
+        return $count;
+    }
 }
 
 ?>

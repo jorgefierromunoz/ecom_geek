@@ -147,7 +147,7 @@
         /****************************************************/
         /****************************************************/
         //ELIMINAR SUBCATEGORIA BUTTON 
-        $(document).on("click", ".delete", function(e) {
+         $(document).on("click", ".delete", function(e) {
             e.preventDefault();
             idsubcatglobal = $(this).attr('data-id');
             $.ajax({
@@ -155,13 +155,12 @@
                 type: "POST",
                 dataType:'json',
                 success: function(n) {
-                    if (n==1){          
+                    if (n=='t'){          
                         alert("Sub-Categoria id: " + idsubcatglobal + " eliminada con éxito");               
                         mostrarDatos();
-                    }else if (n==2){
-                        alert("No se pudo eliminar");   
+                    }else{
+                        alert("No se puede eliminar por que hay " + n + " producto(s) asociado(s)");   
                     }
-                    
                 }
             });
         });

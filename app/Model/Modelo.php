@@ -14,6 +14,10 @@ class Modelo extends AppModel{
     //put your code here
     public $name='Modelo';
     public $hasMany='Producto';
+    function hasProductos($id){
+        $count = $this->Producto->find("count", array("conditions" => array("modelo_id" => $id)));
+        return $count;
+    }
 }
 
 ?>

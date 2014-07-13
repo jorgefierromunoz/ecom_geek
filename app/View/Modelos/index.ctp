@@ -131,7 +131,7 @@
         });
         /****************************************************/
         /****************************************************/
-        //ELIMINAR BUTTON 
+         //ELIMINAR CATEGORIA BUTTON 
         $(document).on("click", ".delete", function(e) {
             e.preventDefault();
             idmodglobal = $(this).attr('data-id');
@@ -140,13 +140,12 @@
                 type: "POST",
                 dataType:'json',
                 success: function(n) {
-                    if (n==1){               
+                    if (n=='t'){          
+                        alert("Modelo id: " + idmodglobal + " eliminada con éxito");               
                         mostrarDatos();
-                        alert("Modelo id: " + idmodglobal + " eliminado con éxito");          
-                    }else if (n==2){
-                        alert("No se pudo eliminar");   
+                    }else{
+                        alert("No se puede eliminar por que hay " + n + " producto(s) asociado(s)");   
                     }
-                    
                 }
             });
         });

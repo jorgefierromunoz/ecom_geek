@@ -55,13 +55,15 @@ class TamanosController extends AppController{
     }
     
     function delete($id) {
-        if ($this->Tamano->delete($id)) {
-            $this->set('tamanos', '1');
+        $cant=$this->Tamano->hasProductos($id);
+        if ($cant==0){
+            $this->Tamano->delete($id);
+            $this->set('tamanos', 't');
         }else{
-            $this->set('tamanos', '0');
+            $this->set('tamanos', $cant);
         }
-            $this->layout = 'ajax';
-        }
+        $this->layout = 'ajax';
+    }
    
 }
 

@@ -53,14 +53,16 @@ class ZonasController extends AppController{
         $this->layout = 'ajax';
     }
     
-    function delete($id) {
-        if ($this->Zona->delete($id)) {
-            $this->set('zonas', '1');
+       function delete($id) {
+        $cant=$this->Zona->hasComunas($id);
+        if ($cant==0){
+            $this->Zona->delete($id);
+            $this->set('zonas', 't');
         }else{
-            $this->set('zonas', '0');
+            $this->set('zonas', $cant);
         }
-            $this->layout = 'ajax';
-        }
+        $this->layout = 'ajax';
+    }
    
 }
 

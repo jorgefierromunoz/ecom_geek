@@ -58,16 +58,17 @@ class ProductosController extends AppController{
         }
         $this->layout = 'ajax';
     }
-    
+  
     function delete($id) {
-        if ($this->Producto->delete($id)) {
-            $this->set('productos', '1');
+        $cant=$this->Producto->hasFotos($id);
+        if ($cant==0){
+            $this->Producto->delete($id);
+            $this->set('productos', 't');
         }else{
-            $this->set('productos', '0');
+            $this->set('productos', $cant);
         }
-            $this->layout = 'ajax';
-        }
-    
+        $this->layout = 'ajax';
+    }
 }
 
 ?>
