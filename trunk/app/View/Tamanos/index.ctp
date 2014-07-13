@@ -141,7 +141,7 @@
         /****************************************************/
         /****************************************************/
         //ELIMINAR BUTTON 
-        $(document).on("click", ".delete", function(e) {
+         $(document).on("click", ".delete", function(e) {
             e.preventDefault();
             idtamglobal = $(this).attr('data-id');
             $.ajax({
@@ -149,13 +149,12 @@
                 type: "POST",
                 dataType:'json',
                 success: function(n) {
-                    if (n==1){               
+                    if (n=='t'){          
+                        alert("Tamaño id: " + idtamglobal + " eliminado con éxito");               
                         mostrarDatos();
-                        alert("Tamaño id: " + idtamglobal + " eliminado con éxito");          
-                    }else if (n==2){
-                        alert("No se pudo eliminar");   
+                    }else{
+                        alert("No se puede eliminar por que hay " + n + " producto(s) asociada(s)");   
                     }
-                    
                 }
             });
         });

@@ -1,4 +1,3 @@
-<script type="text/javascript" src="js/addFoto.js"></script>
 <script>
     $(document).ready(function() {
         idproductosglobal = 0;
@@ -62,7 +61,6 @@
          //SELECCION DEL COMBOBOX ON CHANGE EDIT
         $("#list-editmodelos").change(function() {
             var opcion = $("#select-editmodelos").val();
-            console.log(opcion);
             $("#ipteditmodelo_id").val(opcion);
         });
          //SELECCION DEL COMBOBOX ON CHANGE EDIT
@@ -193,10 +191,11 @@
                 $("#spnaddproductos").html("Campo requerido");
                 $("#spnaddproductos").show();
                 $("#spnaddalert").show();
+                
               }else if ( $("#iptdescripcion").val().trim().length == 0) {
                 $("#spnaddalert").show();
               }else if ( $("#iptstock").val().trim().length == 0) {
-                $("#spnaddalert").show(); 
+                $("#spnaddalert").show();
               }else if ( $("#iptprecio").val().trim().length == 0) {
                 $("#spnaddalert").show();
               }else if ( $("#iptprecioPunto").val().trim().length == 0) {
@@ -273,7 +272,7 @@
         });
         /****************************************************/
         /****************************************************/
-        //ELIMINAR BUTTON 
+       //ELIMINAR  BUTTON 
         $(document).on("click", ".delete", function(e) {
             e.preventDefault();
             idproductosglobal = $(this).attr('data-id');
@@ -282,13 +281,12 @@
                 type: "POST",
                 dataType:'json',
                 success: function(n) {
-                    if (n==1){          
+                    if (n=='t'){          
                         alert("Producto id: " + idproductosglobal + " eliminada con éxito");               
                         mostrarDatos();
-                    }else if (n==2){
-                        alert("No se pudo eliminar");   
+                    }else{
+                        alert("No se puede eliminar por que hay " + n + " foto(s) asociada(s)");   
                     }
-                    
                 }
             });
         });
@@ -480,7 +478,7 @@
                }
          });
     }
-    function ocultarspan(){        
+    function ocultarspan(){   
         $("#spnaddproductos").hide();
         $("#spnaddalert").hide();
         $("#spneditalert").hide();
@@ -582,29 +580,10 @@
 </div>
 <!-- VER -->
 <div id="ver" title="Ver Producto" >
-     <button id="btnaddfoto" class="botones">Agregar nueva Imagen</button>
+     <!--<button id="btnaddfoto" class="botones">Agregar nueva Imagen</button>-->
     <table>
         <tr><td><label id="verproducto"></label></td></tr>
     </table>
     <div id="imagenes"></div>
 </div>
 
-<!-- AGREGAR NUEVA IMAGEN -->
-<div id="divaddfoto" title="Nueva Foto"> 
-    <form id="formaddfoto" method="POST">
-        <label>URL:</label> 
-        <input type="file" id="imagenefile" name="imagen" /><br>
-        <progress id="prog" value="0" min="0" max="100"></progress><br>
-        <input id="iptfoto" type="hidden" name="url">
-        <span id="spnaddfoto"></span> 
-        <label>mime:</label> 
-        <input id="iptmime" type="text" name="mime">
-        <span id="spnaddmime"></span> 
-        <label>descripcion:</label> 
-        <input id="iptdescripcion" type="text" name="descripcion">
-        <span id="spnadddescripcion"></span>             
-        <input id="iptproducto_id" type="text" name="producto_id" >
-        <button id="addfotosave">Guardar</button>
-        <span id="spnaddalert">Debe llenar los campos correctamente</span>
-    </form>
-</div>

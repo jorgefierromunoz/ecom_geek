@@ -14,6 +14,10 @@ class Zona extends AppModel{
     //put your code here
     public $name='Zona';
     public $hasMany='Comuna';
+    function hasComunas($id){
+        $count = $this->Comuna->find("count", array("conditions" => array("zona_id" => $id)));
+        return $count;
+    }
 }
 
 ?>

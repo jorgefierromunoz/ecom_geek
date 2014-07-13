@@ -54,14 +54,16 @@ class ModelosController extends AppController{
         $this->layout = 'ajax';
     }
     
-    function delete($id) {
-        if ($this->Modelo->delete($id)) {
-            $this->set('modelos', '1');
+   function delete($id) {
+        $cant=$this->Modelo->hasProductos($id);
+        if ($cant==0){
+            $this->Modelo->delete($id);
+            $this->set('modelos', 't');
         }else{
-            $this->set('modelos', '0');
+            $this->set('modelos', $cant);
         }
-            $this->layout = 'ajax';
-        }
+        $this->layout = 'ajax';
+    }
 }
 
 ?>

@@ -1766,3 +1766,183 @@ Stack Trace:
 #1 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest))
 #2 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2014-07-13 16:43:39 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`productos`, CONSTRAINT `fk_productos_sub_categorias1` FOREIGN KEY (`sub_categoria_id`) REFERENCES `sub_categorias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/SubCategorias/delete/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `SubCate...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `SubCate...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(SubCategoria), Array)
+#4 C:\wamp\www\geek4y\app\Controller\SubCategoriasController.php(58): Model->delete('1')
+#5 [internal function]: SubCategoriasController->delete('1')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(SubCategoriasController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(SubCategoriasController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-13 16:43:42 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`productos`, CONSTRAINT `fk_productos_sub_categorias1` FOREIGN KEY (`sub_categoria_id`) REFERENCES `sub_categorias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/SubCategorias/delete/2
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `SubCate...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `SubCate...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(SubCategoria), Array)
+#4 C:\wamp\www\geek4y\app\Controller\SubCategoriasController.php(58): Model->delete('2')
+#5 [internal function]: SubCategoriasController->delete('2')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(SubCategoriasController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(SubCategoriasController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-13 16:52:02 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`productos`, CONSTRAINT `fk_productos_sub_categorias1` FOREIGN KEY (`sub_categoria_id`) REFERENCES `sub_categorias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/SubCategorias/delete/2
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `SubCate...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `SubCate...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(SubCategoria), Array)
+#4 C:\wamp\www\geek4y\app\Controller\SubCategoriasController.php(58): Model->delete('2')
+#5 [internal function]: SubCategoriasController->delete('2')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(SubCategoriasController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(SubCategoriasController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-13 16:59:11 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`fotos`, CONSTRAINT `fk_fotos_productos1` FOREIGN KEY (`producto_id`) REFERENCES `productos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Productos/delete/18
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Product...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Product...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Producto), Array)
+#4 C:\wamp\www\geek4y\app\Controller\ProductosController.php(63): Model->delete('18')
+#5 [internal function]: ProductosController->delete('18')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ProductosController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-13 17:00:26 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`fotos`, CONSTRAINT `fk_fotos_productos1` FOREIGN KEY (`producto_id`) REFERENCES `productos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Productos/delete/17
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Product...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Product...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Producto), Array)
+#4 C:\wamp\www\geek4y\app\Controller\ProductosController.php(62): Model->delete('17')
+#5 [internal function]: ProductosController->delete('17')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ProductosController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-13 17:01:30 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`fotos`, CONSTRAINT `fk_fotos_productos1` FOREIGN KEY (`producto_id`) REFERENCES `productos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Productos/delete/18
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Product...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Product...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Producto), Array)
+#4 C:\wamp\www\geek4y\app\Controller\ProductosController.php(62): Model->delete('18')
+#5 [internal function]: ProductosController->delete('18')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ProductosController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-13 17:06:35 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`fotos`, CONSTRAINT `fk_fotos_productos1` FOREIGN KEY (`producto_id`) REFERENCES `productos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Productos/delete/18
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Product...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Product...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Producto), Array)
+#4 C:\wamp\www\geek4y\app\Controller\ProductosController.php(62): Model->delete('18')
+#5 [internal function]: ProductosController->delete('18')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ProductosController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-13 17:09:43 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`fotos`, CONSTRAINT `fk_fotos_productos1` FOREIGN KEY (`producto_id`) REFERENCES `productos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Productos/delete/18
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Product...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Product...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Producto), Array)
+#4 C:\wamp\www\geek4y\app\Controller\ProductosController.php(62): Model->delete('18')
+#5 [internal function]: ProductosController->delete('18')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ProductosController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-13 17:11:56 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`fotos`, CONSTRAINT `fk_fotos_productos1` FOREIGN KEY (`producto_id`) REFERENCES `productos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Productos/delete/18
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Product...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Product...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Producto), Array)
+#4 C:\wamp\www\geek4y\app\Controller\ProductosController.php(62): Model->delete('18')
+#5 [internal function]: ProductosController->delete('18')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ProductosController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-13 17:28:40 Error: Fatal Error (1): Call to a member function delete() on a non-object in [C:\wamp\www\geek4y\app\Controller\ProductosController.php, line 65]
+2014-07-13 17:28:40 Error: [FatalErrorException] Call to a member function delete() on a non-object
+Request URL: /geek4y/Productos/delete/18
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 65)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 65, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\gee...', 65, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-13 17:32:15 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`productos`, CONSTRAINT `fk_productos_modelos1` FOREIGN KEY (`modelo_id`) REFERENCES `modelos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Modelos/delete/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Modelo`...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Modelo`...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Modelo), Array)
+#4 C:\wamp\www\geek4y\app\Controller\ModelosController.php(58): Model->delete('1')
+#5 [internal function]: ModelosController->delete('1')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ModelosController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ModelosController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-13 17:37:37 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'hasSubCat' at line 1
+Request URL: /geek4y/Modelos/delete/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('hasSubCat', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('hasSubCat', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(609): DboSource->fetchAll('hasSubCat', Array, Array)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(800): DboSource->query('hasSubCat', Array, Object(Modelo))
+#5 C:\wamp\www\geek4y\app\Controller\ModelosController.php(58): Model->__call('hasSubCat', Array)
+#6 C:\wamp\www\geek4y\app\Controller\ModelosController.php(58): Modelo->hasSubCat('1')
+#7 [internal function]: ModelosController->delete('1')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ModelosController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ModelosController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-07-13 17:51:16 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`comunas`, CONSTRAINT `fk_comunas_zonas1` FOREIGN KEY (`zona_id`) REFERENCES `zonas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Zonas/delete/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Zona` F...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Zona` F...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Zona), Array)
+#4 C:\wamp\www\geek4y\app\Controller\ZonasController.php(57): Model->delete('1')
+#5 [internal function]: ZonasController->delete('1')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ZonasController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ZonasController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
