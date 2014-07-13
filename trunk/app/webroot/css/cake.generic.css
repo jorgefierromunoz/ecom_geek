@@ -33,6 +33,18 @@ body {
 	margin: 0;
         height: 80%;
 }
+.productos{
+    display: inline-block;
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 5%;
+    background: #ccc;
+    color: black;
+    float: left;
+}
 nav ul{
    padding: 0;
    margin: 0;

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="27">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="31">
         <file>
-            <url>app/View/Tamanos/index.ctp</url>
-            <bookmark id="1">
+            <url>app/View/Productos/index.ctp</url>
+            <bookmark id="30">
                 <name/>
-                <line>18</line>
+                <line>171</line>
                 <key/>
             </bookmark>
-            <bookmark id="2">
+            <bookmark id="29">
                 <name/>
-                <line>198</line>
+                <line>380</line>
                 <key/>
             </bookmark>
-            <bookmark id="3">
+            <bookmark id="31">
                 <name/>
-                <line>232</line>
+                <line>589</line>
                 <key/>
             </bookmark>
         </file>
@@ -28,33 +28,23 @@
             </bookmark>
         </file>
         <file>
-            <url>app/View/Fotos/index.ctp</url>
-            <bookmark id="27">
+            <url>app/View/Modelos/index.ctp</url>
+            <bookmark id="10">
                 <name/>
-                <line>105</line>
+                <line>76</line>
+                <key/>
+            </bookmark>
+            <bookmark id="11">
+                <name/>
+                <line>201</line>
                 <key/>
             </bookmark>
         </file>
         <file>
-            <url>app/View/Comunas/index.ctp</url>
-            <bookmark id="23">
+            <url>app/View/Fotos/index.ctp</url>
+            <bookmark id="27">
                 <name/>
-                <line>6</line>
-                <key/>
-            </bookmark>
-            <bookmark id="25">
-                <name/>
-                <line>30</line>
-                <key/>
-            </bookmark>
-            <bookmark id="24">
-                <name/>
-                <line>313</line>
-                <key/>
-            </bookmark>
-            <bookmark id="26">
-                <name/>
-                <line>321</line>
+                <line>1</line>
                 <key/>
             </bookmark>
         </file>
@@ -85,15 +75,20 @@
             </bookmark>
         </file>
         <file>
-            <url>app/View/Modelos/index.ctp</url>
-            <bookmark id="10">
+            <url>app/View/Tamanos/index.ctp</url>
+            <bookmark id="1">
                 <name/>
-                <line>76</line>
+                <line>18</line>
                 <key/>
             </bookmark>
-            <bookmark id="11">
+            <bookmark id="2">
                 <name/>
-                <line>201</line>
+                <line>198</line>
+                <key/>
+            </bookmark>
+            <bookmark id="3">
+                <name/>
+                <line>232</line>
                 <key/>
             </bookmark>
         </file>
@@ -107,6 +102,29 @@
             <bookmark id="13">
                 <name/>
                 <line>200</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>app/View/Comunas/index.ctp</url>
+            <bookmark id="23">
+                <name/>
+                <line>6</line>
+                <key/>
+            </bookmark>
+            <bookmark id="25">
+                <name/>
+                <line>30</line>
+                <key/>
+            </bookmark>
+            <bookmark id="24">
+                <name/>
+                <line>313</line>
+                <key/>
+            </bookmark>
+            <bookmark id="26">
+                <name/>
+                <line>321</line>
                 <key/>
             </bookmark>
         </file>

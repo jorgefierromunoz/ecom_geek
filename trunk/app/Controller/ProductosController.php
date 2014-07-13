@@ -37,9 +37,15 @@ class ProductosController extends AppController{
          }
          $this->layout = 'ajax';
     }
-      public function view($id = null) {
+    public function view($id = null) {
         $this->Producto->id = $id;
         $this->Producto->recursive = -1;
+        $this->set('productos', $this->Producto->read());
+        $this->layout = 'ajax';
+    }
+    public function ver($id = null) {
+        $this->Producto->id = $id;
+        $this->Producto->recursive = 1;
         $this->set('productos', $this->Producto->read());
         $this->layout = 'ajax';
     }
@@ -54,15 +60,13 @@ class ProductosController extends AppController{
     }
     
     function delete($id) {
-        $cant=$this->Producto->hasSubCat($id);
-        if ($cant==0){
-            $this->Producto->delete($id);
-            $this->set('productos', 't');
+        if ($this->Producto->delete($id)) {
+            $this->set('productos', '1');
         }else{
-            $this->set('productos', $cant);
+            $this->set('productos', '0');
         }
-        $this->layout = 'ajax';
-    }
+            $this->layout = 'ajax';
+        }
     
 }
 

@@ -1533,3 +1533,236 @@ Stack Trace:
 #8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest))
 #9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #10 {main}
+2014-07-13 00:12:07 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`productos`, CONSTRAINT `fk_productos_tamanos1` FOREIGN KEY (`tamano_id`) REFERENCES `tamanos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Tamanos/delete/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Tamano`...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Tamano`...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Tamano), Array)
+#4 C:\wamp\www\geek4y\app\Controller\TamanosController.php(58): Model->delete('1')
+#5 [internal function]: TamanosController->delete('1')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(TamanosController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(TamanosController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-13 00:12:10 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`productos`, CONSTRAINT `fk_productos_tamanos1` FOREIGN KEY (`tamano_id`) REFERENCES `tamanos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Tamanos/delete/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Tamano`...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Tamano`...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Tamano), Array)
+#4 C:\wamp\www\geek4y\app\Controller\TamanosController.php(58): Model->delete('1')
+#5 [internal function]: TamanosController->delete('1')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(TamanosController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(TamanosController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-13 00:12:22 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`productos`, CONSTRAINT `fk_productos_tamanos1` FOREIGN KEY (`tamano_id`) REFERENCES `tamanos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Tamanos/delete/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Tamano`...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Tamano`...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Tamano), Array)
+#4 C:\wamp\www\geek4y\app\Controller\TamanosController.php(58): Model->delete('1')
+#5 [internal function]: TamanosController->delete('1')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(TamanosController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(TamanosController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-13 00:13:48 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`productos`, CONSTRAINT `fk_productos_tamanos1` FOREIGN KEY (`tamano_id`) REFERENCES `tamanos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Tamanos/delete/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Tamano`...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Tamano`...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Tamano), Array)
+#4 C:\wamp\www\geek4y\app\Controller\TamanosController.php(58): Model->delete('1')
+#5 [internal function]: TamanosController->delete('1')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(TamanosController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(TamanosController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-13 00:13:50 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`productos`, CONSTRAINT `fk_productos_tamanos1` FOREIGN KEY (`tamano_id`) REFERENCES `tamanos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Tamanos/delete/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Tamano`...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Tamano`...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Tamano), Array)
+#4 C:\wamp\www\geek4y\app\Controller\TamanosController.php(58): Model->delete('1')
+#5 [internal function]: TamanosController->delete('1')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(TamanosController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(TamanosController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-13 00:13:51 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`productos`, CONSTRAINT `fk_productos_tamanos1` FOREIGN KEY (`tamano_id`) REFERENCES `tamanos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Tamanos/delete/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Tamano`...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Tamano`...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Tamano), Array)
+#4 C:\wamp\www\geek4y\app\Controller\TamanosController.php(58): Model->delete('1')
+#5 [internal function]: TamanosController->delete('1')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(TamanosController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(TamanosController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-13 00:14:28 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`geek4y`.`productos`, CONSTRAINT `fk_productos_tamanos1` FOREIGN KEY (`tamano_id`) REFERENCES `tamanos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /geek4y/Tamanos/delete/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `Tamano`...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\Database\Mysql.php(451): DboSource->execute('DELETE `Tamano`...')
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2592): Mysql->delete(Object(Tamano), Array)
+#4 C:\wamp\www\geek4y\app\Controller\TamanosController.php(58): Model->delete('1')
+#5 [internal function]: TamanosController->delete('1')
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(TamanosController), Array)
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(TamanosController), Object(CakeRequest))
+#9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-13 00:15:34 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'hasSubCat' at line 1
+Request URL: /geek4y/Productos/delete/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('hasSubCat', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('hasSubCat', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(609): DboSource->fetchAll('hasSubCat', Array, Array)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(800): DboSource->query('hasSubCat', Array, Object(Producto))
+#5 C:\wamp\www\geek4y\app\Controller\ProductosController.php(57): Model->__call('hasSubCat', Array)
+#6 C:\wamp\www\geek4y\app\Controller\ProductosController.php(57): Producto->hasSubCat('1')
+#7 [internal function]: ProductosController->delete('1')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ProductosController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-07-13 00:15:35 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'hasSubCat' at line 1
+Request URL: /geek4y/Productos/delete/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('hasSubCat', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('hasSubCat', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(609): DboSource->fetchAll('hasSubCat', Array, Array)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(800): DboSource->query('hasSubCat', Array, Object(Producto))
+#5 C:\wamp\www\geek4y\app\Controller\ProductosController.php(57): Model->__call('hasSubCat', Array)
+#6 C:\wamp\www\geek4y\app\Controller\ProductosController.php(57): Producto->hasSubCat('1')
+#7 [internal function]: ProductosController->delete('1')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ProductosController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-07-13 00:15:36 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'hasSubCat' at line 1
+Request URL: /geek4y/Productos/delete/4
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('hasSubCat', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('hasSubCat', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(609): DboSource->fetchAll('hasSubCat', Array, Array)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(800): DboSource->query('hasSubCat', Array, Object(Producto))
+#5 C:\wamp\www\geek4y\app\Controller\ProductosController.php(57): Model->__call('hasSubCat', Array)
+#6 C:\wamp\www\geek4y\app\Controller\ProductosController.php(57): Producto->hasSubCat('4')
+#7 [internal function]: ProductosController->delete('4')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ProductosController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-07-13 00:15:37 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'hasSubCat' at line 1
+Request URL: /geek4y/Productos/delete/5
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('hasSubCat', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('hasSubCat', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(609): DboSource->fetchAll('hasSubCat', Array, Array)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(800): DboSource->query('hasSubCat', Array, Object(Producto))
+#5 C:\wamp\www\geek4y\app\Controller\ProductosController.php(57): Model->__call('hasSubCat', Array)
+#6 C:\wamp\www\geek4y\app\Controller\ProductosController.php(57): Producto->hasSubCat('5')
+#7 [internal function]: ProductosController->delete('5')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ProductosController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-07-13 01:11:39 Error: [MissingControllerException] Controller class HomeController could not be found.
+Exception Attributes: array (
+  'class' => 'HomeController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/Home/page
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-07-13 01:11:53 Error: [MissingControllerException] Controller class HomeController could not be found.
+Exception Attributes: array (
+  'class' => 'HomeController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/Home/page
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-07-13 01:11:54 Error: [MissingControllerException] Controller class HomeController could not be found.
+Exception Attributes: array (
+  'class' => 'HomeController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/Home/page
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-07-13 01:13:00 Error: [MissingActionException] Action PagesController::index() could not be found.
+Exception Attributes: array (
+  'controller' => 'PagesController',
+  'action' => 'index',
+)
+Request URL: /geek4y/Pages
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest))
+#2 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-07-13 01:13:18 Error: [MissingActionException] Action PagesController::hone() could not be found.
+Exception Attributes: array (
+  'controller' => 'PagesController',
+  'action' => 'hone',
+)
+Request URL: /geek4y/Pages/hone
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest))
+#2 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-07-13 01:13:21 Error: [MissingActionException] Action PagesController::home() could not be found.
+Exception Attributes: array (
+  'controller' => 'PagesController',
+  'action' => 'home',
+)
+Request URL: /geek4y/Pages/home
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest))
+#2 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-07-13 01:13:25 Error: [MissingActionException] Action PagesController::index() could not be found.
+Exception Attributes: array (
+  'controller' => 'PagesController',
+  'action' => 'index',
+)
+Request URL: /geek4y/Pages/
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest))
+#2 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
