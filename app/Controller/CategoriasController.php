@@ -13,14 +13,7 @@
 class CategoriasController extends AppController{
     //put your code here
     public $name = 'Categorias';
-    function beforeDelete(){
-       $count = $this->SubCategoria->find("count", array("conditions" => array("categoria_id" => $this->id)));
-       if ($count == 0) {
-           return true;
-       } else {
-           return false;
-       }
-    }
+   
     public function index(){
       
     }

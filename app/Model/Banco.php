@@ -14,6 +14,11 @@ class Banco extends AppModel{
     //put your code here
     public $name='Banco';
     public $hasMany='TipoCuentasBancaria';
+function hastipocuentas($id){
+        $count = $this->TipoCuentasBancaria->find("count", array("conditions" => array("banco_id" => $id)));
+        return $count;
+    }
+    
 }
 
 ?>
