@@ -192,11 +192,19 @@ $(document).ready(function() {
                 type: "POST",
                 dataType:'json',
                 success: function(n) {
+                    console.log(n);
                     if (n==1){          
                         alert("Foto id: " + idfotoglobal + " eliminada con éxito");               
                         mostrarDatos();
+                    }else if (n==0){
+                        alert("No se pudo eliminar registro");   
                     }else if (n==2){
-                        alert("No se pudo eliminar");   
+                         alert("Foto id: " + idfotoglobal + " eliminada con éxito");               
+                         mostrarDatos();
+                         console.log("No se pudo eliminar imagen");
+                    }else if (n==-1){
+                         alert("No se pudo eliminar registro");   
+                         console.log("No se pudo eliminar imagen");
                     }
 
                 }

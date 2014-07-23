@@ -66,13 +66,37 @@ class FotosController extends AppController{
     }
     
     function delete($id) {
-        if ($this->Foto->delete($id)) {
-            $this->set('fotos', '1');
+        if ($this->eliminarImagen($id)){
+            if ($this->Foto->delete($id)) {
+               $this->set('fotos','1');   
+            }else{
+                $this->set('fotos','0');    
+            } 
         }else{
-            $this->set('fotos', '0');
-        }
-            $this->layout = 'ajax';
-        }
+            if ($this->Foto->delete($id)) {
+               $this->set('fotos','2');   
+            }else{
+                $this->set('fotos','-1');    
+            } 
+        }        
+        $this->layout = 'ajax';
+    }
+    function eliminarImagen($id){
+      $this->Foto->id = $id;
+      $this->Foto->recursive = -1;       
+      $Foto =  $this->Foto->read();
+      $destino = WWW_ROOT . 'img\Fotos' . DS;
+      $url=$destino.$Foto['Foto']['url']; 
+      if(file_exists($url)){ 
+          if(unlink($url)){
+              return true;
+          }else{
+              return false;
+          }
+      }else{
+           return false;
+      }
+    }  
 }
 
 ?>
