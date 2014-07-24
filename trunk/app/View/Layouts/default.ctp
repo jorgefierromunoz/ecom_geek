@@ -28,7 +28,9 @@
                             <li><?php echo $this->Html->link('Comunas', array('controller' => 'Comunas', 'action' => 'index')) ?></li>
                             <li><?php echo $this->Html->link('Zonas', array('controller' => 'Zonas', 'action' => 'index')) ?></li>
                             <li><?php echo $this->Html->link('Fotos', array('controller' => 'Fotos', 'action' => 'index')) ?></li>
-                            <li><?php echo $this->Html->link('Productos', array('controller' => 'Productos', 'action' => 'index')) ?></li>
+                            <li><?php echo $this->Html->link('Productos', array('controller' => 'Productos', 'action' => 'index')) ?></li>                            
+                            <li><?php echo $this->Html->link('Bancos', array('controller' => 'Bancos', 'action' => 'index')) ?></li>                                                     
+                            <li><?php echo $this->Html->link('Tipo de Cuentas Bancarias', array('controller' => 'TipoCuentasBancarias', 'action' => 'index')) ?></li>
                         </ul>
                     </nav>
 		</div>
