@@ -15,6 +15,11 @@ class TipoCuentasBancaria extends AppModel{
     public $name='TipoCuentasBancaria';
     public $hasMany='User';
     public $belongsTo='Banco';
+    
+    function hasusuarios($id){
+        $count = $this->User->find("count", array("conditions" => array("tipo_cuentas_bancaria_id" => $id)));
+        return $count;
+    }
 }
 
 ?>
