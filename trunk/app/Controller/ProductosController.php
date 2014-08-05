@@ -16,8 +16,8 @@ class ProductosController extends AppController{
     public function index(){
       
     }
-    function listaproductos() {
-        $this->set('productos', $this->Producto->find('all'));
+    function listaproductos($atributo=null,$orden=null) {
+        $this->set('productos', $this->Producto->find('all',array('order'=>array($atributo=> $orden))));
         $this->layout = 'ajax';
     }
      function listaproductosComboBox() {

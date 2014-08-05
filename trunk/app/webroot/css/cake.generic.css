@@ -20,7 +20,9 @@
 	margin:0;
 	padding:0;
 }
-
+.ordenar:hover{
+    color: #1c94c4;
+}
 /** General Style Info **/
 html{
     height: 100%;

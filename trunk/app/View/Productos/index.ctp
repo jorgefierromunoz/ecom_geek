@@ -2,7 +2,7 @@
     $(document).ready(function() {
         idproductosglobal = 0;
         //LISTA 
-        mostrarDatos();
+        mostrarDatos("id","asc");
         //check add
         $("#addnewfoto").button();
         $("#checkaddppuntos").change(function(){
@@ -215,7 +215,7 @@
                     success: function(n) {
                         if (n==1){
                            $("#formaddproductos").trigger("reset");                           
-                           mostrarDatos();
+                           mostrarDatos("id","asc");
                            $("#divaddproductos").dialog("close");
                         }else if (n==0){
                             alert("No se pudo guardar, intentelo de nuevo");
@@ -258,7 +258,7 @@
                     dataType:'json',
                     success: function(n) {
                         if (n==1) {
-                            mostrarDatos();
+                            mostrarDatos("id","asc");
                             alert("Editado con exito");
                             $("#formeditproductos").trigger("reset");
                             $("#diveditproductos").dialog("close");
@@ -283,14 +283,14 @@
                 success: function(n) {
                     if (n=='t'){          
                         alert("Producto id: " + idproductosglobal + " eliminada con éxito");               
-                        mostrarDatos();
+                        mostrarDatos("id","asc");
                     }else{
                         alert("No se puede eliminar por que hay " + n + " foto(s) asociada(s)");   
                     }
                 }
             });
         });
-        //VER BUTTON 
+        //VER BUTTON
         $(document).on("click", ".ver", function(e) {
             e.preventDefault();
             idproductosglobal = $(this).attr('data-id');
@@ -313,12 +313,27 @@
                 }
             });
          });
+         //ORDENAR           
+        var ascendente=false;
+        $(document).on("click", ".ordenar", function(e) {
+            e.preventDefault();
+            var tabla = $(this).attr('data-id');
+            if (ascendente){
+                mostrarDatos(tabla,"asc");
+                ascendente=!ascendente;
+            }else{
+                mostrarDatos(tabla,"desc");        
+                ascendente=!ascendente;
+            }
+        
+           
+         });
          
    });     
     //LISTAR
-    function mostrarDatos() {
+    function mostrarDatos(atributo,orden) {
         $.ajax({
-            url: 'Productos/listaproductos',
+            url: 'Productos/listaproductos/Producto.'+atributo+'/'+orden,
             type: 'POST',
             dataType: 'json',
                 beforeSend: function() {
@@ -328,8 +343,12 @@
                 if(data!=""){
                 var tabla = '<table>';
                 tabla += '<tr>';
-                tabla += '<th>Id</th><th>Producto</th><th>Descripción</th><th>Stock</th><th>Precio</th><th>Precio Puntos</th><th>Prioridad Puntos</th>';
-                tabla += '<th>Prioridad Precio</th><th>Sub Categoria</th><th>Modelo</th><th>Tamaño</th><th>Ver</th><th>Editar</th><th>Eliminar</th>';
+                tabla += '<th class=ordenar data-id=id>Id</th>';
+                tabla += '<th class=ordenar data-id=producto>Producto</th>';
+                tabla += '<th class=ordenar data-id=descripcion>Descripción</th><th class=ordenar data-id=stock>Stock</th>';
+                tabla += '<th class=ordenar data-id=precio>Precio</th><th class=ordenar data-id=precioPunto>Precio Puntos</th><th class=ordenar data-id=prioridadPunto>Prioridad Puntos</th>';
+                tabla += '<th class=ordenar data-id=prioridadPrecio>Prioridad Precio</th><th class=ordenar data-id=sub_categoria_id>Sub Categoria</th>';
+                tabla += '<th class=ordenar data-id=modelo_id>Modelo</th><th class=ordenar data-id=tamano_id>Tamaño</th><th>Ver</th><th>Editar</th><th>Eliminar</th>';
                 tabla += '</tr>';
                 $.each(data, function(index, item) {
                     tabla += '<tr>';

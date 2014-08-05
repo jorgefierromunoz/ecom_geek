@@ -2271,3 +2271,172 @@ Stack Trace:
 #3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2014-07-24 21:46:48 Error: [MissingControllerException] Controller class UsuariosController could not be found.
+Exception Attributes: array (
+  'class' => 'UsuariosController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/usuarios/login
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-08-03 21:40:31 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'undefined' at line 1
+Request URL: /geek4y/Productos/listaproductos/Producto.undefined/undefined
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Product...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Product...', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Product...', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Producto), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\ProductosController.php(20): Model->find('all', Array)
+#7 [internal function]: ProductosController->listaproductos('Producto.undefi...', 'undefined')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ProductosController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-03 21:42:25 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Producto.preciopuntos' in 'order clause'
+Request URL: /geek4y/Productos/listaproductos/Producto.preciopuntos/desc
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Product...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Product...', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Product...', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Producto), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\ProductosController.php(20): Model->find('all', Array)
+#7 [internal function]: ProductosController->listaproductos('Producto.precio...', 'desc')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ProductosController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-03 21:43:43 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Producto.preciopuntos' in 'order clause'
+Request URL: /geek4y/Productos/listaproductos/Producto.preciopuntos/desc
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Product...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Product...', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Product...', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Producto), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\ProductosController.php(20): Model->find('all', Array)
+#7 [internal function]: ProductosController->listaproductos('Producto.precio...', 'desc')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ProductosController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-03 21:43:51 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Producto.preciopuntos' in 'order clause'
+Request URL: /geek4y/Productos/listaproductos/Producto.preciopuntos/desc
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Product...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Product...', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Product...', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Producto), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\ProductosController.php(20): Model->find('all', Array)
+#7 [internal function]: ProductosController->listaproductos('Producto.precio...', 'desc')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ProductosController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-03 21:46:50 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Producto.tamano' in 'order clause'
+Request URL: /geek4y/Productos/listaproductos/Producto.tamano/desc
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Product...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Product...', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Product...', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Producto), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\ProductosController.php(20): Model->find('all', Array)
+#7 [internal function]: ProductosController->listaproductos('Producto.tamano', 'desc')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ProductosController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-03 21:49:27 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Producto.subCategoria_id' in 'order clause'
+Request URL: /geek4y/Productos/listaproductos/Producto.subCategoria_id/desc
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Product...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Product...', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Product...', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Producto), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\ProductosController.php(20): Model->find('all', Array)
+#7 [internal function]: ProductosController->listaproductos('Producto.subCat...', 'desc')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ProductosController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-03 21:49:42 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Producto.subcategoria_id' in 'order clause'
+Request URL: /geek4y/Productos/listaproductos/Producto.subcategoria_id/desc
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Product...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Product...', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Product...', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Producto), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\ProductosController.php(20): Model->find('all', Array)
+#7 [internal function]: ProductosController->listaproductos('Producto.subcat...', 'desc')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ProductosController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-04 02:12:04 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Producto.undefined' in 'order clause'
+Request URL: /geek4y/Productos/listaproductos/Producto.undefined/asc
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Product...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Product...', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Product...', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Producto), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\ProductosController.php(20): Model->find('all', Array)
+#7 [internal function]: ProductosController->listaproductos('Producto.undefi...', 'asc')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ProductosController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-04 02:12:18 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Producto.undefined' in 'order clause'
+Request URL: /geek4y/Productos/listaproductos/Producto.undefined/asc
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Product...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Product...', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Product...', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Producto), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\ProductosController.php(20): Model->find('all', Array)
+#7 [internal function]: ProductosController->listaproductos('Producto.undefi...', 'asc')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ProductosController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-04 02:12:47 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Producto.undefined' in 'order clause'
+Request URL: /geek4y/Productos/listaproductos/Producto.undefined/asc
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Product...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Product...', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Product...', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Producto), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\ProductosController.php(20): Model->find('all', Array)
+#7 [internal function]: ProductosController->listaproductos('Producto.undefi...', 'asc')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ProductosController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
