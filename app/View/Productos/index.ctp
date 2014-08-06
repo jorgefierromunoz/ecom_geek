@@ -39,10 +39,19 @@
            }
         });
         //SELECCION DEL COMBOBOX ON CHANGE ADD
-        $("#list-subcategorias").change(function() {
-            var opcion = $("#select-subcategorias").val();
-            $("#iptsubCategoria_id").val(opcion);
+        $("#list-categorias").change(function() {
+            if ($("#select-categorias").val()==""){
+              $("#list-subcategorias").html("<select id=select-subcategorias><option value=''><-------Sub Categorias-------></option>");
+            }
+            else{
+               llenarlistboxsubCategorias("x", $("#select-categorias").val()); 
+            }    
         });
+        //SELECCION DEL COMBOBOX ON CHANGE ADD
+        $("#list-editcategorias").change(function() {
+            llenarlistboxsubCategorias("ax", $("#select-editcategorias").val()); 
+        });
+
         //SELECCION DEL COMBOBOX ON CHANGE ADD
         $("#list-modelos").change(function() {
             var opcion = $("#select-modelos").val();
@@ -53,11 +62,7 @@
             var opcion = $("#select-tamanos").val();
             $("#ipttamano_id").val(opcion);
         });
-        //SELECCION DEL COMBOBOX ON CHANGE EDIT   
-        $("#list-editsubcategorias").change(function() {
-            var opcion = $("#select-editsubcategorias").val();
-            $("#ipteditsubCategoria_id").val(opcion);
-        });
+       
          //SELECCION DEL COMBOBOX ON CHANGE EDIT
         $("#list-editmodelos").change(function() {
             var opcion = $("#select-editmodelos").val();
@@ -72,14 +77,15 @@
         //OPEN DIV NUEVO BUTTON   
         //-----------------------------------
         $("#btnaddproductos").click(function() {
+            $("#list-subcategorias").html("<select id=select-subcategorias><option value=''><-------Sub Categorias-------></option>");
             $("#formaddproductos").trigger("reset");
-            $("#iptsubCategoria_id").val("");
+            //$("#iptsubCategoria_id").val("");
             $("#iptmodelo_id").val("");
             $("#ipttamano_id").val("");
             $("#iptprioridadPunto").val("");
             $("#iptprioridadPrecio").val("");               
             ocultarspan();
-            llenarlistboxsubCategorias("x");
+            llenarlistboxCategorias("x");
             llenarlistboxmodelos("x");
             llenarlistboxtamanos("x");
             $("#divaddproductos").dialog("open");
@@ -114,10 +120,12 @@
                          $("#editprioridadPrecioinput").val("");
                          $("#checkeditprecio").prop("checked", false);
                     }
-                    $("#ipteditsubCategoria_id").val(data.Producto.sub_categoria_id);
+                    //$("#ipteditsubCategoria_id").val(data.Producto.sub_categoria_id);
                     $("#ipteditmodelo_id").val(data.Producto.modelo_id);
-                    $("#iptedittamano_id").val(data.Producto.tamano_id);               
-                    llenarlistboxsubCategorias(data.Producto.sub_categoria_id);
+                    $("#iptedittamano_id").val(data.Producto.tamano_id);  
+                    
+                    llenarlistboxsubCategorias(data.Producto.sub_categoria_id,"x");
+                    
                     llenarlistboxmodelos(data.Producto.modelo_id);
                     llenarlistboxtamanos(data.Producto.tamano_id);
                     $("#diveditproductos").dialog("open");
@@ -200,7 +208,7 @@
                 $("#spnaddalert").show();
               }else if ( $("#iptprecioPunto").val().trim().length == 0) {
                 $("#spnaddalert").show();
-              }else if ( $("#iptsubCategoria_id").val().trim().length == 0){
+              }else if ( $("#select-subcategorias").val().trim().length == 0){
                 $("#spnaddalert").show();
               }else if ( $("#iptmodelo_id").val().trim().length == 0){
                 $("#spnaddalert").show();
@@ -244,7 +252,7 @@
                 $("#spnaddalert").show();
               }else if ( $("#editprecioPuntoinput").val().trim().length == 0) {
                 $("#spnaddalert").show();
-              }else if ( $("#ipteditsubCategoria_id").val().trim().length == 0){
+              }else if ( $("#select-editsubcategorias").val().trim().length == 0){
                 $("#spnaddalert").show();
               }else if ( $("#ipteditmodelo_id").val().trim().length == 0){
                 $("#spnaddalert").show();
@@ -386,39 +394,77 @@
         });
     }
     //resp =x cuando es add n° cuando es edit 
-    function llenarlistboxsubCategorias(resp) {
+    function llenarlistboxsubCategorias(resp,idcat) {
         $.ajax({
-            url: 'SubCategorias/listasubcategoriasComboBox',
+            url: 'SubCategorias/listasubcategoriasComboBox/'+idcat,
+            dataType: 'json',
+            type:'POST',
+            success: function(data) {     
+                    if(data!=""){
+                        var list =""; 
+                        if (resp=="x") {
+                            list = '<select id="select-subcategorias" name="sub_categoria_id"><option value="">Seleccione una Sub Categoria</option>';
+                        }else{
+                            list ='<select id="select-editsubcategorias" name="sub_categoria_id">';
+                        }     
+                        $.each(data, function(item) {                        
+                            if(resp==data[item].SubCategoria.id){ 
+                                list += '<option selected=selected value=' + data[item].SubCategoria.id + '>' + data[item].SubCategoria.subCategoria + '</option>';
+                                llenarlistboxCategorias(data[item].Categoria.id);
+                            }else{
+                                list += '<option value=' +  data[item].SubCategoria.id + '>' + data[item].SubCategoria.subCategoria + '</option>';
+                            }                       
+                        });
+                        list += '</select>';
+                        if (resp=="x") {
+                            $('#list-subcategorias').html(list);
+                        }else{
+                            $('#list-editsubcategorias').html(list);
+                        }
+                    }else{
+                        var list = '<select id="select-editsubcategorias"><option>No hay Sub Categorias en la BD</option>';
+                        if (resp=="x"){
+                            $('#list-subcategorias').html(list);
+                        }else{
+                             $('#list-editsubcategorias').html(list);
+                        }
+                    }
+               }
+         });
+    }
+    function llenarlistboxCategorias(resp) {
+        $.ajax({
+            url: 'Categorias/listacategoriasComboBox',
             dataType: 'json',
             type:'POST',
             success: function(data) {
                     if(data!=""){
                     var list =""; 
-                    if (resp=="x") {
-                        list = '<select id="select-subcategorias"><option value="">Seleccione una Sub Categoria</option>';
-                    }else{
-                        list ='<select id="select-editsubcategorias">';
-                    }     
-                    $.each(data, function(item) {
-                        if(resp==data[item].SubCategoria.id){ 
-                            list += '<option selected=selected value=' + data[item].SubCategoria.id + '>' + data[item].SubCategoria.subCategoria + '</option>';
+                        if (resp=="x") {
+                            list = '<select id="select-categorias"><option value="">Seleccione una Categoria</option>';
                         }else{
-                            list += '<option value=' +  data[item].SubCategoria.id + '>' + data[item].SubCategoria.subCategoria + '</option>';
-                        }                       
-                    });
-                    list += '</select>';
-                    if (resp=="x") {
-                        $('#list-subcategorias').html(list);
+                            list ='<select id="select-editcategorias">';
+                        }     
+                        $.each(data, function(item) {
+                            if(resp==data[item].Categoria.id){ 
+                                list += '<option selected=selected value=' + data[item].Categoria.id + '>' + data[item].Categoria.categoria + '</option>';
+                            }else{
+                                list += '<option value=' +  data[item].Categoria.id + '>' + data[item].Categoria.categoria + '</option>';
+                            }                       
+                        });
+                        list += '</select>';
+                        if (resp=="x") {
+                            $('#list-categorias').html(list);
+                        }else{
+                            $('#list-editcategorias').html(list);
+                        }
                     }else{
-                        $('#list-editsubcategorias').html(list);
-                    }
-                }else{
-                    var list = '<select id="select-editsubcategorias"><option>No hay Sub Categorias en la BD</option>';
-                    if (resp=="x"){
-                         $('#list-subcategorias').html(list);
-                    }else{
-                         $('#list-editsubcategorias').html(list);
-                    }
+                        var list = '<select id="select-editcategorias"><option>No hay Categorias en la BD</option>';
+                        if (resp=="x"){
+                             $('#list-categorias').html(list);
+                        }else{
+                             $('#list-editcategorias').html(list);
+                        }
                 }
                }
          });
@@ -537,10 +583,12 @@
         <input id="iptprioridadPrecio" type="hidden" name="prioridadPrecio">
         <span id="spnaddprioridadPrecio"></span>
         <br>
-        <label>Sub Categoria:</label> 
-        <div id="list-subcategorias"></div>
-        <input id="iptsubCategoria_id" type="hidden" name="sub_categoria_id" >
+        <label>Categoria:</label> 
+        <div id="list-categorias"></div>
         
+        <label>Sub Categoria:</label> 
+        <div id="list-subcategorias"></div>         
+      
         <label>Modelos:</label> 
         <div id="list-modelos"></div>
         <input id="iptmodelo_id" type="hidden" name="modelo_id" >
@@ -580,11 +628,10 @@
         <input type="checkbox" id="checkeditprecio"><label for="check">Prioridad Precio</label> 
         <input id="editprioridadPrecioinput" type="hidden" name="prioridadPrecio">
         <span id="spneditprioridadPrecio"></span>
-      
-         <label>Sub Categoria:</label> 
-        <div id="list-editsubcategorias"></div>
-        <input id="ipteditsubCategoria_id" type="hidden" name="sub_categoria_id" >
-        
+        <label>Categoria:</label> 
+        <div id="list-editcategorias"></div>
+        <label>Sub Categoria:</label> 
+        <div id="list-editsubcategorias"></div>        
         <label>Modelo:</label> 
         <div id="list-editmodelos"></div>
         <input id="ipteditmodelo_id" type="hidden" name="modelo_id" >

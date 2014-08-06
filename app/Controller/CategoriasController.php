@@ -21,6 +21,7 @@ class CategoriasController extends AppController{
         $this->set('categorias', $this->Categoria->find('all'));
         $this->layout = 'ajax';
     }
+   
      function listacategoriasComboBox() {
         $this->set('categorias', $this->Categoria->find('all',array('recursive'=>-1)));
         $this->layout = 'ajax';
