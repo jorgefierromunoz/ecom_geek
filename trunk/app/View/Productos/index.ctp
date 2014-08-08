@@ -333,8 +333,6 @@
                 mostrarDatos(tabla,"desc");        
                 ascendente=!ascendente;
             }
-        
-           
          });
          
    });     

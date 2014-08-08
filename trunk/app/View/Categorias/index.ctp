@@ -2,7 +2,7 @@
     $(document).ready(function() {
         idcatglobal = 0;
         //LISTA CATEGORIAS
-        mostrarDatos();
+        mostrarDatos("id","asc");
         //OPEN DIV NUEVA CATEGORIA BUTTON
         //-----------------------------------
         $("#btnaddcat").click(function() {
@@ -87,7 +87,7 @@
                     success: function(n) {
                         if (n==1){
                            $("#formaddcat").trigger("reset");                           
-                           mostrarDatos();
+                           mostrarDatos("id","asc");
                            $("#divaddcat").dialog("close");
                         }else if (n==0){
                             $("#spnaddcat").html("No se pudo guardar, intentelo de nuevo");
@@ -116,7 +116,7 @@
                 dataType:'json',
                 success: function(n) {
                     if (n==1) {
-                        mostrarDatos();
+                        mostrarDatos("id","asc");
                         alert("Editado con exito");
                         $("#formeditcat").trigger("reset");
                         $("#diveditcat").dialog("close");
@@ -145,7 +145,7 @@
                 success: function(n) {
                     if (n=='t'){          
                         alert("Categoria id: " + idcatglobal + " eliminada con éxito");               
-                        mostrarDatos();
+                        mostrarDatos("id","asc");
                     }else{
                         alert("No se puede eliminar por que hay " + n + " sub-categoria(s) asociada(s)");   
                     }
@@ -153,10 +153,23 @@
             });
         });
     });
+    //ORDENAR           
+        var ascendente=false;
+        $(document).on("click", ".ordenar", function(e) {
+            e.preventDefault();
+            var tabla = $(this).attr('data-id');
+            if (ascendente){
+                mostrarDatos(tabla,"asc");
+                ascendente=!ascendente;
+            }else{
+                mostrarDatos(tabla,"desc");        
+                ascendente=!ascendente;
+            }
+         });
     //LISTAR CATEGORIA
-    function mostrarDatos() {
+    function mostrarDatos(atributo,orden) {
         $.ajax({
-            url: 'Categorias/listacategorias',
+            url: 'Categorias/listacategorias/Categoria.'+atributo+'/'+orden,
             type: 'POST',
             dataType: 'json',
                 beforeSend: function() {
@@ -166,7 +179,7 @@
                 if(data!=""){
                 var tabla = '<table>';
                 tabla += '<tr>';
-                tabla += '<th>Id</th><th>Categorias</th><th>Editar</th><th>Eliminar</th>';
+                tabla += '<th class=ordenar data-id=id>Id</th><th class=ordenar data-id=categoria>Categorias</th><th>Editar</th><th>Eliminar</th>';
                 tabla += '</tr>';
                 $.each(data, function(index, item) {
                     tabla += '<tr>';

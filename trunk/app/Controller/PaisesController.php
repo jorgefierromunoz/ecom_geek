@@ -17,8 +17,8 @@ class PaisesController extends AppController{
     public function index(){
       
     }
-    function listapaises() {
-        $this->set('paises', $this->Paise->find('all'));
+    function listapaises($atributo=null,$orden=null) {
+        $this->set('paises', $this->Paise->find('all',array('order'=>array($atributo=> $orden))));
         $this->layout = 'ajax';
     }
       function listapaisesComboBox() {
