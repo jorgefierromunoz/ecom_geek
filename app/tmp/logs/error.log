@@ -2454,3 +2454,19 @@ Stack Trace:
 #8 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest))
 #9 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #10 {main}
+2014-08-07 23:28:40 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Tamanos.id' in 'order clause'
+Request URL: /geek4y/Tamanos/listatamanos/Tamanos.id/asc
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Tamano`...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Tamano`...', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Tamano`...', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Tamano), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\TamanosController.php(21): Model->find('all', Array)
+#7 [internal function]: TamanosController->listatamanos('Tamanos.id', 'asc')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(TamanosController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(TamanosController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}

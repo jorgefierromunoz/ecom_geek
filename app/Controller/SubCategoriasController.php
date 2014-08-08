@@ -17,8 +17,8 @@ class SubCategoriasController extends AppController{
     public function index(){
       
     }
-    function listasubcategorias() {
-        $this->set('subcategorias', $this->SubCategoria->find('all'));
+    function listasubcategorias($atributo=null,$orden=null) {
+        $this->set('subcategorias', $this->SubCategoria->find('all',array('order'=>array($atributo=> $orden))));;
         $this->layout = 'ajax';
     }
     function listasubcategoriasComboBox($id) {

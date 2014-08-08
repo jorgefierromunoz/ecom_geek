@@ -13,7 +13,7 @@
 class Tamano extends AppModel{
     //put your code here
     public $name='Tamano';
-    public $hasOne='Producto';
+    public $hasMany='Producto';
      function hasProductos($id){
         $count = $this->Producto->find("count", array("conditions" => array("tamano_id" => $id)));
         return $count;

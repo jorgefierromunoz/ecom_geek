@@ -17,8 +17,8 @@ class ModelosController extends AppController{
     public function index(){
       
     }
-    function listamodelos() {
-        $this->set('modelos', $this->Modelo->find('all'));
+    function listamodelos($atributo=null,$orden=null) {
+        $this->set('modelos', $this->Modelo->find('all',array('order'=>array($atributo=> $orden))));
         $this->layout = 'ajax';
     }
       function listamodelosComboBox() {

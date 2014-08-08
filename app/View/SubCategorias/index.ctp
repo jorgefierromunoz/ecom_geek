@@ -2,7 +2,7 @@
     $(document).ready(function() {
         idsubcatglobal = 0;
         //LISTA SUBCATEGORIAS
-        mostrarDatos();
+        mostrarDatos("id","asc");
         //SELECCION DEL COMBOBOX ON CHANGE CATEGORIAS ADD
         $("#list-categoria").change(function() {
             var opcion = $("#select-categoria").val();
@@ -101,7 +101,7 @@
                     success: function(n) {
                         if (n==1){
                            $("#formaddsubcat").trigger("reset");                           
-                           mostrarDatos();
+                           mostrarDatos("id","asc");
                            $("#divaddsubcat").dialog("close");
                         }else if (n==0){
                             alert("No se pudo guardar, intentelo de nuevo");
@@ -132,7 +132,7 @@
                     dataType:'json',
                     success: function(n) {
                         if (n==1) {
-                            mostrarDatos();
+                            mostrarDatos("id","asc");
                             alert("Editado con exito");
                             $("#formeditsubcat").trigger("reset");
                             $("#diveditsubcat").dialog("close");
@@ -157,7 +157,7 @@
                 success: function(n) {
                     if (n=='t'){          
                         alert("Sub-Categoria id: " + idsubcatglobal + " eliminada con éxito");               
-                        mostrarDatos();
+                        mostrarDatos("id","asc");
                     }else{
                         alert("No se puede eliminar por que hay " + n + " producto(s) asociado(s)");   
                     }
@@ -165,10 +165,23 @@
             });
         });
     });
+    //ORDENAR           
+        var ascendente=false;
+        $(document).on("click", ".ordenar", function(e) {
+            e.preventDefault();
+            var tabla = $(this).attr('data-id');
+            if (ascendente){
+                mostrarDatos(tabla,"asc");
+                ascendente=!ascendente;
+            }else{
+                mostrarDatos(tabla,"desc");        
+                ascendente=!ascendente;
+            }
+         });
     //LISTAR SUBCATEGORIA
-    function mostrarDatos() {
+    function mostrarDatos(atributo,orden) {
         $.ajax({
-            url: 'SubCategorias/listasubcategorias',
+            url: 'SubCategorias/listasubcategorias/SubCategoria.'+atributo+'/'+orden,
             type: 'POST',
             dataType: 'json',
                 beforeSend: function() {
@@ -178,7 +191,7 @@
                 if(data!=""){
                 var tabla = '<table>';
                 tabla += '<tr>';
-                tabla += '<th>Id</th><th>Sub-Categorias</th><th>Categoria</th><th>Editar</th><th>Eliminar</th>';
+                tabla += '<th class=ordenar data-id=id>Id</th><th class=ordenar data-id=subcategoria>Sub-Categorias</th><th class=ordenar data-id=categoria_id>Categoria</th><th>Editar</th><th>Eliminar</th>';
                 tabla += '</tr>';
                 $.each(data, function(index, item) {
                     tabla += '<tr>';

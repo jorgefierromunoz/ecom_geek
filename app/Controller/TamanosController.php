@@ -17,8 +17,8 @@ class TamanosController extends AppController{
     public function index(){
       
     }
-    function listatamanos() {
-        $this->set('tamanos', $this->Tamano->find('all'));
+    function listatamanos($atributo=null,$orden=null) {
+        $this->set('tamanos', $this->Tamano->find('all',array('order'=>array($atributo=> $orden))));
         $this->layout = 'ajax';
     }
      function listatamanosComboBox() {

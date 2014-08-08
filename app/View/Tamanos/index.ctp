@@ -2,7 +2,7 @@
     $(document).ready(function() {
         idtamglobal = 0;
         //LISTA
-        mostrarDatos();
+        mostrarDatos("id","asc");
         //OPEN DIV NUEVO BUTTON
         //-----------------------------------
         $("#btnaddtam").click(function() {
@@ -92,7 +92,7 @@
                     success: function(n) {
                         if (n==1){
                            $("#formaddtam").trigger("reset");                           
-                           mostrarDatos();
+                           mostrarDatos("id","asc");
                            $("#divaddtam").dialog("close");
                         }else if (n==0){
                             $("#spnaalert").html("No se pudo guardar, intentelo de nuevo");
@@ -126,7 +126,7 @@
                 dataType:'json',
                 success: function(n) {
                     if (n==1) {
-                        mostrarDatos();
+                        mostrarDatos("id","asc");
                         $("#formedittam").trigger("reset");
                         $("#divedittam").dialog("close");
                         alert("Editado con éxito");                       
@@ -151,7 +151,7 @@
                 success: function(n) {
                     if (n=='t'){          
                         alert("Tamaño id: " + idtamglobal + " eliminado con éxito");               
-                        mostrarDatos();
+                        mostrarDatos("id","asc");
                     }else{
                         alert("No se puede eliminar por que hay " + n + " producto(s) asociada(s)");   
                     }
@@ -159,10 +159,23 @@
             });
         });
     });
+    //ORDENAR           
+        var ascendente=false;
+        $(document).on("click", ".ordenar", function(e) {
+            e.preventDefault();
+            var tabla = $(this).attr('data-id');
+            if (ascendente){
+                mostrarDatos(tabla,"asc");
+                ascendente=!ascendente;
+            }else{
+                mostrarDatos(tabla,"desc");        
+                ascendente=!ascendente;
+            }
+         });
     //LISTAR
-    function mostrarDatos() {
+    function mostrarDatos(atributo,orden) {
         $.ajax({
-            url: 'Tamanos/listatamanos',
+            url: 'Tamanos/listatamanos/Tamano.'+atributo+'/'+orden,
             type: 'POST',
             dataType: 'json',
                 beforeSend: function() {
@@ -172,7 +185,7 @@
                 if(data!=""){
                 var tabla = '<table>';
                 tabla += '<tr>';
-                tabla += '<th>Id</th><th>Tamaños</th><th>Factor</th><th>Editar</th><th>Eliminar</th>';
+                tabla += '<th class=ordenar data-id=id>Id</th><th class=ordenar data-id=tamano>Tamaños</th><th class=ordenar data-id=factor>Factor</th><th>Editar</th><th>Eliminar</th>';
                 tabla += '</tr>';
                 $.each(data, function(index, item) {
                     tabla += '<tr>';

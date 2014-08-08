@@ -2,7 +2,7 @@
     $(document).ready(function() {
         idpaisesglobal = 0;
         //LISTA
-        mostrarDatos();
+        mostrarDatos("id","asc");
         //OPEN DIV NUEVO BUTTON
         //-----------------------------------
         $("#btnaddpais").click(function() {
@@ -87,7 +87,7 @@
                     success: function(n) {
                         if (n==1){
                            $("#formaddpais").trigger("reset");                           
-                           mostrarDatos();
+                           mostrarDatos("id","asc");
                            $("#divaddpais").dialog("close");
                         }else if (n==0){
                             alert("No se pudo guardar, intentelo de nuevo");
@@ -117,7 +117,7 @@
                 dataType:'json',
                 success: function(n) {
                     if (n==1) {
-                        mostrarDatos();
+                        mostrarDatos("id","asc");
                         $("#formeditpais").trigger("reset");
                         $("#diveditpais").dialog("close");
                         alert("Editado con éxito");                       
@@ -141,7 +141,7 @@
                 dataType:'json',
                 success: function(n) {
                     if (n=='t'){               
-                        mostrarDatos();
+                        mostrarDatos("id","asc");
                         alert("Pais id: " + idpaisesglobal + " eliminado con éxito");          
                     }else{
                         alert("No se pudo eliminar por que hay " + n + " region(es) asociada(s)");   
@@ -151,10 +151,23 @@
             });
         });
     });
-    //LISTAR
-    function mostrarDatos() {
+   //ORDENAR           
+        var ascendente=false;
+        $(document).on("click", ".ordenar", function(e) {
+            e.preventDefault();
+            var tabla = $(this).attr('data-id');
+            if (ascendente){
+                mostrarDatos(tabla,"asc");
+                ascendente=!ascendente;
+            }else{
+                mostrarDatos(tabla,"desc");        
+                ascendente=!ascendente;
+            }
+         });
+    //LISTAR 
+    function mostrarDatos(atributo,orden) {
         $.ajax({
-            url: 'Paises/listapaises',
+            url: 'Paises/listapaises/Paise.'+atributo+'/'+orden,
             type: 'POST',
             dataType: 'json',
                 beforeSend: function() {
@@ -164,7 +177,7 @@
                 if(data!=""){
                 var tabla = '<table>';
                 tabla += '<tr>';
-                tabla += '<th>Id</th><th>Paises</th><th>Editar</th><th>Eliminar</th>';
+                tabla += '<th class=ordenar data-id=id>Id</th><th class=ordenar data-id=pais>Paises</th><th>Editar</th><th>Eliminar</th>';
                 tabla += '</tr>';
                 $.each(data, function(index, item) {
                     tabla += '<tr>';

@@ -17,8 +17,8 @@ class CategoriasController extends AppController{
     public function index(){
       
     }
-    function listacategorias() {
-        $this->set('categorias', $this->Categoria->find('all'));
+    function listacategorias($atributo=null,$orden=null) {
+        $this->set('categorias', $this->Categoria->find('all',array('order'=>array($atributo=> $orden))));
         $this->layout = 'ajax';
     }
    
