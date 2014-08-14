@@ -14,7 +14,9 @@
         <span id="spnaddfoto"></span> 
         <label>mime:</label> 
         <input id="iptmime" type="text" name="mime">
-        <span id="spnaddmime"></span> 
+        <!--
+        <span id="spnaddmime"></span>
+        --> 
         <label>descripcion:</label> 
         <input id="iptdescripcion" type="text" name="descripcion">
         <span id="spnadddescripcion"></span> 
@@ -34,7 +36,7 @@
         <span id="spneditfoto"></span>
         <label> Mime: </label>
         <input id="editmimeinput" type="text" name="mime">
-        <span id="spneditmime"></span>
+        <!--<span id="spneditmime"></span>-->
         <label> Descripcion: </label>
         <input id="editdescripcioninput" type="text" name="descripcion">
         <span id="spneditdescripcion"></span>

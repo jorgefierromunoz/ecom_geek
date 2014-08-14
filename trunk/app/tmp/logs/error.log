@@ -2470,3 +2470,125 @@ Stack Trace:
 #10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(TamanosController), Object(CakeRequest))
 #11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #12 {main}
+2014-08-14 01:06:26 Error: [MissingViewException] View file "C:\wamp\www\geek4y\app\View\CategoriaVendedores\index.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\geek4y\\app\\View\\CategoriaVendedores\\index.ctp',
+)
+Request URL: /geek4y/CategoriaVendedores
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(954): View->render(NULL, NULL)
+#2 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(198): Controller->render()
+#3 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriaVendedoresController), Object(CakeRequest))
+#4 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-14 01:06:33 Error: [MissingViewException] View file "C:\wamp\www\geek4y\app\View\CategoriaVendedores\delete.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\geek4y\\app\\View\\CategoriaVendedores\\delete.ctp',
+)
+Request URL: /geek4y/CategoriaVendedores/delete/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(954): View->render(NULL, NULL)
+#2 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(198): Controller->render()
+#3 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriaVendedoresController), Object(CakeRequest))
+#4 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-14 01:09:52 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+Request URL: /geek4y/CategoriaVendedores/listacatvendedores
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Categor...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Categor...', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Categor...', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(CategoriaVendedore), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\CategoriaVendedoresController.php(20): Model->find('all', Array)
+#7 [internal function]: CategoriaVendedoresController->listacatvendedores()
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(CategoriaVendedoresController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriaVendedoresController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-14 01:11:46 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+Request URL: /geek4y/CategoriaVendedores/listacatvendedores
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Categor...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Categor...', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Categor...', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(CategoriaVendedore), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\CategoriaVendedoresController.php(20): Model->find('all', Array)
+#7 [internal function]: CategoriaVendedoresController->listacatvendedores()
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(CategoriaVendedoresController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriaVendedoresController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-14 01:12:10 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+Request URL: /geek4y/CategoriaVendedores/listacatvendedores
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Categor...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Categor...', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Categor...', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(CategoriaVendedore), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\CategoriaVendedoresController.php(20): Model->find('all', Array)
+#7 [internal function]: CategoriaVendedoresController->listacatvendedores()
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(CategoriaVendedoresController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriaVendedoresController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-14 01:12:50 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+Request URL: /geek4y/CategoriaVendedores/listacatvendedores
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Categor...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Categor...', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Categor...', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(CategoriaVendedore), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\CategoriaVendedoresController.php(20): Model->find('all', Array)
+#7 [internal function]: CategoriaVendedoresController->listacatvendedores()
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(CategoriaVendedoresController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriaVendedoresController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-14 01:13:36 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+Request URL: /geek4y/CategoriaVendedores/listacatvendedores
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Categor...', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Categor...', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Categor...', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(CategoriaVendedore), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\CategoriaVendedoresController.php(20): Model->find('all', Array)
+#7 [internal function]: CategoriaVendedoresController->listacatvendedores()
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(CategoriaVendedoresController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(CategoriaVendedoresController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-14 01:56:15 Error: [MissingControllerException] Controller class UsuariosController could not be found.
+Exception Attributes: array (
+  'class' => 'UsuariosController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/usuarios
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-08-14 01:56:21 Error: [MissingControllerException] Controller class UserController could not be found.
+Exception Attributes: array (
+  'class' => 'UserController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/user
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
