@@ -95,15 +95,17 @@ $(document).ready(function() {
         });
 
         /****************************************************/
+        //13-08-2014
+        //else if ( $("#iptmime").val().trim().length == 0) {
+         //   $("#spnaddmime").html("Campo requerido");
+         //   $("#spnaddmime").show();
+         //   $("#spnaddalert").show();
+         // }
         $("#addfotosave").click(function(e) {            
         e.preventDefault();
           if ( $("#iptfoto").val().trim().length == 0) {
             $("#spnaddfoto").html("Elija una imagen");
             $("#spnaddfoto").show();
-            $("#spnaddalert").show();
-          }else if ( $("#iptmime").val().trim().length == 0) {
-            $("#spnaddmime").html("Campo requerido");
-            $("#spnaddmime").show();
             $("#spnaddalert").show();
           }else if ( $("#iptdescripcion").val().trim().length == 0) {
             $("#spnadddescripcion").html("Campo requerido");
@@ -144,15 +146,17 @@ $(document).ready(function() {
     });
         /****************************************************/
         //EDITAR BUTTON DIALOG  
+        //13-08-2014
+//        else if ( $("#editmimeinput").val().trim().length == 0) {
+//                $("#spneditmime").html("Campo requerido");
+//                $("#spneditmime").show();
+//                $("#spnaddalert").show();
+//              }
         $("#editfotosave").click(function(e) {      
             e.preventDefault();
             if ( $("#editfotoinput").val().trim().length == 0) {
                 $("#spneditfoto").html("Seleccione una imagen");
                 $("#spneditfoto").show();
-                $("#spnaddalert").show();
-              }else if ( $("#editmimeinput").val().trim().length == 0) {
-                $("#spneditmime").html("Campo requerido");
-                $("#spneditmime").show();
                 $("#spnaddalert").show();
               }else if ( $("#editdescripcioninput").val().trim().length == 0) {
                 $("#spneditdescripcion").html("Campo requerido");

@@ -16,8 +16,8 @@ class CategoriaVendedoresController extends AppController{
      public function index(){
       
     }
-    function listacatvendedores() {
-        $this->set('catvendedores', $this->CategoriaVendedore->find('all'));
+    function listacatvendedores($atributo=null,$orden=null) {
+        $this->set('catvendedores', $this->CategoriaVendedore->find('all',array('order'=>array($atributo=> $orden))));
         $this->layout = 'ajax';
     }
      function listacatvendedoresComboBox() {
@@ -54,7 +54,7 @@ class CategoriaVendedoresController extends AppController{
     }
     
     function delete($id) {
-        $cant=$this->CategoriaVendedore->hasProductos($id);
+        $cant=$this->CategoriaVendedore->hasUser($id);
         if ($cant==0){
             $this->CategoriaVendedore->delete($id);
             $this->set('catvendedores', 't');
