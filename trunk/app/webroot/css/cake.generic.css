@@ -23,6 +23,16 @@
 .ordenar:hover{
     color: #1c94c4;
 }
+.pagina:hover{
+    color: #1c94c4;
+}
+.tdpais{
+    
+}
+.mostrarpaginacion{
+    width: 33.3%;
+}
+
 /** General Style Info **/
 html{
     height: 100%;
