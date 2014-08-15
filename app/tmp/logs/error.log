@@ -2592,3 +2592,753 @@ Request URL: /geek4y/user
 Stack Trace:
 #0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2014-08-14 23:59:24 Error: [MissingActionException] Action PaisesController::lista() could not be found.
+Exception Attributes: array (
+  'controller' => 'PaisesController',
+  'action' => 'lista',
+)
+Request URL: /geek4y/paises/lista
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#2 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-15 00:02:11 Error: [MissingActionException] Action PaisesController::lista() could not be found.
+Exception Attributes: array (
+  'controller' => 'PaisesController',
+  'action' => 'lista',
+)
+Request URL: /geek4y/paises/lista
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#2 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-15 00:02:24 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'findAll' at line 1
+Request URL: /geek4y/paises/listar
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('findAll', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('findAll', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(609): DboSource->fetchAll('findAll', Array, Array)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(800): DboSource->query('findAll', Array, Object(Paise))
+#5 C:\wamp\www\geek4y\app\Controller\PaisesController.php(29): Model->__call('findAll', Array)
+#6 C:\wamp\www\geek4y\app\Controller\PaisesController.php(29): Paise->findAll(NULL, NULL, NULL, 4, 1)
+#7 [internal function]: PaisesController->listar()
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-15 00:03:25 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'totalContactos' at line 1
+Request URL: /geek4y/paises/listar
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('totalContactos', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('totalContactos', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(609): DboSource->fetchAll('totalContactos', Array, Array)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(800): DboSource->query('totalContactos', Array, Object(Paise))
+#5 C:\wamp\www\geek4y\app\Controller\PaisesController.php(36): Model->__call('totalContactos', Array)
+#6 C:\wamp\www\geek4y\app\Controller\PaisesController.php(36): Paise->totalContactos()
+#7 [internal function]: PaisesController->listar()
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-15 00:04:03 Error: Fatal Error (1): Call to a member function findCount() on a non-object in [C:\wamp\www\geek4y\app\Model\Paise.php, line 23]
+2014-08-15 00:04:03 Error: [FatalErrorException] Call to a member function findCount() on a non-object
+Request URL: /geek4y/paises/listar
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 23)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 23, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\gee...', 23, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-15 00:04:54 Error: Fatal Error (1): Call to a member function find() on a non-object in [C:\wamp\www\geek4y\app\Model\Paise.php, line 23]
+2014-08-15 00:04:54 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /geek4y/paises/listar
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 23)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 23, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\gee...', 23, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-15 00:05:31 Error: Fatal Error (1): Call to a member function find() on a non-object in [C:\wamp\www\geek4y\app\Model\Paise.php, line 23]
+2014-08-15 00:05:31 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /geek4y/paises/listar
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 23)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 23, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\gee...', 23, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-15 00:05:37 Error: Fatal Error (1): Call to a member function find() on a non-object in [C:\wamp\www\geek4y\app\Model\Paise.php, line 23]
+2014-08-15 00:05:37 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /geek4y/paises/listar
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 23)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 23, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\gee...', 23, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-15 00:11:12 Error: Fatal Error (1): Call to a member function link() on a non-object in [C:\wamp\www\geek4y\app\View\Paises\listar.ctp, line 60]
+2014-08-15 00:11:12 Error: [FatalErrorException] Call to a member function link() on a non-object
+Request URL: /geek4y/paises/listar
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 60)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 60, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\gee...', 60, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-15 00:17:48 Error: Fatal Error (1): Call to a member function link() on a non-object in [C:\wamp\www\geek4y\app\View\Paises\listar.ctp, line 62]
+2014-08-15 00:17:49 Error: [FatalErrorException] Call to a member function link() on a non-object
+Request URL: /geek4y/paises/listar
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 62)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 62, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\gee...', 62, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-15 00:18:34 Error: Fatal Error (1): Call to a member function link() on a non-object in [C:\wamp\www\geek4y\app\View\Paises\listar.ctp, line 62]
+2014-08-15 00:18:34 Error: [FatalErrorException] Call to a member function link() on a non-object
+Request URL: /geek4y/paises/listar
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 62)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 62, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\gee...', 62, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-15 00:19:42 Error: Fatal Error (1): Call to a member function link() on a non-object in [C:\wamp\www\geek4y\app\View\Paises\listar.ctp, line 64]
+2014-08-15 00:19:42 Error: [FatalErrorException] Call to a member function link() on a non-object
+Request URL: /geek4y/paises/listar
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 64)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 64, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\gee...', 64, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-15 00:20:07 Error: Fatal Error (1): Call to a member function link() on a non-object in [C:\wamp\www\geek4y\app\View\Paises\listar.ctp, line 62]
+2014-08-15 00:20:07 Error: [FatalErrorException] Call to a member function link() on a non-object
+Request URL: /geek4y/paises/listar
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 62)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 62, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\gee...', 62, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-15 00:52:13 Error: [MissingActionException] Action PaisesController::listarpaises() could not be found.
+Exception Attributes: array (
+  'controller' => 'PaisesController',
+  'action' => 'listarpaises',
+)
+Request URL: /geek4y/paises/listarpaises
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#2 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-15 00:52:19 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '20, `page` 1' at line 1
+Request URL: /geek4y/Paises/listapaises/Paise.id/asc
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Paise`....', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Paise`....', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Paise`....', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Paise), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\PaisesController.php(21): Model->find('all', Array)
+#7 [internal function]: PaisesController->listapaises('Paise.id', 'asc')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-15 00:57:08 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '20, `page` 1' at line 1
+Request URL: /geek4y/Paises/listapaises/Paise.id/asc
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Paise`....', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Paise`....', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Paise`....', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Paise), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\PaisesController.php(21): Model->find('all', Array)
+#7 [internal function]: PaisesController->listapaises('Paise.id', 'asc')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-15 00:57:24 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' `limit` 20, `page` 1' at line 1
+Request URL: /geek4y/Paises/listapaises
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Paise`....', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Paise`....', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Paise`....', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Paise), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\PaisesController.php(21): Model->find('all', Array)
+#7 [internal function]: PaisesController->listapaises()
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-15 00:57:36 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '20, `page` 1' at line 1
+Request URL: /geek4y/Paises/listapaises/desc
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Paise`....', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Paise`....', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Paise`....', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Paise), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\PaisesController.php(21): Model->find('all', Array)
+#7 [internal function]: PaisesController->listapaises('desc')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-15 00:57:43 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '20, `page` 1' at line 1
+Request URL: /geek4y/Paises/listapaises/id/desc
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Paise`....', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Paise`....', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Paise`....', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Paise), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\PaisesController.php(21): Model->find('all', Array)
+#7 [internal function]: PaisesController->listapaises('id', 'desc')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-15 00:57:50 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '20, `page` 1' at line 1
+Request URL: /geek4y/Paises/listapaises/id/desc/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Paise`....', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Paise`....', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Paise`....', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Paise), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\PaisesController.php(21): Model->find('all', Array)
+#7 [internal function]: PaisesController->listapaises('id', 'desc', '1')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-15 01:00:30 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 20' at line 1
+Request URL: /geek4y/Paises/listapaises
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Paise`....', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Paise`....', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Paise`....', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Paise), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\PaisesController.php(21): Model->find('all', Array)
+#7 [internal function]: PaisesController->listapaises()
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-15 01:00:42 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 20' at line 1
+Request URL: /geek4y/Paises/listapaises
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Paise`....', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Paise`....', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Paise`....', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Paise), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\PaisesController.php(21): Model->find('all', Array)
+#7 [internal function]: PaisesController->listapaises()
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-15 01:06:59 Error: Fatal Error (1): Unsupported operand types in [C:\wamp\www\geek4y\lib\Cake\View\Helper\JsBaseEngineHelper.php, line 131]
+2014-08-15 01:06:59 Error: [FatalErrorException] Unsupported operand types
+Request URL: /geek4y/Paises/listapaises/Paise.id/asc
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Unsupported ope...', 'C:\wamp\www\gee...', 131)
+#1 [internal function]: ErrorHandler::handleError(1, 'Unsupported ope...', 'C:\wamp\www\gee...', 131, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Unsupported ope...', 'C:\wamp\www\gee...', 131, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-15 01:07:03 Error: Fatal Error (1): Unsupported operand types in [C:\wamp\www\geek4y\lib\Cake\View\Helper\JsBaseEngineHelper.php, line 131]
+2014-08-15 01:07:03 Error: [FatalErrorException] Unsupported operand types
+Request URL: /geek4y/Paises/listapaises/Paise.id/asc
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Unsupported ope...', 'C:\wamp\www\gee...', 131)
+#1 [internal function]: ErrorHandler::handleError(1, 'Unsupported ope...', 'C:\wamp\www\gee...', 131, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Unsupported ope...', 'C:\wamp\www\gee...', 131, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-15 01:40:35 Error: [MissingActionException] Action PaisesController::12() could not be found.
+Exception Attributes: array (
+  'controller' => 'PaisesController',
+  'action' => '12',
+)
+Request URL: /geek4y/Paises/12
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#2 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-15 01:40:52 Error: [MissingActionException] Action PaisesController::id() could not be found.
+Exception Attributes: array (
+  'controller' => 'PaisesController',
+  'action' => 'id',
+)
+Request URL: /geek4y/Paises/id/asc/12
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#2 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-15 01:58:05 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Paise.undefined' in 'order clause'
+Request URL: /geek4y/Paises/listapaises/Paise.undefined/desc
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Paise`....', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Paise`....', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Paise`....', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Paise), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\PaisesController.php(22): Model->find('all', Array)
+#7 [internal function]: PaisesController->listapaises('Paise.undefined', 'desc')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-15 01:58:13 Error: [MissingActionException] Action PaisesController::Paises() could not be found.
+Exception Attributes: array (
+  'controller' => 'PaisesController',
+  'action' => 'Paises',
+)
+Request URL: /geek4y/Paises/Paises/listapaises/Paise.id/asc
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#2 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-15 02:20:17 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Paise.undefined' in 'order clause'
+Request URL: /geek4y/Paises/listapaises/Paise.undefined/desc/undefined
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Paise`....', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Paise`....', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Paise`....', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Paise), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\PaisesController.php(22): Model->find('all', Array)
+#7 [internal function]: PaisesController->listapaises('Paise.undefined', 'desc', 'undefined')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-15 02:20:48 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Paise.undefined' in 'order clause'
+Request URL: /geek4y/Paises/listapaises/Paise.undefined/desc/undefined
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Paise`....', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Paise`....', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Paise`....', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Paise), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\PaisesController.php(22): Model->find('all', Array)
+#7 [internal function]: PaisesController->listapaises('Paise.undefined', 'desc', 'undefined')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-15 02:21:36 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Paise.undefined' in 'order clause'
+Request URL: /geek4y/Paises/listapaises/Paise.undefined/desc/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Paise`....', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Paise`....', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Paise`....', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Paise), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\PaisesController.php(22): Model->find('all', Array)
+#7 [internal function]: PaisesController->listapaises('Paise.undefined', 'desc', '1')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-15 02:29:46 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Paise.undefined' in 'order clause'
+Request URL: /geek4y/Paises/listapaises/Paise.undefined/desc/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Paise`....', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Paise`....', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Paise`....', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Paise), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\app\Controller\PaisesController.php(22): Model->find('all', Array)
+#7 [internal function]: PaisesController->listapaises('Paise.undefined', 'desc', '1')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-15 02:37:24 Error: [MissingActionException] Action PaisesController::Paise.id() could not be found.
+Exception Attributes: array (
+  'controller' => 'PaisesController',
+  'action' => 'Paise.id',
+)
+Request URL: /geek4y/Paises/Paise.id/asc/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#2 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-15 02:37:34 Error: [MissingActionException] Action PaisesController::listapaise() could not be found.
+Exception Attributes: array (
+  'controller' => 'PaisesController',
+  'action' => 'listapaise',
+)
+Request URL: /geek4y/Paises/listapaise/Paise.id/asc/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#2 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-15 05:03:59 Error: Fatal Error (1): Call to a member function paginate() on a non-object in [C:\wamp\www\geek4y\app\Controller\PaisesController.php, line 23]
+2014-08-15 05:03:59 Error: [FatalErrorException] Call to a member function paginate() on a non-object
+Request URL: /geek4y/Paises/listapaises/Paise.id/asc/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 23)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 23, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\gee...', 23, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-15 05:04:40 Error: Fatal Error (1): Call to a member function paginate() on a non-object in [C:\wamp\www\geek4y\app\Controller\PaisesController.php, line 23]
+2014-08-15 05:04:40 Error: [FatalErrorException] Call to a member function paginate() on a non-object
+Request URL: /geek4y/Paises/listapaises/Paise.id/asc/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 23)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 23, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\gee...', 23, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-15 05:04:56 Error: Fatal Error (1): Call to a member function paginate() on a non-object in [C:\wamp\www\geek4y\app\Controller\PaisesController.php, line 23]
+2014-08-15 05:04:56 Error: [FatalErrorException] Call to a member function paginate() on a non-object
+Request URL: /geek4y/Paises/listapaises
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 23)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 23, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\gee...', 23, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-15 05:05:17 Error: Fatal Error (1): Call to a member function paginate() on a non-object in [C:\wamp\www\geek4y\app\Controller\PaisesController.php, line 23]
+2014-08-15 05:05:17 Error: [FatalErrorException] Call to a member function paginate() on a non-object
+Request URL: /geek4y/Paises/listapaises
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 23)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 23, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\gee...', 23, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-15 05:05:20 Error: Fatal Error (1): Call to a member function paginate() on a non-object in [C:\wamp\www\geek4y\app\Controller\PaisesController.php, line 23]
+2014-08-15 05:05:20 Error: [FatalErrorException] Call to a member function paginate() on a non-object
+Request URL: /geek4y/Paises/listapaises
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 23)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\gee...', 23, Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\gee...', 23, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-15 05:13:19 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order = ('asc')    LIMIT 20' at line 1
+Request URL: /geek4y/Paises/listapaises/Paise.id/asc/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Paise`....', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Paise`....', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Paise`....', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Paise), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Component\PaginatorComponent.php(196): Model->find('all', Array)
+#7 C:\wamp\www\geek4y\app\Controller\PaisesController.php(23): PaginatorComponent->paginate('Paise', Array)
+#8 [internal function]: PaisesController->listapaises('Paise.id', 'asc', '1')
+#9 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#12 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2014-08-15 05:14:12 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order = ('asc')    LIMIT 20' at line 1
+Request URL: /geek4y/Paises/listapaises/Paise.id/asc/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Paise`....', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Paise`....', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Paise`....', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Paise), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Component\PaginatorComponent.php(196): Model->find('all', Array)
+#7 C:\wamp\www\geek4y\app\Controller\PaisesController.php(23): PaginatorComponent->paginate('Paise', Array)
+#8 [internal function]: PaisesController->listapaises('Paise.id', 'asc', '1')
+#9 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#12 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2014-08-15 05:14:27 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order = ('desc')    LIMIT 20' at line 1
+Request URL: /geek4y/Paises/listapaises/id/desc
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Paise`....', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Paise`....', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Paise`....', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Paise), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Component\PaginatorComponent.php(196): Model->find('all', Array)
+#7 C:\wamp\www\geek4y\app\Controller\PaisesController.php(23): PaginatorComponent->paginate('Paise', Array)
+#8 [internal function]: PaisesController->listapaises('id', 'desc')
+#9 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#12 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2014-08-15 05:15:39 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order = ('desc')    LIMIT 20' at line 1
+Request URL: /geek4y/Paises/listapaises/id/desc
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Paise`....', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Paise`....', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Paise`....', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Paise), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Component\PaginatorComponent.php(196): Model->find('all', Array)
+#7 C:\wamp\www\geek4y\app\Controller\PaisesController.php(23): PaginatorComponent->paginate('Paise', Array)
+#8 [internal function]: PaisesController->listapaises('id', 'desc')
+#9 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#12 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2014-08-15 05:15:41 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order = ('desc')    LIMIT 20' at line 1
+Request URL: /geek4y/Paises/listapaises/id/desc
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Paise`....', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Paise`....', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Paise`....', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Paise), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Component\PaginatorComponent.php(196): Model->find('all', Array)
+#7 C:\wamp\www\geek4y\app\Controller\PaisesController.php(23): PaginatorComponent->paginate('Paise', Array)
+#8 [internal function]: PaisesController->listapaises('id', 'desc')
+#9 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#12 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2014-08-15 05:17:19 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order = ('desc')    LIMIT 20' at line 1
+Request URL: /geek4y/Paises/listapaises/id/desc
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Paise`....', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Paise`....', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Paise`....', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Paise), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Component\PaginatorComponent.php(196): Model->find('all', Array)
+#7 C:\wamp\www\geek4y\app\Controller\PaisesController.php(23): PaginatorComponent->paginate('Paise', Array)
+#8 [internal function]: PaisesController->listapaises('id', 'desc')
+#9 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#12 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2014-08-15 05:17:38 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order = ('asc')    LIMIT 20' at line 1
+Request URL: /geek4y/Paises/listapaises/id/desc
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Paise`....', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Paise`....', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Paise`....', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Paise), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Component\PaginatorComponent.php(196): Model->find('all', Array)
+#7 C:\wamp\www\geek4y\app\Controller\PaisesController.php(23): PaginatorComponent->paginate('Paise', Array)
+#8 [internal function]: PaisesController->listapaises('id', 'desc')
+#9 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#12 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2014-08-15 05:20:09 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order = ('asc') AND `limit` = 25    LIMIT 20' at line 1
+Request URL: /geek4y/Paises/listapaises/id/desc
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Paise`....', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Paise`....', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Paise`....', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Paise), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Component\PaginatorComponent.php(196): Model->find('all', Array)
+#7 C:\wamp\www\geek4y\app\Controller\PaisesController.php(23): PaginatorComponent->paginate('Paise', Array)
+#8 [internal function]: PaisesController->listapaises('id', 'desc')
+#9 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#12 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2014-08-15 05:20:11 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order = ('asc') AND `limit` = 25    LIMIT 20' at line 1
+Request URL: /geek4y/Paises/listapaises/id/desc
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Paise`....', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Paise`....', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Paise`....', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Paise), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Component\PaginatorComponent.php(196): Model->find('all', Array)
+#7 C:\wamp\www\geek4y\app\Controller\PaisesController.php(23): PaginatorComponent->paginate('Paise', Array)
+#8 [internal function]: PaisesController->listapaises('id', 'desc')
+#9 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#12 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2014-08-15 05:20:52 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order = ('desc') AND `limit` = 20 AND `page` = 1    LIMIT 20' at line 1
+Request URL: /geek4y/Paises/listapaises/id/desc
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Paise`....', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Paise`....', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Paise`....', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Paise), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Component\PaginatorComponent.php(196): Model->find('all', Array)
+#7 C:\wamp\www\geek4y\app\Controller\PaisesController.php(22): PaginatorComponent->paginate('Paise', Array)
+#8 [internal function]: PaisesController->listapaises('id', 'desc')
+#9 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#12 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2014-08-15 05:22:16 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order = ('asc')    LIMIT 20' at line 1
+Request URL: /geek4y/Paises/listapaises/id/desc
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Paise`....', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Paise`....', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Paise`....', false)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Paise), Array)
+#5 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(2877): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\geek4y\lib\Cake\Controller\Component\PaginatorComponent.php(196): Model->find('all', Array)
+#7 C:\wamp\www\geek4y\app\Controller\PaisesController.php(23): PaginatorComponent->paginate('Paise', Array)
+#8 [internal function]: PaisesController->listapaises('id', 'desc')
+#9 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#12 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2014-08-15 05:35:48 Error: [MissingActionException] Action PaisesController::listapaises2() could not be found.
+Exception Attributes: array (
+  'controller' => 'PaisesController',
+  'action' => 'listapaises2',
+)
+Request URL: /geek4y/Paises/listapaises2/2
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#2 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-15 05:55:15 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'paises' at line 1
+Request URL: /geek4y/Paises/listapaises/Paise.id/asc/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('paises', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('paises', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(609): DboSource->fetchAll('paises', Array, Array)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(800): DboSource->query('paises', Array, Object(Paise))
+#5 C:\wamp\www\geek4y\app\Controller\PaisesController.php(24): Model->__call('paises', Array)
+#6 C:\wamp\www\geek4y\app\Controller\PaisesController.php(24): Paise->paises('1')
+#7 [internal function]: PaisesController->listapaises('Paise.id', 'asc', '1')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-15 05:56:04 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'paises' at line 1
+Request URL: /geek4y/Paises/listapaises/Paise.id/asc/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('paises', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('paises', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(609): DboSource->fetchAll('paises', Array, Array)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(800): DboSource->query('paises', Array, Object(Paise))
+#5 C:\wamp\www\geek4y\app\Controller\PaisesController.php(22): Model->__call('paises', Array)
+#6 C:\wamp\www\geek4y\app\Controller\PaisesController.php(22): Paise->paises('1')
+#7 [internal function]: PaisesController->listapaises('Paise.id', 'asc', '1')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-15 05:56:29 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'paises' at line 1
+Request URL: /geek4y/Paises/listapaises/Paise.id/asc/1
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('paises', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('paises', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(609): DboSource->fetchAll('paises', Array, Array)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(800): DboSource->query('paises', Array, Object(Paise))
+#5 C:\wamp\www\geek4y\app\Controller\PaisesController.php(22): Model->__call('paises', Array)
+#6 C:\wamp\www\geek4y\app\Controller\PaisesController.php(22): Paise->paises('1')
+#7 [internal function]: PaisesController->listapaises('Paise.id', 'asc', '1')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-15 05:56:37 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'paises' at line 1
+Request URL: /geek4y/Paises/listapaises/id/desc
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('paises', Array)
+#2 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('paises', Array, Array)
+#3 C:\wamp\www\geek4y\lib\Cake\Model\Datasource\DboSource.php(609): DboSource->fetchAll('paises', Array, Array)
+#4 C:\wamp\www\geek4y\lib\Cake\Model\Model.php(800): DboSource->query('paises', Array, Object(Paise))
+#5 C:\wamp\www\geek4y\app\Controller\PaisesController.php(22): Model->__call('paises', Array)
+#6 C:\wamp\www\geek4y\app\Controller\PaisesController.php(22): Paise->paises(1)
+#7 [internal function]: PaisesController->listapaises('id', 'desc')
+#8 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PaisesController), Array)
+#9 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(PaisesController), Object(CakeRequest))
+#11 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}

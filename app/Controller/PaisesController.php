@@ -13,14 +13,16 @@
 class PaisesController extends AppController{
     //put your code here
     public $name = 'Paises';
-        
+    public $components = array('Paginator');   
     public function index(){
       
     }
-    function listapaises($atributo=null,$orden=null) {
-        $this->set('paises', $this->Paise->find('all',array('order'=>array($atributo=> $orden))));
+    function listapaises($atributo,$orden,$pagina=1) {
+        $totalPaises = $this->Paise->totalPaises();
+        $this->set('paises',array($this->Paise->find('all',array('order'=>array($atributo=> $orden),'limit'=>20,'page'=>$pagina)),$totalPaises,$pagina, ceil($totalPaises / 20)));
         $this->layout = 'ajax';
     }
+
       function listapaisesComboBox() {
         $this->set('paises', $this->Paise->find('all',array('recursive'=>-1)));
         $this->layout = 'ajax';

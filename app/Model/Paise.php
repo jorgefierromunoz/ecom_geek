@@ -19,6 +19,10 @@ class Paise extends AppModel{
         $count = $this->Regione->find("count", array("conditions" => array("paise_id" => $region_id)));
         return $count;
     }
-}
+    function totalPaises() {
+        $count=$this->find("count");
+        return $count;
+  }
+  }
 
 ?>
