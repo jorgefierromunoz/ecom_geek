@@ -14,6 +14,7 @@ class Foto extends AppModel{
     //put your code here
     public $name='Foto';
     public $belongsTo='Producto';
+ 
 }
 
 ?>
