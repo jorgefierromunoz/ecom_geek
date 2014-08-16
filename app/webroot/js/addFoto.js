@@ -14,11 +14,6 @@ $(document).ready(function() {
                $("#editfotoinput").attr("disabled",true);
            }
         });
-        //SELECCION DEL COMBOBOX ON CHANGE  EDIT
-        $("#list-editproductos").change(function() {
-            var opcion = $("#select-editproductos").val();
-            $("#ipteditproducto_id").val(opcion);
-        });
          //SELECCION DE IMAGENES AGREGAR 
         $('#imagenefile').change(function() {
             $("#iptfoto").val(limpiarNombre($('#imagenefile').val()));
@@ -47,10 +42,8 @@ $(document).ready(function() {
                 dataType: 'json',
                 type: "POST",
                 success: function(data) {
-                    //   ipteditproducto_id e.substring(0, e.indexOf('.'))
                     var urlfoto=data.Foto.url;
-                    $("#editfotoinput").val(urlfoto.substring(0, urlfoto.indexOf('.')));                 
-                    $("#ipteditproducto_id").val(data.Foto.producto_id);
+                    $("#editfotoinput").val(urlfoto.substring(0, urlfoto.indexOf('.')));
                     llenarlistboxproductos(data.Foto.producto_id);
                     $("#diveditfoto").dialog("open");
                 },
@@ -98,7 +91,7 @@ $(document).ready(function() {
         $('#formeditfoto').submit(function(e) {
             e.preventDefault();
         });
-
+        //nueva imagen
         $("#addfotosave").click(function(e) {            
         e.preventDefault();
         //imagenefile
@@ -128,6 +121,7 @@ $(document).ready(function() {
 
          }
     });       
+        //EDITAR
         $("#editfotosave").click(function(e) {      
             e.preventDefault();
             if ( $("#editfotoinput").val().trim().length == 0) {
@@ -142,8 +136,21 @@ $(document).ready(function() {
                             $("#spneditfoto").html("Debe elegir una imagen para editarla");
                             $("#spneditfoto").show(); 
                        }else{
-                           alert("En contrucción");
+                           //BORRAR IMAGEN ANTIGUA DEL SERVIDOR
+                           $("#progedit").show();
+                           $("#imagenefileedit").upload("Fotos/edit/"+idfotoglobal+"/0",{url:$("#editfotoinput").val(),idproducto:$("#select-editproductos").val()} ,function(resp) {
+                               if(resp==1){
+                                    mostrarDatos();
+                                    alert("Editado con exito");
+                                    $("#formeditfoto").trigger("reset");
+                                    $("#diveditfoto").dialog("close");
+                               }
+                               else{
+                                   alert(resp);
+                               }
+                           },$("#progedit"));    
                        }
+
                   }else{
                     $.ajax({
                     url: 'Fotos/edit/' + idfotoglobal,
@@ -207,7 +214,7 @@ $(document).ready(function() {
                 if(data!=""){
                 var tabla = '<table>';
                 tabla += '<tr>';
-                tabla += '<th>Id</th><th>Imagen</th><th>Nombre</th><th>Mime</th><th>Descripcion</th><th>Producto</th><th>Editar</th><th>Eliminar</th>';
+                tabla += '<th>Id</th><th>Imagen</th><th>Nombre</th><th>Mime</th><th>Descripción</th><th>Producto</th><th>Editar</th><th>Eliminar</th>';
                 tabla += '</tr>';
                 $.each(data, function(index, item) {
                     tabla += '<tr>';
