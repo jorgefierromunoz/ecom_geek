@@ -3,10 +3,16 @@ $(document).ready(function() {
         //LISTA 
         mostrarDatos();
         $(".botones").button();
-        //SELECCION DEL COMBOBOX ON CHANGE  ADD
-        $("#list-productos").change(function() {
-        var opcion = $("#select-productos").val();
-        $("#iptproducto_id").val(opcion);
+        
+        $("#checkededitimagen").change(function(){
+           var opcion=$("#checkededitimagen").prop("checked");  
+           if (opcion){
+                $("#imagenefileedit").removeAttr("disabled");
+                $("#editfotoinput").removeAttr("disabled");
+           }else{
+               $("#imagenefileedit").attr("disabled",true);
+               $("#editfotoinput").attr("disabled",true);
+           }
         });
         //SELECCION DEL COMBOBOX ON CHANGE  EDIT
         $("#list-editproductos").change(function() {
@@ -15,15 +21,16 @@ $(document).ready(function() {
         });
          //SELECCION DE IMAGENES AGREGAR 
         $('#imagenefile').change(function() {
-            var fileName = $('#imagenefile').val();
-            var clean = fileName.split('\\').pop(); // clean from C:\fakepath OR C:\fake_path 
-            $("#iptfoto").val(clean);
+            $("#iptfoto").val(limpiarNombre($('#imagenefile').val()));
+        });
+         //SELECCION DE IMAGENES EDITAR
+        $('#imagenefileedit').change(function() {
+            $("#editfotoinput").val(limpiarNombre($('#imagenefileedit').val()));
         });
         //OPEN DIV NUEVA  BUTTON
         //-----------------------------------
         $("#btnaddfoto").click(function() {
             $("#formaddfoto").trigger("reset");
-            $("#iptproducto_id").val("");
             $("#imagenefile").val("");            
             ocultarspan();
             llenarlistboxproductos("x");
@@ -40,11 +47,9 @@ $(document).ready(function() {
                 dataType: 'json',
                 type: "POST",
                 success: function(data) {
-                    console.log(data);
-                    //   ipteditproducto_id
-                    $("#editfotoinput").val(data.Foto.url);
-                    $("#editmimeinput").val(data.Foto.mime);
-                    $("#editdescripcioninput").val(data.Foto.descripcion);                  
+                    //   ipteditproducto_id e.substring(0, e.indexOf('.'))
+                    var urlfoto=data.Foto.url;
+                    $("#editfotoinput").val(urlfoto.substring(0, urlfoto.indexOf('.')));                 
                     $("#ipteditproducto_id").val(data.Foto.producto_id);
                     llenarlistboxproductos(data.Foto.producto_id);
                     $("#diveditfoto").dialog("open");
@@ -94,95 +99,72 @@ $(document).ready(function() {
             e.preventDefault();
         });
 
-        /****************************************************/
-        //13-08-2014
-        //else if ( $("#iptmime").val().trim().length == 0) {
-         //   $("#spnaddmime").html("Campo requerido");
-         //   $("#spnaddmime").show();
-         //   $("#spnaddalert").show();
-         // }
         $("#addfotosave").click(function(e) {            
         e.preventDefault();
+        //imagenefile
           if ( $("#iptfoto").val().trim().length == 0) {
             $("#spnaddfoto").html("Elija una imagen");
             $("#spnaddfoto").show();
             $("#spnaddalert").show();
-          }else if ( $("#iptdescripcion").val().trim().length == 0) {
-            $("#spnadddescripcion").html("Campo requerido");
-            $("#spnadddescripcion").show();
+          }else if ( $("#imagenefile").val().trim().length == 0){
             $("#spnaddalert").show();
-          }else if ( $("#iptproducto_id").val().trim().length == 0){
+          }else if ( $("#select-productos").val().trim().length == 0){
             $("#spnaddalert").show();
           }else {
            $("#prog").show();
-            $("#imagenefile").upload("Fotos/subirimagen", function(e) {
-            if (e=="1"){
-            $.ajax({
-                url: "Fotos/add",
-                type: "POST",
-                data: $("#formaddfoto").serialize(),
-                dataType:'json',
-                success: function(n) {
-                    if (n==1){
-                       $("#formaddfoto").trigger("reset"); 
-                        mostrarDatos(); 
-                       $("#divaddfoto").dialog("close");
-                    }else if (n==0){
-                        alert("No se pudo guardar los datos de la foto, intentelo de nuevo");
-                    }
-                },
-                error: function(n) {
-                    console.log(n);
-                }
-            });
+           $("#imagenefile").upload("Fotos/subirimagen",{url:$("#iptfoto").val(),producto_id:$("#select-productos").val()} ,function(listo) {
+                if (listo=="1"){
+                    $("#formaddfoto").trigger("reset"); 
+                    mostrarDatos(); 
+                    $("#divaddfoto").dialog("close");
                 }else{
-                    alert("Foto no valida, debe pesar menos de 2 mb");
+                    $("#spnaddfoto").html(listo);
+                    $("#spnaddfoto").show();
+                    $("#spnaddalert").show();
                 }
                 $("#prog").hide();
             }, $("#prog"));    
 
 
          }
-    });
-        /****************************************************/
-        //EDITAR BUTTON DIALOG  
-        //13-08-2014
-//        else if ( $("#editmimeinput").val().trim().length == 0) {
-//                $("#spneditmime").html("Campo requerido");
-//                $("#spneditmime").show();
-//                $("#spnaddalert").show();
-//              }
+    });       
         $("#editfotosave").click(function(e) {      
             e.preventDefault();
             if ( $("#editfotoinput").val().trim().length == 0) {
-                $("#spneditfoto").html("Seleccione una imagen");
+                $("#spneditfoto").html("Escriba un nombre para la imagen");
                 $("#spneditfoto").show();
-                $("#spnaddalert").show();
-              }else if ( $("#editdescripcioninput").val().trim().length == 0) {
-                $("#spneditdescripcion").html("Campo requerido");
-                $("#spneditdescripcion").show();
-                $("#spnaddalert").show();
-              }
-              else if ( $("#ipteditproducto_id").val().trim().length == 0){
-                $("#spnaddalert").show();
+                $("#spneditalert").show();
+              }else if ( $("#select-editproductos").val().trim().length == 0){
+                $("#spneditalert").show();
               }else{
-                $.ajax({
+                  if($("#checkededitimagen").prop("checked")){                      
+                       if ( $("#imagenefileedit").val().trim().length == 0) {
+                            $("#spneditfoto").html("Debe elegir una imagen para editarla");
+                            $("#spneditfoto").show(); 
+                       }else{
+                           alert("En contrucción");
+                       }
+                  }else{
+                    $.ajax({
                     url: 'Fotos/edit/' + idfotoglobal,
                     type: "POST",
-                    data: $("#formeditfoto").serialize(),
+                    data: {idproducto:$("#select-editproductos").val()},
                     dataType:'json',
                     success: function(n) {
+                        console.log(n);
                         if (n==1) {
                             mostrarDatos();
                             alert("Editado con exito");
                             $("#formeditfoto").trigger("reset");
                             $("#diveditfoto").dialog("close");
-                        }else if (n==0){
-                            $("#spneditfoto").html("No se pudo editar, intentelo de nuevo");
+                        }else{
+                            $("#spneditfoto").html(n);
                             $("#spneditfoto").show();                                                  
                         }
                     }
-                 });
+                 }); 
+                  }
+                
               }
         });
         /****************************************************/
@@ -196,7 +178,6 @@ $(document).ready(function() {
                 type: "POST",
                 dataType:'json',
                 success: function(n) {
-                    console.log(n);
                     if (n==1){          
                         alert("Foto id: " + idfotoglobal + " eliminada con éxito");               
                         mostrarDatos();
@@ -204,9 +185,7 @@ $(document).ready(function() {
                         alert("No se pudo eliminar registro");   
                     }else if (n==2){
                          alert("Foto id: " + idfotoglobal + " eliminada con éxito");               
-                         mostrarDatos();
-                         console.log("No se pudo eliminar imagen");
-                    }else if (n==-1){
+                         mostrarDatos();                    }else if (n==-1){
                          alert("No se pudo eliminar registro");   
                          console.log("No se pudo eliminar imagen");
                     }
@@ -260,9 +239,9 @@ $(document).ready(function() {
                if(data!=""){
                     var list =""; 
                     if (resp=="x") {
-                        list = '<select id="select-productos"><option value="">Seleccione un Producto</option>';
+                        list = '<select id="select-productos" name=producto_id ><option value="">Seleccione un Producto</option>';
                     }else{
-                        list ='<select id="select-editproductos">';
+                        list ='<select id="select-editproductos" name=producto_id >';
                     }     
                     $.each(data, function(item) {
                         if(resp==data[item].Producto.id){ 
@@ -289,13 +268,15 @@ $(document).ready(function() {
          });
     }
     function ocultarspan(){       
-        $("#spnaddfoto").hide();   
-        $("#spnaddmime").hide();   
-        $("#spnadddescripcion").hide(); 
+        $("#spnaddfoto").hide(); 
         $("#spnaddalert").hide(); 
         $("#spneditfoto").hide(); 
-        $("#spneditmime").hide(); 
-        $("#spneditdescripcion").hide();
         $("#spneditalert").hide();
         $("#prog").hide();
+        $("#progedit").hide();
+        
+    }
+    function limpiarNombre(nombre){
+        var e=nombre.split('\\').pop();
+        return e.substring(0, e.indexOf('.'));
     }
