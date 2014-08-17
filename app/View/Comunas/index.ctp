@@ -44,8 +44,10 @@
             $.ajax({
                 url: 'Comunas/view/' + idcomunasglobal,
                 dataType: 'json',
+                beforeSend:function(){ $("#cargando").dialog("open");},
                 type: "POST",
                 success: function(data) {
+                    $("#cargando").dialog("close");
                     $("#editcomunasinput").val(data.Comuna.comuna);
                     $("#ipteditregione_id").val(data.Comuna.regione_id);
                     $("#ipteditzona_id").val(data.Comuna.zona_id);
@@ -114,8 +116,10 @@
                     url: "Comunas/add",
                     type: "POST",
                     data: $("#formaddcomunas").serialize(),
+                    beforeSend:function(){ $("#cargando").dialog("open");},
                     dataType:'json',
                     success: function(n) {
+                        $("#cargando").dialog("close");
                         if (n==1){
                            $("#formaddcomunas").trigger("reset");                           
                            mostrarDatos();
@@ -149,7 +153,9 @@
                     type: "POST",
                     data: $("#formeditcomunas").serialize(),
                     dataType:'json',
+                    beforeSend:function(){ $("#cargando").dialog("open");},
                     success: function(n) {
+                        $("#cargando").dialog("close");
                         if (n==1) {
                             mostrarDatos();
                             alert("Editado con exito");
@@ -173,7 +179,9 @@
                 url: "Comunas/delete/" + idcomunasglobal,
                 type: "POST",
                 dataType:'json',
+                beforeSend:function(){ $("#cargando").dialog("open");},
                 success: function(n) {
+                    $("#cargando").dialog("close");
                     if (n==1){          
                         alert("Region id: " + idcomunasglobal + " eliminada con éxito");               
                         mostrarDatos();
@@ -191,10 +199,9 @@
             url: 'Comunas/listacomunas',
             type: 'POST',
             dataType: 'json',
-                beforeSend: function() {
-                $('#listacomunas').html("Llenando datos...");
-            },
+            beforeSend:function(){ $("#cargando").dialog("open");},
             success: function(data) {
+                $("#cargando").dialog("open");
                 if(data!=""){
                 var tabla = '<table>';
                 tabla += '<tr>';

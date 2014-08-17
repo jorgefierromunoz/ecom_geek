@@ -39,6 +39,7 @@ class BancosController extends AppController{
          $this->layout = 'ajax';
     }
       public function view($id = null) {
+        sleep(3);
         $this->Banco->id = $id;
         $this->Banco->recursive = -1;
         $this->set('bancos', $this->Banco->read());

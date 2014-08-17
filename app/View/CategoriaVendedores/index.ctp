@@ -20,7 +20,9 @@
                 url: 'CategoriaVendedores/view/' + idcatvendglobal,
                 dataType: 'json',
                 type: "POST",
+                beforeSend: function(){ $("#cargando").dialog("open");},
                 success: function(data) {
+                    $("#cargando").dialog("close");
                     $("#editcatvendinput").val(data.CategoriaVendedore.categoriaVendedor);
                     $("#editporcentajeinput").val(data.CategoriaVendedore.porcentaje);
                     $("#diveditcatvend").dialog("open");
@@ -87,9 +89,11 @@
                 $.ajax({
                     url: "CategoriaVendedores/add",
                     type: "POST",
+                    beforeSend: function(){ $("#cargando").dialog("open");},
                     data: $("#formaddcatvend").serialize(),
                     dataType:'json',
                     success: function(n) {
+                        $("#cargando").dialog("close");
                         if (n==1){
                            $("#formaddcatvend").trigger("reset");                           
                            mostrarDatos("id","asc");
@@ -124,7 +128,9 @@
                 type: "POST",
                 data: $("#formeditcatvend").serialize(),
                 dataType:'json',
+                beforeSend: function(){ $("#cargando").dialog("open");},                
                 success: function(n) {
+                    $("#cargando").dialog("close");
                     if (n==1) {
                         mostrarDatos("id","asc");
                         $("#formeditcatvend").trigger("reset");
@@ -148,7 +154,9 @@
                 url: "CategoriaVendedores/delete/" + idcatvendglobal,
                 type: "POST",
                 dataType:'json',
+                beforeSend: function(){ $("#cargando").dialog("open");},
                 success: function(n) {
+                    $("#cargando").dialog("close");
                     if (n=='t'){          
                         alert("La Categoria del Vendedor id: " + idcatvendglobal + " fue eliminada con éxito");               
                         mostrarDatos("id","asc");
@@ -178,10 +186,9 @@
             url: 'CategoriaVendedores/listacatvendedores/CategoriaVendedore.'+atributo+'/'+orden,
             type: 'POST',
             dataType: 'json',
-                beforeSend: function() {
-                $('#listacategoriavendedores').html("Llenando datos...");
-            },
+            beforeSend: function(){ $("#cargando").dialog("open");},
             success: function(data) {
+                $("#cargando").dialog("close");
                 if(data!=""){
                 var tabla = '<table>';
                 tabla += '<tr>';

@@ -1,6 +1,6 @@
 <script>
     $(document).ready(function() {
-        idproductosglobal = 0;
+        iddireccionesglobal = 0;
         //LISTA 
         mostrarDatos("id","asc");
         //check add
@@ -76,9 +76,9 @@
         
         //OPEN DIV NUEVO BUTTON   
         //-----------------------------------
-        $("#btnaddproductos").click(function() {
+        $("#btnadddirecciones").click(function() {
             $("#list-subcategorias").html("<select id=select-subcategorias><option value=''><-------Sub Categorias-------></option>");
-            $("#formaddproductos").trigger("reset");
+            $("#formadddirecciones").trigger("reset");
             //$("#iptsubCategoria_id").val("");
             $("#iptmodelo_id").val("");
             $("#ipttamano_id").val("");
@@ -88,49 +88,47 @@
             llenarlistboxCategorias("x");
             llenarlistboxmodelos("x");
             llenarlistboxtamanos("x");
-            $("#divaddproductos").dialog("open");
+            $("#divadddirecciones").dialog("open");
         });
         //OPEN DIV EDIT  
         //-------------------------------------
         //LLENAR EDITAR CON DATOS EXISTENTES     
         $(document).on("click", ".editar", function() {
             ocultarspan();            
-            idproductosglobal = $(this).attr('data-id');
+            iddireccionesglobal = $(this).attr('data-id');
             $.ajax({
-                url: 'Productos/view/' + idproductosglobal,
+                url: 'Direcciones/view/' + iddireccionesglobal,
                 dataType: 'json',
                 type: "POST",
-                beforeSend:function(){ $("#cargando").dialog("open");},
                 success: function(data) {
-                    $("#cargando").dialog("close");
-                    $("#editproductosinput").val(data.Producto.producto);
-                    $("#editdescripcioninput").val(data.Producto.descripcion);
-                    $("#editstockinput").val(data.Producto.stock);
-                    $("#editprecioinput").val(data.Producto.precio);
-                    $("#editprecioPuntoinput").val(data.Producto.precioPunto);
-                    if (data.Producto.prioridadPunto){
-                        $("#editprioridadPuntoinput").val(data.Producto.prioridadPunto);
+                    $("#editdireccionesinput").val(data.Direccione.direccione);
+                    $("#editdescripcioninput").val(data.Direccione.descripcion);
+                    $("#editstockinput").val(data.Direccione.stock);
+                    $("#editprecioinput").val(data.Direccione.precio);
+                    $("#editprecioPuntoinput").val(data.Direccione.precioPunto);
+                    if (data.Direccione.prioridadPunto){
+                        $("#editprioridadPuntoinput").val(data.Direccione.prioridadPunto);
                         $("#checkeditppuntos").prop("checked", true);
                     }else{
                          $("#editprioridadPuntoinput").val("");
                          $("#checkeditppuntos").prop("checked", false);
                     }
-                     if (data.Producto.prioridadPrecio){
-                        $("#editprioridadPrecioinput").val(data.Producto.prioridadPrecio);
+                     if (data.Direccione.prioridadPrecio){
+                        $("#editprioridadPrecioinput").val(data.Direccione.prioridadPrecio);
                         $("#checkeditprecio").prop("checked", true);
                     }else{
                          $("#editprioridadPrecioinput").val("");
                          $("#checkeditprecio").prop("checked", false);
                     }
-                    //$("#ipteditsubCategoria_id").val(data.Producto.sub_categoria_id);
-                    $("#ipteditmodelo_id").val(data.Producto.modelo_id);
-                    $("#iptedittamano_id").val(data.Producto.tamano_id);  
+                    //$("#ipteditsubCategoria_id").val(data.Direccione.sub_categoria_id);
+                    $("#ipteditmodelo_id").val(data.Direccione.modelo_id);
+                    $("#iptedittamano_id").val(data.Direccione.tamano_id);  
                     
-                    llenarlistboxsubCategorias(data.Producto.sub_categoria_id,"x");
+                    llenarlistboxsubCategorias(data.Direccione.sub_categoria_id,"x");
                     
-                    llenarlistboxmodelos(data.Producto.modelo_id);
-                    llenarlistboxtamanos(data.Producto.tamano_id);
-                    $("#diveditproductos").dialog("open");
+                    llenarlistboxmodelos(data.Direccione.modelo_id);
+                    llenarlistboxtamanos(data.Direccione.tamano_id);
+                    $("#diveditdirecciones").dialog("open");
                 },
                 error: function(n) {
                     console.log(n);
@@ -140,9 +138,9 @@
         /****************************************************/
         /****************************************************/
         //DECLARACION DIALOG DIV AGREGAR Y EDITAR 
-        $("#divaddproductos").dialog({
-            height: '500',
-            width: '40%',
+        $("#divadddirecciones").dialog({
+            height: 'auto',
+            width: 'auto',
             autoOpen: false,
             modal: true,
             show: {
@@ -154,14 +152,14 @@
                 duration: 300
             }
         }).css("font-size", "15px", "width", "auto");
-         $('#formaddproductos').submit(function(e) {
+         $('#formadddirecciones').submit(function(e) {
             e.preventDefault();
         });
         /****************************************************/
         /****************************************************/
-        $("#diveditproductos").dialog({
-            height: '500',
-            width: '40%',
+        $("#diveditdirecciones").dialog({
+            height: 'auto',
+            width: 'auto',
             autoOpen: false,
             modal: true,
             show: {
@@ -173,7 +171,7 @@
                 duration: 300
             }
         }).css("font-size", "15px", "width", "auto");
-        $('#formeditproductos').submit(function(e) {
+        $('#formeditdirecciones').submit(function(e) {
             e.preventDefault();
         });
         /****************************************************/
@@ -195,11 +193,11 @@
             e.preventDefault();
         });
         //GUARDAR BUTTON ADD DIALOG 
-        $("#addproductossave").click(function(e) {
+        $("#adddireccionessave").click(function(e) {
             e.preventDefault();
-              if ( $("#iptproductos").val().trim().length == 0) {
-                $("#spnaddproductos").html("Campo requerido");
-                $("#spnaddproductos").show();
+              if ( $("#iptdirecciones").val().trim().length == 0) {
+                $("#spnadddirecciones").html("Campo requerido");
+                $("#spnadddirecciones").show();
                 $("#spnaddalert").show();
                 
               }else if ( $("#iptdescripcion").val().trim().length == 0) {
@@ -218,17 +216,15 @@
                 $("#spnaddalert").show();
               }else{
                 $.ajax({
-                    url: "Productos/add",
+                    url: "Direcciones/add",
                     type: "POST",
-                    data: $("#formaddproductos").serialize(),
+                    data: $("#formadddirecciones").serialize(),
                     dataType:'json',
-                    beforeSend:function(){ $("#cargando").dialog("open");},
                     success: function(n) {
-                        $("#cargando").dialog("close");
                         if (n==1){
-                           $("#formaddproductos").trigger("reset");                           
+                           $("#formadddirecciones").trigger("reset");                           
                            mostrarDatos("id","asc");
-                           $("#divaddproductos").dialog("close");
+                           $("#divadddirecciones").dialog("close");
                         }else if (n==0){
                             alert("No se pudo guardar, intentelo de nuevo");
                         }
@@ -242,11 +238,11 @@
         /****************************************************/
         /****************************************************/
         //EDITAR BUTTON DIALOG 
-        $("#editproductossave").click(function(e) {      
+        $("#editdireccionessave").click(function(e) {      
             e.preventDefault();
-            if ( $("#editproductosinput").val().trim().length == 0) {
-                $("#spneditproductos").html("Campo requerido");
-                $("#spneditproductos").show();
+            if ( $("#editdireccionesinput").val().trim().length == 0) {
+                $("#spneditdirecciones").html("Campo requerido");
+                $("#spneditdirecciones").show();
                 $("#spnaddalert").show();
               }else if ( $("#editdescripcioninput").val().trim().length == 0) {
                 $("#spnaddalert").show();
@@ -264,21 +260,19 @@
                 $("#spnaddalert").show();
               }else{
                 $.ajax({
-                    url: 'Productos/edit/' + idproductosglobal,
+                    url: 'Direcciones/edit/' + iddireccionesglobal,
                     type: "POST",
-                    data: $("#formeditproductos").serialize(),
+                    data: $("#formeditdirecciones").serialize(),
                     dataType:'json',
-                    beforeSend:function(){ $("#cargando").dialog("open");},
                     success: function(n) {
-                        $("#cargando").dialog("close");
                         if (n==1) {
                             mostrarDatos("id","asc");
                             alert("Editado con exito");
-                            $("#formeditproductos").trigger("reset");
-                            $("#diveditproductos").dialog("close");
+                            $("#formeditdirecciones").trigger("reset");
+                            $("#diveditdirecciones").dialog("close");
                         }else if (n==0){
-                            $("#spneditproductos").html("No se pudo editar, intentelo de nuevo");
-                            $("#spneditproductos").show();                                                  
+                            $("#spneditdirecciones").html("No se pudo editar, intentelo de nuevo");
+                            $("#spneditdirecciones").show();                                                  
                         }
                     }
                  });
@@ -289,16 +283,14 @@
        //ELIMINAR  BUTTON 
         $(document).on("click", ".delete", function(e) {
             e.preventDefault();
-            idproductosglobal = $(this).attr('data-id');
+            iddireccionesglobal = $(this).attr('data-id');
             $.ajax({
-                url: "Productos/delete/" + idproductosglobal,
+                url: "Direcciones/delete/" + iddireccionesglobal,
                 type: "POST",
                 dataType:'json',
-                beforeSend:function(){ $("#cargando").dialog("open");},
                 success: function(n) {
-                    $("#cargando").dialog("close");
                     if (n=='t'){          
-                        alert("Producto id: " + idproductosglobal + " eliminada con éxito");               
+                        alert("Direccione id: " + iddireccionesglobal + " eliminada con éxito");               
                         mostrarDatos("id","asc");
                     }else{
                         alert("No se puede eliminar por que hay " + n + " foto(s) asociada(s)");   
@@ -309,24 +301,22 @@
         //VER BUTTON
         $(document).on("click", ".ver", function(e) {
             e.preventDefault();
-            idproductosglobal = $(this).attr('data-id');
+            iddireccionesglobal = $(this).attr('data-id');
             $.ajax({
-                url: "Productos/ver/" + idproductosglobal,
+                url: "Direcciones/ver/" + iddireccionesglobal,
                 type: "POST",
                 dataType:'json',
-                beforeSend:function(){ $("#cargando").dialog("open");},
                 success: function(data) {
-                    $("#cargando").dialog("close");
-                    $("#verproducto").html("Producto: " + data.Producto.producto);
-                    $("#iptproducto_id").val(data.Producto.id);
-                    var listaproductos='';
+                    $("#verdireccione").html("Direccione: " + data.Direccione.direccione);
+                    $("#iptdireccione_id").val(data.Direccione.id);
+                    var listadirecciones='';
                     $.each(data.Foto, function(item) {
-                        listaproductos += '<article class="productos">';
-                        listaproductos += '<img src="img/Fotos/s_' + data.Foto[item].url + '" height="100px" width="100px">';
-                        listaproductos += '</article>';
+                        listadirecciones += '<article class="direcciones">';
+                        listadirecciones += '<img src="img/Fotos/s_' + data.Foto[item].url + '" height="100px" width="100px">';
+                        listadirecciones += '</article>';
                     });
                     
-                    $("#imagenes").html(listaproductos);
+                    $("#imagenes").html(listadirecciones);
                     $("#ver").dialog("open");
                 }
             });
@@ -349,53 +339,49 @@
     //LISTAR
     function mostrarDatos(atributo,orden) {
         $.ajax({
-            url: 'Productos/listaproductos/Producto.'+atributo+'/'+orden,
+            url: 'Direcciones/listadirecciones/Direccione.'+atributo+'/'+orden,
             type: 'POST',
             dataType: 'json',
-            beforeSend:function(){ $("#cargando").dialog("open");},
+                beforeSend: function() {
+                $('#listadirecciones').html("Llenando datos...");
+            },
             success: function(data) {
-                $("#cargando").dialog("close");
                 if(data!=""){
                 var tabla = '<table>';
                 tabla += '<tr>';
                 tabla += '<th class=ordenar data-id=id>Id</th>';
-                tabla += '<th class=ordenar data-id=producto>Producto</th>';
-                tabla += '<th class=ordenar data-id=descripcion>Descripción</th><th class=ordenar data-id=stock>Stock</th>';
-                tabla += '<th class=ordenar data-id=precio>Precio</th><th class=ordenar data-id=precioPunto>Precio Puntos</th><th class=ordenar data-id=prioridadPunto>Prioridad Puntos</th>';
-                tabla += '<th class=ordenar data-id=prioridadPrecio>Prioridad Precio</th><th class=ordenar data-id=sub_categoria_id>Sub Categoria</th>';
-                tabla += '<th class=ordenar data-id=modelo_id>Modelo</th><th class=ordenar data-id=tamano_id>Tamaño</th><th>Ver</th><th>Editar</th><th>Eliminar</th>';
+                tabla += '<th class=ordenar data-id=calle>Calle</th>';
+                tabla += '<th class=ordenar data-id=numero>numero</th><th class=ordenar data-id=dpto>Departamento</th>';
+                tabla += '<th class=ordenar data-id=restoDireccion>Resto Dirección</th><th class=ordenar data-id=codigoPostal>Código Postal</th><th class=ordenar data-id=georeferencia>Georeferencia</th>';
+                tabla += '<th class=ordenar data-id=estado>Estado</th><th class=ordenar data-id=user_id>Usuario</th>';
+                tabla += '<th class=ordenar data-id=comuna_id>Comuna</th><th>Editar</th><th>Eliminar</th>';
                 tabla += '</tr>';
                 $.each(data, function(index, item) {
                     tabla += '<tr>';
-                    tabla += '<td>' + item.Producto.id + '</td>';
-                    tabla += '<td>' + item.Producto.producto + '</td>';
-                    tabla += '<td>' + item.Producto.descripcion +'</td>';
-                    tabla += '<td>' + item.Producto.stock +'</td>';
-                    tabla += '<td>' + item.Producto.precio +'</td>';
-                    tabla += '<td>' + item.Producto.precioPunto +'</td>';
-                    if (item.Producto.prioridadPunto ){
-                       tabla += '<td ><input type=checkbox checked disabled></td>';
-                    }else{
-                        tabla += '<td ><input type=checkbox disabled></td>';
-                    }
-                    if (item.Producto.prioridadPrecio){
-                       tabla += '<td ><input type=checkbox checked disabled></td>';
-                    }else{
-                        tabla += '<td ><input type=checkbox disabled></td>';
-                    }                        
-                    tabla += '<td>' + item.SubCategoria.subCategoria +'</td>';
-                    tabla += '<td>' + item.Modelo.modelo +'</td>';
-                    tabla += '<td>' + item.Tamano.tamano +'</td>';
-                    tabla += '<td><button type="button" class="ver" data-id="' + item.Producto.id + '">Ver</button></td>';
-                    tabla += '<td><button type="button" class="editar" data-id="' + item.Producto.id + '">Editar</button></td>';
-                    tabla += '<td><button type="button" class="delete" data-id="' + item.Producto.id + '">Eliminar</button></td>';
+                    tabla += '<td>' + item.Direccione.id + '</td>';
+                    tabla += '<td>' + item.Direccione.calle + '</td>';
+                    tabla += '<td>' + item.Direccione.numero +'</td>';
+                    tabla += '<td>' + item.Direccione.dpto +'</td>';
+                    tabla += '<td>' + item.Direccione.restoDireccion +'</td>';                    
+                    tabla += '<td>' + item.Direccione.codigoPostal +'</td>';
+                    tabla += '<td>' + item.Direccione.georeferencia +'</td>';
+                    tabla += '<td>' + item.Direccione.estado +'</td>';
+                    tabla += '<td>' + item.User.username +'</td>';
+                    tabla += '<td>' + item.Comuna.comuna +'</td>';
+//                    if (item.Direccione.prioridadPunto ){
+//                       tabla += '<td ><input type=checkbox checked disabled></td>';
+//                    }else{
+//                        tabla += '<td ><input type=checkbox disabled></td>';
+//                    }
+                    tabla += '<td><button type="button" class="editar" data-id="' + item.Direccione.id + '">Editar</button></td>';
+                    tabla += '<td><button type="button" class="delete" data-id="' + item.Direccione.id + '">Eliminar</button></td>';
                     tabla += '</tr>';
                 });
                 tabla += '</table>';
-                $('#listaproductos').html(tabla);
+                $('#listadirecciones').html(tabla);
                 }else{
-                   tabla = 'No hay productos en la base de datos';
-                $('#listaproductos').html(tabla);
+                   tabla = 'No hay direcciones en la base de datos';
+                $('#listadirecciones').html(tabla);
                 }
             }
         });
@@ -551,7 +537,7 @@
          });
     }
     function ocultarspan(){   
-        $("#spnaddproductos").hide();
+        $("#spnadddirecciones").hide();
         $("#spnaddalert").hide();
         $("#spneditalert").hide();
     }
@@ -561,16 +547,16 @@
 </script>
 
 <!-- LISTA  -->
-<div id="listaproductos"></div>
+<div id="listadirecciones"></div>
 <!-- AGREGAR  -->
-<button  id="btnaddproductos" class="botones">Nuevo Producto</button>
-<div id="divaddproductos" title="Nuevo Producto"> 
-    <form id="formaddproductos" method="POST">
-        <label>Nombre del Producto:</label> 
-        <input id="iptproductos" type="text" name="producto">
-        <span id="spnaddproductos"></span> 
+<button  id="btnadddirecciones" class="botones">Nuevo Direccione</button>
+<div id="divadddirecciones" title="Nuevo Direccione"> 
+    <form id="formadddirecciones" method="POST">
+        <label>Nombre del Direccione:</label> 
+        <input id="iptdirecciones" type="text" name="direccione">
+        <span id="spnadddirecciones"></span> 
         <label>Descripción:</label> 
-        <textarea id="iptdescripcion" rows="3" cols="20" name="descripcion"></textarea>
+        <input id="iptdescripcion" type="text" name="descripcion">
         <span id="spnadddescripcion"></span> 
         <label>Stock:</label> 
         <input id="iptstock" type="text" name="stock">
@@ -603,61 +589,59 @@
         <label>Tamaño:</label> 
         <div id="list-tamanos"></div>
         <input id="ipttamano_id" type="hidden" name="tamano_id" >
-        <hr>
-        <p align="right"><button id="addproductossave">Guardar</button></p>
+        
+        <button id="adddireccionessave">Guardar</button>
         <span id="spnaddalert">Debe llenar los campos correctamente</span>
     </form>
 </div>
 
 <!--EDITAR  -->
-<div id="diveditproductos" title="Editar Productos">
-    <form id="formeditproductos" method="POST">
-        <fieldset>
-            <label>Producto: </label>
-            <input id="editproductosinput" type="text" name="producto">
-            <span id="spneditproductos"></span>        
-            <label>Descripción:</label> 
-            <textarea id="editdescripcioninput" rows="3" cols="20" name="descripcion"></textarea>
-            <span id="spneditdescripcion"></span> 
-            <label>Stock:</label> 
-            <input id="editstockinput" type="text" name="stock">
-            <span id="spneditstock"></span> 
-            <label>Precio:</label> 
-            <input id="editprecioinput" type="text" name="precio">
-            <span id="spneditprecio"></span> 
-            <label>Precio Punto:</label> 
-            <input id="editprecioPuntoinput" type="text" name="precioPunto">
-            <span id="spneditprecioPunto"></span>
+<div id="diveditdirecciones" title="Editar Direcciones">
+    <form id="formeditdirecciones" method="POST">
+        <label>Direccione: </label>
+        <input id="editdireccionesinput" type="text" name="direccione">
+        <span id="spneditdirecciones"></span>        
+        <label>Descripción:</label> 
+        <input id="editdescripcioninput" type="text" name="descripcion">
+        <span id="spneditdescripcion"></span> 
+        <label>Stock:</label> 
+        <input id="editstockinput" type="text" name="stock">
+        <span id="spneditstock"></span> 
+        <label>Precio:</label> 
+        <input id="editprecioinput" type="text" name="precio">
+        <span id="spneditprecio"></span> 
+        <label>Precio Punto:</label> 
+        <input id="editprecioPuntoinput" type="text" name="precioPunto">
+        <span id="spneditprecioPunto"></span>
 
-            <input type="checkbox" id="checkeditppuntos"><label for="check">Prioridad Puntos</label>
-            <input id="editprioridadPuntoinput" type="hidden" name="prioridadPunto">
-            <span id="spneditprioridadPunto"></span>
+        <input type="checkbox" id="checkeditppuntos"><label for="check">Prioridad Puntos</label>
+        <input id="editprioridadPuntoinput" type="hidden" name="prioridadPunto">
+        <span id="spneditprioridadPunto"></span>
 
-            <input type="checkbox" id="checkeditprecio"><label for="check">Prioridad Precio</label> 
-            <input id="editprioridadPrecioinput" type="hidden" name="prioridadPrecio">
-            <span id="spneditprioridadPrecio"></span>
-            <label>Categoria:</label> 
-            <div id="list-editcategorias"></div>
-            <label>Sub Categoria:</label> 
-            <div id="list-editsubcategorias"></div>        
-            <label>Modelo:</label> 
-            <div id="list-editmodelos"></div>
-            <input id="ipteditmodelo_id" type="hidden" name="modelo_id" >
-
-            <label>Tamaño:</label> 
-            <div id="list-edittamanos"></div>
-            <input id="iptedittamano_id" type="hidden" name="tamano_id" >
-            <hr>
-            <p align="right"><button id="editproductossave" align="right">Guardar</button></p>
-            <span id="spneditalert">Debe llenar los campos correctamente</span>
-        </fieldset>
+        <input type="checkbox" id="checkeditprecio"><label for="check">Prioridad Precio</label> 
+        <input id="editprioridadPrecioinput" type="hidden" name="prioridadPrecio">
+        <span id="spneditprioridadPrecio"></span>
+        <label>Categoria:</label> 
+        <div id="list-editcategorias"></div>
+        <label>Sub Categoria:</label> 
+        <div id="list-editsubcategorias"></div>        
+        <label>Modelo:</label> 
+        <div id="list-editmodelos"></div>
+        <input id="ipteditmodelo_id" type="hidden" name="modelo_id" >
+        
+        <label>Tamaño:</label> 
+        <div id="list-edittamanos"></div>
+        <input id="iptedittamano_id" type="hidden" name="tamano_id" >
+         
+        <button id="editdireccionessave">Guardar</button>
+        <span id="spneditalert">Debe llenar los campos correctamente</span>       
     </form>
 </div>
 <!-- VER -->
-<div id="ver" title="Ver Producto" >
+<div id="ver" title="Ver Direccione" >
      <!--<button id="btnaddfoto" class="botones">Agregar nueva Imagen</button>-->
     <table>
-        <tr><td><label id="verproducto"></label></td></tr>
+        <tr><td><label id="verdireccione"></label></td></tr>
     </table>
     <div id="imagenes"></div>
 </div>

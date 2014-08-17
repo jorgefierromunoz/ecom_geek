@@ -13,7 +13,7 @@
 class DireccionesController extends AppController{
     //put your code here
     public $name = 'Direcciones';
-     public function index(){
+    public function index(){
       
     }
     function listadirecciones($atributo=null,$orden=null) {
@@ -40,12 +40,6 @@ class DireccionesController extends AppController{
     public function view($id = null) {
         $this->Direccione->id = $id;
         $this->Direccione->recursive = -1;
-        $this->set('direcciones', $this->Direccione->read());
-        $this->layout = 'ajax';
-    }
-    public function ver($id = null) {
-        $this->Direccione->id = $id;
-        $this->Direccione->recursive = 1;
         $this->set('direcciones', $this->Direccione->read());
         $this->layout = 'ajax';
     }

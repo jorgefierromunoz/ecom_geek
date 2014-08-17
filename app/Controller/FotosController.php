@@ -18,18 +18,17 @@ class FotosController extends AppController{
         $this->set('fotos', $this->Foto->find('all'));
         $this->layout = 'ajax';
     }
-    function redimImagen($direccion,$idima,$nombreima){        
-        $nameimagen= $_FILES['imagen']['name'];
+    
+    function redimImagen($direccion,$idima,$nombreima){     
         $tmpimagen= $_FILES['imagen']['tmp_name'];
         $ancho = 250;
-        $info = pathinfo($nameimagen);
-	$tamano = getimagesize($tmpimagen);
+        $tamano = getimagesize($tmpimagen);
 	$width 	= $tamano[0];		
 	$height	= $tamano[1];
 	if($width > $ancho){
             $alto = intval($height * $ancho / $width);
             //$alto=250;
-            if($info['extension'] =="jpg"){
+            if($_FILES['imagen']['type'] == "image/jpeg"){
                 $viejaimagen = imagecreatefromjpeg($tmpimagen);
                 $nuevaimagen = imagecreatetruecolor($ancho, $alto); 
                 imagecopyresized($nuevaimagen, $viejaimagen, 0,0,0,0,$ancho,$alto, $width, $height);
@@ -38,7 +37,7 @@ class FotosController extends AppController{
                 copy($tmpimagen, $original);
                 imagejpeg($nuevaimagen, $copia);
                 return true;
-            }else if($info['extension'] =="png"){
+            }else if($_FILES['imagen']['type'] == "image/png"){
                 $viejaimagen = imagecreatefrompng($tmpimagen);
                 $nuevaimagen = imagecreatetruecolor($ancho, $alto); 
                 imagecopyresized($nuevaimagen, $viejaimagen, 0,0,0,0,$ancho,$alto, $width, $height);
@@ -46,6 +45,15 @@ class FotosController extends AppController{
                 $copia=$direccion."s_".$idima."_".$nombreima;
                 copy($tmpimagen, $original);	
                 imagepng($nuevaimagen, $copia);
+                return true;
+            }else if($_FILES['imagen']['type'] == "image/jpeg"){
+                $viejaimagen = imagecreatefromjpeg($tmpimagen);
+                $nuevaimagen = imagecreatetruecolor($ancho, $alto); 
+                imagecopyresized($nuevaimagen, $viejaimagen, 0,0,0,0,$ancho,$alto, $width, $height);
+                $original=$direccion.$idima."_".$nombreima;
+                $copia=$direccion."s_".$idima."_".$nombreima;
+                copy($tmpimagen, $original);
+                imagejpeg($nuevaimagen, $copia);
                 return true;
             }else{
                 return false;
@@ -79,7 +87,7 @@ class FotosController extends AppController{
                                         $resp = 'Error editando nombre registro';
                                     }                       
                                 } else {
-                                    $resp = "No se pudo redimensionar la imagen ";
+                                $resp = "No se pudo redimensionar la imagen ".$_FILES['imagen']['type'];
                                 }
                             }else{
                                  $resp="No se pudo guardar los datos";

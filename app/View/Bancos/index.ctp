@@ -20,8 +20,10 @@
             $.ajax({
                 url: 'Bancos/view/' + idbancoglobal,
                 dataType: 'json',
-                type: "POST",
+                type: "POST",                
+                beforeSend: function(){ $("#cargando").dialog("open");},
                 success: function(data) {
+                    $("#cargando").dialog("close");
                     $.each(data, function(item2) {
                         nombre = data[item2].banco;
                     });
@@ -83,8 +85,10 @@
                     url: "Bancos/add",
                     type: "POST",
                     data: $("#formaddbanco").serialize(),
-                    dataType:'json',
+                    dataType:'json',                    
+                    beforeSend: function(){ $("#cargando").dialog("open");},
                     success: function(n) {
+                         $("#cargando").dialog("close");
                         if (n==1){
                            $("#formaddbanco").trigger("reset");                           
                            mostrarDatos();
@@ -111,20 +115,22 @@
             if ( $("#editbancoinput").val().trim().length !== 0 ) {
             $.ajax({
                 url: 'Bancos/edit/' + idbancoglobal,
-                type: "POST",
+                type: "POST",                
+                beforeSend: function(){ $("#cargando").dialog("open");},
                 data: $("#formeditbanco").serialize(),
                 dataType:'json',
                 success: function(n) {
+                    $("#cargando").dialog("close");
                     if (n==1) {
                         mostrarDatos();
-                        alert("Editado con exito");
                         $("#formeditbanco").trigger("reset");
                         $("#diveditbanco").dialog("close");
                     }else if (n==0){
                         $("#spneditbanco").html("No se pudo editar, intentelo de nuevo");
                         $("#spneditbanco").show();                                                  
                     }
-                }
+                },
+                error:function(n){console.log(n)}                
             });
             }else{
              $("#spneditbanco").html("Campo requerido");
@@ -142,9 +148,10 @@
                 url: "Bancos/delete/" + idbancoglobal,
                 type: "POST",
                 dataType:'json',
+                beforeSend: function(){ $("#cargando").dialog("open");},
                 success: function(n) {
-                    if (n=='t'){          
-                        alert("Banco id: " + idbancoglobal + " eliminada con éxito");               
+                    $("#cargando").dialog("close");
+                    if (n=='t'){               
                         mostrarDatos();
                     }else{
                         alert("No se puede eliminar por que hay " + n + " tipo(s) de cuenta(s) bancaria(s) asociada(s)");   
@@ -159,10 +166,9 @@
             url: 'Bancos/listabancos',
             type: 'POST',
             dataType: 'json',
-                beforeSend: function() {
-                $('#listabancos').html("Llenando datos...");
-            },
+            beforeSend: function(){ $("#cargando").dialog("open");},
             success: function(data) {
+                $("#cargando").dialog("close");
                 if(data!=""){
                 var tabla = '<table>';
                 tabla += '<tr>';
