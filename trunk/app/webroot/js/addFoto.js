@@ -39,9 +39,11 @@ $(document).ready(function() {
             idfotoglobal = $(this).attr('data-id');
             $.ajax({
                 url: 'Fotos/view/' + idfotoglobal,
-                dataType: 'json',
+                dataType: 'json',               
                 type: "POST",
+                beforeSend: function(){ $("#cargando").dialog("open");},
                 success: function(data) {
+                    $("#cargando").dialog("close");
                     var urlfoto=data.Foto.url;
                     $("#editfotoinput").val(urlfoto.substring(0, urlfoto.indexOf('.')));
                     llenarlistboxproductos(data.Foto.producto_id);
@@ -49,7 +51,8 @@ $(document).ready(function() {
                 },
                 error: function(n) {
                     console.log(n);
-                }
+                }                
+                
             });
         });
         /****************************************************/
@@ -156,9 +159,9 @@ $(document).ready(function() {
                     url: 'Fotos/edit/' + idfotoglobal,
                     type: "POST",
                     data: {idproducto:$("#select-editproductos").val()},
+                    beforeSend: function(){ $("#cargando").dialog("open");},                    
                     dataType:'json',
                     success: function(n) {
-                        console.log(n);
                         if (n==1) {
                             mostrarDatos();
                             alert("Editado con exito");
@@ -184,7 +187,9 @@ $(document).ready(function() {
                 url: "Fotos/delete/" + idfotoglobal,
                 type: "POST",
                 dataType:'json',
+                beforeSend: function(){ $("#cargando").dialog("open");},
                 success: function(n) {
+                    $("#cargando").dialog("close");
                     if (n==1){          
                         alert("Foto id: " + idfotoglobal + " eliminada con éxito");               
                         mostrarDatos();
@@ -208,10 +213,9 @@ $(document).ready(function() {
             url: 'Fotos/listafotos',
             type: 'POST',
             dataType: 'json',
-                beforeSend: function() {
-                $('#listafotos').html("Llenando datos...");
-            },
+            beforeSend: function(){ $("#cargando").dialog("open");},  
             success: function(data) {
+                $("#cargando").dialog("close");
                 if(data!=""){
                 var tabla = '<table>';
                 tabla += '<tr>';
@@ -243,6 +247,8 @@ $(document).ready(function() {
             url: 'Productos/listaproductosComboBox',
             dataType: 'json',
             type:'POST',
+            beforeSend: function(){ $('#list-productos').html("Recuperando datos...");
+                                    $('#list-editproductos').html("Recuperando datos...");},
             success: function(data) {
                if(data!=""){
                     var list =""; 

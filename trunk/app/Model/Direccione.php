@@ -14,6 +14,7 @@ class Direccione extends AppModel{
     //put your code here
     public $name='Direccione';
     public $belongsTo=array('User','Comuna');
+    
 }
 
 ?>
