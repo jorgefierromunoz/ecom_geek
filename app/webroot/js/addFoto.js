@@ -192,7 +192,8 @@ $(document).ready(function() {
                         alert("No se pudo eliminar registro");   
                     }else if (n==2){
                          alert("Foto id: " + idfotoglobal + " eliminada con éxito");               
-                         mostrarDatos();                    }else if (n==-1){
+                         mostrarDatos();                    
+                     }else if (n==-1){
                          alert("No se pudo eliminar registro");   
                          console.log("No se pudo eliminar imagen");
                     }
@@ -219,7 +220,7 @@ $(document).ready(function() {
                 $.each(data, function(index, item) {
                     tabla += '<tr>';
                     tabla += '<td>' + item.Foto.id + '</td>';
-                    tabla += '<td><img src="img/Fotos/' + item.Foto.url + '" height="100px" width="100px"></td>';
+                    tabla += '<td><img src="img/Fotos/s_' + item.Foto.url + '" height=100px width=100px></td>';
                     tabla += '<td>' + item.Foto.url + '</td>';
                     tabla += '<td>' + item.Foto.mime + '</td>';
                     tabla += '<td>' + item.Foto.descripcion + '</td>';

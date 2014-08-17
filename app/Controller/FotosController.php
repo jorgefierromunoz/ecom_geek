@@ -18,6 +18,41 @@ class FotosController extends AppController{
         $this->set('fotos', $this->Foto->find('all'));
         $this->layout = 'ajax';
     }
+    function redimImagen($direccion,$idima,$nombreima){        
+        $nameimagen= $_FILES['imagen']['name'];
+        $tmpimagen= $_FILES['imagen']['tmp_name'];
+        $ancho = 250;
+        $info = pathinfo($nameimagen);
+	$tamano = getimagesize($tmpimagen);
+	$width 	= $tamano[0];		
+	$height	= $tamano[1];
+	if($width > $ancho){
+            $alto = intval($height * $ancho / $width);
+            //$alto=250;
+            if($info['extension'] =="jpg"){
+                $viejaimagen = imagecreatefromjpeg($tmpimagen);
+                $nuevaimagen = imagecreatetruecolor($ancho, $alto); 
+                imagecopyresized($nuevaimagen, $viejaimagen, 0,0,0,0,$ancho,$alto, $width, $height);
+                $original=$direccion.$idima."_".$nombreima;
+                $copia=$direccion."s_".$idima."_".$nombreima;
+                copy($tmpimagen, $original);
+                imagejpeg($nuevaimagen, $copia);
+                return true;
+            }else if($info['extension'] =="png"){
+                $viejaimagen = imagecreatefrompng($tmpimagen);
+                $nuevaimagen = imagecreatetruecolor($ancho, $alto); 
+                imagecopyresized($nuevaimagen, $viejaimagen, 0,0,0,0,$ancho,$alto, $width, $height);
+                $original=$direccion.$idima."_".$nombreima;
+                $copia=$direccion."s_".$idima."_".$nombreima;
+                copy($tmpimagen, $original);	
+                imagepng($nuevaimagen, $copia);
+                return true;
+            }else{
+                return false;
+            }	
+	}        
+    }
+    
     function subirimagen() {
         $valido=false;
         if ($this->request->is('post')) {            
@@ -34,8 +69,9 @@ class FotosController extends AppController{
                            $this->Foto->create();                              
                             if ($this->Foto->save(array('url'=>$nombreimag,'mime'=>$_FILES['imagen']['type'],'descripcion'=>'Peso: '.$_FILES['imagen']['size']."/kB",'producto_id'=>$_POST['producto_id']))) {
                                 $idImagen=$this->Foto->getLastInsertID();
-                                $destino = WWW_ROOT . 'img\Fotos' . DS;
-                                if (move_uploaded_file($_FILES['imagen']['tmp_name'], $destino .$idImagen."_".$nombreimag)) {
+                                $destino = WWW_ROOT . 'img'.DS.'Fotos' . DS;
+                                //if (move_uploaded_file($_FILES['imagen']['tmp_name'], $destino .$idImagen."_".$nombreimag)) {
+                                if ($this->redimImagen($destino,$idImagen,$nombreimag)){
                                     $this->Foto->id = $idImagen;                                    
                                     if ($this->Foto->save(array('url'=>$idImagen."_".$nombreimag))){
                                          $resp = '1';
@@ -43,7 +79,7 @@ class FotosController extends AppController{
                                         $resp = 'Error editando nombre registro';
                                     }                       
                                 } else {
-                                    $resp = "No se pudo guardar la imagen ";
+                                    $resp = "No se pudo redimensionar la imagen ";
                                 }
                             }else{
                                  $resp="No se pudo guardar los datos";
@@ -96,8 +132,9 @@ class FotosController extends AppController{
                         if (!empty($this->request->data)) {   
                             $this->Foto->id = $id;
                             if ($this->Foto->save(array('url'=>$nombreimag,'mime'=>$_FILES['imagen']['type'],'descripcion'=>'Peso: '.$_FILES['imagen']['size']."/kB",'producto_id'=>$_POST['idproducto']))) { 
-                                $destino = WWW_ROOT . 'img\Fotos' . DS;
-                                if (move_uploaded_file($_FILES['imagen']['tmp_name'], $destino .$id."_".$nombreimag)) {
+                                $destino = WWW_ROOT . 'img'.DS.'Fotos' . DS;
+                                //if (move_uploaded_file($_FILES['imagen']['tmp_name'], $destino .$id."_".$nombreimag)) {
+                                if ($this->redimImagen($destino,$id,$nombreimag)){  
                                     $this->Foto->id = $id;                                    
                                     if ($this->Foto->save(array('url'=>$id."_".$nombreimag))){
                                          $resp = '1';
@@ -148,10 +185,14 @@ class FotosController extends AppController{
       $this->Foto->id = $id;
       $this->Foto->recursive = -1;       
       $Foto =  $this->Foto->read();
-      $destino = WWW_ROOT . 'img\Fotos' . DS;
-      $url=$destino.$Foto['Foto']['url']; 
+      $destino = WWW_ROOT . 'img'.DS.'Fotos' . DS;
+      $url=$destino.$Foto['Foto']['url'];
+      $urls=$destino."s_".$Foto['Foto']['url'];
       if(file_exists($url)){ 
           if(unlink($url)){
+              if (unlink($urls)){
+                  return "1";
+              }
               return "1";
           }else{
               return "0";
