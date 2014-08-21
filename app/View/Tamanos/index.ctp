@@ -20,7 +20,9 @@
                 url: 'Tamanos/view/' + idtamglobal,
                 dataType: 'json',
                 type: "POST",
+                beforeSend:function(){ $("#cargando").dialog("open");},
                 success: function(data) {
+                    $("#cargando").dialog("close");
                     $("#edittaminput").val(data.Tamano.tamano);
                     $("#editfactorinput").val(data.Tamano.factor);
                     $("#divedittam").dialog("open");
@@ -89,7 +91,9 @@
                     type: "POST",
                     data: $("#formaddtam").serialize(),
                     dataType:'json',
+                    beforeSend:function(){ $("#cargando").dialog("open");},
                     success: function(n) {
+                        $("#cargando").dialog("close");
                         if (n==1){
                            $("#formaddtam").trigger("reset");                           
                            mostrarDatos("id","asc");
@@ -124,7 +128,9 @@
                 type: "POST",
                 data: $("#formedittam").serialize(),
                 dataType:'json',
+                beforeSend:function(){ $("#cargando").dialog("open");},
                 success: function(n) {
+                    $("#cargando").dialog("close");
                     if (n==1) {
                         mostrarDatos("id","asc");
                         $("#formedittam").trigger("reset");
@@ -148,7 +154,9 @@
                 url: "Tamanos/delete/" + idtamglobal,
                 type: "POST",
                 dataType:'json',
+                beforeSend:function(){ $("#cargando").dialog("open");},
                 success: function(n) {
+                    $("#cargando").dialog("close");
                     if (n=='t'){          
                         alert("Tamaño id: " + idtamglobal + " eliminado con éxito");               
                         mostrarDatos("id","asc");
@@ -178,10 +186,9 @@
             url: 'Tamanos/listatamanos/Tamano.'+atributo+'/'+orden,
             type: 'POST',
             dataType: 'json',
-                beforeSend: function() {
-                $('#listatamanos').html("Llenando datos...");
-            },
+            beforeSend:function(){ $("#cargando").dialog("open");},
             success: function(data) {
+                $("#cargando").dialog("close");
                 if(data!=""){
                 var tabla = '<table>';
                 tabla += '<tr>';

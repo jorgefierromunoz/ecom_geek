@@ -26,24 +26,26 @@
             autoOpen: false,
             modal: true,
             show: {
-                effect: "blind",
-                duration: 300
+                effect: "fade",
+                duration: 150
             },
             hide: {
-                effect: "blind",
-                duration: 300
+                effect: "fade",
+                duration: 150
             }
         }).css("font-size", "15px", "width", "auto");
          $('#cargando').submit(function(e) {
             e.preventDefault();
         });
+        $("#prog").hide();
     });
    
     </script>
     <div id="cargando" title="Cargando">
        <p align="center">
         <label >Por favor espere....</label>
-       <img src="img/ajaxload.gif">
+        <img id="img" src="img/ajaxload.gif">
+        <progress id="prog"></progress>
        </p>
     </div>
 	<div id="container">
@@ -78,6 +80,8 @@
                                 </ul>
                            </li>
                            <li class="nivel1"><?php echo $this->Html->link('Cat. Vendedores', array('controller' => 'CategoriaVendedores', 'action' => 'index'), array('class' => 'nivel1')) ?></li>
+                           <li class="nivel1"><?php echo $this->Html->link('Direcciones', array('controller' => 'Direcciones', 'action' => 'index'), array('class' => 'nivel1')) ?></li>
+
                         </ul>
                     </nav>
 		</div>

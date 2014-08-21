@@ -20,7 +20,9 @@
                 url: 'Modelos/view/' + idmodglobal,
                 dataType: 'json',
                 type: "POST",
+                beforeSend:function(){ $("#cargando").dialog("open");},
                 success: function(data) {
+                    $("#cargando").dialog("close");
                     $("#editmodinput").val(data.Modelo.modelo);
                     $("#diveditmod").dialog("open");
                 },
@@ -84,7 +86,9 @@
                     type: "POST",
                     data: $("#formaddmod").serialize(),
                     dataType:'json',
+                    beforeSend:function(){ $("#cargando").dialog("open");},
                     success: function(n) {
+                        $("#cargando").dialog("close");
                         if (n==1){
                            $("#formaddmod").trigger("reset");                           
                            mostrarDatos("id","asc");
@@ -115,7 +119,9 @@
                 type: "POST",
                 data: $("#formeditmod").serialize(),
                 dataType:'json',
+                beforeSend:function(){ $("#cargando").dialog("open");},
                 success: function(n) {
+                    $("#cargando").dialog("close");
                     if (n==1) {
                         mostrarDatos("id","asc");
                         $("#formeditmod").trigger("reset");
@@ -139,7 +145,9 @@
                 url: "Modelos/delete/" + idmodglobal,
                 type: "POST",
                 dataType:'json',
+                beforeSend:function(){ $("#cargando").dialog("open");},
                 success: function(n) {
+                    $("#cargando").dialog("close");
                     if (n=='t'){          
                         alert("Modelo id: " + idmodglobal + " eliminada con éxito");               
                         mostrarDatos("id","asc");
@@ -169,10 +177,9 @@
             url: 'Modelos/listamodelos/Modelo.'+atributo+'/'+orden,
             type: 'POST',
             dataType: 'json',
-                beforeSend: function() {
-                $('#listamodelos').html("Llenando datos...");
-            },
+            beforeSend:function(){ $("#cargando").dialog("open");},
             success: function(data) {
+                $("#cargando").dialog("close");
                 if(data!=""){
                 var tabla = '<table>';
                 tabla += '<tr>';

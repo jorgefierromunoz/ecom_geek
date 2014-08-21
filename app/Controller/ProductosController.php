@@ -20,9 +20,18 @@ class ProductosController extends AppController{
         $this->set('productos', $this->Producto->find('all',array('order'=>array($atributo=> $orden))));
         $this->layout = 'ajax';
     }
+     function catsubcat($id=null) {
+        $this->set('productos', $this->Producto->find('all',array('recursive'=>0,'conditions'=>array('Producto.id'=>$id),'order'=>array('Producto.producto'=> 'asc'))));
+        $this->layout = 'ajax';
+    }
      function listaproductosComboBox() {
         $this->set('productos', $this->Producto->find('all',array('recursive'=>-1)));
         $this->layout = 'ajax';
+    }
+    function productosidsubcategoria($id){
+          $arreglo= array('recursive'=>-1,'conditions'=>array('Producto.sub_categoria_id'=>$id),'order'=>array('Producto.producto'=> 'asc'));
+           $this->set('productos',$this->Producto->find('all',$arreglo));
+        $this->layout = 'ajax'; 
     }
      public function add() {
          if ($this->request->is('post')) {
@@ -37,6 +46,7 @@ class ProductosController extends AppController{
          }
          $this->layout = 'ajax';
     }
+    
     public function view($id = null) {
         $this->Producto->id = $id;
         $this->Producto->recursive = -1;

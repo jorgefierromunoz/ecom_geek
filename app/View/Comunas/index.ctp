@@ -201,7 +201,7 @@
             dataType: 'json',
             beforeSend:function(){ $("#cargando").dialog("open");},
             success: function(data) {
-                $("#cargando").dialog("open");
+                $("#cargando").dialog("close");
                 if(data!=""){
                 var tabla = '<table>';
                 tabla += '<tr>';

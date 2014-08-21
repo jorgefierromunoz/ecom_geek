@@ -1,9 +1,10 @@
+<script type="text/javascript" src="js/categoria_sub_categoria.js"> </script>
 <script>
     $(document).ready(function() {
         idproductosglobal = 0;
         //LISTA 
         mostrarDatos("id","asc");
-        //check add
+        //check add 
         $("#addnewfoto").button();
         $("#checkaddppuntos").change(function(){
            var opcion=$("#checkaddppuntos").prop("checked");  
@@ -38,18 +39,9 @@
                $("#editprioridadPrecioinput").val("");
            }
         });
-        //SELECCION DEL COMBOBOX ON CHANGE ADD
-        $("#list-categorias").change(function() {
-            if ($("#select-categorias").val()==""){
-              $("#list-subcategorias").html("<select id=select-subcategorias><option value=''><-------Sub Categorias-------></option>");
-            }
-            else{
-               llenarlistboxsubCategorias("x", $("#select-categorias").val()); 
-            }    
-        });
-        //SELECCION DEL COMBOBOX ON CHANGE ADD
+         //SELECCION DEL COMBOBOX ON CHANGE ADD
         $("#list-editcategorias").change(function() {
-            llenarlistboxsubCategorias("ax", $("#select-editcategorias").val()); 
+            llenarlistboxsubCategorias("xa", $("#select-editcategorias").val());
         });
 
         //SELECCION DEL COMBOBOX ON CHANGE ADD
@@ -75,9 +67,10 @@
         });
         
         //OPEN DIV NUEVO BUTTON   
+       
         //-----------------------------------
         $("#btnaddproductos").click(function() {
-            $("#list-subcategorias").html("<select id=select-subcategorias><option value=''><-------Sub Categorias-------></option>");
+            $("#list-subcategorias").html("<select id=select-subcategorias><option value=''>Seleccione una Sub Categoria</option>");
             $("#formaddproductos").trigger("reset");
             //$("#iptsubCategoria_id").val("");
             $("#iptmodelo_id").val("");
@@ -401,81 +394,7 @@
         });
     }
     //resp =x cuando es add n° cuando es edit 
-    function llenarlistboxsubCategorias(resp,idcat) {
-        $.ajax({
-            url: 'SubCategorias/listasubcategoriasComboBox/'+idcat,
-            dataType: 'json',
-            type:'POST',
-            success: function(data) {     
-                    if(data!=""){
-                        var list =""; 
-                        if (resp=="x") {
-                            list = '<select id="select-subcategorias" name="sub_categoria_id"><option value="">Seleccione una Sub Categoria</option>';
-                        }else{
-                            list ='<select id="select-editsubcategorias" name="sub_categoria_id">';
-                        }     
-                        $.each(data, function(item) {                        
-                            if(resp==data[item].SubCategoria.id){ 
-                                list += '<option selected=selected value=' + data[item].SubCategoria.id + '>' + data[item].SubCategoria.subCategoria + '</option>';
-                                llenarlistboxCategorias(data[item].Categoria.id);
-                            }else{
-                                list += '<option value=' +  data[item].SubCategoria.id + '>' + data[item].SubCategoria.subCategoria + '</option>';
-                            }                       
-                        });
-                        list += '</select>';
-                        if (resp=="x") {
-                            $('#list-subcategorias').html(list);
-                        }else{
-                            $('#list-editsubcategorias').html(list);
-                        }
-                    }else{
-                        var list = '<select id="select-editsubcategorias"><option>No hay Sub Categorias en la BD</option>';
-                        if (resp=="x"){
-                            $('#list-subcategorias').html(list);
-                        }else{
-                             $('#list-editsubcategorias').html(list);
-                        }
-                    }
-               }
-         });
-    }
-    function llenarlistboxCategorias(resp) {
-        $.ajax({
-            url: 'Categorias/listacategoriasComboBox',
-            dataType: 'json',
-            type:'POST',
-            success: function(data) {
-                    if(data!=""){
-                    var list =""; 
-                        if (resp=="x") {
-                            list = '<select id="select-categorias"><option value="">Seleccione una Categoria</option>';
-                        }else{
-                            list ='<select id="select-editcategorias">';
-                        }     
-                        $.each(data, function(item) {
-                            if(resp==data[item].Categoria.id){ 
-                                list += '<option selected=selected value=' + data[item].Categoria.id + '>' + data[item].Categoria.categoria + '</option>';
-                            }else{
-                                list += '<option value=' +  data[item].Categoria.id + '>' + data[item].Categoria.categoria + '</option>';
-                            }                       
-                        });
-                        list += '</select>';
-                        if (resp=="x") {
-                            $('#list-categorias').html(list);
-                        }else{
-                            $('#list-editcategorias').html(list);
-                        }
-                    }else{
-                        var list = '<select id="select-editcategorias"><option>No hay Categorias en la BD</option>';
-                        if (resp=="x"){
-                             $('#list-categorias').html(list);
-                        }else{
-                             $('#list-editcategorias').html(list);
-                        }
-                }
-               }
-         });
-    }
+    
     function llenarlistboxmodelos(resp) {
         $.ajax({
             url: 'Modelos/listamodelosComboBox',
@@ -550,6 +469,8 @@
                }
          });
     }
+   
+
     function ocultarspan(){   
         $("#spnaddproductos").hide();
         $("#spnaddalert").hide();

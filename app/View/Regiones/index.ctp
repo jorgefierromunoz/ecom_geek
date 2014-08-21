@@ -32,7 +32,9 @@
                 url: 'Regiones/view/' + idregionesglobal,
                 dataType: 'json',
                 type: "POST",
+                beforeSend:function(){ $("#cargando").dialog("open");},
                 success: function(data) {
+                    $("#cargando").dialog("close");
                     $("#editregionesinput").val(data.Regione.region);
                     $("#ipteditpaise_id").val(data.Regione.paise_id);
                     llenarlistboxpaises(data.Regione.paise_id);
@@ -98,7 +100,9 @@
                     type: "POST",
                     data: $("#formaddregiones").serialize(),
                     dataType:'json',
+                    beforeSend:function(){ $("#cargando").dialog("open");},
                     success: function(n) {
+                        $("#cargando").dialog("close");
                         if (n==1){
                            $("#formaddregiones").trigger("reset");                           
                            mostrarDatos();
@@ -130,7 +134,9 @@
                     type: "POST",
                     data: $("#formeditregiones").serialize(),
                     dataType:'json',
+                    beforeSend:function(){ $("#cargando").dialog("open");},
                     success: function(n) {
+                        $("#cargando").dialog("close");
                         if (n==1) {
                             mostrarDatos();
                             alert("Editado con exito");
@@ -154,7 +160,9 @@
                 url: "Regiones/delete/" + idregionesglobal,
                 type: "POST",
                 dataType:'json',
+                beforeSend:function(){ $("#cargando").dialog("open");},
                 success: function(n) {
+                    $("#cargando").dialog("close");
                     if (n=='t'){          
                         alert("Region id: " + idregionesglobal + " eliminada con éxito");               
                         mostrarDatos();
@@ -172,10 +180,9 @@
             url: 'Regiones/listaregiones',
             type: 'POST',
             dataType: 'json',
-                beforeSend: function() {
-                $('#listaregiones').html("Llenando datos...");
-            },
+            beforeSend:function(){ $("#cargando").dialog("open");},
             success: function(data) {
+                $("#cargando").dialog("close");
                 if(data!=""){
                 var tabla = '<table>';
                 tabla += '<tr>';

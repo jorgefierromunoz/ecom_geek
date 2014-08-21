@@ -3,22 +3,12 @@
         iddireccionesglobal = 0;
         //LISTA 
         mostrarDatos("id","asc");
-        //check add
-        $("#addnewfoto").button();
         $("#checkaddppuntos").change(function(){
            var opcion=$("#checkaddppuntos").prop("checked");  
            if (opcion){
                 $("#iptprioridadPunto").val(opcion);
            }else{
                $("#iptprioridadPunto").val("");
-           }
-        });
-        $("#checkaddprecio").change(function(){
-           var opcion=$("#checkaddprecio").prop("checked");  
-           if (opcion){
-                $("#iptprioridadPrecio").val(opcion);
-           }else{
-               $("#iptprioridadPrecio").val("");
            }
         });
         //check edit  
@@ -30,64 +20,13 @@
                $("#editprioridadPuntoinput").val("");
            }
         });
-        $("#checkeditprecio").change(function(){
-           var opcion=$("#checkeditprecio").prop("checked");  
-           if (opcion){
-                $("#editprioridadPrecioinput").val(opcion);
-           }else{
-               $("#editprioridadPrecioinput").val("");
-           }
-        });
-        //SELECCION DEL COMBOBOX ON CHANGE ADD
-        $("#list-categorias").change(function() {
-            if ($("#select-categorias").val()==""){
-              $("#list-subcategorias").html("<select id=select-subcategorias><option value=''><-------Sub Categorias-------></option>");
-            }
-            else{
-               llenarlistboxsubCategorias("x", $("#select-categorias").val()); 
-            }    
-        });
-        //SELECCION DEL COMBOBOX ON CHANGE ADD
-        $("#list-editcategorias").change(function() {
-            llenarlistboxsubCategorias("ax", $("#select-editcategorias").val()); 
-        });
-
-        //SELECCION DEL COMBOBOX ON CHANGE ADD
-        $("#list-modelos").change(function() {
-            var opcion = $("#select-modelos").val();
-            $("#iptmodelo_id").val(opcion);
-        });
-        //SELECCION DEL COMBOBOX ON CHANGE ADD
-        $("#list-tamanos").change(function() {
-            var opcion = $("#select-tamanos").val();
-            $("#ipttamano_id").val(opcion);
-        });
-       
-         //SELECCION DEL COMBOBOX ON CHANGE EDIT
-        $("#list-editmodelos").change(function() {
-            var opcion = $("#select-editmodelos").val();
-            $("#ipteditmodelo_id").val(opcion);
-        });
-         //SELECCION DEL COMBOBOX ON CHANGE EDIT
-        $("#list-edittamanos").change(function() {
-            var opcion = $("#select-edittamanos").val();
-            $("#iptedittamano_id").val(opcion);
-        });
-        
         //OPEN DIV NUEVO BUTTON   
         //-----------------------------------
         $("#btnadddirecciones").click(function() {
-            $("#list-subcategorias").html("<select id=select-subcategorias><option value=''><-------Sub Categorias-------></option>");
             $("#formadddirecciones").trigger("reset");
-            //$("#iptsubCategoria_id").val("");
-            $("#iptmodelo_id").val("");
-            $("#ipttamano_id").val("");
-            $("#iptprioridadPunto").val("");
-            $("#iptprioridadPrecio").val("");               
+            $("#iptpestado").val("");        
             ocultarspan();
-            llenarlistboxCategorias("x");
-            llenarlistboxmodelos("x");
-            llenarlistboxtamanos("x");
+            l("x");
             $("#divadddirecciones").dialog("open");
         });
         //OPEN DIV EDIT  
@@ -139,8 +78,8 @@
         /****************************************************/
         //DECLARACION DIALOG DIV AGREGAR Y EDITAR 
         $("#divadddirecciones").dialog({
-            height: 'auto',
-            width: 'auto',
+            height: '500',
+            width: '40%',
             autoOpen: false,
             modal: true,
             show: {
@@ -365,14 +304,15 @@
                     tabla += '<td>' + item.Direccione.restoDireccion +'</td>';                    
                     tabla += '<td>' + item.Direccione.codigoPostal +'</td>';
                     tabla += '<td>' + item.Direccione.georeferencia +'</td>';
-                    tabla += '<td>' + item.Direccione.estado +'</td>';
+                    //tabla += '<td>' + item.Direccione.estado +'</td>';
+                    if (item.Direccione.estado ){
+                       tabla += '<td ><input type=checkbox checked disabled></td>';
+                    }else{
+                        tabla += '<td ><input type=checkbox disabled></td>';
+                    }
                     tabla += '<td>' + item.User.username +'</td>';
                     tabla += '<td>' + item.Comuna.comuna +'</td>';
-//                    if (item.Direccione.prioridadPunto ){
-//                       tabla += '<td ><input type=checkbox checked disabled></td>';
-//                    }else{
-//                        tabla += '<td ><input type=checkbox disabled></td>';
-//                    }
+
                     tabla += '<td><button type="button" class="editar" data-id="' + item.Direccione.id + '">Editar</button></td>';
                     tabla += '<td><button type="button" class="delete" data-id="' + item.Direccione.id + '">Eliminar</button></td>';
                     tabla += '</tr>';
@@ -386,159 +326,50 @@
             }
         });
     }
-    //resp =x cuando es add n° cuando es edit 
-    function llenarlistboxsubCategorias(resp,idcat) {
+    
+    function llenarlistboxcomunas(resp) {
         $.ajax({
-            url: 'SubCategorias/listasubcategoriasComboBox/'+idcat,
-            dataType: 'json',
-            type:'POST',
-            success: function(data) {     
-                    if(data!=""){
-                        var list =""; 
-                        if (resp=="x") {
-                            list = '<select id="select-subcategorias" name="sub_categoria_id"><option value="">Seleccione una Sub Categoria</option>';
-                        }else{
-                            list ='<select id="select-editsubcategorias" name="sub_categoria_id">';
-                        }     
-                        $.each(data, function(item) {                        
-                            if(resp==data[item].SubCategoria.id){ 
-                                list += '<option selected=selected value=' + data[item].SubCategoria.id + '>' + data[item].SubCategoria.subCategoria + '</option>';
-                                llenarlistboxCategorias(data[item].Categoria.id);
-                            }else{
-                                list += '<option value=' +  data[item].SubCategoria.id + '>' + data[item].SubCategoria.subCategoria + '</option>';
-                            }                       
-                        });
-                        list += '</select>';
-                        if (resp=="x") {
-                            $('#list-subcategorias').html(list);
-                        }else{
-                            $('#list-editsubcategorias').html(list);
-                        }
-                    }else{
-                        var list = '<select id="select-editsubcategorias"><option>No hay Sub Categorias en la BD</option>';
-                        if (resp=="x"){
-                            $('#list-subcategorias').html(list);
-                        }else{
-                             $('#list-editsubcategorias').html(list);
-                        }
-                    }
-               }
-         });
-    }
-    function llenarlistboxCategorias(resp) {
-        $.ajax({
-            url: 'Categorias/listacategoriasComboBox',
-            dataType: 'json',
-            type:'POST',
-            success: function(data) {
-                    if(data!=""){
-                    var list =""; 
-                        if (resp=="x") {
-                            list = '<select id="select-categorias"><option value="">Seleccione una Categoria</option>';
-                        }else{
-                            list ='<select id="select-editcategorias">';
-                        }     
-                        $.each(data, function(item) {
-                            if(resp==data[item].Categoria.id){ 
-                                list += '<option selected=selected value=' + data[item].Categoria.id + '>' + data[item].Categoria.categoria + '</option>';
-                            }else{
-                                list += '<option value=' +  data[item].Categoria.id + '>' + data[item].Categoria.categoria + '</option>';
-                            }                       
-                        });
-                        list += '</select>';
-                        if (resp=="x") {
-                            $('#list-categorias').html(list);
-                        }else{
-                            $('#list-editcategorias').html(list);
-                        }
-                    }else{
-                        var list = '<select id="select-editcategorias"><option>No hay Categorias en la BD</option>';
-                        if (resp=="x"){
-                             $('#list-categorias').html(list);
-                        }else{
-                             $('#list-editcategorias').html(list);
-                        }
-                }
-               }
-         });
-    }
-    function llenarlistboxmodelos(resp) {
-        $.ajax({
-            url: 'Modelos/listamodelosComboBox',
+            url: 'Comunas/listacomunasComboBox',
             dataType: 'json',
             type:'POST',
             success: function(data) {
                 if(data!=""){
                     var list =""; 
                     if (resp=="x") {
-                        list = '<select id="select-modelos"><option value="">Seleccione un modelo</option>';
+                        list = '<select id="select-comunas"><option value="">Seleccione una comuna</option>';
                     }else{
-                        list ='<select id="select-editmodelos">';
+                        list ='<select id="select-editcomunas">';
                     }     
                     $.each(data, function(item) {
                         if(resp==data[item].Modelo.id){ 
-                            list += '<option selected=selected value=' + data[item].Modelo.id + '>' + data[item].Modelo.modelo + '</option>';
+                            list += '<option selected=selected value=' + data[item].Comuna.id + '>' + data[item].Comuna.comuna + '</option>';
                         }else{
-                            list += '<option value=' +  data[item].Modelo.id + '>' +data[item].Modelo.modelo + '</option>';
+                            list += '<option value=' +  data[item].Comuna.id + '>' +data[item].Comuna.comuna + '</option>';
                         }                       
                     });
                     list += '</select>';
                     if (resp=="x") {
-                        $('#list-modelos').html(list);
+                        $('#list-comunas').html(list);
                     }else{
-                        $('#list-editmodelos').html(list);
+                        $('#list-editcomunas').html(list);
                     }
                 }else{
-                    var list = '<select id="select-editmodelos"><option>No hay modelos en la BD</option>';
+                    var list = '<select id="select-editcomunas"><option>No hay comunas en la BD</option>';
                     if (resp=="x"){
-                         $('#list-modelos').html(list);
+                         $('#list-comunas').html(list);
                     }else{
-                         $('#list-editmodelos').html(list);
+                         $('#list-editcomunas').html(list);
                     }
                 }
                }
          });
     }
-     function llenarlistboxtamanos(resp) {
-        $.ajax({
-            url: 'Tamanos/listatamanosComboBox',
-            dataType: 'json',
-            type:'POST',
-            success: function(data) {
-                if(data!=""){
-                    var list =""; 
-                    if (resp=="x") {
-                        list = '<select id="select-tamanos"><option value="">Seleccione un tamaño</option>';
-                    }else{
-                        list ='<select id="select-edittamanos">';
-                    }     
-                    $.each(data, function(item) {
-                        if(resp==data[item].Tamano.id){ 
-                            list += '<option selected=selected value=' + data[item].Tamano.id + '>' + data[item].Tamano.tamano + '</option>';
-                        }else{
-                            list += '<option value=' +  data[item].Tamano.id + '>' +data[item].Tamano.tamano + '</option>';
-                        }                       
-                    });
-                    list += '</select>';
-                    if (resp=="x") {
-                        $('#list-tamanos').html(list);
-                    }else{
-                        $('#list-edittamanos').html(list);
-                    }
-                }else{
-                    var list = '<select id="select-edittamanos"><option>No hay tamaños en la BD</option>';
-                    if (resp=="x"){
-                         $('#list-tamanos').html(list);
-                    }else{
-                         $('#list-edittamanos').html(list);
-                    }
-                }
-               }
-         });
-    }
+     
     function ocultarspan(){   
-        $("#spnadddirecciones").hide();
+        $("#spnaddcalle").hide();
+        $("#spnaddnumero").hide(); 
         $("#spnaddalert").hide();
+        
         $("#spneditalert").hide();
     }
 /********************************************************************/
@@ -549,48 +380,32 @@
 <!-- LISTA  -->
 <div id="listadirecciones"></div>
 <!-- AGREGAR  -->
-<button  id="btnadddirecciones" class="botones">Nuevo Direccione</button>
-<div id="divadddirecciones" title="Nuevo Direccione"> 
+<button  id="btnadddirecciones" class="botones">Nueva Dirección</button>
+<div id="divadddirecciones" title="Nueva Dirección"> 
     <form id="formadddirecciones" method="POST">
-        <label>Nombre del Direccione:</label> 
-        <input id="iptdirecciones" type="text" name="direccione">
-        <span id="spnadddirecciones"></span> 
-        <label>Descripción:</label> 
-        <input id="iptdescripcion" type="text" name="descripcion">
-        <span id="spnadddescripcion"></span> 
-        <label>Stock:</label> 
-        <input id="iptstock" type="text" name="stock">
-        <span id="spnaddstock"></span> 
-        <label>Precio:</label> 
-        <input id="iptprecio" type="text" name="precio">
-        <span id="spnaddprecio"></span> 
-        <label>Precio Punto:</label> 
-        <input id="iptprecioPunto" type="text" name="precioPunto">
-        <span id="spnaddprecioPunto"></span>
+        <label>Calle:</label> 
+        <input id="iptcalle" type="text" name="calle">
+        <span id="spnaddcalle"></span> spnaddcalle spnaddnumero
+        <label>Número:</label> 
+        <input id="iptnumero" type="text" name="numero">
+        <span id="spnaddnumero"></span> 
+        <label>Departamento:</label> 
+        <input id="iptdpto" type="text" name="dpto"> 
+        <label>Resto de la Dirección:</label> 
+        <input id="iptrestodireccion" type="text" name="restoDireccion">
+        <label>Código Postal:</label> 
+        <input id="iptcodigoPostal" type="text" name="codigoPostal">
+        <label>Geo-Referencia:</label> 
+        <input id="iptgeoreferencia" type="text" name="georeferencia"> 
         <br>
-        <input type="checkbox" id="checkaddppuntos"><label for="check">Prioridad Puntos</label>
-        <input id="iptprioridadPunto" type="hidden" name="prioridadPunto">
-        <span id="spnaddprioridadPunto"></span>
+        <input type="checkbox" id="checkestado"><label for="check">Estado</label>
+        <input id="iptpestado" type="text" name="estado">
         <br>
-        <input type="checkbox" id="checkaddprecio"><label for="check">Prioridad Precio</label> 
-        <input id="iptprioridadPrecio" type="hidden" name="prioridadPrecio">
-        <span id="spnaddprioridadPrecio"></span>
-        <br>
-        <label>Categoria:</label> 
-        <div id="list-categorias"></div>
-        
-        <label>Sub Categoria:</label> 
-        <div id="list-subcategorias"></div>         
-      
-        <label>Modelos:</label> 
-        <div id="list-modelos"></div>
-        <input id="iptmodelo_id" type="hidden" name="modelo_id" >
-        
-        <label>Tamaño:</label> 
-        <div id="list-tamanos"></div>
-        <input id="ipttamano_id" type="hidden" name="tamano_id" >
-        
-        <button id="adddireccionessave">Guardar</button>
+        <input id="iptuser_id" type="text" name="user_id">
+        <label>Comuna:</label> 
+        <div id="list-comuna"></div>        
+
+        <p align="right"><button id="adddireccionessave">Guardar</button></p>
         <span id="spnaddalert">Debe llenar los campos correctamente</span>
     </form>
 </div>

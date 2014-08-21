@@ -32,7 +32,9 @@
                 url: 'SubCategorias/view/' + idsubcatglobal,
                 dataType: 'json',
                 type: "POST",
+                beforeSend:function(){ $("#cargando").dialog("open");},
                 success: function(data) {
+                    $("#cargando").dialog("close");
                     $("#editsubcatinput").val(data.SubCategoria.subCategoria);
                     $("#ipteditcategoria_id").val(data.SubCategoria.categoria_id);
                     llenarlistboxcategorias(data.SubCategoria.categoria_id);
@@ -98,7 +100,9 @@
                     type: "POST",
                     data: $("#formaddsubcat").serialize(),
                     dataType:'json',
+                    beforeSend:function(){ $("#cargando").dialog("open");},
                     success: function(n) {
+                        $("#cargando").dialog("close");
                         if (n==1){
                            $("#formaddsubcat").trigger("reset");                           
                            mostrarDatos("id","asc");
@@ -130,7 +134,9 @@
                     type: "POST",
                     data: $("#formeditsubcat").serialize(),
                     dataType:'json',
+                    beforeSend:function(){ $("#cargando").dialog("open");},
                     success: function(n) {
+                        $("#cargando").dialog("close");
                         if (n==1) {
                             mostrarDatos("id","asc");
                             alert("Editado con exito");
@@ -154,7 +160,9 @@
                 url: "SubCategorias/delete/" + idsubcatglobal,
                 type: "POST",
                 dataType:'json',
+                beforeSend:function(){ $("#cargando").dialog("open");},
                 success: function(n) {
+                    $("#cargando").dialog("close");
                     if (n=='t'){          
                         alert("Sub-Categoria id: " + idsubcatglobal + " eliminada con éxito");               
                         mostrarDatos("id","asc");
@@ -184,10 +192,9 @@
             url: 'SubCategorias/listasubcategorias/SubCategoria.'+atributo+'/'+orden,
             type: 'POST',
             dataType: 'json',
-                beforeSend: function() {
-                $('#listasubcategorias').html("Llenando datos...");
-            },
+            beforeSend:function(){ $("#cargando").dialog("open");},
             success: function(data) {
+                $("#cargando").dialog("close");
                 if(data!=""){
                 var tabla = '<table>';
                 tabla += '<tr>';

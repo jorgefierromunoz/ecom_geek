@@ -14,7 +14,9 @@
                 url: 'Paises/view/' + idpaisesglobal,
                 dataType: 'json',
                 type: "POST",
+                beforeSend:function(){ $("#cargando").dialog("open");},
                 success: function(data) {
+                    $("#cargando").dialog("close");
                     $("#editpaisinput").val(data.Paise.pais);
                     $("#editabreviaturainput").val(data.Paise.abreviatura);
                     $("#diveditpais").dialog("open");
@@ -79,7 +81,9 @@
                     type: "POST",
                     data: $("#formaddpais").serialize(),
                     dataType:'json',
+                    beforeSend:function(){ $("#cargando").dialog("open");},
                     success: function(n) {
+                        $("#cargando").dialog("close");
                         if (n==1){
                            $("#formaddpais").trigger("reset");                           
                            mostrarDatos("id","asc","1");
@@ -110,7 +114,9 @@
                 type: "POST",
                 data: $("#formeditpais").serialize(),
                 dataType:'json',
+                beforeSend:function(){ $("#cargando").dialog("open");},
                 success: function(n) {
+                    $("#cargando").dialog("close");
                     if (n==1) {
                         mostrarDatos("id","asc","1");
                         $("#formeditpais").trigger("reset");
@@ -134,7 +140,9 @@
                 url: "Paises/delete/" + idpaisesglobal,
                 type: "POST",
                 dataType:'json',
-                success: function(n) {
+                beforeSend:function(){ $("#cargando").dialog("open");},
+                success: function(n) {                    
+                    $("#cargando").dialog("close");
                     if (n=='t'){               
                         mostrarDatos("id","asc","1");
                         alert("Pais id: " + idpaisesglobal + " eliminado con éxito");          
@@ -188,11 +196,9 @@
             url: 'Paises/listapaises/Paise.'+atributo+'/'+orden+'/'+pagina,
             type: 'POST',
             dataType: 'json',
-                beforeSend: function() {
-                $('#listapaises').html("Llenando datos...");
-            },
+            beforeSend:function(){ $("#cargando").dialog("open");},
             success: function(data) {
-                console.log("total paises " +data[1]+" pagina actual "+ data[2] + " total paginas " + data[3]);
+                $("#cargando").dialog("close");
                 if(data!=""){
                     var pagina="";
                     if (data[2]==1){
