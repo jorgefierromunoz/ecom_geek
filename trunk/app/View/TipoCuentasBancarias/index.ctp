@@ -23,7 +23,9 @@
                 url: 'TipoCuentasBancarias/view/' + idtcbancariasglobal,
                 dataType: 'json',
                 type: "POST",
+                beforeSend:function(){ $("#cargando").dialog("open");},
                 success: function(data) {
+                    $("#cargando").dialog("close");
                     $("#edittcbancariasinput").val(data.TipoCuentasBancaria.tipoCuentaBancaria);
                     llenarlistboxbancos(data.TipoCuentasBancaria.banco_id);
                     $("#divedittcbancarias").dialog("open");
@@ -88,7 +90,9 @@
                     type: "POST",
                     data: $("#formaddtcbancarias").serialize(),
                     dataType:'json',
+                    beforeSend:function(){ $("#cargando").dialog("open");},
                     success: function(n) {
+                        $("#cargando").dialog("close");
                         if (n==1){
                            $("#formaddtcbancarias").trigger("reset");                           
                            mostrarDatos();
@@ -120,7 +124,9 @@
                     type: "POST",
                     data: $("#formedittcbancarias").serialize(),
                     dataType:'json',
+                    beforeSend:function(){ $("#cargando").dialog("open");},
                     success: function(n) {
+                        $("#cargando").dialog("close");
                         if (n==1) {
                             mostrarDatos();
                             alert("Editado con exito");
@@ -144,8 +150,9 @@
                 url: "TipoCuentasBancarias/delete/" + idtcbancariasglobal,
                 type: "POST",
                 dataType:'json',
+                beforeSend:function(){ $("#cargando").dialog("open");},
                 success: function(n) {
-                  
+                    $("#cargando").dialog("close");
                     if (n=='t'){          
                         alert("Cuenta id: " + idtcbancariasglobal + " eliminada con éxito");               
                         mostrarDatos();
@@ -162,10 +169,9 @@
             url: 'TipoCuentasBancarias/listatcbancarias',
             type: 'POST',
             dataType: 'json',
-                beforeSend: function() {
-                $('#listatcbancarias').html("Llenando datos...");
-            },
+            beforeSend:function(){ $("#cargando").dialog("open");},
             success: function(data) {
+                $("#cargando").dialog("close");
                 if(data!=""){
                 var tabla = '<table>';
                 tabla += '<tr>';

@@ -22,13 +22,35 @@ $(document).ready(function() {
         $('#imagenefileedit').change(function() {
             $("#editfotoinput").val(limpiarNombre($('#imagenefileedit').val()));
         });
+        $("#list-subcategorias").change(function() {
+            if ($("#select-subcategorias").val()==""){
+              $("#list-productos").html("<select id=select-productos><option value=''>Seleccione un Producto</option>");
+            }
+            else{
+               llenarlistboxProductos("x", $("#select-subcategorias").val()); 
+            }    
+        });   
+         //SELECCION DEL COMBOBOX ON CHANGE 
+        $("#list-editcategorias").change(function() {
+            llenarlistboxsubCategorias("x20", $("#select-editcategorias").val());
+            
+        }); 
+        
+        $("#list-editsubcategorias").change(function() {
+            llenarlistboxProductos("xa", $("#select-editsubcategorias").val());  
+        }); 
+         
         //OPEN DIV NUEVA  BUTTON
         //-----------------------------------
         $("#btnaddfoto").click(function() {
             $("#formaddfoto").trigger("reset");
             $("#imagenefile").val("");            
-            ocultarspan();
-            llenarlistboxproductos("x");
+            ocultarspan();             
+            $("#list-categorias").html("<select id=select-categorias><option value=''>Seleccione una Categoria</option>");
+            $("#list-subcategorias").html("<select id=select-subcategorias><option value=''>Seleccione una Sub Categoria</option>");
+            $("#list-productos").html("<select id=select-productos><option value=''>Seleccione un Producto</option>");
+        
+            llenarlistboxCategorias("x");
             $("#divaddfoto").dialog("open");
         });
         //OPEN DIV EDIT  
@@ -43,10 +65,10 @@ $(document).ready(function() {
                 type: "POST",
                 beforeSend: function(){ $("#cargando").dialog("open");},
                 success: function(data) {
+                    var urlfoto=data.Foto.url;                    
+                    llenarcatsubcat(data.Foto.producto_id);
+                    $("#editfotoinput").val(urlfoto.substring(0, urlfoto.indexOf('.')));                    
                     $("#cargando").dialog("close");
-                    var urlfoto=data.Foto.url;
-                    $("#editfotoinput").val(urlfoto.substring(0, urlfoto.indexOf('.')));
-                    llenarlistboxproductos(data.Foto.producto_id);
                     $("#diveditfoto").dialog("open");
                 },
                 error: function(n) {
@@ -107,9 +129,11 @@ $(document).ready(function() {
           }else if ( $("#select-productos").val().trim().length == 0){
             $("#spnaddalert").show();
           }else {
-           $("#prog").show();
-           $("#imagenefile").upload("Fotos/subirimagen",{url:$("#iptfoto").val(),producto_id:$("#select-productos").val()} ,function(listo) {
-                if (listo=="1"){
+            $("#cargando").dialog("open");
+            $("#prog").show();
+            $("#img").hide();
+            $("#imagenefile").upload("Fotos/subirimagen",{url:$("#iptfoto").val(),producto_id:$("#select-productos").val()} ,function(listo) {
+                 if (listo=="1"){
                     $("#formaddfoto").trigger("reset"); 
                     mostrarDatos(); 
                     $("#divaddfoto").dialog("close");
@@ -117,8 +141,10 @@ $(document).ready(function() {
                     $("#spnaddfoto").html(listo);
                     $("#spnaddfoto").show();
                     $("#spnaddalert").show();
-                }
+                }                
+                $("#cargando").dialog("close");
                 $("#prog").hide();
+                $("#img").show();
             }, $("#prog"));    
 
 
@@ -139,8 +165,9 @@ $(document).ready(function() {
                             $("#spneditfoto").html("Debe elegir una imagen para editarla");
                             $("#spneditfoto").show(); 
                        }else{
-                           //BORRAR IMAGEN ANTIGUA DEL SERVIDOR
-                           $("#progedit").show();
+                           $("#cargando").dialog("open");
+                           $("#prog").show();
+                           $("#img").hide();
                            $("#imagenefileedit").upload("Fotos/edit/"+idfotoglobal+"/0",{url:$("#editfotoinput").val(),idproducto:$("#select-editproductos").val()} ,function(resp) {
                                if(resp==1){
                                     mostrarDatos();
@@ -151,7 +178,10 @@ $(document).ready(function() {
                                else{
                                    alert(resp);
                                }
-                           },$("#progedit"));    
+                           $("#cargando").dialog("close");
+                           $("#prog").hide();
+                           $("#img").show();
+                           },$("#prog"));    
                        }
 
                   }else{
@@ -242,45 +272,7 @@ $(document).ready(function() {
             }
         });
     }
-    function llenarlistboxproductos(resp) {
-        $.ajax({
-            url: 'Productos/listaproductosComboBox',
-            dataType: 'json',
-            type:'POST',
-            beforeSend: function(){ $('#list-productos').html("Recuperando datos...");
-                                    $('#list-editproductos').html("Recuperando datos...");},
-            success: function(data) {
-               if(data!=""){
-                    var list =""; 
-                    if (resp=="x") {
-                        list = '<select id="select-productos" name=producto_id ><option value="">Seleccione un Producto</option>';
-                    }else{
-                        list ='<select id="select-editproductos" name=producto_id >';
-                    }     
-                    $.each(data, function(item) {
-                        if(resp==data[item].Producto.id){ 
-                            list += '<option selected=selected value=' + data[item].Producto.id + '>' + data[item].Producto.producto + '</option>';
-                        }else{
-                            list += '<option value=' + data[item].Producto.id + '>' + data[item].Producto.producto + '</option>';
-                        }                       
-                    });
-                    list += '</select>';
-                    if (resp=="x") {
-                        $('#list-productos').html(list);
-                    }else{
-                        $('#list-editproductos').html(list);
-                    }
-                }else{
-                    var list = '<select id="select-productos"><option>No hay productos en la BD</option>';
-                    if (resp=="x"){
-                         $('#list-productos').html(list);
-                    }else{
-                         $('#list-editproductos').html(list);
-                    }
-                }
-               }
-         });
-    }
+  
     function ocultarspan(){       
         $("#spnaddfoto").hide(); 
         $("#spnaddalert").hide(); 

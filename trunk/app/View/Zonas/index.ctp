@@ -20,7 +20,9 @@
                 url: 'Zonas/view/' + idzonaglobal,
                 dataType: 'json',
                 type: "POST",
+                beforeSend:function(){ $("#cargando").dialog("open");},
                 success: function(data) {
+                    $("#cargando").dialog("close");
                     $("#editzonainput").val(data.Zona.zona);
                     $("#editprecioinput").val(data.Zona.precio);
                     $("#editpreciopuntosinput").val(data.Zona.precioPunto);
@@ -94,7 +96,9 @@
                     type: "POST",
                     data: $("#formaddzona").serialize(),
                     dataType:'json',
+                    beforeSend:function(){ $("#cargando").dialog("open");},
                     success: function(n) {
+                        $("#cargando").dialog("close");
                         if (n==1){
                            $("#formaddzona").trigger("reset");                           
                            mostrarDatos();
@@ -132,7 +136,9 @@
                 type: "POST",
                 data: $("#formeditzona").serialize(),
                 dataType:'json',
+                beforeSend:function(){ $("#cargando").dialog("open");},
                 success: function(n) {
+                    $("#cargando").dialog("close");
                     if (n==1) {
                         mostrarDatos();
                         $("#formeditzona").trigger("reset");
@@ -156,7 +162,9 @@
                 url: "Zonas/delete/" + idzonaglobal,
                 type: "POST",
                 dataType:'json',
+                beforeSend:function(){ $("#cargando").dialog("open");},
                 success: function(n) {
+                    $("#cargando").dialog("close");
                     if (n=='t'){          
                         alert("Zona id: " + idzonaglobal + " eliminada con éxito");               
                         mostrarDatos();
@@ -173,10 +181,9 @@
             url: 'Zonas/listazonas',
             type: 'POST',
             dataType: 'json',
-                beforeSend: function() {
-                $('#listazonas').html("Llenando datos...");
-            },
+            beforeSend:function(){ $("#cargando").dialog("open");},
             success: function(data) {
+                $("#cargando").dialog("close");
                 if(data!=""){
                 var tabla = '<table>';
                 tabla += '<tr>';
