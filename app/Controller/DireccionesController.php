@@ -54,13 +54,11 @@ class DireccionesController extends AppController{
     }
   
     function delete($id) {
-        $cant=$this->Direccione->hasFotos($id);
-        if ($cant==0){
-            $this->Direccione->delete($id);
-            $this->set('direcciones', 't');
+        if ($this->Direccione->delete($id)) {
+           $this->set('direcciones','1');   
         }else{
-            $this->set('direcciones', $cant);
-        }
+            $this->set('direcciones','0');    
+        } 
         $this->layout = 'ajax';
     }
    
