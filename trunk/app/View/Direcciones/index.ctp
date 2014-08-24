@@ -3,21 +3,21 @@
         iddireccionesglobal = 0;
         //LISTA 
         mostrarDatos("id","asc");
-        $("#checkaddppuntos").change(function(){
-           var opcion=$("#checkaddppuntos").prop("checked");  
-           if (opcion){
-                $("#iptprioridadPunto").val(opcion);
+        $("#checkestado").change(function(){
+           var opcion=$("#checkestado").prop("checked");  
+            if (opcion){
+                $("#iptestado").val(opcion);
            }else{
-               $("#iptprioridadPunto").val("");
+               $("#iptestado").val("");
            }
         });
         //check edit  
-        $("#checkeditppuntos").change(function(){
-           var opcion=$("#checkeditppuntos").prop("checked");  
+        $("#editcheckestado").change(function(){
+           var opcion=$("#editcheckestado").prop("checked");  
            if (opcion){
-                $("#editprioridadPuntoinput").val(opcion);
+                $("#editestado").val(opcion);
            }else{
-               $("#editprioridadPuntoinput").val("");
+               $("#editestado").val("");
            }
         });
         //OPEN DIV NUEVO BUTTON   
@@ -26,7 +26,7 @@
             $("#formadddirecciones").trigger("reset");
             $("#iptpestado").val("");        
             ocultarspan();
-            l("x");
+            llenarlistboxcomunas("x");
             $("#divadddirecciones").dialog("open");
         });
         //OPEN DIV EDIT  
@@ -39,34 +39,25 @@
                 url: 'Direcciones/view/' + iddireccionesglobal,
                 dataType: 'json',
                 type: "POST",
+                beforeSend:function(){ $("#cargando").dialog("open");},
                 success: function(data) {
-                    $("#editdireccionesinput").val(data.Direccione.direccione);
-                    $("#editdescripcioninput").val(data.Direccione.descripcion);
-                    $("#editstockinput").val(data.Direccione.stock);
-                    $("#editprecioinput").val(data.Direccione.precio);
-                    $("#editprecioPuntoinput").val(data.Direccione.precioPunto);
-                    if (data.Direccione.prioridadPunto){
-                        $("#editprioridadPuntoinput").val(data.Direccione.prioridadPunto);
-                        $("#checkeditppuntos").prop("checked", true);
+                    $("#cargando").dialog("close");
+                    $("#editcalle").val(data.Direccione.calle);
+                    $("#editnumero").val(data.Direccione.numero);
+                    $("#editdpto").val(data.Direccione.dpto);
+                    $("#editrestodireccion").val(data.Direccione.restoDireccion);
+                    $("#editcodigoPostal").val(data.Direccione.codigoPostal);
+                    $("#editgeoreferencia").val(data.Direccione.georeferencia);
+                    if (data.Direccione.estado){
+                        $("#editestado").val(data.Direccione.estado);
+                        $("#editcheckestado").prop("checked", true);
                     }else{
-                         $("#editprioridadPuntoinput").val("");
-                         $("#checkeditppuntos").prop("checked", false);
+                         $("#editestado").val("");
+                         $("#editcheckestado").prop("checked", false);
                     }
-                     if (data.Direccione.prioridadPrecio){
-                        $("#editprioridadPrecioinput").val(data.Direccione.prioridadPrecio);
-                        $("#checkeditprecio").prop("checked", true);
-                    }else{
-                         $("#editprioridadPrecioinput").val("");
-                         $("#checkeditprecio").prop("checked", false);
-                    }
-                    //$("#ipteditsubCategoria_id").val(data.Direccione.sub_categoria_id);
-                    $("#ipteditmodelo_id").val(data.Direccione.modelo_id);
-                    $("#iptedittamano_id").val(data.Direccione.tamano_id);  
+                    $("#edituser_id").val(data.Direccione.user_id);
                     
-                    llenarlistboxsubCategorias(data.Direccione.sub_categoria_id,"x");
-                    
-                    llenarlistboxmodelos(data.Direccione.modelo_id);
-                    llenarlistboxtamanos(data.Direccione.tamano_id);
+                    llenarlistboxcomunas(data.Direccione.comuna_id);
                     $("#diveditdirecciones").dialog("open");
                 },
                 error: function(n) {
@@ -97,8 +88,8 @@
         /****************************************************/
         /****************************************************/
         $("#diveditdirecciones").dialog({
-            height: 'auto',
-            width: 'auto',
+            height: '500',
+            width: '40%',
             autoOpen: false,
             modal: true,
             show: {
@@ -113,45 +104,22 @@
         $('#formeditdirecciones').submit(function(e) {
             e.preventDefault();
         });
-        /****************************************************/
-         $("#ver").dialog({
-            height: '500',
-            width: '40%',
-            autoOpen: false,
-            modal: true,
-            show: {
-                effect: "blind",
-                duration: 300
-            },
-            hide: {
-                effect: "blind",
-                duration: 300
-            }
-        }).css("font-size", "15px", "width", "auto");
-        $('#ver').submit(function(e) {
-            e.preventDefault();
-        });
+        
         //GUARDAR BUTTON ADD DIALOG 
         $("#adddireccionessave").click(function(e) {
             e.preventDefault();
-              if ( $("#iptdirecciones").val().trim().length == 0) {
-                $("#spnadddirecciones").html("Campo requerido");
-                $("#spnadddirecciones").show();
+              if ( $("#iptcalle").val().trim().length == 0) {
+                $("#spnaddcalle").html("Campo requerido");
+                $("#spnaddcalle").show();
                 $("#spnaddalert").show();
                 
-              }else if ( $("#iptdescripcion").val().trim().length == 0) {
+              }else if ( $("#iptnumero").val().trim().length == 0) {
+                $("#spnaddnumero").html("Campo requerido");
+                $("#spnaddnumero").show();
                 $("#spnaddalert").show();
-              }else if ( $("#iptstock").val().trim().length == 0) {
-                $("#spnaddalert").show();
-              }else if ( $("#iptprecio").val().trim().length == 0) {
-                $("#spnaddalert").show();
-              }else if ( $("#iptprecioPunto").val().trim().length == 0) {
-                $("#spnaddalert").show();
-              }else if ( $("#select-subcategorias").val().trim().length == 0){
-                $("#spnaddalert").show();
-              }else if ( $("#iptmodelo_id").val().trim().length == 0){
-                $("#spnaddalert").show();
-              }else if ( $("#ipttamano_id").val().trim().length == 0){
+              }else if ( $("#select-comunas").val().trim().length == 0){
+                $("#spnaddcomuna").html("Campo requerido");
+                $("#spnaddcomuna").show();
                 $("#spnaddalert").show();
               }else{
                 $.ajax({
@@ -159,7 +127,9 @@
                     type: "POST",
                     data: $("#formadddirecciones").serialize(),
                     dataType:'json',
+                    beforeSend:function(){ $("#cargando").dialog("open");},
                     success: function(n) {
+                        $("#cargando").dialog("close");
                         if (n==1){
                            $("#formadddirecciones").trigger("reset");                           
                            mostrarDatos("id","asc");
@@ -178,32 +148,29 @@
         /****************************************************/
         //EDITAR BUTTON DIALOG 
         $("#editdireccionessave").click(function(e) {      
-            e.preventDefault();
-            if ( $("#editdireccionesinput").val().trim().length == 0) {
-                $("#spneditdirecciones").html("Campo requerido");
-                $("#spneditdirecciones").show();
-                $("#spnaddalert").show();
-              }else if ( $("#editdescripcioninput").val().trim().length == 0) {
-                $("#spnaddalert").show();
-              }else if ( $("#editstockinput").val().trim().length == 0) {
-                $("#spnaddalert").show(); 
-              }else if ( $("#editprecioinput").val().trim().length == 0) {
-                $("#spnaddalert").show();
-              }else if ( $("#editprecioPuntoinput").val().trim().length == 0) {
-                $("#spnaddalert").show();
-              }else if ( $("#select-editsubcategorias").val().trim().length == 0){
-                $("#spnaddalert").show();
-              }else if ( $("#ipteditmodelo_id").val().trim().length == 0){
-                $("#spnaddalert").show();
-              }else if ( $("#iptedittamano_id").val().trim().length == 0){
-                $("#spnaddalert").show();
+            e.preventDefault();            
+              if ( $("#editcalle").val().trim().length == 0) {
+                $("#spneditcalle").html("Campo requerido");
+                $("#spneditcalle").show();
+                $("#spneditalert").show();
+                
+              }else if ( $("#editnumero").val().trim().length == 0) {
+                $("#spneditnumero").html("Campo requerido");
+                $("#spneditnumero").show();
+                $("#spneditalert").show();
+              }else if ( $("#select-editcomunas").val().trim().length == 0){
+                $("#spneditcomuna").html("Campo requerido");
+                $("#spneditcomuna").show();
+                $("#spneditalert").show();
               }else{
                 $.ajax({
                     url: 'Direcciones/edit/' + iddireccionesglobal,
                     type: "POST",
                     data: $("#formeditdirecciones").serialize(),
                     dataType:'json',
+                    beforeSend:function(){ $("#cargando").dialog("open");},
                     success: function(n) {
+                        $("#cargando").dialog("close");
                         if (n==1) {
                             mostrarDatos("id","asc");
                             alert("Editado con exito");
@@ -227,39 +194,18 @@
                 url: "Direcciones/delete/" + iddireccionesglobal,
                 type: "POST",
                 dataType:'json',
+                beforeSend:function(){ $("#cargando").dialog("open");},
                 success: function(n) {
-                    if (n=='t'){          
+                    $("#cargando").dialog("close");
+                    if (n=='1'){          
                         alert("Direccione id: " + iddireccionesglobal + " eliminada con éxito");               
                         mostrarDatos("id","asc");
                     }else{
-                        alert("No se puede eliminar por que hay " + n + " foto(s) asociada(s)");   
+                        alert("No se pudo eliminar intentelo de nuevo");   
                     }
                 }
             });
         });
-        //VER BUTTON
-        $(document).on("click", ".ver", function(e) {
-            e.preventDefault();
-            iddireccionesglobal = $(this).attr('data-id');
-            $.ajax({
-                url: "Direcciones/ver/" + iddireccionesglobal,
-                type: "POST",
-                dataType:'json',
-                success: function(data) {
-                    $("#verdireccione").html("Direccione: " + data.Direccione.direccione);
-                    $("#iptdireccione_id").val(data.Direccione.id);
-                    var listadirecciones='';
-                    $.each(data.Foto, function(item) {
-                        listadirecciones += '<article class="direcciones">';
-                        listadirecciones += '<img src="img/Fotos/s_' + data.Foto[item].url + '" height="100px" width="100px">';
-                        listadirecciones += '</article>';
-                    });
-                    
-                    $("#imagenes").html(listadirecciones);
-                    $("#ver").dialog("open");
-                }
-            });
-         });
          //ORDENAR           
         var ascendente=false;
         $(document).on("click", ".ordenar", function(e) {
@@ -281,10 +227,9 @@
             url: 'Direcciones/listadirecciones/Direccione.'+atributo+'/'+orden,
             type: 'POST',
             dataType: 'json',
-                beforeSend: function() {
-                $('#listadirecciones').html("Llenando datos...");
-            },
+            beforeSend:function(){ $("#cargando").dialog("open");},
             success: function(data) {
+                $("#cargando").dialog("close");
                 if(data!=""){
                 var tabla = '<table>';
                 tabla += '<tr>';
@@ -332,16 +277,21 @@
             url: 'Comunas/listacomunasComboBox',
             dataType: 'json',
             type:'POST',
+            beforeSend: function(){ if (resp=="x"){
+                    $('#list-comunas').html("<img src='img/ajaxload2.gif'>");}
+                else{
+                    $('#list-editcomunas').html("<img src='img/ajaxload2.gif'>");
+                }},
             success: function(data) {
                 if(data!=""){
                     var list =""; 
                     if (resp=="x") {
-                        list = '<select id="select-comunas"><option value="">Seleccione una comuna</option>';
+                        list = '<select id="select-comunas" name=comuna_id ><option value="">Seleccione una comuna</option>';
                     }else{
-                        list ='<select id="select-editcomunas">';
+                        list ='<select id="select-editcomunas" name=comuna_id >';
                     }     
                     $.each(data, function(item) {
-                        if(resp==data[item].Modelo.id){ 
+                        if(resp==data[item].Comuna.id){ 
                             list += '<option selected=selected value=' + data[item].Comuna.id + '>' + data[item].Comuna.comuna + '</option>';
                         }else{
                             list += '<option value=' +  data[item].Comuna.id + '>' +data[item].Comuna.comuna + '</option>';
@@ -368,8 +318,12 @@
     function ocultarspan(){   
         $("#spnaddcalle").hide();
         $("#spnaddnumero").hide(); 
+        $("#spnaddcomuna").hide(); 
         $("#spnaddalert").hide();
         
+        $("#spneditcalle").hide();
+        $("#spneditnumero").hide(); 
+        $("#spneditcomuna").hide();
         $("#spneditalert").hide();
     }
 /********************************************************************/
@@ -385,7 +339,7 @@
     <form id="formadddirecciones" method="POST">
         <label>Calle:</label> 
         <input id="iptcalle" type="text" name="calle">
-        <span id="spnaddcalle"></span> spnaddcalle spnaddnumero
+        <span id="spnaddcalle"></span>
         <label>Número:</label> 
         <input id="iptnumero" type="text" name="numero">
         <span id="spnaddnumero"></span> 
@@ -397,67 +351,50 @@
         <input id="iptcodigoPostal" type="text" name="codigoPostal">
         <label>Geo-Referencia:</label> 
         <input id="iptgeoreferencia" type="text" name="georeferencia"> 
-        <br>
+        <br><br>
         <input type="checkbox" id="checkestado"><label for="check">Estado</label>
-        <input id="iptpestado" type="text" name="estado">
-        <br>
+        <input id="iptestado" type="hidden" name="estado">
+        
+        <label>Usuario:</label> 
         <input id="iptuser_id" type="text" name="user_id">
         <label>Comuna:</label> 
-        <div id="list-comuna"></div>        
-
+        <div id="list-comunas"></div>  
+        <span id="spnaddcomuna"></span> 
+        <hr>
         <p align="right"><button id="adddireccionessave">Guardar</button></p>
         <span id="spnaddalert">Debe llenar los campos correctamente</span>
     </form>
 </div>
 
 <!--EDITAR  -->
-<div id="diveditdirecciones" title="Editar Direcciones">
+<div id="diveditdirecciones" title="Editar Dirección">
     <form id="formeditdirecciones" method="POST">
-        <label>Direccione: </label>
-        <input id="editdireccionesinput" type="text" name="direccione">
-        <span id="spneditdirecciones"></span>        
-        <label>Descripción:</label> 
-        <input id="editdescripcioninput" type="text" name="descripcion">
-        <span id="spneditdescripcion"></span> 
-        <label>Stock:</label> 
-        <input id="editstockinput" type="text" name="stock">
-        <span id="spneditstock"></span> 
-        <label>Precio:</label> 
-        <input id="editprecioinput" type="text" name="precio">
-        <span id="spneditprecio"></span> 
-        <label>Precio Punto:</label> 
-        <input id="editprecioPuntoinput" type="text" name="precioPunto">
-        <span id="spneditprecioPunto"></span>
-
-        <input type="checkbox" id="checkeditppuntos"><label for="check">Prioridad Puntos</label>
-        <input id="editprioridadPuntoinput" type="hidden" name="prioridadPunto">
-        <span id="spneditprioridadPunto"></span>
-
-        <input type="checkbox" id="checkeditprecio"><label for="check">Prioridad Precio</label> 
-        <input id="editprioridadPrecioinput" type="hidden" name="prioridadPrecio">
-        <span id="spneditprioridadPrecio"></span>
-        <label>Categoria:</label> 
-        <div id="list-editcategorias"></div>
-        <label>Sub Categoria:</label> 
-        <div id="list-editsubcategorias"></div>        
-        <label>Modelo:</label> 
-        <div id="list-editmodelos"></div>
-        <input id="ipteditmodelo_id" type="hidden" name="modelo_id" >
-        
-        <label>Tamaño:</label> 
-        <div id="list-edittamanos"></div>
-        <input id="iptedittamano_id" type="hidden" name="tamano_id" >
-         
-        <button id="editdireccionessave">Guardar</button>
+        <label>Calle:</label> 
+        <input id="editcalle" type="text" name="calle">
+        <span id="spneditcalle"></span>       
+        <label>Número:</label> 
+        <input id="editnumero" type="text" name="numero"> 
+        <span id="spneditnumero"></span> 
+        <label>Departamento:</label> 
+        <input id="editdpto" type="text" name="dpto"> 
+        <label>Resto de la Dirección:</label> 
+        <input id="editrestodireccion" type="text" name="restoDireccion">
+        <label>Código Postal:</label> 
+        <input id="editcodigoPostal" type="text" name="codigoPostal">
+        <label>Geo-Referencia:</label> 
+        <input id="editgeoreferencia" type="text" name="georeferencia"> 
+        <br>
+        <input type="checkbox" id="editcheckestado"><label for="check">Estado</label>
+        <input id="editestado" type="hidden" name="estado">
+        <br>
+        <label>Usuario:</label> 
+        <input id="edituser_id" type="text" name="user_id">
+        <label>Comuna:</label> 
+        <div id="list-editcomunas"></div>  
+        <span id="spnaeditcomuna"></span> 
+        <hr>
+        <p align="right"><button id="editdireccionessave">Guardar</button></p>
         <span id="spneditalert">Debe llenar los campos correctamente</span>       
     </form>
-</div>
-<!-- VER -->
-<div id="ver" title="Ver Direccione" >
-     <!--<button id="btnaddfoto" class="botones">Agregar nueva Imagen</button>-->
-    <table>
-        <tr><td><label id="verdireccione"></label></td></tr>
-    </table>
-    <div id="imagenes"></div>
 </div>
 

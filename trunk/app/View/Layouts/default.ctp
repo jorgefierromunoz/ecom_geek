@@ -93,7 +93,7 @@
 		</div>
 		<div id="footer">
 			<?php echo "GEEK4Y Tecnología con estilo (".date('Y').")- Agustina 972 Oficina 1008, Santiago – (+562) 26981343";  ?>
-			<?php echo "rev. 4116082014";  ?>
+			<?php echo "rev. 4321082014";  ?>
 		</div>
 	</div>
 	
