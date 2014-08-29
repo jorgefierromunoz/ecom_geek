@@ -20,8 +20,14 @@ class TipoCuentasBancariasController extends AppController{
         $this->set('tipocuentasbancarias', $this->TipoCuentasBancaria->find('all'));
         $this->layout = 'ajax';
     }
-    function listatcbancariasComboBox() {
-        $this->set('tipocuentasbancarias', $this->TipoCuentasBancaria->find('all',array('recursive'=>-1)));
+    function listatcbancariasComboBox($id) {         
+        if ($id!="x"){
+        $arreglo= array('recursive'=>0,'conditions'=>array('TipoCuentasBancaria.banco_id'=>$id),'order'=>array('TipoCuentasBancaria.tipoCuentaBancaria'=> 'asc'));
+        }
+        else{
+        $arreglo= array('recursive'=>0,'order'=>array('TipoCuentasBancaria.tipoCuentaBancaria'=> 'asc'));
+        }
+        $this->set('tipocuentasbancarias', $this->TipoCuentasBancaria->find('all',$arreglo));
         $this->layout = 'ajax';
     }
      public function add() {

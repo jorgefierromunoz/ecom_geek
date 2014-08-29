@@ -240,7 +240,7 @@
         <input id="iptpreciopuntos" type="text" name="precioPunto">
         <span id="spnaddpreciopuntos"></span><br>
         <button id="addzonasave">Guardar</button>
-        <span id="spnaalert">Debe llenar los campos correczonaente</span>
+        <span id="spnaalert">Debe llenar los campos correctamente</span>
     </form>
 </div>
 
@@ -257,7 +257,7 @@
         <input id="editpreciopuntosinput" type="text" name="precioPunto">
         <span id="spneditpreciopuntos"></span><br>
         <button id="editzonasave">Guardar</button>
-        <span id="spnaalertedit">Debe llenar los campos correczonaente</span>
+        <span id="spnaalertedit">Debe llenar los campos correctamente</span>
     </form>
 
 </div>
