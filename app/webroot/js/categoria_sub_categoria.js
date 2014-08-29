@@ -17,7 +17,8 @@ function llenarlistboxsubCategorias(resp,idcat) {
             url: 'SubCategorias/listasubcategoriasComboBox/'+idcat,
             dataType: 'json',
             type:'POST',
-            beforeSend: function(){ if (resp=="x"){
+            beforeSend: function(){ 
+                if (resp=="x"){
                     $('#list-subcategorias').html("<img src='img/ajaxload2.gif'>");}
                 else{
                     $('#list-editsubcategorias').html("<img src='img/ajaxload2.gif'>");

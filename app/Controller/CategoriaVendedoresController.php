@@ -16,12 +16,12 @@ class CategoriaVendedoresController extends AppController{
      public function index(){
       
     }
-    function listacatvendedores($atributo=null,$orden=null) {
-        $this->set('catvendedores', $this->CategoriaVendedore->find('all',array('order'=>array($atributo=> $orden))));
+    function listacatvendedores() {
+        $this->set('catvendedores', $this->CategoriaVendedore->find('all',array('order'=>array('CategoriaVendedore.categoriaVendedor'=> 'asc'))));
         $this->layout = 'ajax';
     }
      function listacatvendedoresComboBox() {
-        $this->set('catvendedores', $this->CategoriaVendedore->find('all',array('recursive'=>-1)));
+        $this->set('catvendedores', $this->CategoriaVendedore->find('all',array('recursive'=>-1,'order'=>array('CategoriaVendedore.categoriaVendedor'=> 'asc'))));
         $this->layout = 'ajax';
     }
      public function add() {

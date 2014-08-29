@@ -22,7 +22,7 @@ class BancosController extends AppController{
         $this->layout = 'ajax';
     }
      function listabancosComboBox() {
-        $this->set('bancos', $this->Banco->find('all',array('recursive'=>-1)));
+        $this->set('bancos', $this->Banco->find('all',array('recursive'=>-1,'order'=>array('Banco.banco'=> 'asc'))));
         $this->layout = 'ajax';
     }
      public function add() {
@@ -39,7 +39,6 @@ class BancosController extends AppController{
          $this->layout = 'ajax';
     }
       public function view($id = null) {
-        sleep(3);
         $this->Banco->id = $id;
         $this->Banco->recursive = -1;
         $this->set('bancos', $this->Banco->read());
