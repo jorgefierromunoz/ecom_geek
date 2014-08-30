@@ -52,7 +52,7 @@
 		<div id="header">
                     <nav id="menu">
                         <ul>
-                            <li class="nivel1"><?php echo $this->Html->link('Home','/pages/home') ?></li>
+                            <li class="nivel1"><?php echo $this->Html->link('Home',array('controller' => 'Pages', 'action' => 'display')) ?></li>
                             <li class="nivel1"><?php echo $this->Html->link('Productos', array('controller' => 'Productos', 'action' => 'index'), array('class' => 'nivel1')) ?>                            
                                 <ul>
                                     <li><?php echo $this->Html->link('Fotos', array('controller' => 'Fotos', 'action' => 'index')) ?></li>
@@ -85,13 +85,30 @@
 
                         </ul>
                     </nav>
+                     <div id="datosusu">
+                    <p><h3>datos usuarios</h3></p>
+                </div>
 		</div>
+               
+               
 		<div id="content">
-
+                        <section id="menucat">
+                            <h3>Menú:</h3>
+                            <ul>
+                                <li>Cat1</li>
+                            </ul>
+                        </section>
+                        <section id="menucentral">
 			<?php echo $this->Session->flash(); ?>
 
 			<?php echo $this->fetch('content'); ?>
-		</div>
+                        </section>
+                        <section id="menuder">
+                            <section id="carrito">
+                                <p><h3>carrito</h3></p>
+                            </section>
+                        </section>
+                </div>
 		<div id="footer">
 			<?php echo "GEEK4Y Tecnología con estilo (".date('Y').")- Agustina 972 Oficina 1008, Santiago – (+562) 26981343";  ?>
 			<?php echo "rev. 4321082014";  ?>
