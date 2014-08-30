@@ -26,9 +26,9 @@
                         $.each(imagenes, function(item3) {
                             listaproductos += '<div class="caja_img" style="background-image:url(img/Fotos/s_' +  imagenes[item3].url + ')" data-id="' + data[item2].Producto.id + '"></div>';
                             return false;
-                        });                         
-                        listaproductos += '<span class="btnver" data-id=' + data[item2].Producto.id + '></span>';
-                        listaproductos += '<span class="btnadd" data-id=' + data[item2].Producto.id + '> </span>';
+                        });             
+                        listaproductos += '<img src="img/ver.png" class="btnver" data-id=' + data[item2].Producto.id + '>';
+                        listaproductos += '<img src="img/carrito.png" class="btnadd" data-id=' + data[item2].Producto.id + '>';
                         listaproductos += '</li>';
                     }
                 });
@@ -44,29 +44,18 @@
         });
     }
 </script>
-<section id="body">
-    <section id="menucat">
-        <h3>Menú:</h3>
-        <ul>
-            <li>Cat1</li>
-        </ul>
-    </section>
-    <section id="productpromo">
-       <p><h3>productos en promo</h3></p>
-    </section>
-    <section id="datosusu">
-        <p><h3>datos usuarios</h3></p>
-    </section>
-    <section id="carrito">
-        <p><h3>carrito</h3></p>
-    </section>
-    <section id="bodyproductos">
-        <div id="menuproductos">a-z seach</div>
-        <div id="targetproducto">
-            <span>Productos</span>
-            <div id="listado_productos">
+    <section id="cuerpo">
+        <section id="productpromo">
+           <p><h3>productos en promo</h3></p>
+        </section>   
 
+        <section id="bodyproductos">
+            <div id="menuproductos">a-z seach</div>
+            <div id="targetproducto">
+                
+                <div id="listado_productos">
+
+                </div>
             </div>
-        </div>
-    </section>
-</section>
+        </section>
+    </section>    

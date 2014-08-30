@@ -51,19 +51,6 @@
             </bookmark>
         </file>
         <file>
-            <url>app/View/SubCategorias/index.ctp</url>
-            <bookmark id="9">
-                <name/>
-                <line>124</line>
-                <key/>
-            </bookmark>
-            <bookmark id="8">
-                <name/>
-                <line>289</line>
-                <key/>
-            </bookmark>
-        </file>
-        <file>
             <url>app/View/Fotos/index.ctp</url>
             <bookmark id="27">
                 <name/>
@@ -81,6 +68,19 @@
             <bookmark id="11">
                 <name/>
                 <line>220</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>app/View/SubCategorias/index.ctp</url>
+            <bookmark id="9">
+                <name/>
+                <line>124</line>
+                <key/>
+            </bookmark>
+            <bookmark id="8">
+                <name/>
+                <line>289</line>
                 <key/>
             </bookmark>
         </file>
