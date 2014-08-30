@@ -94,17 +94,84 @@ body {
 .productos{
     display: inline-block;
     margin: 10px;
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 150px;
     padding: 10px;
     border: 1px solid white;
     border-radius: 5%;
     background: #ccc;
     color: black;
     float: left;
+    opacity: 1;
 }
-/*
-nav ul{
+.productos:hover{
+    border: 1px solid #bbb;
+    background: #aaa;
+}
+#precio_ppunto{
+    position: absolute;
+    width: 100%;
+}
+.imagen{
+    position: relative;
+}
+.preciopro{   
+    margin-top: 90px;
+    margin-left: 45px;
+    padding: 5px;
+    width: 65px;
+    height: 15px;
+    position: absolute;
+    color: #fff;
+    text-align: left;
+    background-color: #a00;
+    font-size: 90%;
+    opacity: 0.8;
+}
+.preciopro:hover{
+    opacity: 1;
+}
+.btnadd{   
+    margin: 8px;
+    margin-left: 20px;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    background-color: #a00;
+    font-size: 80%;
+    opacity: 0.7;
+    color:white;
+}
+.btnver{   
+    margin: 8px;
+    margin-left: 75px;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    background-color: #a00;
+    font-size: 80%;
+    opacity: 0.7;
+    color:white;
+}
+.btnver:hover{
+    opacity: 1;
+}
+.btnadd:hover{
+    opacity: 1;
+}
+.precio{
+    text-align: right;
+}
+.caja_img{
+    background-repeat: no-repeat;
+    height: 120px;
+    width: 120px;
+    background-size: 120px 120px
+}
+#targetproducto{
+    background-color: #eee;
+}
+/*nav ul{
    padding: 0;
    margin: 0;
 }
