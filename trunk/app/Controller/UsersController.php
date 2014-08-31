@@ -133,7 +133,9 @@ class UsersController extends AppController{
 
     public function index() {
     }
-    
+    public function nuevousuario(){
+        
+    }
     public function login() {
         
     }
@@ -173,12 +175,13 @@ class UsersController extends AppController{
     }
     
     function delete($id) {
-        $cant=$this->User->hastipocuentas($id);
-        if ($cant==0){
+        $cantdir=$this->User->hasdirecciones($id);
+        //$cantcompra=$this->User->hasordenescompras($id);
+        if ($cantdir==0){
             $this->User->delete($id);
             $this->set('users', 't');
         }else{
-            $this->set('users', $cant);
+            $this->set('users', $cantdir);
         }
         $this->layout = 'ajax';
     }
