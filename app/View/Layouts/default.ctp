@@ -86,8 +86,8 @@
                         </ul>
                     </nav>
                      <div id="datosusu">
-                    <p><h3>datos usuarios</h3></p>
-                </div>
+                        <span ><?php echo $this->Html->link('Registro Nuevo Usuario', array('controller' => 'Users', 'action' => 'nuevousuario')) ?> </span>                                 
+                    </div>
 		</div>
                
                

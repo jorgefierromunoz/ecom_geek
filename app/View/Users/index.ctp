@@ -258,6 +258,32 @@
                  });
               }
         });
+        
+          //ELIMINAR BUTTON 
+        $(document).on("click", ".delete", function(e) {
+            e.preventDefault();
+            idusers = $(this).attr('data-id');
+            $.ajax({
+                url: "Users/delete/" + idusers,
+                type: "POST",
+                dataType:'json',
+                beforeSend:function(){ $("#cargando").dialog("open");},
+                success: function(n) {    
+                    $("#cargando").dialog("close");
+                    if (n=='t'){               
+                        mostrarDatos("id","asc");
+                        alert("Usuario id: " + idusers + " eliminado con éxito");          
+                    }else{
+                        alert("No se pudo eliminar por que hay " + n + " registro(s) asociado(s)");   
+                    }
+                    
+                },
+                error: function(n){
+                    console.log(n);
+                    $("#cargando").dialog("close");
+                }
+            });
+        });
 
     });
     //FUNCION PARA MOSTRAR DATOS DE LA TABLA
@@ -271,7 +297,7 @@
                 if (data != null) {
                     var tabla = '<table>';
                     tabla += '<tr>';
-                    tabla += '<th>Estado</th><th>Email</th><th>User</th><th>Tipo Usuario</th><th>Cat. Vendedor</th><th>Rut</th><th>Nombre</th><th>Ap Paterno</th><th>Ap Materno</th><th>Sexo</th><th>Total Ptos.</th><th>Referido</th><th>Cta Bancaria</th><th>N° Cta</th><th>Editar</th>';
+                    tabla += '<th>Estado</th><th>Email</th><th>User</th><th>Tipo Usuario</th><th>Cat. Vendedor</th><th>Rut</th><th>Nombre</th><th>Ap Paterno</th><th>Ap Materno</th><th>Sexo</th><th>Total Ptos.</th><th>Referido</th><th>Cta Bancaria</th><th>N° Cta</th><th>Editar</th><th>Eliminar</th>';
                     tabla += '</tr>';
                     $.each(data, function(index, item) {  
                         tabla += '<tr>';
@@ -294,6 +320,7 @@
                         tabla += '<td>'+ item.TipoCuentasBancaria.tipoCuentaBancaria+'</td>';
                         tabla += '<td>' + item.User.numeroCuenta + '</td>';
                         tabla += '<td><button type="button" class="editar" data-id="' + item.User.id + '">Editar</button></td>';
+                        tabla += '<td><button type="button" class="delete" data-id="' + item.User.id + '">Eliminar</button></td>';
                         tabla += '</tr>';
                     });
                     tabla += '</table>';

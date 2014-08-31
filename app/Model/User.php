@@ -15,6 +15,13 @@ class User extends AppModel{
     public $name='User';
     public $hasMany=array('OrdenesCompra','Direccione');
     public $belongsTo=array('TipoCuentasBancaria','CategoriaVendedore');
+    function hasdirecciones($id){
+        return $this->Direccione->find("count", array("conditions" => array("user_id" => $id)));
+    }
+//    function hasordenescompras($id){
+//        $count = $this->OrdenesCuenta->find("count", array("conditions" => array("user_id" => $id)));
+//        return $count;
+//    }
     
     public function beforeSave($options = array()) {
        if(isset($this->data['user']['password']) ){
