@@ -20,6 +20,7 @@
  */
 
 App::uses('Controller', 'Controller');
+App::uses('Security', 'Utility'); 
 
 /**
  * Application Controller

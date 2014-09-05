@@ -43,8 +43,8 @@
     </script>
     <div id="cargando" title="Cargando">
        <p align="center">
-        <label >Por favor espere....</label>
-        <img id="img" src="img/ajaxload.gif">
+        <label >Por favor espere....</label> 
+        <?php echo $this->Html->image('ajaxload.gif',array('id' => 'img')); ?>
         <progress id="prog"></progress>
        </p>
     </div>
@@ -86,7 +86,7 @@
                         </ul>
                     </nav>
                      <div id="datosusu">
-                        <span ><?php echo $this->Html->link('Registro Nuevo Usuario', array('controller' => 'Users', 'action' => 'nuevousuario')) ?> </span>                                 
+                        <span><?php echo $this->Html->link('Registro Usuario', array('controller' => 'Users', 'action' => 'nuevousuario'))?></span>                                 
                     </div>
 		</div>
                
@@ -104,8 +104,22 @@
 			<?php echo $this->fetch('content'); ?>
                         </section>
                         <section id="menuder">
-                            <section id="carrito">
-                                <p><h3>carrito</h3></p>
+                            <section id="carrito">                                
+                                <!--carrito -->
+                                <div id="carrito">
+                                    <div id="shopping_cart">
+                                        <p class="namepcarr"><h3>Carrito:<br>
+                                            $<span id="totalcarrito"></span></h3></p>
+                                        <div id="divcarrito">
+
+                                        </div>
+                                    </div>
+                                    
+                                    <div id=footercarrito>
+                                        <span class="btncomprar">Comprar</span>
+                                    </div>
+
+                                </div>
                             </section>
                         </section>
                 </div>

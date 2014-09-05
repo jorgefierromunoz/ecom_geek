@@ -36,17 +36,23 @@ class UsersController extends AppController{
         }
     }
 
-    public function checkuser() {
-        $user=$_POST['Id'];
-        $userbd = $this->user->find('all', array('conditions' => array('user.username' => $user)
-        ));
-        if (!$userbd) {
+    public function checkuser($user) {
+        $userbd = $this->User->find('all', array('conditions' => array('user.username' => $user)));
+        if ($userbd) {            
+            $this->set('users', $userbd);           
+        }else {
             $userbd=0;
-            $this->set('users', $userbd);
-           
-        } else {
-            $this->set('users', $userbd);
-           
+            $this->set('users', $userbd);           
+        }
+         $this->layout = 'ajax';
+    }
+     public function checkemail($email) {
+        $userbd = $this->User->find('all', array('conditions' => array('user.email' => $email)));
+        if ($userbd) {            
+            $this->set('users', '1');           
+        }else {
+            $userbd=0;
+            $this->set('users', $userbd);           
         }
          $this->layout = 'ajax';
     }

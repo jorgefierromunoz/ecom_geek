@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -16,6 +16,70 @@ class ProductosController extends AppController{
     public function index(){
       
     }
+        public function carrito($id = null) {
+        if ($id != null) {
+            $this->Producto->id = $id;
+            //$arreglo= $this->Producto->field('precioVenta');
+            if (isset($_SESSION['carrito'])) { //SI EXISTE LA SESSION CARRITO
+                $arreglo = $_SESSION['carrito'];
+                $encontro = false;
+                $numero = 0;
+                for ($i = 0; $i < count($arreglo); $i++) {
+                    if (isset($arreglo[$i]['Id'])) {
+                        if ($arreglo[$i]['Id'] == $id) {
+                            $encontro = true;
+                            $numero = $i;
+                        }
+                    }
+                }
+                if ($encontro == true) {
+                    $arreglo[$numero]['Cantidad'] = $arreglo[$numero]['Cantidad'] + 1;
+                    $_SESSION['carrito'] = $arreglo;
+                } else {
+                    $idp = $this->Producto->field('id');
+                    $nombre = $this->Producto->field('producto');
+                    $precio = $this->Producto->field('precio');
+                    $preciopto = $this->Producto->field('precioPunto');
+                    $datosNuevos = array('Id' => $idp,
+                        'Producto' => $nombre,
+                        'Precio' => $precio,
+                        'PrecioPunto' => $preciopto,
+                        'Cantidad' => 1);
+                    array_push($arreglo, $datosNuevos);
+                    $_SESSION['carrito'] = $arreglo;
+                }
+            } else {//SI NO EXISTE LA SESSION CARRITO
+                 $idp = $this->Producto->field('id');
+                    $nombre = $this->Producto->field('producto');
+                    $precio = $this->Producto->field('precio');
+                    $preciopto = $this->Producto->field('precioPunto');
+                   
+                $arreglo = array('Id' => $idp,
+                    'Producto' => $nombre,
+                    'Precio' => $precio,                    
+                    'PrecioPunto' => $preciopto,
+                    'Cantidad' => 1);
+                $_SESSION['carrito'][0] = $arreglo;
+            }
+             $arreglo = $_SESSION['carrito'];
+        }else{
+            $arreglo="asdf";
+        }
+        $this->set('productos', $arreglo);
+        $this->layout = 'ajax';
+    }
+    function borrarcarro(){
+        session_destroy();
+        $this->set('productos','1');
+        $this->layout = 'ajax';
+    }
+function versession(){
+    if (isset($_SESSION['carrito'])){
+        $this->set('productos',$_SESSION['carrito']);     
+    }else{
+        $this->set('productos','0'); 
+    }$this->layout = 'ajax';
+}
     function listaproductos($atributo=null,$orden=null) {
         $this->set('productos', $this->Producto->find('all',array('order'=>array($atributo=> $orden))));
         $this->layout = 'ajax';
