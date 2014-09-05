@@ -13,7 +13,42 @@
         
         $(document).on("click", ".cerr_car", function() {
             var idpro = $(this).attr('data-id');
-                alert(idpro);
+                 $.ajax({
+                beforeSend: function() {
+                     $('#divcarrito').html("<img src='img/ajaxload2.gif'>");
+                },
+                url: 'Productos/eliminarproductocarro/'+idpro,
+                dataType: 'json',
+                success: function(data) {
+                if (data!="0"){
+                    var lista="";
+                    var nombreProducto="";
+                    var precio=0;
+                    var cantidad=0;                    
+                    var subtotal=0;
+                    var total=0;
+                    $.each(data, function(item) {
+                        nombreProducto=data[item].Producto.substring(0,8).toUpperCase();
+                        precio=parseInt(data[item].Precio);
+                        cantidad=parseInt(data[item].Cantidad);
+                        subtotal= precio*cantidad;
+                        lista+="<article class=prod_carrito>"; 
+                        lista+="<table class=tablecar><tr><td width=90% >" + nombreProducto + "</td><td><span class=cerrarcarrito><p class=cerr_car data-id=" + data[item].Id + ">x</p></span></td></tr></table>";                             
+                        lista+="<p>$ " + precio + "</p>"; 
+                        lista+="<p>cant: <input class='cant' type=number value="+ cantidad +"></p>"; 
+                        lista+="<p>sub-total: " + precio*cantidad + "</p>"; 
+                        lista+="</article>";
+                        total+=subtotal;
+                    });
+                    $("#divcarrito").html(lista);                    
+                    $("#totalcarrito").html(total);
+                    }else{
+                    $("#divcarrito").html("<span>No hay productos en el carrito</span>");
+                    $("#totalcarrito").html(" 0");
+                    }
+                    
+                }
+        });
         });
         
         function carrito(idpro){
@@ -24,7 +59,7 @@
                 url: 'Productos/carrito/'+idpro,
                 dataType: 'json',
                 success: function(data) {
-                var lista="";
+                    var lista="";
                     var nombreProducto="";
                     var precio=0;
                     var cantidad=0;                    
@@ -56,7 +91,7 @@
                 url: 'Productos/versession',
                 dataType: 'json',
                 success: function(data) {
-                if (data!="0"){
+                if (data!="0" || !data){
                     var lista="";
                     var nombreProducto="";
                     var precio=0;
@@ -78,7 +113,7 @@
                     });
                     $("#divcarrito").html(lista);                    
                     $("#totalcarrito").html(total);
-                    }else{
+                }else{
                     $("#divcarrito").html("<span>No hay productos en el carrito</span>");
                     $("#totalcarrito").html(" 0");
                     }

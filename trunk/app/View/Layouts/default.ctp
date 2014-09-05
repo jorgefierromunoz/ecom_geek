@@ -39,7 +39,23 @@
         });
         $("#prog").hide();
     });
-   
+   //PARA QUE EL CARRITO SIGA LA PANTALLA
+$(function() {
+    var offset = $("#carrito").offset();
+    var topPadding = 15;
+    $(window).scroll(function() {
+        if ($("#carrito").height() < $(window).height() && $(window).scrollTop() > offset.top) { /* LINEA MODIFICADA POR ALEX PARA NO ANIMAR SI EL SIDEBAR ES MAYOR AL TAMAÑO DE PANTALLA */
+            $("#carrito").stop().animate({
+                marginTop: $(window).scrollTop() - offset.top + topPadding
+            });
+        } else {
+            $("#carrito").stop().animate({
+                marginTop: 0
+            });
+        }
+        ;
+    });
+});
     </script>
     <div id="cargando" title="Cargando">
        <p align="center">
@@ -104,7 +120,7 @@
 			<?php echo $this->fetch('content'); ?>
                         </section>
                         <section id="menuder">
-                            <section id="carrito">                                
+                            <section>                                
                                 <!--carrito -->
                                 <div id="carrito">
                                     <div id="shopping_cart">
