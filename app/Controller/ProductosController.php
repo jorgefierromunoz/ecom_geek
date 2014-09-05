@@ -68,6 +68,30 @@ class ProductosController extends AppController{
         $this->set('productos', $arreglo);
         $this->layout = 'ajax';
     }
+      public function eliminarproductocarro($id = null) {
+        if (($this->Session->check('carrito')) && ($id)) {
+            $arreglo = $_SESSION['carrito']; //PASO ACTUAL CARRITO A UN ARREGLO
+            $encontro = false;
+            $numero = 0;
+            for ($i = 0; $i < count($arreglo); $i++) {
+                if (isset($arreglo[$i]['Id'])) { //BUSCO SI EL PRODUCTO ENVIADO EXISTE EN EL CARRITO
+                    if ($arreglo[$i]['Id'] == $id) {
+                        $encontro = true;
+                        $numero = $i;
+                    }
+                }
+            }
+            if ($encontro == true) {//SI EL PRODUCTO ENVIADO EXISTE 
+                unset($arreglo[$numero]);
+                $arreglo = array_values($arreglo);//REORDENAR ARREGLO
+                $_SESSION['carrito'] = $arreglo;
+                
+            }
+        }
+        $this->set('productos', $arreglo);
+        $this->layout = 'ajax';
+    }
+    
     function borrarcarro(){
         session_destroy();
         $this->set('productos','1');
@@ -78,7 +102,8 @@ function versession(){
         $this->set('productos',$_SESSION['carrito']);     
     }else{
         $this->set('productos','0'); 
-    }$this->layout = 'ajax';
+    }
+    $this->layout = 'ajax';
 }
     function listaproductos($atributo=null,$orden=null) {
         $this->set('productos', $this->Producto->find('all',array('order'=>array($atributo=> $orden))));
