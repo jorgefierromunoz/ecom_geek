@@ -1,6 +1,7 @@
 <script type="text/javascript" src="js/banco_tipo_cta_bancaria.js"></script>
 <script>
     $(document).ready(function() {
+        
         //MOSTRAR TABLA ACTUAL        
         mostrarDatos("id","asc");
        //SELECCION DEL COMBOBOX ON CHANGE ADD
@@ -174,12 +175,12 @@
                 $("#spnaddappaterno").show();
                 $("#spnaalert").show();
             }else if ( $("#select-tcbanco").val().trim().length == 0 ){
-                $("#spnaddappaterno").html("Campo requerido");
-                $("#spnaddappaterno").show();
+                $("#spnedittipoctabancaria").html("Campo requerido");
+                $("#spnedittipoctabancaria").show();
                 $("#spnaalert").show();
             }else if ( $("#numerocuenta").val().trim().length == 0 ){
-                $("#spnaddappaterno").html("Campo requerido");
-                $("#spnaddappaterno").show();
+                $("#spnaddnumerocuenta").html("Campo requerido");
+                $("#spnaddnumerocuenta").show();
                 $("#spnaalert").show();
             }else{
                 $.ajax({
@@ -386,6 +387,7 @@
         $("#spnaddnombre").hide();
         $("#spnaddappaterno").hide();
         $("#spnaddtipoctabancaria").hide();
+        $("#spnaddnumerocuenta").hide();        
         $("#spnaalert").hide(); 
     }
     function ocultarspanedit(){
@@ -459,6 +461,7 @@
         <span id="spnaddtipoctabancaria"></span>
         <label>Numero cuenta Bancaria:</label>   
         <input id="numerocuenta" type="text" name="numeroCuenta"><br>
+        <span id="spnaddnumerocuenta"></span>
         <p align="right"><button id="adduserssave">Guardar</button></p>
         <span id="spnaalert">Debe llenar los campos correctamente</span>
     </form>
@@ -505,6 +508,7 @@
         <span id="spnedittipoctabancaria"></span>
         <label>Numero cuenta Bancaria:</label>   
         <input id="editnumerocuenta" type="text" name="numeroCuenta">
+        
         <hr>
         <p align="right"><button id="editusersave" align="right">Guardar</button></p>
         <span id="spneditalert">Debe llenar los campos correctamente</span>

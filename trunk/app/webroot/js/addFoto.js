@@ -2,7 +2,6 @@ $(document).ready(function() {
         idfotoglobal = 0;
         //LISTA 
         mostrarDatos();
-        $(".botones").button();
         
         $("#checkededitimagen").change(function(){
            var opcion=$("#checkededitimagen").prop("checked");  
@@ -247,7 +246,7 @@ $(document).ready(function() {
             success: function(data) {
                 $("#cargando").dialog("close");
                 if(data!=""){
-                var tabla = '<table>';
+                var tabla = '<table id=lisfot>';
                 tabla += '<tr>';
                 tabla += '<th>Id</th><th>Imagen</th><th>Nombre</th><th>Mime</th><th>Descripción</th><th>Producto</th><th>Editar</th><th>Eliminar</th>';
                 tabla += '</tr>';

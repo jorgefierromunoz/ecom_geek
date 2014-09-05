@@ -15,6 +15,7 @@ class User extends AppModel{
     public $name='User';
     public $hasMany=array('OrdenesCompra','Direccione');
     public $belongsTo=array('TipoCuentasBancaria','CategoriaVendedore');
+    
     function hasdirecciones($id){
         return $this->Direccione->find("count", array("conditions" => array("user_id" => $id)));
     }
@@ -24,12 +25,29 @@ class User extends AppModel{
 //    }
     
     public function beforeSave($options = array()) {
-       if(isset($this->data['user']['password']) ){
-            $this->data['user']['password'] = Security::hash($this->data['user']['password'], null, true);
+        if(!isset($this->data['User']['rut'])){
+            $this->data['User']['rut'] = "Sin Rut";
        }
-//       if(isset($this->data['user']['rut'])){
-//            $this->data['user']['codigo'] = Security::hash($this->data['user']['rut'], null, true);
-//       }
+       if(isset($this->data['User']['password']) ){
+            $this->data['User']['password'] = Security::hash($this->data['User']['password'], null, true);
+       }
+       if(isset($this->data['User']['email'])){
+            $this->data['User']['codigo'] = Security::hash($this->data['User']['email'], null, true);
+       }
+       
+       if(!isset($this->data['User']['tipo'])){
+            $this->data['User']['tipo'] = "cliente";
+       }
+       if(!isset($this->data['User']['puntoAcumulado'])){
+            $this->data['User']['puntoAcumulado'] = 0;
+       }
+       if(!isset($this->data['User']['referido'])){
+            $this->data['User']['referido'] = 0;
+       }
+       if(!isset($this->data['User']['estado'])){
+            $this->data['User']['estado'] = "deshabilitado";
+       }
+       
        return true;
    }
 }

@@ -1,7 +1,91 @@
+<script type="text/javascript" src="js/fly-to-basket.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
         TodosProductos("id","asc");
+        vercarro();
     });
+    
+        $(document).on("click", ".btnadd", function() {
+            var idpro = $(this).attr('data-id');
+                addToBasket(idpro);
+                carrito(idpro);
+        });
+        
+        $(document).on("click", ".cerr_car", function() {
+            var idpro = $(this).attr('data-id');
+                alert(idpro);
+        });
+        
+        function carrito(idpro){
+        $.ajax({
+                beforeSend: function() {
+                     $('#divcarrito').html("<img src='img/ajaxload2.gif'>");
+                },
+                url: 'Productos/carrito/'+idpro,
+                dataType: 'json',
+                success: function(data) {
+                var lista="";
+                    var nombreProducto="";
+                    var precio=0;
+                    var cantidad=0;                    
+                    var subtotal=0;
+                    var total=0;
+                    $.each(data, function(item) {
+                        nombreProducto=data[item].Producto.substring(0,8).toUpperCase();
+                        precio=parseInt(data[item].Precio);
+                        cantidad=parseInt(data[item].Cantidad);
+                        subtotal= precio*cantidad;
+                        lista+="<article class=prod_carrito>"; 
+                        lista+="<table class=tablecar><tr><td width=90% >" + nombreProducto + "</td><td><span class=cerrarcarrito><p class=cerr_car data-id=" + data[item].Id + ">x</p></span></td></tr></table>";                             
+                        lista+="<p>$ " + precio + "</p>"; 
+                        lista+="<p>cant: <input class='cant' type=number value="+ cantidad +"></p>"; 
+                        lista+="<p>sub-total: " + precio*cantidad + "</p>"; 
+                        lista+="</article>";
+                        total+=subtotal;
+                    });
+                    $("#divcarrito").html(lista);
+                    $("#totalcarrito").html(total);
+                }
+            });
+        }
+        function vercarro(){
+        $.ajax({
+                beforeSend: function() {
+                     $('#divcarrito').html("<img src='img/ajaxload2.gif'>");
+                },
+                url: 'Productos/versession',
+                dataType: 'json',
+                success: function(data) {
+                if (data!="0"){
+                    var lista="";
+                    var nombreProducto="";
+                    var precio=0;
+                    var cantidad=0;                    
+                    var subtotal=0;
+                    var total=0;
+                    $.each(data, function(item) {
+                        nombreProducto=data[item].Producto.substring(0,8).toUpperCase();
+                        precio=parseInt(data[item].Precio);
+                        cantidad=parseInt(data[item].Cantidad);
+                        subtotal= precio*cantidad;
+                        lista+="<article class=prod_carrito>"; 
+                        lista+="<table class=tablecar><tr><td width=90% >" + nombreProducto + "</td><td><span class=cerrarcarrito><p class=cerr_car data-id=" + data[item].Id + ">x</p></span></td></tr></table>";                             
+                        lista+="<p>$ " + precio + "</p>"; 
+                        lista+="<p>cant: <input class='cant' type=number value="+ cantidad +"></p>"; 
+                        lista+="<p>sub-total: " + precio*cantidad + "</p>"; 
+                        lista+="</article>";
+                        total+=subtotal;
+                    });
+                    $("#divcarrito").html(lista);                    
+                    $("#totalcarrito").html(total);
+                    }else{
+                    $("#divcarrito").html("<span>No hay productos en el carrito</span>");
+                    $("#totalcarrito").html(" 0");
+                    }
+                    
+                }
+            });
+        }
     function TodosProductos(atributo,orden) {
         var flag = false;
         var listaproductos = '';
@@ -13,14 +97,14 @@
             url: 'Productos/listaproductos/Producto.'+atributo+'/'+orden,
             dataType: 'json',
             success: function(data) {  
-                listaproductos += '<article class=productos_lista><ul>'; 
+                listaproductos += '<article class=productos_lista ><ul>'; 
                 $.each(data, function(item2) {
                     if (data != "") {                        
                         flag = true;
                         var nombreproducto=data[item2].Producto.producto.toUpperCase();
                         nombreproducto=nombreproducto.substr(0,10);
                         var precio= data[item2].Producto.precio;
-                        listaproductos += '<li class="productos" ' + data[item2].Producto.id + '">';                        
+                        listaproductos += '<li class="productos" id="slidingProduct' + data[item2].Producto.id + '">';                        
                         listaproductos += '<span class="preciopro"><p class=precio>$ ' +precio + '</p></span>';                        
                         var imagenes = data[item2].Foto;
                         $.each(imagenes, function(item3) {

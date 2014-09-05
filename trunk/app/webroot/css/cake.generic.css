@@ -15,11 +15,75 @@
  * @package       app.webroot.css
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
+#shopping_cart{
+       width: 100%;
+       overflow: auto;
+       height: 300px;
+    }
+.btncomprar{
+    background-color: #a00;
+    color: #fff;
+    opacity: 0.8;
+    margin-left: 90px;
+    padding: 5px;
+}
+.btncomprar:hover{
+    opacity: 1;
+}
+.cant{
+    width: 30px;
+    font-size: 80%;
+} 
+.prod_carrito{
+    display: inline-block;
+    background-color: #dfdfdf;
+    width: 80%;
+    border-radius: 2%;
+    margin: 10px;
+    padding: 5px;
+    color: #2c6877;
+    opacity: 0.8;    
+    border: 1px solid #ccc;
+    float: left;
+    opacity: 0.8;
+}
+.prod_carrito:hover{
+    opacity: 1;
+}
+.cerrarcarrito{
+    color: #2c6877;
+    margin: 0px;
+}
+.cerr_car{
+    background-color: #a00;
+    text-align:center;
+    width: 20px;
+    height: 20px;
+    opacity: 0.8;
+    color: #F0F0F0;
+}
+.cerr_car:hover{
+    opacity: 1;
+}
+.tablecar{
+    margin: 0px;
+    padding: 0px;
+    text-align: left;
+    color: #2c6877;
+}
+.tablecar tr td{
+    margin: 0px;
+    padding: 0px;
+}
+#footercarrito{
+    padding: 5px;
+    background-color: #000;
+    height: 30px;
+}
 
 .no-close .ui-dialog-titlebar-close {
   display: none;
 }
-
 * {
     margin:0;
     padding:0;
@@ -373,7 +437,7 @@ div.actions h3 {
 table {
 	border-right:0;
 	clear: both;
-	color: #ccc;
+	color: #000;
 	margin-bottom: 10px;
 	width: 100%;
 }
