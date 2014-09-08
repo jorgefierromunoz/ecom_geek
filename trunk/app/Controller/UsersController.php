@@ -13,17 +13,6 @@
 class UsersController extends AppController{
     //put your code here
     public $name = 'Users';
-    
-//    function beforeFilter() {
-//        parent::beforeFilter();
-//        if ((!$this->Session->check('user'))) {
-//            $this->Auth->allow('subirimagen', 'add', 'login', 'loguear', 'habilitar', 'checkuser');
-//        } elseif (($_SESSION['user'][0]['Tipo'] == 'cliente')) {
-//            $this->Auth->allow('subirimagen', 'logout', 'edit', 'micuenta', 'micuentajson');
-//        } elseif (($this->Session->check('user')) && ($_SESSION['user'][0]['Tipo'] == 'admin')) {
-//            $this->Auth->allow();
-//        }
-//    }
 
     public function micuentajson() {
         if ($this->Session->check('user')) {
@@ -63,37 +52,37 @@ class UsersController extends AppController{
     }
 
     public function habilitar($link = null) {
-        $userbd = $this->user->find('all', array('conditions' => array('user.codigo' => $link),
-                'fields' => array('id', 'username', 'tipo', 'rut', 'nombre', 'apellidoPaterno', 'apellidoMaterno', 'email',
-                'filename', 'codigo')));
-        $cod = $userbd[0]['user']['codigo'];
+        
+        $userbd = $this->user->find('all', array('conditions' => array('User.codigo' => $link),
+                'fields' => array('id', 'username', 'tipo', 'rut', 'nombre', 'apellidoPaterno', 'apellidoMaterno', 'email','codigo')));
+        $cod = $userbd[0]['User']['codigo'];
         if (($userbd) && ($cod != "codhabxmailgeek4y")) {
-            $id = $userbd[0]['user']['id'];
-            $this->user->id = $id;
-            $this->user->saveField("estado", "habilitado");
-            $this->user->saveField("codigo", "codhabxmailgeek4y");
-            $arreglouser = array(
-                'IdUsu' => $userbd[0]['user']['id'],                
-                'Rutu' => $userbd[0]['user']['rut'],                
-                'Email' => $userbd[0]['user']['email'],
-                'Username' => $userbd[0]['user']['username'],
-                'Tipo' => $userbd[0]['user']['tipo'],
-                'Nombre' => $userbd[0]['user']['nombre'],
-                'ApPaterno' => $userbd[0]['user']['apellidoPaterno'],
-                'ApMaterno' => $userbd[0]['user']['apellidoMaterno'],
-                'CatVendedor' => $userbd[0]['user']['catVendedor']
+            $id = $Userbd[0]['User']['id'];
+            $this->User->id = $id;
+            $this->User->saveField("estado", "habilitado");
+            $this->User->saveField("codigo", "codhabxmailgeek4y");
+            $arregloUser = array(
+                'IdUsu' => $Userbd[0]['User']['id'],                
+                'Rutu' => $Userbd[0]['User']['rut'],                
+                'Email' => $Userbd[0]['User']['email'],
+                'Username' => $Userbd[0]['User']['username'],
+                'Tipo' => $Userbd[0]['User']['tipo'],
+                'Nombre' => $Userbd[0]['User']['nombre'],
+                'ApPaterno' => $Userbd[0]['User']['apellidoPaterno'],
+                'ApMaterno' => $Userbd[0]['User']['apellidoMaterno'],
+                'CatVendedor' => $Userbd[0]['User']['categoria_vendedore_id']
                     );
             $this->Session->write('user', array($arreglouser));
 
             if (($this->Session->check('user')) && ($_SESSION['user'][0]['Tipo'] == 'admin')) {
-                $this->redirect(array('controller' => 'pages', 'action' => 'admin'));
+                $this->set('users', $userbd);         
             } else {
-                $this->redirect(array('controller' => 'pages', 'action' => 'display'));
+                $this->set('users', $userbd);         
             }
         } else {
             $this->set('users', 'codigo erroneo');
-            $this->redirect(array('controller' => 'pages', 'action' => 'display'));
         }
+        $this->layout = 'ajax';
     }
 
     public function loguear() {

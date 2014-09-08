@@ -1,6 +1,5 @@
 <script type="text/javascript"> 
 $(document).ready(function(){
-
         $("#usuario").blur(function() {
           if ($("#usuario").val().trim().length == 0){
                 $("#valido").html("Campo requerido");
@@ -74,14 +73,29 @@ $(document).ready(function(){
                     dataType:'json',
                     beforeSend:function(){ $("#cargando").dialog("open");},
                     success: function(n) {
-                        $("#spnaalert").html('<?php echo $this->Html->image('ajaxload2.gif'); ?>');
-                        if (n==1){                            
-                            $("#spnaalert").html("Usuario Agregado con éxito ahora puede ingresar con su nombre de usuario");
+                        $("#spnaalert").html('<?php echo $this->Html->image('ajaxload2.gif'); ?>Enviando correo de activación de cuenta');
+                        if (n==1){    
+                             $.ajax({
+                                url: '<?php echo $this->Html->url(array('controller'=>'Mensajes','action'=>'send')); ?>',
+                                type: "POST",
+                                data: {username: $("#usuario").val(), email: $("#email").val()},
+                                dataType:'json',
+                                beforeSend:function(){ $("#cargando").dialog("open");},
+                                success: function(n) {
+                                    if(n=="1"){
+                                        $("#spnaalert").html("Se ha enviado un correo de activación a su cuenta");
+                                    }else{
+                                        $("#spnaalert").html("No se pudo enviar correo, contactese con el administrador de la página");
+                                    }
+                                },
+                                error: function(n){"error mensaje: "+ console.log(n);}
+                            });
                             $("#formadduser").trigger("reset");                              
                             $("#cargando").dialog("close");
                         }else if (n==0){
                             $("#spnaalert").html("No se pudo guardar, intentelo de nuevo");
                             $("#spnaalert").show();
+                            $("#cargando").dialog("close");
                         }                        
                            
                     },
@@ -107,7 +121,7 @@ $(document).ready(function(){
     function checkus(us,target){
             if (us) {
                 $.ajax({
-                    url: "checkuser/"+us,
+                    url: '<?php echo $this->Html->url(array('controller'=>'Users','action'=>'checkuser')); ?>/' + us,
                     type: "POST",
                     dataType: 'json',
                     beforeSend: function() {
@@ -133,7 +147,7 @@ $(document).ready(function(){
         function checkemail(us,target){
         if (validateEmail(us)){
             $.ajax({
-                    url: "checkemail/"+us,
+                    url: '<?php echo $this->Html->url(array('controller'=>'Users','action'=>'checkemail')); ?>/' + us,
                     type: "POST",
                     dataType: 'json',
                     beforeSend: function() {
