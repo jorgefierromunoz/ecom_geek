@@ -1,3 +1,3 @@
 <?php 
-echo $this->Js->object($mails);
+    echo $this->Js->object($mails);
 ?>

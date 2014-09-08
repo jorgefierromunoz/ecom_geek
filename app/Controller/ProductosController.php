@@ -63,7 +63,7 @@ class ProductosController extends AppController{
             }
              $arreglo = $_SESSION['carrito'];
         }else{
-            $arreglo="asdf";
+            $arreglo="0";
         }
         $this->set('productos', $arreglo);
         $this->layout = 'ajax';
@@ -85,8 +85,10 @@ class ProductosController extends AppController{
                 unset($arreglo[$numero]);
                 $arreglo = array_values($arreglo);//REORDENAR ARREGLO
                 $_SESSION['carrito'] = $arreglo;
-                
             }
+        }
+        if (count($arreglo)==0){
+            $arreglo="0";
         }
         $this->set('productos', $arreglo);
         $this->layout = 'ajax';
@@ -98,8 +100,12 @@ class ProductosController extends AppController{
         $this->layout = 'ajax';
     }
 function versession(){
-    if (isset($_SESSION['carrito'])){
-        $this->set('productos',$_SESSION['carrito']);     
+    if ($this->Session->check('carrito')){
+        if(count($_SESSION['carrito'])!=0){
+            $this->set('productos',$_SESSION['carrito']); 
+        }else{
+            $this->set('productos','0');    
+        }
     }else{
         $this->set('productos','0'); 
     }

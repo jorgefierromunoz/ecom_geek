@@ -21,34 +21,30 @@ class MensajesController extends AppController {
 //        parent::beforeFilter();
 //        $this->Auth->allow();
 //    }
+     public function send() {
+        if (!empty($this->request->data)) {
+            $username = $this->data['username'];
+            $emailus = $this->data['email'];            
+            $usercod = Security::hash($username, null, true);
+            $titulo = "Resgistro nuevo usuario";
+            $email = new CakeEmail('gmail');
+            $email->template('email_tpl')
+                    ->emailFormat('html')
+                    ->viewVars(array('cod_usuario' => $usercod,'username'=>$username))
+                    ->from(array('pruebaecomercejorge@gmail.com' => 'Jorge Fierro'))
+                    ->to($emailus)
+                    ->subject($titulo);
+            if ($email->send()) {
+                $this->set('mails','1');
+            }else{
+                $this->set('mails','0');
+            }            
+        }else{
+             $this->set('mails','0');
+        }
+        $this->layout = 'ajax';
+    }
 
-//    public function send() {
-//       if (!empty($this->request->data)) {
-//            $rutus = $this->data['username'];
-//            $emailus = $this->data['email'];
-//            $nombre=$this->data['nombre']." ".$this->data['apellidoPaterno'];
-//            $usuario=$this->data['username'];
-//            $rut = Security::hash($rutus, null, true);
-//            $titulo = "Resgistro nuevo usuario";
-//            $email = new CakeEmail('gmail');
-//            $email->template('email_tpl')
-//                    ->emailFormat('html')
-//                    ->viewVars(array('rutS' => $rut,'nombre'=>$nombre,'usuario'=>$usuario))
-//                    ->from(array('pruebaecomercejorge@gmail.com' => 'Geek4y'))
-//                    ->to($emailus)
-//                    ->subject($titulo);
-//            if ($email->send()) {
-//               $this->set('mails','1');
-//            }else{
-//                 $this->set('mails','0');
-//            }
-//        }else{
-//             $this->set('mails','data vacio');
-//        }
-//        $this->layout = 'ajax';
-//    }
-
-    
     public function detallecarritomail() {
         if (!empty($this->request->data)) {
             $rutus = $_POST['rutusu'];
