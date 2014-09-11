@@ -208,9 +208,10 @@ $(function() {
                             <section>                                
                                 <!--carrito -->
                                 <div id="carrito">
-                                    <div id="shopping_cart">
-                                        <p class="namepcarr"><h3>Carrito:<br>
+                                    <p class="namepcarr"><h3>Carrito:<br>
                                             $<span id="totalcarrito"></span></h3></p>
+                                    <div id="shopping_cart">
+                                        
                                         <div id="divcarrito">
 
                                         </div>
