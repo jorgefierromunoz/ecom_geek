@@ -59,10 +59,10 @@
                     if (data != "") {                        
                         flag = true;
                         var nombreproducto=data[item2].Producto.producto.toUpperCase();
-                        nombreproducto=nombreproducto.substr(0,10);
+                        nombreproducto=nombreproducto.substr(0,15);
                         var precio= data[item2].Producto.precio;
                         listaproductos += '<li class="productos" id="slidingProduct' + data[item2].Producto.id + '">';                        
-                        listaproductos += '<span class="preciopro"><p class=precio>$ ' +precio + '</p></span>';                        
+                        listaproductos += '<span class="nom_pro"><p>' + nombreproducto + '</p></span><span class="preciopro"><p class=precio>$ ' +precio + '</p></span>';                        
                         var imagenes = data[item2].Foto;
                         $.each(imagenes, function(item3) {
                             listaproductos += '<div class="caja_img" style="background-image:url(img/Fotos/s_' +  imagenes[item3].url + ')" data-id="' + data[item2].Producto.id + '"></div>';
@@ -107,3 +107,5 @@
             </div>
         </section>
     </section>    
+
+

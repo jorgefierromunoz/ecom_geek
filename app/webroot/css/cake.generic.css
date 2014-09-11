@@ -20,6 +20,7 @@
        overflow: auto;
        height: 300px;
     }
+
 .btncomprar{
     background-color: #a00;
     color: #fff;
@@ -252,9 +253,25 @@ body {
 .preciopro:hover{
     opacity: 1;
 }
+.nom_pro{   
+    margin: 3px;
+    padding: 2px;
+    width: 110px;
+    height: 15px;
+    position: absolute;
+    color: #fff;
+    text-align: center;
+    background-color: #a00;
+    font-size: 75%;
+    opacity: 0.8;
+}
+.nom_pro:hover{
+    opacity: 1;
+}
 .btnadd{   
     margin: 8px;
     margin-left: 75px;
+    margin-top: 8px;
     width: 25px;
     height: 25px;
     position: absolute;
@@ -264,6 +281,7 @@ body {
 }
 .btnver{   
     margin: 8px;
+    margin-top: 8px;
     padding: 3px;    
     margin-left: 20px;
     width: 25px;
