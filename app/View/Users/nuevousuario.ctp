@@ -78,7 +78,7 @@ $(document).ready(function(){
                              $.ajax({
                                 url: '<?php echo $this->Html->url(array('controller'=>'Mensajes','action'=>'send')); ?>',
                                 type: "POST",
-                                data: {username: $("#usuario").val(), email: $("#email").val()},
+                                data: {username: $("#usuario").val(), email: $("#email").val(), nombre: $("#nombre").val()+ " " + $("#apellidopaterno").val()},
                                 dataType:'json',
                                 beforeSend:function(){ $("#cargando").dialog("open");},
                                 success: function(n) {

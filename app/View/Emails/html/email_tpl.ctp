@@ -1,4 +1,4 @@
-<h2>Hola <?php echo $username;?>:</h2>
+<h2>Hola <?php echo $nombre;?>:</h2>
 <p>
     Te damos la bienvenida a GEEK4Y, lugar donde puedes comprar de forma online nuestros productos sin gastos adicionales,<br>
     para habilitar tu cuenta debes seguir el siguiente link:<br>

@@ -23,14 +23,15 @@ class MensajesController extends AppController {
 //    }
      public function send() {
         if (!empty($this->request->data)) {
-            $username = $this->data['username'];
-            $emailus = $this->data['email'];            
+            $username = $this->data['email'];
+            $emailus = $this->data['email']; 
+            $nombre= $this->data['nombre'];
             $usercod = Security::hash($username, null, true);
             $titulo = "Resgistro nuevo usuario";
             $email = new CakeEmail('gmail');
             $email->template('email_tpl')
                     ->emailFormat('html')
-                    ->viewVars(array('cod_usuario' => $usercod,'username'=>$username))
+                    ->viewVars(array('cod_usuario' => $usercod,'username'=>$username,'nombre'=>$nombre))
                     ->from(array('pruebaecomercejorge@gmail.com' => 'Jorge Fierro'))
                     ->to($emailus)
                     ->subject($titulo);
