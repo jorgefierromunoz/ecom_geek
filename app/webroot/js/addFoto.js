@@ -283,5 +283,6 @@ $(document).ready(function() {
     }
     function limpiarNombre(nombre){
         var e=nombre.split('\\').pop();
+        e = e.replace(/\s/g, '');
         return e.substring(0, e.indexOf('.'));
     }

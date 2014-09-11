@@ -26,7 +26,7 @@ class UsersController extends AppController{
     }
 
     public function checkuser($user) {
-        $userbd = $this->User->find('all', array('conditions' => array('user.username' => $user)));
+        $userbd = $this->User->find('all', array('conditions' => array('User.username' => $user)));
         if ($userbd) {            
             $this->set('users', $userbd);           
         }else {
@@ -36,7 +36,7 @@ class UsersController extends AppController{
          $this->layout = 'ajax';
     }
      public function checkemail($email) {
-        $userbd = $this->User->find('all', array('conditions' => array('user.email' => $email)));
+        $userbd = $this->User->find('all', array('conditions' => array('User.email' => $email)));
         if ($userbd) {            
             $this->set('users', '1');           
         }else {
