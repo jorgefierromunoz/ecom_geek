@@ -53,24 +53,24 @@ class UsersController extends AppController{
 
     public function habilitar($link = null) {
         
-        $userbd = $this->user->find('all', array('conditions' => array('User.codigo' => $link),
+        $userbd = $this->User->find('all', array('conditions' => array('User.codigo' => $link),
                 'fields' => array('id', 'username', 'tipo', 'rut', 'nombre', 'apellidoPaterno', 'apellidoMaterno', 'email','codigo')));
         $cod = $userbd[0]['User']['codigo'];
         if (($userbd) && ($cod != "codhabxmailgeek4y")) {
-            $id = $Userbd[0]['User']['id'];
+            $id = $userbd[0]['User']['id'];
             $this->User->id = $id;
             $this->User->saveField("estado", "habilitado");
             $this->User->saveField("codigo", "codhabxmailgeek4y");
-            $arregloUser = array(
-                'IdUsu' => $Userbd[0]['User']['id'],                
-                'Rutu' => $Userbd[0]['User']['rut'],                
-                'Email' => $Userbd[0]['User']['email'],
-                'Username' => $Userbd[0]['User']['username'],
-                'Tipo' => $Userbd[0]['User']['tipo'],
-                'Nombre' => $Userbd[0]['User']['nombre'],
-                'ApPaterno' => $Userbd[0]['User']['apellidoPaterno'],
-                'ApMaterno' => $Userbd[0]['User']['apellidoMaterno'],
-                'CatVendedor' => $Userbd[0]['User']['categoria_vendedore_id']
+            $arreglouser = array(
+                'IdUsu' => $userbd[0]['User']['id'],                
+                'Rutu' => $userbd[0]['User']['rut'],                
+                'Email' => $userbd[0]['User']['email'],
+                'Username' => $userbd[0]['User']['username'],
+                'Tipo' => $userbd[0]['User']['tipo'],
+                'Nombre' => $userbd[0]['User']['nombre'],
+                'ApPaterno' => $userbd[0]['User']['apellidoPaterno'],
+                'ApMaterno' => $userbd[0]['User']['apellidoMaterno'],
+                'CatVendedor' => $userbd[0]['User']['categoria_vendedore_id']
                     );
             $this->Session->write('user', array($arreglouser));
 
