@@ -87,7 +87,7 @@ class FotosController extends AppController{
                                         $resp = 'Error editando nombre registro';
                                     }                       
                                 } else {
-                                $resp = "No se pudo redimensionar la imagen ".$_FILES['imagen']['type'];
+                                $resp = "No se pudo redimensionar la imagen, el ancho debe ser mayor a 250px.";
                                 }
                             }else{
                                  $resp="No se pudo guardar los datos";

@@ -480,11 +480,12 @@
 //CIERRE        
 /********************************************************************/
 </script>
-
+<div class="contbotones">
+  <button  id="btnaddproductos" class="botones">Nuevo Producto</button>  
+</div>
 <!-- LISTA  -->
 <div id="listaproductos"></div>
 <!-- AGREGAR  -->
-<button  id="btnaddproductos" class="botones">Nuevo Producto</button>
 <div id="divaddproductos" title="Nuevo Producto"> 
     <form id="formaddproductos" method="POST">
         <label>Nombre del Producto:</label> 

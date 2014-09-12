@@ -1,10 +1,12 @@
 <script type="text/javascript" src="js/addFoto.js"></script>
 <script type="text/javascript" src="js/categoria_sub_categoria.js"></script>
+<div class="contbotones">
+    <button  id="btnaddfoto" class="botones">Nueva Foto</button>
+</div>
 <!-- LISTA  -->
 <div id="listafotos"></div>
  
 <!-- AGREGAR  -->
-<button  id="btnaddfoto" class="botones">Nueva Foto</button>
 <div id="divaddfoto" title="Nueva Foto"> 
     <form id="formaddfoto" method="POST">
         <label>URL:</label> 

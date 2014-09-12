@@ -254,11 +254,12 @@
 //CIERRE 
 /********************************************************************/
 </script>
-
+<div class="contbotones">
+  <button  id="btnaddregiones" class="botones">Nueva Region</button>  
+</div>
 <!-- LISTA  -->
 <div id="listaregiones"></div>
 <!-- AGREGAR  -->
-<button  id="btnaddregiones" class="botones">Nueva Region</button>
 <div id="divaddregiones" title="Nueva Region"> 
     <form id="formaddregiones" method="POST">
         <label>Region:</label> 

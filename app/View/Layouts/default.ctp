@@ -185,10 +185,23 @@ $(function() {
 
                         </ul>
                     </nav>
+                    <?php if ($this->Session->check('User')): ?>
+                    <div id="datosusu">
+                        <span><?php echo $this->Session->read('User.0.Rut'); ?><br></span>
+                        <span><?php echo strtoupper($this->Session->read('User.0.Nombre')." ".$this->Session->read('User.0.ApPaterno'));?><br></span> 
+                        <span><?php echo $this->Session->read('User.0.Email'); ?><br></span>
+                        <span><?php echo $this->Html->link('Cerrar Sesión', array('controller' => 'Users', 'action' => 'logout'))?></span><br>
+                    </div>
+                    <?php else: ?>
                      <div id="datosusu">
-                        <span><?php echo $this->Html->link('Registro Usuario', array('controller' => 'Users', 'action' => 'nuevousuario'))?></span>                                 
-                       
+                        <div class="contbotones">
+                        <span><?php echo $this->Html->link('Registro Usuario', array('controller' => 'Users', 'action' => 'nuevousuario'),array('class'=>'botones'))?></span><br>
+                        </div>
+                        <div class="contbotones">
+                        <span><?php echo $this->Html->link('Inicio de Sesión', array('controller' => 'Users', 'action' => 'login'),array('class'=>'botones'))?></span> 
+                        </div>
                      </div>
+                    <?php endif; ?>
 		</div>
                
                

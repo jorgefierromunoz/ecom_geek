@@ -267,11 +267,12 @@
 //CIERRE SUBCATEGORIAS
 /********************************************************************/
 </script>
-
+<div class="contbotones">
+  <button  id="btnaddsubcat" class="botones">Nueva Sub-Categoria</button>  
+</div>
 <!-- LISTA SUBCATEGORIAS -->
 <div id="listasubcategorias"></div>
 <!-- AGREGAR SUBCATEGORIAS -->
-<button  id="btnaddsubcat" class="botones">Nueva Sub-Categoria</button>
 <div id="divaddsubcat" title="Nueva Sub-Categoria"> 
     <form id="formaddsubcat" method="POST">
         <label>Sub-Categoria:</label> 

@@ -405,12 +405,13 @@
 //CIERRE USUARIOS          
     /********************************************************************/
 </script>
-
+<div class="contbotones">
+   <button  id="adddiv" class="botones">Nuevo Usuario</button> 
+</div>
 <!-- LISTA -->
 <div id="tablausers"></div>
 
 <!-- AGREGAR USUARIOS -->
-<button  id="adddiv" class="botones">Nuevo Usuario</button>
 <div id="divuser" title="Nuevo Usuario"> 
     <form id="formadduser" method="POST">
         <label>Estado:</label>   
