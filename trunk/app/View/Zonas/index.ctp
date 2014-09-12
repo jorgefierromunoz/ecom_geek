@@ -223,11 +223,12 @@
 //CIERRE 
 /********************************************************************/
 </script>
-
+<div class="contbotones">
+  <button  id="btnaddzona" class="botones">Nueva Zona</button>  
+</div>
 <!-- LISTA -->
 <div id="listazonas"></div>
 <!-- AGREGAR -->
-<button  id="btnaddzona" class="botones">Nueva Zona</button>
 <div id="divaddzona" title="Nuev Zona"> 
     <form id="formaddzona" method="POST">
         <label>Zona:</label> 

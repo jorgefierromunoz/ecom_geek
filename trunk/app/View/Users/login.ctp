@@ -1,41 +1,65 @@
 <script>
     $(document).on('ready', function() {
-        $("#entrar").click(function(e) {
-            e.preventDefault();
-
-            $.ajax({
-                url: "http://localhost:26/ecomerce/users/loguear",
+        $("#entrar").click(function(){
+              log();
+        });
+        $("#password").keypress(function(e){
+            if(e.which == 13) {
+                log();
+            }
+        });     
+         $("#username").keypress(function(e){
+            if(e.which == 13) {
+                log();
+            }
+        });     
+    });
+    function log(){
+        $.ajax({
+                url: '<?php echo $this->Html->url(array('controller'=>'Users','action'=>'loguear')); ?>',
                 type: "POST",
                 dataType: 'json',
                 data: $("#formlogin").serialize(),
+                beforeSend: function(){$("#spnalertlogin").html('<?php echo $this->Html->image('ajaxload2.gif'); ?>Iniciando Sesión...')},
                 success: function(data) {
-              
-                    if (data == 0) {
-                        alert("Debe llenar ambos campos");
-                    } else if (data == 1) {
-                        alert("Usuario y/o contraseña no existen");
-                    } else if (data == 2) {
-                        alert("Usuario no habilitado, revise su correo");
-                    } else if (data.Tipo == "admin") {
-                        window.location.href = "http://localhost:26/ecomerce/admins";
-                    } else if (data.Tipo == "cliente") {
-                         window.location.href = "http://localhost:26/ecomerce";
+                    if (data=='1'){
+                         $("#spnalertlogin").html("");
+                         window.location.href = '<?php echo $this->Html->url(array('controller' => 'Pages', 'action' => 'display')); ?>';
+                    }else{
+                    $("#spnalertlogin").html(data);
                     }
-
                 },
-                error: function() {
-                    alert("No se pudo loguear");
+                error: function(e) {  
+                    $("#spnalertlogin").html("Error interno, contáctese con el Administrador de la página");
+                    console.log(e);
                 }
             });
-        });
-
-    });
+    }
 </script>
-<br><br>
-<hr>
-<form id="formlogin">
-    Username: <input type="text" id="username" name="username"><br>
-    Password: <input type="password" id="password" name="password"><br>
-
-    <button id="entrar" type="button">Entrar</button>
-</form>
+<div id="divlogin">
+    <h3>Inicio Sesión</h3>
+    <form id="formlogin">
+        <table class="logintable">
+            <tr>
+                <td><h3>Nombre Usuario:</h3></td>
+            </tr>
+            <tr>
+                <td><input type="text" id="username" name="username"></td>
+            </tr>
+            <tr>
+                <td><h3>Password:</h3></td>
+            </tr>
+            <tr>
+                <td><input type="password" id="password" name="password"></td>
+            </tr>
+            <tr>
+                <td class="centertable">                    
+                    <div class="contbotones"><span id="entrar" class="botones">Entrar</span></div>
+                </td>
+            </tr>
+             <tr>
+                <td><span id="spnalertlogin"></span></td>
+            </tr>
+        </table>
+    </form>
+</div>

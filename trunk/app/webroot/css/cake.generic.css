@@ -15,13 +15,45 @@
  * @package       app.webroot.css
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
+.contbotones{
+    height: 30px;
+    margin: 5px;
+}
 #shopping_cart{
        width: 100%;
        overflow: auto;
        height: 300px;
     }
 
+#divlogin{
+    height: 500px;
+    background-color: #dfdfdf;
+    padding: 50px;
+}
+.centertable{
+    text-align: left;
+}
+.logintable input{
+    width: 50%;
+    font-size:80%;
+}
+.logintable td{
+   background-color: #dfdfdf;
+}
+.botones{
+    background-color: #a00;
+    color: #F0F0F0;
+    position: absolute;
+    text-align: center;
+    padding: 5px;
+    opacity: 0.8;
+    cursor: pointer;
+}
+.botones:hover{
+    opacity: 1;
+}
 .btncomprar{
+    cursor: pointer;
     background-color: #a00;
     color: #fff;
     opacity: 0.8;
@@ -62,6 +94,7 @@
     height: 20px;
     opacity: 0.8;
     color: #F0F0F0;
+    cursor: pointer;
 }
 .cerr_car:hover{
     opacity: 1;
@@ -257,12 +290,12 @@ body {
     margin: 3px;
     padding: 2px;
     width: 110px;
-    height: 15px;
+    height: 27px;
     position: absolute;
     color: #fff;
     text-align: center;
     background-color: #a00;
-    font-size: 75%;
+    font-size: 65%;
     opacity: 0.8;
 }
 .nom_pro:hover{
@@ -392,6 +425,7 @@ p {
     width: 15%;    
     height: 80px;
     float: left;
+    color: #F0F0F0;
 }
 #header h1 {
 	line-height:20px;

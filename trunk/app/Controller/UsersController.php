@@ -24,7 +24,7 @@ class UsersController extends AppController{
             $this->layout = 'ajax';
         }
     }
-
+    
     public function checkuser($user) {
         $userbd = $this->User->find('all', array('conditions' => array('User.username' => $user)));
         if ($userbd) {            
@@ -47,7 +47,7 @@ class UsersController extends AppController{
     }
 
     public function logout() {
-        $this->Session->delete('user');
+        $this->Session->delete('User');
         $this->redirect(array('controller' => 'pages', 'action' => 'display'));
     }
 
@@ -62,19 +62,21 @@ class UsersController extends AppController{
             $this->User->saveField("estado", "habilitado");
             $this->User->saveField("codigo", "codhabxmailgeek4y");
             $arreglouser = array(
-                'IdUsu' => $userbd[0]['User']['id'],                
-                'Rutu' => $userbd[0]['User']['rut'],                
-                'Email' => $userbd[0]['User']['email'],
-                'Username' => $userbd[0]['User']['username'],
-                'Tipo' => $userbd[0]['User']['tipo'],
-                'Nombre' => $userbd[0]['User']['nombre'],
-                'ApPaterno' => $userbd[0]['User']['apellidoPaterno'],
-                'ApMaterno' => $userbd[0]['User']['apellidoMaterno'],
-                'CatVendedor' => $userbd[0]['User']['categoria_vendedore_id']
+                        'IdUsu' => $userbd[0]['User']['id'],
+                        'Username' => $userbd[0]['User']['username'],
+                        'Tipo' => $userbd[0]['User']['tipo'],
+                        'Rut' => $userbd[0]['User']['rut'],
+                        'Nombre' => $userbd[0]['User']['nombre'],
+                        'ApPaterno' => $userbd[0]['User']['apellidoPaterno'],
+                        'ApMaterno' => $userbd[0]['User']['apellidoMaterno'],
+                        'Email' => $userbd[0]['User']['email'],
+                        'Referido' => $userbd[0]['User']['referido'],
+                        'PtosAcumu' => $userbd[0]['User']['puntoAcumulado'],
+                        'CatVenId'=> $userbd[0]['User']['categoria_vendedore_id'],                        
                     );
-            $this->Session->write('user', array($arreglouser));
+                    $this->Session->write('User', array($arreglouser));
 
-            if (($this->Session->check('user')) && ($_SESSION['user'][0]['Tipo'] == 'admin')) {
+            if (($this->Session->check('User')) && ( $userbd[0]['User']['tipo'] == 'admin')) {
                 $this->set('users', $userbd);         
             } else {
                 $this->set('users', $userbd);         
@@ -86,41 +88,45 @@ class UsersController extends AppController{
     }
 
     public function loguear() {
-        if (isset($_POST['username'])) {
-            $username = $_POST['username'];
-            $password = $_POST['password'];
+        if (!empty($this->request->data)) {
+            $username = $this->data['username'];
+            $password = $this->data['password'];;
         }
         if (($username != "") && ($password != "")) {
             $pas = Security::hash($password, null, true);
-            $user = $this->user->find('all', array('conditions' => array(
-                    'user.username' => $username, 'user.password' => $pas),
+            $user = $this->User->find('all', array('conditions' => array(
+                    'User.username' => $username, 'User.password' => $pas),
                 'fields' => array('id', 'username', 'tipo', 'rut', 'nombre', 'apellidoPaterno',
-                    'apellidoMaterno', 'email', 'filename', 'estado')));
+                    'apellidoMaterno', 'email', 'estado','referido','puntoAcumulado','categoria_vendedore_id')));
             if (!$user == null) {
-                if ($user[0]['user']['estado'] == "habilitado") {
+                if ($user[0]['User']['estado'] == "habilitado") {
                     $arreglouser = array(
-                        'IdUsu' => $user[0]['user']['id'],
-                        'Username' => $user[0]['user']['username'],
-                        'Tipo' => $user[0]['user']['tipo'],
-                        'Rut' => $user[0]['user']['rut'],
-                        'Nombre' => $user[0]['user']['nombre'],
-                        'ApPaterno' => $user[0]['user']['apellidoPaterno'],
-                        'ApMaterno' => $user[0]['user']['apellidoMaterno'],
-                        'Email' => $user[0]['user']['email'],
-                        'Filename' => $user[0]['user']['filename'],
+                        'IdUsu' => $user[0]['User']['id'],
+                        'Username' => $user[0]['User']['username'],
+                        'Tipo' => $user[0]['User']['tipo'],
+                        'Rut' => $user[0]['User']['rut'],
+                        'Nombre' => $user[0]['User']['nombre'],
+                        'ApPaterno' => $user[0]['User']['apellidoPaterno'],
+                        'ApMaterno' => $user[0]['User']['apellidoMaterno'],
+                        'Email' => $user[0]['User']['email'],
+                        'Referido' => $user[0]['User']['referido'],
+                        'PtosAcumu' => $user[0]['User']['puntoAcumulado'],
+                        'CatVenId'=> $user[0]['User']['categoria_vendedore_id'],                        
                     );
-                    $this->Session->write('user', array($arreglouser));
-                    $this->set('users', $arreglouser);
-                } elseif ($user[0]['user']['estado'] == "deshabilitado") {
-                    $a = array('2');
+                    $this->Session->write('User', array($arreglouser));
+                    $this->set('users','1');
+                } else{ //if ($user[0]['user']['estado'] == "deshabilitado") {
+                    $a = 'Usuario deshabilitado, revise su correo';
                     $this->set('users', $a);
-                }
+               }
             } else {
-                $a = array('1');
+                $a = 'Usuario o Password introducidos no son correctos';
                 $this->set('users', $a);
-            }
-        } else {
-            $a = array('0');
+            //}
+        }
+        
+            } else {
+            $a = 'Ingrese un nombre de usuario y un password';
             $this->set('users', $a);
         }
         $this->layout = "ajax";

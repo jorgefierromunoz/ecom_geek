@@ -244,11 +244,12 @@
 //CIERRE SUBCATEGORIAS
 /********************************************************************/
 </script>
-
+<div class="contbotones">
+  <button  id="btnaddtcbancarias" class="botones">Nueva Cuenta</button>  
+</div>
 <!-- LISTA -->
 <div id="listatcbancarias"></div>
 <!-- AGREGAR -->
-<button  id="btnaddtcbancarias" class="botones">Nueva Cuenta</button>
 <div id="divaddtcbancarias" title="Nueva Cuenta Bancaria"> 
     <form id="formaddtcbancarias" method="POST">
         <label>Tipo de Cuenta Bancaria:</label> 

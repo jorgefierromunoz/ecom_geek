@@ -213,11 +213,12 @@
 //CIERRE
 /********************************************************************/
 </script>
-
+<div class="contbotones">
+  <button  id="btnaddmod" class="botones">Nuevo Modelo</button>  
+</div>
 <!-- LISTA -->
 <div id="listamodelos"></div>
 <!-- AGREGAR -->
-<button  id="btnaddmod" class="botones">Nuevo Modelo</button>
 <div id="divaddmod" title="Nuevo Modelo"> 
     <form id="formaddmod" method="POST">
         <label>Modelo:</label> 

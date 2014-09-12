@@ -195,11 +195,12 @@
 //CIERRE 
 /********************************************************************/
 </script>
-
+<div class="contbotones">
+<button  id="btnaddbanco" class="botones">Nuevo Banco</button>
+</div>
 <!-- LISTA  -->
 <div id="listabancos"></div>
 <!-- AGREGAR -->
-<button  id="btnaddbanco" class="botones">Nuevo Banco</button>
 <div id="divaddbanco" title="Nuevo Banco"> 
     <form id="formaddbanco" method="POST">
         <label>Banco:</label> 

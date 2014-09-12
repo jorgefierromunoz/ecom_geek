@@ -227,10 +227,12 @@
 /********************************************************************/
 </script>
 
+<div class="contbotones">
+   <button  id="btnaddcatvend" class="botones">Nueva Categoria-Vendedor</button> 
+</div>
 <!-- LISTA -->
 <div id="listacategoriavendedores"></div>
 <!-- AGREGAR -->
-<button  id="btnaddcatvend" class="botones">Nueva Categoria-Vendedor</button>
 <div id="divaddcatvend" title="Nueva Categoria-Vendedor"> 
     <form id="formaddcatvend" method="POST">
         <label>Categoria del vendedor:</label> 

@@ -225,11 +225,12 @@
 //CIERRE
 /********************************************************************/
 </script>
-
+<div class="contbotones">
+   <button  id="btnaddtam" class="botones">Nuevo Tamaño</button> 
+</div>
 <!-- LISTA -->
 <div id="listatamanos"></div>
 <!-- AGREGAR -->
-<button  id="btnaddtam" class="botones">Nuevo Tamaño</button>
 <div id="divaddtam" title="Nuevo Tamaño"> 
     <form id="formaddtam" method="POST">
         <label>Tamaño:</label> 

@@ -330,11 +330,12 @@
 //CIERRE        
 /********************************************************************/
 </script>
-
+<div class="contbotones">
+    <button  id="btnadddirecciones" class="botones">Nueva Dirección</button>
+</div>
 <!-- LISTA  -->
 <div id="listadirecciones"></div>
 <!-- AGREGAR  -->
-<button  id="btnadddirecciones" class="botones">Nueva Dirección</button>
 <div id="divadddirecciones" title="Nueva Dirección"> 
     <form id="formadddirecciones" method="POST">
         <label>Calle:</label> 

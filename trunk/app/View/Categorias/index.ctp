@@ -214,11 +214,13 @@
 //CIERRE CATEGORIAS
 /********************************************************************/
 </script>
-
+<div class="contbotones">
+    <button  id="btnaddcat" class="botones">Nueva Categoria</button>
+</div>
 <!-- LISTA CATEGORIAS -->
 <div id="listacategorias"></div>
 <!-- AGREGAR CATEGORIAS -->
-<button  id="btnaddcat" class="botones">Nueva Categoria</button>
+
 <div id="divaddcat" title="Nueva Categoria"> 
     <form id="formaddcat" method="POST">
         <label>Categoria:</label> 

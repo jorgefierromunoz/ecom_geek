@@ -311,11 +311,12 @@
 //CIERRE 
 /********************************************************************/
 </script>
-
+<div class="contbotones">
+   <button  id="btnaddcomunas" class="botones">Nueva Comuna</button>
+</div>
 <!-- LISTA  -->
 <div id="listacomunas"></div>
 <!-- AGREGAR  -->
-<button  id="btnaddcomunas" class="botones">Nueva Comuna</button>
 <div id="divaddcomunas" title="Nueva Comuna"> 
     <form id="formaddcomunas" method="POST">
         <label>Comuna:</label> 

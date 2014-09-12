@@ -59,7 +59,7 @@
                     if (data != "") {                        
                         flag = true;
                         var nombreproducto=data[item2].Producto.producto.toUpperCase();
-                        nombreproducto=nombreproducto.substr(0,15);
+                        nombreproducto=nombreproducto.substr(0,25);
                         var precio= data[item2].Producto.precio;
                         listaproductos += '<li class="productos" id="slidingProduct' + data[item2].Producto.id + '">';                        
                         listaproductos += '<span class="nom_pro"><p>' + nombreproducto + '</p></span><span class="preciopro"><p class=precio>$ ' +precio + '</p></span>';                        
