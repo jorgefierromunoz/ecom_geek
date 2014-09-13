@@ -13,7 +13,15 @@
 class CategoriasController extends AppController{
     //put your code here
     public $name = 'Categorias';
-   
+
+    public function beforeFilter() {
+        parent::beforeFilter();
+        if ((!$this->Session->check('User')) || ($this->Session->read('User.0.Tipo_Use')=='cliente')) {
+            $this->Auth->allow('listacategorias', 'listacategoriasComboBox','view');
+        }elseif (($this->Session->check('User')) && ($this->Session->read('User.0.Tipo_Use') == 'admin')) {
+            $this->Auth->allow();
+        }
+    }
     public function index(){
       
     }

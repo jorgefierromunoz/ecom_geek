@@ -13,7 +13,14 @@
 class FotosController extends AppController{
     //put your code here
     public $name = 'Fotos';
-    
+    public function beforeFilter() {
+        parent::beforeFilter();
+        if ((!$this->Session->check('User')) || ($this->Session->read('User.0.Tipo_Use')=='cliente')) {
+            $this->Auth->allow('view');
+        }elseif (($this->Session->check('User')) && ($this->Session->read('User.0.Tipo_Use') == 'admin')) {
+            $this->Auth->allow();
+        }
+    }
     function listafotos() {
         $this->set('fotos', $this->Foto->find('all'));
         $this->layout = 'ajax';

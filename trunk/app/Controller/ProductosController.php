@@ -1,5 +1,4 @@
 <?php
-session_start();
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -13,15 +12,27 @@ session_start();
 class ProductosController extends AppController{
     //put your code here
     public $name = 'Productos';
+     public function beforeFilter() {
+        parent::beforeFilter();
+        if ((!$this->Session->check('User')) || ($this->Session->read('User.0.Tipo_Use')=='cliente')) {
+            $this->Auth->allow('carrito','borrarcarro','detalleCarrito','eliminarproductocarro','versession','view','listaproductos','catsubcat','listaproductosComboBox','productosidsubcategoria','ver');
+        }elseif (($this->Session->check('User')) && ($this->Session->read('User.0.Tipo_Use') == 'admin')) {
+            $this->Auth->allow();
+        }
+    }
     public function index(){
       
     }
+    public function detalleCarrito(){
+      $this->Session->setFlash('Pronto :D');
+    }
+     
         public function carrito($id = null) {
         if ($id != null) {
             $this->Producto->id = $id;
             //$arreglo= $this->Producto->field('precioVenta');
-            if (isset($_SESSION['carrito'])) { //SI EXISTE LA SESSION CARRITO
-                $arreglo = $_SESSION['carrito'];
+            if ($this->Session->check('carrito')) { //SI EXISTE LA SESSION CARRITO
+                $arreglo =$this->Session->read('carrito');
                 $encontro = false;
                 $numero = 0;
                 for ($i = 0; $i < count($arreglo); $i++) {
@@ -34,7 +45,7 @@ class ProductosController extends AppController{
                 }
                 if ($encontro == true) {
                     $arreglo[$numero]['Cantidad'] = $arreglo[$numero]['Cantidad'] + 1;
-                    $_SESSION['carrito'] = $arreglo;
+                     $this->Session->write('carrito',$arreglo);
                 } else {
                     $idp = $this->Producto->field('id');
                     $nombre = $this->Producto->field('producto');
@@ -46,7 +57,7 @@ class ProductosController extends AppController{
                         'PrecioPunto' => $preciopto,
                         'Cantidad' => 1);
                     array_push($arreglo, $datosNuevos);
-                    $_SESSION['carrito'] = $arreglo;
+                      $this->Session->write('carrito',$arreglo);
                 }
             } else {//SI NO EXISTE LA SESSION CARRITO
                  $idp = $this->Producto->field('id');
@@ -59,9 +70,9 @@ class ProductosController extends AppController{
                     'Precio' => $precio,                    
                     'PrecioPunto' => $preciopto,
                     'Cantidad' => 1);
-                $_SESSION['carrito'][0] = $arreglo;
+                $this->Session->write('carrito',array($arreglo));
             }
-             $arreglo = $_SESSION['carrito'];
+             $arreglo = $this->Session->read('carrito');
         }else{
             $arreglo="0";
         }
@@ -70,7 +81,7 @@ class ProductosController extends AppController{
     }
       public function eliminarproductocarro($id = null) {
         if (($this->Session->check('carrito')) && ($id)) {
-            $arreglo = $_SESSION['carrito']; //PASO ACTUAL CARRITO A UN ARREGLO
+            $arreglo = $this->Session->read('carrito'); //PASO ACTUAL CARRITO A UN ARREGLO
             $encontro = false;
             $numero = 0;
             for ($i = 0; $i < count($arreglo); $i++) {
@@ -84,25 +95,25 @@ class ProductosController extends AppController{
             if ($encontro == true) {//SI EL PRODUCTO ENVIADO EXISTE 
                 unset($arreglo[$numero]);
                 $arreglo = array_values($arreglo);//REORDENAR ARREGLO
-                $_SESSION['carrito'] = $arreglo;
+                $this->Session->write('carrito',$arreglo);
             }
         }
         if (count($arreglo)==0){
-            $arreglo="0";
+            $arreglo="0";            
         }
         $this->set('productos', $arreglo);
         $this->layout = 'ajax';
     }
     
     function borrarcarro(){
-        session_destroy();
+        $this->Session->delete('carrito');
         $this->set('productos','1');
         $this->layout = 'ajax';
     }
 function versession(){
     if ($this->Session->check('carrito')){
-        if(count($_SESSION['carrito'])!=0){
-            $this->set('productos',$_SESSION['carrito']); 
+        if(count($this->Session->read('carrito.0'))!=0){
+            $this->set('productos',$this->Session->read('carrito')); 
         }else{
             $this->set('productos','0');    
         }
@@ -115,6 +126,7 @@ function versession(){
         $this->set('productos', $this->Producto->find('all',array('order'=>array($atributo=> $orden))));
         $this->layout = 'ajax';
     }
+   
      function catsubcat($id=null) {
         $this->set('productos', $this->Producto->find('all',array('recursive'=>0,'conditions'=>array('Producto.id'=>$id),'order'=>array('Producto.producto'=> 'asc'))));
         $this->layout = 'ajax';
