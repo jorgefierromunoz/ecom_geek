@@ -17,10 +17,10 @@ class MensajesController extends AppController {
     //put your code here
     public $uses = array();
 
-//    public function beforeFilter() {
-//        parent::beforeFilter();
-//        $this->Auth->allow();
-//    }
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('send','detallecarritomail');
+    }
      public function send() {
         if (!empty($this->request->data)) {
             $username = $this->data['email'];

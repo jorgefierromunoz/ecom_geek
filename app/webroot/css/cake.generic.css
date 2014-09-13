@@ -258,6 +258,7 @@ body {
     color: black;
     float: left;
     opacity: 0.8;
+	cursor: pointer;
 }
 .productos:hover{
     border: 1px solid #bbb;

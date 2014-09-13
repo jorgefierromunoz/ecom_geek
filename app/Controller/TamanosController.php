@@ -13,7 +13,14 @@
 class TamanosController extends AppController{
     //put your code here
     public $name = 'Tamanos';
-         
+    public function beforeFilter() {
+        parent::beforeFilter();
+        if ((!$this->Session->check('User')) || ($this->Session->read('User.0.Tipo_Use')=='cliente')) {
+            $this->Auth->allow('listatamanos','listatamanosComboBox','view');
+        }elseif (($this->Session->check('User')) && ($this->Session->read('User.0.Tipo_Use') == 'admin')) {
+            $this->Auth->allow();
+        }
+    }      
     public function index(){
       
     }

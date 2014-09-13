@@ -13,18 +13,16 @@
 class UsersController extends AppController{
     //put your code here
     public $name = 'Users';
-
-    public function micuentajson() {
-        if ($this->Session->check('user')) {
-            $id = $_SESSION['user'][0]['IdUsu'];
-            $user = $this->user->find('all', array('conditions' => array('user.id' => $id),
-                'fields' => array('id', 'username', 'rut', 'nombre', 'apellidoPaterno', 'apellidoMaterno', 'email')
-            ));
-            $this->set('users', $user);
-            $this->layout = 'ajax';
+    public function beforeFilter() {
+        parent::beforeFilter();
+        if (!$this->Session->check('User')){
+            $this->Auth->allow('login','checkuser','checkemail','habilitar','loguear','add');
+        }elseif (($this->Session->check('User')) && ($this->Session->read('User.0.Tipo_Use')=='cliente')) {
+            $this->Auth->allow('logout','edit');
+        }elseif (($this->Session->check('User')) && ($this->Session->read('User.0.Tipo_Use') == 'admin')) {
+            $this->Auth->allow();
         }
     }
-    
     public function checkuser($user) {
         $userbd = $this->User->find('all', array('conditions' => array('User.username' => $user)));
         if ($userbd) {            
@@ -51,8 +49,7 @@ class UsersController extends AppController{
         $this->redirect(array('controller' => 'pages', 'action' => 'display'));
     }
 
-    public function habilitar($link = null) {
-        
+    public function habilitar($link = null) {        
         $userbd = $this->User->find('all', array('conditions' => array('User.codigo' => $link),
                 'fields' => array('id', 'username', 'tipo', 'rut', 'nombre', 'apellidoPaterno', 'apellidoMaterno', 'email','codigo')));
         $cod = $userbd[0]['User']['codigo'];
@@ -64,7 +61,7 @@ class UsersController extends AppController{
             $arreglouser = array(
                         'IdUsu' => $userbd[0]['User']['id'],
                         'Username' => $userbd[0]['User']['username'],
-                        'Tipo' => $userbd[0]['User']['tipo'],
+                        'Tipo_Use' => $userbd[0]['User']['tipo'],
                         'Rut' => $userbd[0]['User']['rut'],
                         'Nombre' => $userbd[0]['User']['nombre'],
                         'ApPaterno' => $userbd[0]['User']['apellidoPaterno'],
@@ -77,14 +74,16 @@ class UsersController extends AppController{
                     $this->Session->write('User', array($arreglouser));
 
             if (($this->Session->check('User')) && ( $userbd[0]['User']['tipo'] == 'admin')) {
-                $this->set('users', $userbd);         
+                //$this->set('users', $userbd);         
+                $this->redirect(array('controller' => 'pages', 'action' => 'display'));                
             } else {
-                $this->set('users', $userbd);         
+                //$this->set('users', $userbd);
+                $this->redirect(array('controller' => 'pages', 'action' => 'display'));
             }
         } else {
-            $this->set('users', 'codigo erroneo');
+            $this->Session->setFlash('Código Erroneo');
+            $this->redirect(array('controller' => 'pages', 'action' => 'display'));
         }
-        $this->layout = 'ajax';
     }
 
     public function loguear() {
@@ -103,7 +102,7 @@ class UsersController extends AppController{
                     $arreglouser = array(
                         'IdUsu' => $user[0]['User']['id'],
                         'Username' => $user[0]['User']['username'],
-                        'Tipo' => $user[0]['User']['tipo'],
+                        'Tipo_Use' => $user[0]['User']['tipo'],
                         'Rut' => $user[0]['User']['rut'],
                         'Nombre' => $user[0]['User']['nombre'],
                         'ApPaterno' => $user[0]['User']['apellidoPaterno'],
@@ -124,7 +123,6 @@ class UsersController extends AppController{
                 $this->set('users', $a);
             //}
         }
-        
             } else {
             $a = 'Ingrese un nombre de usuario y un password';
             $this->set('users', $a);

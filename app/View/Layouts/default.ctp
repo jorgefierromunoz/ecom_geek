@@ -81,13 +81,13 @@
         });
         });   
    function vercarro(){
-        $.ajax({
-                beforeSend: function() {
-                     $('#divcarrito').html('<?php echo $this->Html->image('ajaxload2.gif'); ?>');
-                },
+        $.ajax({                
                 url: '<?php echo $this->Html->url(array('controller'=>'Productos','action'=>'versession')); ?>',
                 dataType: 'json',
-                success: function(data) {  
+                beforeSend: function() {
+                         $('#divcarrito').html('<?php echo $this->Html->image('ajaxload2.gif'); ?>');
+                    },    
+                success: function(data) {
                 if (data != '0'){
                     var lista="";
                     var nombreProducto="";
@@ -153,6 +153,7 @@ $(function() {
                     <nav id="menu">
                         <ul>
                             <li class="nivel1"><?php echo $this->Html->link('Home',array('controller' => 'Pages', 'action' => 'display')) ?></li>
+                        <?php if ($this->Session->read('User.0.Tipo_Use')=='admin'): ?>                            
                             <li class="nivel1"><?php echo $this->Html->link('Productos', array('controller' => 'Productos', 'action' => 'index'), array('class' => 'nivel1')) ?>                            
                                 <ul>
                                     <li><?php echo $this->Html->link('Fotos', array('controller' => 'Fotos', 'action' => 'index')) ?></li>
@@ -160,7 +161,6 @@ $(function() {
                                     <li><?php echo $this->Html->link('Modelos', array('controller' => 'Modelos', 'action' => 'index')) ?></li>
                                 </ul>
                             </li>
-                            
                             <li class="nivel1"><?php echo $this->Html->link('Categorias', array('controller' => 'Categorias', 'action' => 'index'), array('class' => 'nivel1')) ?>
                             <ul>
                                 <li><?php echo $this->Html->link('Sub Categorias', array('controller' => 'SubCategorias', 'action' => 'index')) ?></li>
@@ -182,7 +182,15 @@ $(function() {
                            <li class="nivel1"><?php echo $this->Html->link('Cat. Vendedores', array('controller' => 'CategoriaVendedores', 'action' => 'index'), array('class' => 'nivel1')) ?></li>                          
                            <li class="nivel1"><?php echo $this->Html->link('Direcciones', array('controller' => 'Direcciones', 'action' => 'index'), array('class' => 'nivel1')) ?></li>                         
                            <li class="nivel1"><?php echo $this->Html->link('Usuarios', array('controller' => 'Users', 'action' => 'index'), array('class' => 'nivel1')) ?></li>  
-
+                        <?php elseif ($this->Session->read('User.0.Tipo_Use')=='cliente'): ?>
+                            <li class="nivel1"><?php echo $this->Html->link('Detalle Carrito', array('controller' => 'Productos', 'action' => 'detalleCarrito'), array('class' => 'nivel1')) ?></li>                          
+                            <li class="nivel1"><?php echo $this->Html->link('Mi Cuenta', array('controller' => 'Productos', 'action' => 'detalleCarrito'), array('class' => 'nivel1')) ?></li>                          
+                            <li class="nivel1"><?php echo $this->Html->link('Historial Compras', array('controller' => 'Productos', 'action' => 'detalleCarrito'), array('class' => 'nivel1')) ?></li>                          
+                            <li class="nivel1"><?php echo $this->Html->link('Cerrar Sesión', array('controller' => 'Users', 'action' => 'logout'), array('class' => 'nivel1'))?></li>
+                        <?php else: ?>
+                            <li class="nivel1"><?php echo $this->Html->link('Detalle Carrito', array('controller' => 'Productos', 'action' => 'detalleCarrito'), array('class' => 'nivel1')) ?></li>                          
+                            <li class="nivel1"><?php echo $this->Html->link('Inicio de Sesión', array('controller' => 'Users', 'action' => 'login'),array('class'=>'nivel1'))?></li> 
+                            <?php endif; ?>
                         </ul>
                     </nav>
                     <?php if ($this->Session->check('User')): ?>

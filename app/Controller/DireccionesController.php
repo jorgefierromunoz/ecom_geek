@@ -13,6 +13,14 @@
 class DireccionesController extends AppController{
     //put your code here
     public $name = 'Direcciones';
+    public function beforeFilter() {
+        parent::beforeFilter();
+        if ((!$this->Session->check('User')) || ($this->Session->read('User.0.Tipo_Use')=='cliente')) {
+            $this->Auth->allow('listadirecciones', 'listadireccionesComboBox','view','add','edit','delete');
+        }elseif (($this->Session->check('User')) && ($this->Session->read('User.0.Tipo_Use') == 'admin')) {
+            $this->Auth->allow();
+        }
+    }
     public function index(){
       
     }

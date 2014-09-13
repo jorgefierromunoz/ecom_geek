@@ -13,7 +13,15 @@
 class TipoCuentasBancariasController extends AppController{
     //put your code here
     public $name = 'TipoCuentasBancarias';
-        public function index(){
+    public function beforeFilter() {
+        parent::beforeFilter();
+        if ((!$this->Session->check('User')) || ($this->Session->read('User.0.Tipo_Use')=='cliente')) {
+            $this->Auth->allow('listatcbancarias','listatcbancariasComboBox','view');
+        }elseif (($this->Session->check('User')) && ($this->Session->read('User.0.Tipo_Use') == 'admin')) {
+            $this->Auth->allow();
+        }
+    }      
+    public function index(){
       
     }
     function listatcbancarias() {
