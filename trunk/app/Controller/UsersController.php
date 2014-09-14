@@ -16,12 +16,15 @@ class UsersController extends AppController{
     public function beforeFilter() {
         parent::beforeFilter();
         if (!$this->Session->check('User')){
-            $this->Auth->allow('login','checkuser','checkemail','habilitar','loguear','add');
+            $this->Auth->allow('login','recuperacionpass','nuevousuario','nuevoPass','newPass','checkuser','checkemail','habilitar','loguear','add');
         }elseif (($this->Session->check('User')) && ($this->Session->read('User.0.Tipo_Use')=='cliente')) {
             $this->Auth->allow('logout','edit');
         }elseif (($this->Session->check('User')) && ($this->Session->read('User.0.Tipo_Use') == 'admin')) {
             $this->Auth->allow();
         }
+    }
+    public function recuperacionpass(){
+        
     }
     public function checkuser($user) {
         $userbd = $this->User->find('all', array('conditions' => array('User.username' => $user)));
@@ -48,7 +51,32 @@ class UsersController extends AppController{
         $this->Session->delete('User');
         $this->redirect(array('controller' => 'pages', 'action' => 'display'));
     }
-
+    
+    public function nuevoPass($link='null'){
+            $userbd = $this->User->find('all', array('conditions' => array('User.codigo2' => $link),
+                    'fields' => array('id')));
+            if ($userbd){
+                $this->set('users', array('1',$link));
+            }else{
+                $this->set('users', '0');
+                $this->Session->setFlash('Código Erroneo');
+            }    
+    }
+    public function newPass(){
+        if ($this->request->is('post')) {
+            $postlinkid = $this->User->find('first', array('recursive'=>0,'conditions' => array('User.codigo2' => $this->data['link']),
+                'fields' => 'id'));
+            if (isset($postlinkid['User']['id'])){
+                $this->User->id = $postlinkid['User']['id'];
+                $this->User->saveField("password",$this->data['pass']);
+                $this->set('users','1');
+                //$this->redirect(array('controller' => 'pages', 'action' => 'display'));
+            }else{
+                $this->set('users','0');
+            }
+            $this->layout = "ajax";
+        }
+    }
     public function habilitar($link = null) {        
         $userbd = $this->User->find('all', array('conditions' => array('User.codigo' => $link),
                 'fields' => array('id', 'username', 'tipo', 'rut', 'nombre', 'apellidoPaterno', 'apellidoMaterno', 'email','codigo')));

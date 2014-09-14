@@ -19,7 +19,7 @@ class MensajesController extends AppController {
 
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('send','detallecarritomail');
+        $this->Auth->allow('send','detallecarritomail','emailnuevopass');
     }
      public function send() {
         if (!empty($this->request->data)) {
@@ -32,6 +32,28 @@ class MensajesController extends AppController {
             $email->template('email_tpl')
                     ->emailFormat('html')
                     ->viewVars(array('cod_usuario' => $usercod,'username'=>$username,'nombre'=>$nombre))
+                    ->from(array('pruebaecomercejorge@gmail.com' => 'Jorge Fierro'))
+                    ->to($emailus)
+                    ->subject($titulo);
+            if ($email->send()) {
+                $this->set('mails','1');
+            }else{
+                $this->set('mails','0');
+            }            
+        }else{
+             $this->set('mails','0');
+        }
+        $this->layout = 'ajax';
+    }
+    public function emailnuevopass() {
+        if (!empty($this->request->data)) {  
+            $emailus = $this->data['email'];  
+            $usercod = Security::hash($emailus, null, true);
+            $titulo = "Geek4y Nueva Contraseña";
+            $email = new CakeEmail('gmail');
+            $email->template('email_tpl_recuperacion')
+                    ->emailFormat('html')
+                    ->viewVars(array('cod_usuario' => $usercod,'email'=>$emailus))
                     ->from(array('pruebaecomercejorge@gmail.com' => 'Jorge Fierro'))
                     ->to($emailus)
                     ->subject($titulo);

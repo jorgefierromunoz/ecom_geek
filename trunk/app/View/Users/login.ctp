@@ -55,6 +55,7 @@
             <tr>
                 <td class="centertable">                    
                     <div class="contbotones"><span id="entrar" class="botones">Entrar</span></div>
+                     <?php echo $this->Html->link('¿Olvidó su contraseña?', array('controller' => 'Users', 'action' => 'recuperacionpass')) ?>
                 </td>
             </tr>
              <tr>
