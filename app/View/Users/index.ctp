@@ -229,14 +229,14 @@
                 $("#spneditappaterno").html("Campo requerido");
                 $("#spneditappaterno").show();
                 $("#spneditalert").show();
-            }else if ( $("#select-edittcbanco").val().trim().length == 0 ){
-                $("#spneditappaterno").html("Campo requerido");
-                $("#spneditappaterno").show();
-                $("#spneditalert").show();
-            }else if ( $("#editnumerocuenta").val().trim().length == 0 ){
-                $("#spneditappaterno").html("Campo requerido");
-                $("#spneditappaterno").show();
-                $("#spneditalert").show();
+//            }else if ( $("#select-edittcbanco").val().trim().length == 0 ){
+//                $("#spneditappaterno").html("Campo requerido");
+//                $("#spneditappaterno").show();
+//                $("#spneditalert").show();
+//            }else if ( $("#editnumerocuenta").val().trim().length == 0 ){
+//                $("#spneditappaterno").html("Campo requerido");
+//                $("#spneditappaterno").show();
+//                $("#spneditalert").show();
             }else{
                 $.ajax({
                     url: 'Users/edit/' + idusers,

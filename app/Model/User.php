@@ -32,7 +32,9 @@ class User extends AppModel{
             $this->data['User']['password'] = Security::hash($this->data['User']['password'], null, true);
        }
        if(isset($this->data['User']['email'])){
-            $this->data['User']['codigo'] = Security::hash($this->data['User']['email'], null, true);
+            $cod=Security::hash($this->data['User']['email'], null, true);
+            $this->data['User']['codigo'] =$cod;
+            $this->data['User']['codigo2'] =$cod;
        }
        
        if(!isset($this->data['User']['tipo'])){

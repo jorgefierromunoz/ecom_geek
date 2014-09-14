@@ -266,7 +266,8 @@ $(document).ready(function(){
                     <td></td>
                 </tr>
                 <tr>    
-                    <td><button id="adduserssave" type="button">Registrarse</button></td>
+                    <td><div class="contbotones"><span id="adduserssave" class="botones">Registrarse</span></div></td>
+                    
                 </tr>
                 <tr>
                     <td><span id="spnaalert"></span></td>
