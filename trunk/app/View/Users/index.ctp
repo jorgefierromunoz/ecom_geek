@@ -70,7 +70,7 @@
                     select='<select id="editselectipousuario" name="estado"><option value="habilitado">Habilitado</option><option value="deshabilitado" selected>Deshabilitado</option></select>';
                 }
                 $("#list-editestado").html(select);
-                $("#editusuario").val(data.User.username);
+                //$("#editusuario").val(data.User.username);
                 select='';
                 if (data.User.tipo=="admin"){
                     select='<select id="editselectipousuario" name="tipo"><option value="admin" selected>Administrador</option><option value="cliente">Cliente</option></select>';
@@ -150,11 +150,12 @@
         //GUARDAR BUTTON ADD DIALOG
         $("#adduserssave").click(function(e) {
             e.preventDefault();
-             if ( $("#usuario").val().trim().length == 0 ) {
-                $("#spnaddusuario").html("Campo requerido");
-                $("#spnaddusuario").show();                
-                $("#spnaalert").show();
-            }else if ( $("#password").val().trim().length == 0 ){
+//             if ( $("#usuario").val().trim().length == 0 ) {
+//                $("#spnaddusuario").html("Campo requerido");
+//                $("#spnaddusuario").show();                
+//                $("#spnaalert").show();
+//            }else 
+            if ( $("#password").val().trim().length == 0 ){
                 $("#spnaddpassword").html("Campo requerido");
                 $("#spnaddpassword").show();
                 $("#spnaalert").show();
@@ -213,11 +214,12 @@
         //EDITAR BUTTON DIALOG 
         $("#editusersave").click(function(e) {      
             e.preventDefault();
-           if ( $("#editusuario").val().trim().length == 0 ) {
-                $("#spneditusuario").html("Campo requerido");
-                $("#spneditusuario").show();                
-                $("#spneditalert").show();
-            }else if ( $("#editrut").val().trim().length == 0 ){
+//           if ( $("#editusuario").val().trim().length == 0 ) {
+//                $("#spneditusuario").html("Campo requerido");
+//                $("#spneditusuario").show();                
+//                $("#spneditalert").show();
+//            }else 
+            if ( $("#editrut").val().trim().length == 0 ){
                 $("#spneditrut").html("Campo requerido");
                 $("#spneditrut").show();
                 $("#spneditalert").show();
@@ -380,7 +382,7 @@
     }
     
     function ocultarspanadd(){
-        $("#spnaddusuario").hide();
+        //$("#spnaddusuario").hide();
         $("#spnaddpassword").hide();
         $("#spnaddrepassword").hide();
         $("#spnaddrut").hide();
@@ -391,7 +393,7 @@
         $("#spnaalert").hide(); 
     }
     function ocultarspanedit(){
-        $("#spneditusuario").hide();
+        //$("#spneditusuario").hide();
         $("#spneditrepassword").hide();
         $("#spneditrut").hide();
         $("#spneditnombre").hide();
@@ -416,9 +418,9 @@
     <form id="formadduser" method="POST">
         <label>Estado:</label>   
         <input id="estado" type="text" name="estado" value="deshabilitado">
-        <label>Usuario:</label>   
+<!--        <label>Usuario:</label>   
         <input id="usuario" type="text" name="username">
-        <span id="spnaddusuario"></span><br>
+        <span id="spnaddusuario"></span><br>-->
         <label>Password:</label>   
         <input id="password" type="password" name="password">
         <span id="spnaddpassword"></span>
@@ -472,9 +474,9 @@
     <form id="formedit" method="POST">
         <label>Estado:</label>   
         <div id="list-editestado"></div> 
-        <label>Usuario:</label>
+<!--        <label>Usuario:</label>
         <input id="editusuario" type="text" name="username"> 
-        <span id="spneditusuario"></span><br>
+        <span id="spneditusuario"></span><br>-->
         <label>Tipo de usuario:</label> 
         <div id="list-edittipo"></div> 
         <label>Rut:</label>   

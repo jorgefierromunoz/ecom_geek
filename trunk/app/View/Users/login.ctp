@@ -41,7 +41,7 @@
     <form id="formlogin">
         <table class="logintable">
             <tr>
-                <td><h3>Nombre Usuario:</h3></td>
+                <td><h3>Email:</h3></td>
             </tr>
             <tr>
                 <td><input type="text" id="username" name="username"></td>

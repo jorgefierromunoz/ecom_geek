@@ -1,5 +1,5 @@
 <script type="text/javascript" src="js/categoria_sub_categoria.js"> </script>
-<script>
+<script type="text/javascript">
     $(document).ready(function() {
         idproductosglobal = 0;
         //LISTA 
