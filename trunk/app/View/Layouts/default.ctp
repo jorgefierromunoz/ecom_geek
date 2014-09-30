@@ -16,7 +16,7 @@
 <body>
     <script type="text/javascript">
     $(document).ready(function(){
-         $("#cargando").dialog({
+        $("#cargando").dialog({
             dialogClass: "no-close",
             closeOnEscape: false,
             draggable: false,
@@ -41,45 +41,26 @@
         
         vercarro();
     });
-      $(document).on("click", ".cerr_car", function() {
-            var idpro = $(this).attr('data-id');
-                 $.ajax({
-                beforeSend: function() { 
-                     $('#divcarrito').html('<?php echo $this->Html->image('ajaxload2.gif'); ?>');
-                },
-                url: '<?php echo $this->Html->url(array('controller'=>'Productos','action'=>'eliminarproductocarro')); ?>/'+idpro,
-                dataType: 'json',
-                success: function(data) {
-                if (data!='0'){
-                    var lista="";
-                    var nombreProducto="";
-                    var precio=0;
-                    var cantidad=0;                    
-                    var subtotal=0;
-                    var total=0;
-                    $.each(data, function(item) {
-                        nombreProducto=data[item].Producto.substring(0,8).toUpperCase();
-                        precio=parseInt(data[item].Precio);
-                        cantidad=parseInt(data[item].Cantidad);
-                        subtotal= precio*cantidad;
-                        lista+="<article class=prod_carrito>"; 
-                        lista+="<table class=tablecar><tr><td width=90% >" + nombreProducto + "</td><td><span class=cerrarcarrito><p class=cerr_car data-id=" + data[item].Id + ">x</p></span></td></tr></table>";                             
-                        lista+="<p>$ " + precio + "</p>"; 
-                        lista+="<p>cant: <input class='cant' type=number value="+ cantidad +"></p>"; 
-                        lista+="<p>sub-total: " + precio*cantidad + "</p>"; 
-                        lista+="</article>";
-                        total+=subtotal;
-                    });
-                    $("#divcarrito").html(lista);                    
-                    $("#totalcarrito").html(total);
-                    }else{
-                    $("#divcarrito").html("<span>No hay productos en el carrito</span>");
-                    $("#totalcarrito").html(" 0");
-                    }
-                    
-                }
-        });
+      $(document).on("click", ".cerr_car", function() {    
+        var idpro = $(this).attr('data-id');
+            $("#prod_carrito"+idpro).fadeOut("normal", function() {                
+               $.ajax({
+                   beforeSend: function() { 
+                        $("#prod_carrito"+idpro).html('<?php echo $this->Html->image('ajaxload2.gif'); ?>');
+                   },
+                   url: '<?php echo $this->Html->url(array('controller'=>'Productos','action'=>'eliminarproductocarro')); ?>/'+idpro,
+                   type: 'POST',
+                   dataType: 'json',
+                   success: function(data) {  
+                       $("#prod_carrito"+idpro).remove();
+                       if (data=="0"){                            
+                           $("#divcarrito").html("<span>No hay productos en el carrito</span>");
+                       }
+                   }
+               });
+           });                
         });   
+               
    function vercarro(){
         $.ajax({                
                 url: '<?php echo $this->Html->url(array('controller'=>'Productos','action'=>'versession')); ?>',
@@ -89,32 +70,33 @@
                     },    
                 success: function(data) {
                 if (data != '0'){
-                    var lista="";
+                     var lista="";
+                    var id="";
                     var nombreProducto="";
                     var precio=0;
                     var cantidad=0;                    
                     var subtotal=0;
                     var total=0;
                     $.each(data, function(item) {
+                        id= data[item].Id;
                         nombreProducto=data[item].Producto.substring(0,8).toUpperCase();
                         precio=parseInt(data[item].Precio);
                         cantidad=parseInt(data[item].Cantidad);
                         subtotal= precio*cantidad;
-                        lista+="<article class=prod_carrito>"; 
-                        lista+="<table class=tablecar><tr><td width=90% >" + nombreProducto + "</td><td><span class=cerrarcarrito><p class=cerr_car data-id=" + data[item].Id + ">x</p></span></td></tr></table>";                             
+                        lista+="<article class=prod_carrito id=prod_carrito" + id + ">"; 
+                        lista+="<table class=tablecar><tr><td width=90% >" + nombreProducto + "</td><td><span class=cerrarcarrito><p class=cerr_car data-id=" + id + ">x</p></span></td></tr></table>";                             
                         lista+="<p>$ " + precio + "</p>"; 
-                        lista+="<p>cant: <input class='cant' type=number value="+ cantidad +"></p>"; 
-                        lista+="<p>sub-total: " + precio*cantidad + "</p>"; 
+                        lista+="<p id=cant" + id + ">cant: "+ cantidad + " </p>"; //<input class=cant data-id=" + data[item].Id  + " type=number value="+ cantidad +"></p>"; 
+                        lista+="<p id=subtotal" + id + ">sub-total: " + precio*cantidad + "</p>"; 
                         lista+="</article>";
-                        total+=subtotal;
+                        total+=subtotal;                            
                     });
-                    $("#divcarrito").html(lista);                    
+                    $("#divcarrito").html(lista);
                     $("#totalcarrito").html(total);
                 }else{
                     $("#divcarrito").html("<span>No hay productos en el carrito</span>");
                     $("#totalcarrito").html(" 0");
-                    }
-                    
+                    }                    
                 },  
                 error: function(xhr, status, error){
                     //var err = eval("(" + xhr.responseText + ")");
@@ -188,8 +170,7 @@ $(function() {
                             <li class="nivel1"><?php echo $this->Html->link('Historial Compras', array('controller' => 'Productos', 'action' => 'detalleCarrito'), array('class' => 'nivel1')) ?></li>                          
                             <li class="nivel1"><?php echo $this->Html->link('Cerrar Sesión', array('controller' => 'Users', 'action' => 'logout'), array('class' => 'nivel1'))?></li>
                         <?php else: ?>
-                            <li class="nivel1"><?php echo $this->Html->link('Detalle Carrito', array('controller' => 'Productos', 'action' => 'detalleCarrito'), array('class' => 'nivel1')) ?></li>                          
-                            <li class="nivel1"><?php echo $this->Html->link('Inicio de Sesión', array('controller' => 'Users', 'action' => 'login'),array('class'=>'nivel1'))?></li> 
+                               <li class="nivel1"><?php echo $this->Html->link('Inicio de Sesión', array('controller' => 'Users', 'action' => 'login'),array('class'=>'nivel1'))?></li> 
                             <?php endif; ?>
                         </ul>
                     </nav>
@@ -222,7 +203,6 @@ $(function() {
                         </section>
                         <section id="menucentral">
 			<?php echo $this->Session->flash(); ?>
-
 			<?php echo $this->fetch('content'); ?>
                         </section>
                         <section id="menuder">
@@ -239,7 +219,8 @@ $(function() {
                                     </div>
                                     
                                     <div id=footercarrito>
-                                        <span class="btncomprar">Comprar</span>
+                                        <span><?php echo $this->Html->link('Detalle', array('controller' => 'Productos', 'action' => 'detalleCarrito'),array('class'=>'btncomprar'))?></span> 
+                        
                                     </div>
 
                                 </div>
