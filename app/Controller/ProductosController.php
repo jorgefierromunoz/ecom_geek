@@ -15,7 +15,7 @@ class ProductosController extends AppController{
      public function beforeFilter() {
         parent::beforeFilter();
         if ((!$this->Session->check('User')) || ($this->Session->read('User.0.Tipo_Use')=='cliente')) {
-            $this->Auth->allow('carrito','borrarcarro','detalleCarrito','eliminarproductocarro','versession','view','listaproductos','catsubcat','listaproductosComboBox','productosidsubcategoria','ver');
+            $this->Auth->allow('retornartotalescarro','detalle_carrito','cantidadcarrito','carrito','borrarcarro','detalleCarrito','eliminarproductocarro','versession','view','listaproductos','catsubcat','listaproductosComboBox','productosidsubcategoria','ver');
         }elseif (($this->Session->check('User')) && ($this->Session->read('User.0.Tipo_Use') == 'admin')) {
             $this->Auth->allow();
         }
@@ -24,10 +24,9 @@ class ProductosController extends AppController{
       
     }
     public function detalleCarrito(){
-      $this->Session->setFlash('Pronto :D');
+        
     }
-     
-        public function carrito($id = null) {
+    public function carrito($id = null) {
         if ($id != null) {
             $this->Producto->id = $id;
             //$arreglo= $this->Producto->field('precioVenta');
@@ -45,7 +44,12 @@ class ProductosController extends AppController{
                 }
                 if ($encontro == true) {
                     $arreglo[$numero]['Cantidad'] = $arreglo[$numero]['Cantidad'] + 1;
-                     $this->Session->write('carrito',$arreglo);
+                    $this->Session->write('carrito',$arreglo);
+                    $nombre=$this->Session->read('carrito.'.$numero.'.Producto');
+                    $cantidad=$this->Session->read('carrito.'.$numero.'.Cantidad');
+                    $precio=$this->Session->read('carrito.'.$numero.'.Precio'); 
+                    $subtotal= $cantidad * $precio;
+                    $arreglo=array($id,$nombre,$cantidad,$precio,$subtotal);
                 } else {
                     $idp = $this->Producto->field('id');
                     $nombre = $this->Producto->field('producto');
@@ -57,7 +61,8 @@ class ProductosController extends AppController{
                         'PrecioPunto' => $preciopto,
                         'Cantidad' => 1);
                     array_push($arreglo, $datosNuevos);
-                      $this->Session->write('carrito',$arreglo);
+                    $this->Session->write('carrito',$arreglo); 
+                    $arreglo=array($idp,$nombre,1,$precio,$precio);
                 }
             } else {//SI NO EXISTE LA SESSION CARRITO
                  $idp = $this->Producto->field('id');
@@ -71,15 +76,16 @@ class ProductosController extends AppController{
                     'PrecioPunto' => $preciopto,
                     'Cantidad' => 1);
                 $this->Session->write('carrito',array($arreglo));
+                $arreglo=array($idp,$nombre,1,$precio,$precio);
             }
-             $arreglo = $this->Session->read('carrito');
+             //$arreglo = $this->Session->read('carrito');
         }else{
             $arreglo="0";
         }
         $this->set('productos', $arreglo);
         $this->layout = 'ajax';
     }
-      public function eliminarproductocarro($id = null) {
+    public function eliminarproductocarro($id = null) {
         if (($this->Session->check('carrito')) && ($id)) {
             $arreglo = $this->Session->read('carrito'); //PASO ACTUAL CARRITO A UN ARREGLO
             $encontro = false;
@@ -104,13 +110,43 @@ class ProductosController extends AppController{
         $this->set('productos', $arreglo);
         $this->layout = 'ajax';
     }
-    
-    function borrarcarro(){
+    public function cantidadcarrito($id = null, $cant = null) {//CAMBIAR LA CANTIDAD DEL CARRO CON EL INPUT
+        if (($this->Session->check('carrito')) && ($id)) {
+            $arreglo = $this->Session->read('carrito'); //PASO ACTUAL CARRITO A UN ARREGLO
+            $encontro = false;
+            $numero = 0;
+            for ($i = 0; $i < count($arreglo); $i++) {
+                if (isset($arreglo[$i]['Id'])) { //BUSCO SI EL PRODUCTO ENVIADO EXISTE EN EL CARRITO
+                    if ($arreglo[$i]['Id'] == $id) {
+                        $encontro = true;
+                        $numero = $i;
+                    }
+                }
+            }
+            if ($encontro == true) {//SI EL PRODUCTO ENVIADO EXISTE 
+                if (is_numeric($cant)){
+                    $arreglo[$numero]['Cantidad'] = $cant;
+                    if (($arreglo[$numero]['Cantidad']) > 0) {
+                        $this->Session->write('carrito',$arreglo);                               
+                    }
+                }    
+            }
+        }
+        $cantidad=$this->Session->read('carrito.'.$numero.'.Cantidad');
+        $precio=$this->Session->read('carrito.'.$numero.'.Precio');
+        $preciopto=$this->Session->read('carrito.'.$numero.'.PrecioPunto');
+        $subtotalprecio=$precio*$cantidad;
+        $subtotalpto=$preciopto*$cantidad;
+        
+        $this->set('productos',array($cantidad,$subtotalprecio,$subtotalpto)); 
+        $this->layout = 'ajax';
+    }
+    public function borrarcarro(){
         $this->Session->delete('carrito');
         $this->set('productos','1');
         $this->layout = 'ajax';
     }
-function versession(){
+    public function versession(){
     if ($this->Session->check('carrito')){
         if(count($this->Session->read('carrito.0'))!=0){
             $this->set('productos',$this->Session->read('carrito')); 
@@ -122,16 +158,16 @@ function versession(){
     }
     $this->layout = 'ajax';
 }
-    function listaproductos($atributo=null,$orden=null) {
+    function listaproductos($atributo='Producto.id',$orden='asc') {
         $this->set('productos', $this->Producto->find('all',array('order'=>array($atributo=> $orden))));
         $this->layout = 'ajax';
     }
    
-     function catsubcat($id=null) {
+    function catsubcat($id=null) {
         $this->set('productos', $this->Producto->find('all',array('recursive'=>0,'conditions'=>array('Producto.id'=>$id),'order'=>array('Producto.producto'=> 'asc'))));
         $this->layout = 'ajax';
     }
-     function listaproductosComboBox() {
+    function listaproductosComboBox() {
         $this->set('productos', $this->Producto->find('all',array('recursive'=>-1)));
         $this->layout = 'ajax';
     }
@@ -140,7 +176,7 @@ function versession(){
            $this->set('productos',$this->Producto->find('all',$arreglo));
         $this->layout = 'ajax'; 
     }
-     public function add() {
+    public function add() {
          if ($this->request->is('post')) {
             if (!empty($this->data)) {
                 $this->Producto->create();

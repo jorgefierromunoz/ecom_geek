@@ -27,13 +27,15 @@ class UsersController extends AppController{
         
     }
     public function checkuser($user) {
-        $userbd = $this->User->find('all', array('conditions' => array('User.username' => $user)));
-        if ($userbd) {            
-            $this->set('users', $userbd);           
-        }else {
-            $userbd=0;
-            $this->set('users', $userbd);           
-        }
+//        $userbd = $this->User->find('all', array('conditions' => array('User.username' => $user)));
+//        if ($userbd) {            
+//            $this->set('users', $userbd);           
+//        }else {
+//            $userbd=0;
+//            $this->set('users', $userbd);           
+//        }
+         $userbd=0;
+         $this->set('users', $userbd);
          $this->layout = 'ajax';
     }
      public function checkemail($email) {
@@ -122,7 +124,7 @@ class UsersController extends AppController{
         if (($username != "") && ($password != "")) {
             $pas = Security::hash($password, null, true);
             $user = $this->User->find('all', array('conditions' => array(
-                    'User.username' => $username, 'User.password' => $pas),
+                    'User.email' => $username, 'User.password' => $pas),
                 'fields' => array('id', 'username', 'tipo', 'rut', 'nombre', 'apellidoPaterno',
                     'apellidoMaterno', 'email', 'estado','referido','puntoAcumulado','categoria_vendedore_id')));
             if (!$user == null) {

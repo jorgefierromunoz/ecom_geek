@@ -1,14 +1,14 @@
 <script type="text/javascript"> 
 $(document).ready(function(){
-        $("#usuario").blur(function() {
-          if ($("#usuario").val().trim().length == 0){
-                $("#valido").html("Campo requerido");
-                $("#valido").show();
-                $("#spnaalert").show();  
-           }else{
-            checkus($("#usuario").val(),'#valido');
-           }
-        });
+//        $("#usuario").blur(function() {
+//          if ($("#usuario").val().trim().length == 0){
+//                $("#valido").html("Campo requerido");
+//                $("#valido").show();
+//                $("#spnaalert").show();  
+//           }else{
+//            checkus($("#usuario").val(),'#valido');
+//           }
+//        });
         $("#email").blur(function() {
            if ($("#email").val().trim().length == 0){
                 $("#spnaddemail").html("Campo requerido");
@@ -49,12 +49,13 @@ $(document).ready(function(){
                 $("#spnaalert").show();      
         }else if (!chkemail){
                 $("#spnaalert").show();      
-        }else if ( $("#usuario").val().trim().length == 0 ) {
-                $("#spnaddusuario").html("Campo requerido");
-                $("#spnaddusuario").show();                
-                $("#spnaalert").show();             
-        }else if (!chkusu){
-            $("#spnaalert").show();
+//        }else if ( $("#usuario").val().trim().length == 0 ) {
+//                $("#spnaddusuario").html("Campo requerido");
+//                $("#spnaddusuario").show();                
+//                $("#spnaalert").show();             
+//        }else if (!chkusu){
+//            $("#spnaalert").show();
+//        }
         }else if ( $("#password").val().trim().length == 0 ){
             $("#spnaddpassword").html("Campo requerido");
             $("#spnaddpassword").show();
@@ -78,7 +79,7 @@ $(document).ready(function(){
                              $.ajax({
                                 url: '<?php echo $this->Html->url(array('controller'=>'Mensajes','action'=>'send')); ?>',
                                 type: "POST",
-                                data: {username: $("#usuario").val(), email: $("#email").val(), nombre: $("#nombre").val()+ " " + $("#apellidopaterno").val()},
+                                data: { email: $("#email").val(), nombre: $("#nombre").val()+ " " + $("#apellidopaterno").val()},
                                 dataType:'json',
                                 beforeSend:function(){ $("#cargando").dialog("open");},
                                 success: function(n) {
@@ -118,31 +119,31 @@ $(document).ready(function(){
             }
         }
     chkusu=false;    
-    function checkus(us,target){
-            if (us) {
-                $.ajax({
-                    url: '<?php echo $this->Html->url(array('controller'=>'Users','action'=>'checkuser')); ?>/' + us,
-                    type: "POST",
-                    dataType: 'json',
-                    beforeSend: function() {
-                        $(target).html('<?php echo $this->Html->image('ajaxload2.gif'); ?>');
-                    },
-                    success: function(data) {
-                        if (data == 0) {
-                            $(target).html('<?php echo $this->Html->image('aceptar.png'); ?>');  
-                            $("#spnaddusuario").html("");
-                            chkusu=true;
-                        } else {                            
-                            $(target).html('<?php echo $this->Html->image('cancelar.png'); ?>');
-                            $("#spnaddusuario").html("Nombre de usuario ya existe");
-                            chkusu=false;
-                        }
-                    }
-                });
-            }else{
-                $(target).html("Campo obligatorio");
-            }
-        }
+//    function checkus(us,target){
+//            if (us) {
+//                $.ajax({
+//                    url: ' echo $this->Html->url(array('controller'=>'Users','action'=>'checkuser')); ?>/' + us,
+//                    type: "POST",
+//                    dataType: 'json',
+//                    beforeSend: function() {
+//                        $(target).html(' echo $this->Html->image('ajaxload2.gif'); ?>');
+//                    },
+//                    success: function(data) {
+//                        if (data == 0) {
+//                            $(target).html(' echo $this->Html->image('aceptar.png'); ?>');  
+//                            $("#spnaddusuario").html("");
+//                            chkusu=true;
+//                        } else {                            
+//                            $(target).html(' echo $this->Html->image('cancelar.png'); ?>');
+//                            $("#spnaddusuario").html("Nombre de usuario ya existe");
+//                            chkusu=false;
+//                        }
+//                    }
+//                });
+//            }else{
+//                $(target).html("Campo obligatorio");
+//            }
+//        }
         chkemail=false;
         function checkemail(us,target){
         if (validateEmail(us)){
@@ -234,7 +235,7 @@ $(document).ready(function(){
                     <td></td>
                 </tr>             
                 
-                <tr>
+<!--                <tr>
                     <td><label class="label">User:</label></td>
                     <td></td>
                     <td></td>
@@ -248,7 +249,7 @@ $(document).ready(function(){
                     <td><span id="spnaddusuario"></span></td>
                     <td></td>
                     <td></td>
-                </tr> 
+                </tr> -->
                 <tr>
                      <td><label class="label">Password:</label></td>
                      <td><label class="label">Repita Password:</label></td>
