@@ -158,8 +158,9 @@ class ProductosController extends AppController{
     }
     $this->layout = 'ajax';
 }
-    function listaproductos($atributo='Producto.id',$orden='asc') {
-        $this->set('productos', $this->Producto->find('all',array('order'=>array($atributo=> $orden))));
+    function listaproductos($atributo='Producto.id',$orden='asc',$pagina=1) {
+        $totalProductos = $this->Producto->totalProductos();;
+        $this->set('productos',array($this->Producto->find('all',array('order'=>array($atributo=> $orden),'limit'=>20,'page'=>$pagina)),$totalProductos,$pagina, ceil($totalProductos / 20)));
         $this->layout = 'ajax';
     }
    
