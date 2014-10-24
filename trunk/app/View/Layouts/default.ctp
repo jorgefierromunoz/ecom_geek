@@ -7,7 +7,7 @@
 	</title>
 	<?php
 		echo $this->Html->css(array('cake.generic','jquery-ui'));
-                echo $this->Html->script(array('jquery','jquery-ui','upload'));
+                echo $this->Html->script(array('jquery','jquery-ui','upload','menucat'));
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
@@ -15,7 +15,8 @@
 </head>
 <body>
     <script type="text/javascript">
-    $(document).ready(function(){
+    $(document).ready(function(){  
+        vercategorias();
         $("#cargando").dialog({
             dialogClass: "no-close",
             closeOnEscape: false,
@@ -41,6 +42,7 @@
         
         vercarro();
     });
+    
       $(document).on("click", ".cerr_car", function() {    
         var idpro = $(this).attr('data-id');
             $("#prod_carrito"+idpro).fadeOut("normal", function() {                
@@ -60,7 +62,6 @@
                });
            });                
         });   
-               
    function vercarro(){
         $.ajax({                
                 url: '<?php echo $this->Html->url(array('controller'=>'Productos','action'=>'versession')); ?>',
@@ -97,6 +98,51 @@
                     $("#divcarrito").html("<span>No hay productos en el carrito</span>");
                     $("#totalcarrito").html(" 0");
                     }                    
+                },  
+                error: function(xhr, status, error){
+                    //var err = eval("(" + xhr.responseText + ")");
+                    console.log(xhr.responseText );
+                }
+                
+            });
+        }
+        function vercategorias(){
+        $.ajax({                
+                url: '<?php echo $this->Html->url(array('controller'=>'Categorias','action'=>'listacategorias','Categoria.id','asc')); ?>',
+                dataType: 'json',
+                beforeSend: function() {
+                         //$('#cssmenu').html('<?php echo $this->Html->image('ajaxload2.gif'); ?>');
+                    },    
+                success: function(data) {
+                    var categoriahtm='';
+                    $.each(data, function(item) {   
+                    //categoriahtm="";
+                    if (data[item].SubCategoria.length == 0){
+                        /*categoriahtm='<li class="active has-sub"><a href="#"><span>' + data[item].Categoria.categoria + '</span></a>';
+                        categoriahtm+='<ul>';
+                        categoriahtm+='<li class="last"><a href="#"><span>asdf</span></a></li>';
+                        categoriahtm+='</ul></li>';*/
+                           
+                        
+                    }/*else{
+                     *
+                     * 
+                     * 
+                     *
+                        categoriahtm='<li class="active has-sub"><a href="#"><span>' + data[item].Categoria.categoria + '</span></a><ul>';
+                        var subcategorias = data[item].SubCategoria;
+                        $.each(subcategorias, function(item2) {                     
+                            if (data[item].SubCategoria.length-1 == item2){
+                              categoriahtm+='<li class="last"><a href="#"><span>' + subcategorias[item2].subCategoria + '</span></a></li>';                         
+                            }else{
+                              categoriahtm+='<li><a href="#"><span>' + subcategorias[item2].subCategoria + '</span></a></li>';                             
+                            } 
+                            }); 
+                        categoriahtm+="</ul></li>";
+                    }*/
+                    });
+                    console.log(categoriahtm);
+                    $("#ulcat").html(categoriahtm);
                 },  
                 error: function(xhr, status, error){
                     //var err = eval("(" + xhr.responseText + ")");
@@ -169,9 +215,7 @@ $(function() {
                             <li class="nivel1"><?php echo $this->Html->link('Mi Cuenta', array('controller' => 'Productos', 'action' => 'detalleCarrito'), array('class' => 'nivel1')) ?></li>                          
                             <li class="nivel1"><?php echo $this->Html->link('Historial Compras', array('controller' => 'Productos', 'action' => 'detalleCarrito'), array('class' => 'nivel1')) ?></li>                          
                             <li class="nivel1"><?php echo $this->Html->link('Cerrar Sesión', array('controller' => 'Users', 'action' => 'logout'), array('class' => 'nivel1'))?></li>
-                        <?php else: ?>
-                               <li class="nivel1"><?php echo $this->Html->link('Inicio de Sesión', array('controller' => 'Users', 'action' => 'login'),array('class'=>'nivel1'))?></li> 
-                            <?php endif; ?>
+                        <?php endif; ?>
                         </ul>
                     </nav>
                     <?php if ($this->Session->check('User')): ?>
@@ -186,20 +230,22 @@ $(function() {
                         <div class="contbotones">
                         <span><?php echo $this->Html->link('Registro Usuario', array('controller' => 'Users', 'action' => 'nuevousuario'),array('class'=>'botones'))?></span><br>
                         </div>
-                        <div class="contbotones">
+<!--                        <div class="contbotones">
                         <span><?php echo $this->Html->link('Inicio de Sesión', array('controller' => 'Users', 'action' => 'login'),array('class'=>'botones'))?></span> 
-                        </div>
+                        </div>-->
                      </div>
                     <?php endif; ?>
 		</div>
                
                
 		<div id="content">
-                        <section id="menucat">
-                            <h3>Menú:</h3>
-                            <ul>
-                                <li>Cat1</li>
+                    <section id="menucat">
+                        <div id='cssmenu'>
+                            <ul id="ulcat">
+                                
                             </ul>
+                        </div>
+
                         </section>
                         <section id="menucentral">
 			<?php echo $this->Session->flash(); ?>
@@ -219,7 +265,7 @@ $(function() {
                                     </div>
                                     
                                     <div id=footercarrito>
-                                        <span><?php echo $this->Html->link('Detalle', array('controller' => 'Productos', 'action' => 'detalleCarrito'),array('class'=>'btncomprar'))?></span> 
+                                        <span class="spancomprar"><?php echo $this->Html->link('Detalle', array('controller' => 'Productos', 'action' => 'detalleCarrito'),array('class'=>'btncomprar'))?></span> 
                         
                                     </div>
 

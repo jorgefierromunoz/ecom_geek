@@ -20,6 +20,10 @@ class Producto extends AppModel{
         $count = $this->Foto->find("count", array("conditions" => array("producto_id" => $id)));
         return $count;
     }
+     function totalProductos() {
+        $count=$this->find("count");
+        return $count;
+    }
 }
 
 ?>

@@ -15,6 +15,19 @@
  * @package       app.webroot.css
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
+.paginacion{
+    width: 30%;
+    text-align: center;
+    margin-left: 35%;
+}
+.paginacion td{
+    text-align: center;
+    width: 200px; 
+    border: none;
+}
+.paginacion td span:hover{
+    cursor: pointer;
+}
 .contbotones{
     height: 30px;
     margin: 5px;
@@ -61,7 +74,7 @@ overflow: auto;
 }
 #divlogin{
     height: 500px;
-    background-color: #dfdfdf;
+    background-color: #367889;
     padding: 50px;
 }
 .centertable{
@@ -72,8 +85,10 @@ overflow: auto;
     font-size:80%;
 }
 .logintable td{
-   background-color: #dfdfdf;
+   border-bottom: none; 
+   background-color: #367889;
 }
+
 .botones{
     background-color: #a00;
     color: #F0F0F0;
@@ -87,6 +102,9 @@ overflow: auto;
 .botones:hover{
     opacity: 1;
 }
+.spancomprar{
+    margin-top: 10px;
+}
 .btncomprar{
     cursor: pointer;
     background-color: #a00;
@@ -95,6 +113,7 @@ overflow: auto;
     margin-left: 70px;
     padding: 5px;
     text-decoration: none;
+    
 }
 .btncomprar:hover{
     opacity: 1;
@@ -147,9 +166,10 @@ overflow: auto;
     padding: 0px;
 }
 #footercarrito{
-    padding: 5px;
-    background-color: #000;
-    height: 30px;
+    padding: 20px;
+    background-color: #367889;
+    height: 15px;
+    margin:3px;
 }
 
 .no-close .ui-dialog-titlebar-close {
@@ -170,10 +190,10 @@ overflow: auto;
     height: 80%;
 }
 .nuevousuario td{
-    color: #2c6877;
-    background-color: #dfdfdf;
+    color: #fff;
     margin: 5px;
     padding: 5px;
+    border: none;
 }
 #menu {  
 text-align: left;
@@ -182,16 +202,20 @@ width: 80%;
 margin: 20px auto;
 float: left;
 }
+/********************************/
 #menucat{
     float: left;
     width: 13%;
-    background-color: #000;
+    background-color: #367889;
+    color: #fff;
     margin: 5px;
 }
+
+/*******************************/
 #menucentral{
     float: left;
     width: 70%;
-    background-color: #dfdfdf;
+    background-color: #367889;
     overflow: auto;
     margin: 5px;
 }
@@ -203,13 +227,13 @@ float: left;
 #carrito{
     float: left;
     width: 100%;
-    background-color: #000;
+    background-color: #367889;
 }
 #productpromo{
     float: left;
     width: 100%;
     height: 200px;
-    background-color: #000;
+    background-color: #367889;
 }
 #menu ul { list-style-type: none;}
 
@@ -220,7 +244,7 @@ margin-right: 2px;
 #menu ul li a {
 display: block;
 text-decoration: none;
-color: #2c6877;
+color: #fff;
 padding: 8px;
 position: relative;
 font-size: 140%;
@@ -256,7 +280,8 @@ position: relative;
 .ordenar:hover{
     color: #1c94c4;
 }
-.pagina:hover{
+
+.pagina:hover{   
     color: #1c94c4;
 }
 .tdpais{
@@ -429,7 +454,7 @@ h2 {
 	font-size: 190%;
 }
 h3 {
-	color: #2c6877;
+	color: #fff;
 	font-family:'Gill Sans','lucida grande', helvetica, arial, sans-serif;
 	font-size: 165%;
 }
@@ -448,14 +473,14 @@ p {
 #container {
     text-align: left;
     width: 100%;
-    background-color: #2c6877;
+    background-color: #f0f0f0;
 }
 
 #header{
     margin: 0px;
     width: 100%;
     height: 80px;
-    background-color: #000;
+    background-color: #367889;
     border-radius: 1%;
 }
 #datosusu{    
@@ -556,7 +581,7 @@ table tr td {
 }
 table tr:nth-child(even) {
 	
-        background: #2c6877;
+        /*background: #2c6877*/
 }
 td.actions {
 	text-align: center;

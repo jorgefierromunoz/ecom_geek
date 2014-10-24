@@ -1,7 +1,7 @@
 <script type="text/javascript" src="js/fly-to-basket.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
-        TodosProductos("id","asc");
+        TodosProductos("id","asc",1);
     });
     
         $(document).on("click", ".btnadd", function() {
@@ -75,40 +75,75 @@
                 }
             });
         }
+          //PAGINA           
+        $(document).on("click", ".pagina", function(e) {
+            e.preventDefault();
+            var boton = $(this).attr('data-id');
+            console.log(boton);
+            var pa = parseInt($(this).attr('data-pa'));
+            console.log(pa);
+            if (boton=="atras"){
+                TodosProductos("id","asc",pa-1);
+            }else if (boton=="siguiente"){
+                TodosProductos("id","asc",pa+1);
+            }else if (boton=="ultima"||boton=="primera"){
+                TodosProductos("id","asc",pa);
+            }
+         });
         
-    function TodosProductos(atributo,orden) {
+    function TodosProductos(atributo,orden,pagina) {
         var listaproductos = '';
         var listapromo='';
         $.ajax({
             beforeSend: function() {
-                 $('#ullistaproductos').html("<img src='img/ajaxload2.gif'>");
+                 //$('#ullistaproductos').html("<img src='img/ajaxload2.gif'>");
             },
-            url: 'Productos/listaproductos/Producto.'+atributo+'/'+orden,
+            url: 'Productos/listaproductos/Producto.'+atributo+'/'+orden+'/'+pagina,
             dataType: 'json',
-            success: function(data) {                  
+            success: function(data) {    
                 if (data != "") {
                     $('#ullistaproductos').html("");
-                    $.each(data, function(item2) {
+                    var pagina="";
+                    if (data[2]==1){
+                        pagina='<table class="paginacion"><tr>';
+                        pagina+='<td><span class=pagina data-id=primera data-pa=1 > << </span></td>';
+                        pagina+='<td>Atrás</td><td><span class=pagina data-id=siguiente data-pa=' + data[2]+' > Siguiente </span></td><td><span class=pagina data-id=ultima data-pa=' + data[3]+' > >> </span></td></tr>';
+                        pagina+='<tr><td colspan=4>Página '+data[2] +' de '+ data[3] +'</td></tr>';
+                        pagina+='</table>';
+                    }else if(data[2]==data[3]){
+                        pagina='<table class="paginacion"><tr>';
+                        pagina+='<td><span class=pagina data-id=primera data-pa=1 > << </span></td><td><span class=pagina data-id=atras data-pa=' + data[2] + ' >Atrás</span></td><td>Siguiente</td><td><span class=pagina data-id=ultima data-pa=' + data[3]+' > >> </span></td></tr>';
+                        pagina+='<tr><td colspan=4>Página '+data[2] +' de '+ data[3] +'</td></tr>';
+                        pagina+='</table>';
+                    }else{
+                        pagina='<table class="paginacion"><tr>';
+                        pagina+='<td><span class=pagina data-id=primera data-pa=1 > << </span></td><td><span class=pagina data-id=atras data-pa=' + data[2] + ' >Atrás</span></td><td><span class=pagina data-id=siguiente data-pa=' + data[2] + ' >Siguiente</span></td><td><span class=pagina data-id=ultima data-pa=' + data[3]+' > >> </span></td></tr>';
+                        pagina+='<tr><td colspan=4>Página '+data[2] +' de '+ data[3] +'</td></tr>';
+                        pagina+='</table>';
+                    }
+                    $("#footermenuproductos").html(pagina);
+                    $.each(data[0], function(index,item2) {
                         listaproductos="";
-                        var nombreproducto=data[item2].Producto.producto.toUpperCase();
+                        var nombreproducto=item2.Producto.producto.toUpperCase();
                         nombreproducto=nombreproducto.substr(0,25);
-                        var precio= data[item2].Producto.precio;
-                        listaproductos += '<li class="productos" id="slidingProduct' + data[item2].Producto.id + '">';                        
+                        var precio= item2.Producto.precio;
+                        listaproductos += '<li class="productos" id="slidingProduct' + item2.Producto.id + '">';                        
                         listaproductos += '<span class="nom_pro"><p>' + nombreproducto + '</p></span><span class="preciopro"><p class=precio>$ ' +precio + '</p></span>';                        
-                        var imagenes = data[item2].Foto;
-                        $.each(imagenes, function(item3) {
-                            listaproductos += '<div class="caja_img" style="background-image:url(img/Fotos/s_' +  imagenes[item3].url + ')" data-id="' + data[item2].Producto.id + '"></div>';
-                            if ((data[item2].Producto.prioridadPrecio)){     
-                                listapromo+='<li class="productos" ' + data[item2].Producto.id + '">';
-                            }else if(data[item2].Producto.prioridadPunto) {
+                        var imagenes = item2.Foto;
+                        $.each(imagenes, function(item3) {                           
+                            listaproductos += '<div class="caja_img" style="background-image:url(img/Fotos/s_' +  imagenes[item3].url + ')" data-id="' + item2.Producto.id + '"></div>';
+                            if ((item2.Producto.prioridadPrecio)){     
+                                listapromo+='<li class="productos" ' + item2.Producto.id + '">';
+                            }else if(item2.Producto.prioridadPunto) {
                                 listapromo+='<li><img src="img/Fotos/s_' + imagenes[item3].url + '" /></li>';
                             }                           
                             return false;
                         });             
-                        listaproductos += '<img src="img/ver.png" class="btnver" data-id=' + data[item2].Producto.id + '>';
-                        listaproductos += '<img src="img/carrito.png" class="btnadd" data-id=' + data[item2].Producto.id + '>';
+                        listaproductos += '<img src="img/ver.png" class="btnver" data-id=' + item2.Producto.id + '>';
+                        listaproductos += '<img src="img/carrito.png" class="btnadd" data-id=' + item2.Producto.id + '>';
                         listaproductos += '</li>';  
-                        $('#ullistaproductos').append(listaproductos);                        
+                        //$('#ullistaproductos').append(listaproductos); 
+                        $(listaproductos).hide().appendTo("#ullistaproductos").fadeIn("normal");
                 });
                 }else{
                     listaproductos = "<p align=center>Actualmente no hay productos en la Base de datos</p>";
@@ -126,7 +161,7 @@
         </section>   
 
         <section id="bodyproductos">
-            <div id="menuproductos">a-z seach</div>
+            <div id="menuproductos"></div>
             <div id="targetproducto">                
                 <div id="listado_productos" class="productos_lista">
                     <ul id="ullistaproductos">
@@ -134,6 +169,7 @@
                     </ul>
                 </div>
             </div>
+            <div id="footermenuproductos"></div>
         </section>
     </section>    
 
