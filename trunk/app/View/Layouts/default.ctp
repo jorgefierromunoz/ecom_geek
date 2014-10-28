@@ -15,7 +15,7 @@
 </head>
 <body>
     <script type="text/javascript">
-    $(document).ready(function(){  
+    $(document).ready(function(){           
         vercategorias();
         $("#cargando").dialog({
             dialogClass: "no-close",
@@ -40,6 +40,19 @@
         });
         $("#prog").hide();
         
+        $("#entrarLogin").click(function(){
+            login("spnalertloginleft","formloginleft");
+        });
+        $("#passwordlogin").keypress(function(e){
+            if(e.which == 13) {
+                login("spnalertloginleft","formloginleft");
+            }
+        });     
+         $("#usernamelogin").keypress(function(e){
+            if(e.which == 13) {
+                login("spnalertloginleft","formloginleft");
+            }
+        }); 
         vercarro();
     });
     
@@ -61,8 +74,30 @@
                    }
                });
            });                
-        });   
-   function vercarro(){
+        }); 
+    function login(spanalert,formSerialize){
+        $.ajax({
+                url: '<?php echo $this->Html->url(array('controller'=>'Users','action'=>'loguear')); ?>',
+                type: "POST",
+                dataType: 'json',
+                data: $("#"+formSerialize).serialize(),
+                beforeSend: function(){$("#" + spanalert).html('<?php echo $this->Html->image('ajaxload2.gif'); ?>Cargando Sesión...')},
+                success: function(data) {
+                    console.log(data);
+                    if (data=='1'){
+                         $("#" + spanalert).html("");
+                         window.location.href = '<?php echo $this->Html->url(array('controller' => 'Pages', 'action' => 'display')); ?>';
+                    }else{
+                    $("#" + spanalert).html(data);
+                    }
+                },
+                error: function(e) {  
+                    $("#" + spanalert).html("Error interno, contáctese con el Administrador de la página");
+                    console.log(e);
+                }
+            });
+    }
+    function vercarro(){
         $.ajax({                
                 url: '<?php echo $this->Html->url(array('controller'=>'Productos','action'=>'versession')); ?>',
                 dataType: 'json',
@@ -106,7 +141,7 @@
                 
             });
         }
-        function vercategorias(){
+    function vercategorias(){
         $.ajax({                
                 url: '<?php echo $this->Html->url(array('controller'=>'Categorias','action'=>'listacategorias','Categoria.id','asc')); ?>',
                 dataType: 'json',
@@ -114,44 +149,96 @@
                          //$('#cssmenu').html('<?php echo $this->Html->image('ajaxload2.gif'); ?>');
                     },    
                 success: function(data) {
-                    var categoriahtm='';
-                    $.each(data, function(item) {   
-                    //categoriahtm="";
-                    if (data[item].SubCategoria.length == 0){
-                        /*categoriahtm='<li class="active has-sub"><a href="#"><span>' + data[item].Categoria.categoria + '</span></a>';
-                        categoriahtm+='<ul>';
-                        categoriahtm+='<li class="last"><a href="#"><span>asdf</span></a></li>';
-                        categoriahtm+='</ul></li>';*/
-                           
-                        
-                    }/*else{
-                     *
-                     * 
-                     * 
-                     *
-                        categoriahtm='<li class="active has-sub"><a href="#"><span>' + data[item].Categoria.categoria + '</span></a><ul>';
-                        var subcategorias = data[item].SubCategoria;
-                        $.each(subcategorias, function(item2) {                     
-                            if (data[item].SubCategoria.length-1 == item2){
-                              categoriahtm+='<li class="last"><a href="#"><span>' + subcategorias[item2].subCategoria + '</span></a></li>';                         
-                            }else{
-                              categoriahtm+='<li><a href="#"><span>' + subcategorias[item2].subCategoria + '</span></a></li>';                             
-                            } 
-                            }); 
-                        categoriahtm+="</ul></li>";
-                    }*/
+                    var categoriahtm='<ul><li><a class="active has-sub" href=""><span>Todos</span></a></li>';
+                    $.each(data, function(item) {                        
+                        var categoria = data[item].Categoria.categoria;
+                        var numSubcat=data[item].SubCategoria.length;
+                        if (numSubcat != 0){
+                            categoriahtm +='<li class="active has-sub"><a href="#"><span>' + categoria + '</span></a><ul>';
+                            var subcat = data[item].SubCategoria;
+                            $.each(subcat, function(item2) {
+                                if(item2 + 1 != numSubcat){
+                                    categoriahtm += '<li><a href="#"><span>' + subcat[item].subCategoria + '</span></a></li>';
+                                }else{
+                                    categoriahtm += '<li class="last"><a href="#"><span>' + subcat[item].subCategoria + '</span></a></li>';               
+                                }                               
+                            });
+                            categoriahtm += '</ul>';
+                        }else{                                                
+                            var class_last = (data.length == item + 1)? "class=last":"";
+                            categoriahtm +='<li ' + class_last + '><a href="#"><span>' + categoria + '</span></a></li>';
+                        }
                     });
-                    console.log(categoriahtm);
-                    $("#ulcat").html(categoriahtm);
+                    categoriahtm += '</ul>';
+                    $("#cssmenu").html(categoriahtm);
+                    $('#cssmenu>ul>li.has-sub>a').append('<span class="holder"></span>');
+                    $('#cssmenu li.has-sub>a').on('click', function(){
+                    $(this).removeAttr('href');
+                    var element = $(this).parent('li');
+                    if (element.hasClass('open')) {
+                            element.removeClass('open');
+                            element.find('li').removeClass('open');
+                            element.find('ul').slideUp();
+                    }
+                    else {
+                            element.addClass('open');
+                            element.children('ul').slideDown();
+                            element.siblings('li').children('ul').slideUp();
+                            element.siblings('li').removeClass('open');
+                            element.siblings('li').find('li').removeClass('open');
+                            element.siblings('li').find('ul').slideUp();
+                    }
+                });
                 },  
                 error: function(xhr, status, error){
                     //var err = eval("(" + xhr.responseText + ")");
                     console.log(xhr.responseText );
-                }
-                
+                }                
             });
         }
-        
+            
+(function getColor() {
+    var r, g, b;
+    var textColor = $('#cssmenu').css('color');
+    console.log(textColor);
+    textColor = textColor.slice(4);
+    r = textColor.slice(0, textColor.indexOf(','));
+    textColor = textColor.slice(textColor.indexOf(' ') + 1);
+    g = textColor.slice(0, textColor.indexOf(','));
+    textColor = textColor.slice(textColor.indexOf(' ') + 1);
+    b = textColor.slice(0, textColor.indexOf(')'));
+    var l = rgbToHsl(r, g, b);
+    if (l > 0.7) {
+            $('#cssmenu>ul>li>a').css('text-shadow', '0 1px 1px rgba(0, 0, 0, .35)');
+            $('#cssmenu>ul>li>a>span').css('border-color', 'rgba(0, 0, 0, .35)');
+    }
+    else
+    {
+            $('#cssmenu>ul>li>a').css('text-shadow', '0 1px 0 rgba(255, 255, 255, .35)');
+            $('#cssmenu>ul>li>a>span').css('border-color', 'rgba(255, 255, 255, .35)');
+    }
+})();
+
+function rgbToHsl(r, g, b) {
+    r /= 255, g /= 255, b /= 255;
+    var max = Math.max(r, g, b), min = Math.min(r, g, b);
+    var h, s, l = (max + min) / 2;
+
+    if(max == min){
+        h = s = 0;
+    }
+    else {
+        var d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        switch(max){
+            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+            case g: h = (b - r) / d + 2; break;
+            case b: h = (r - g) / d + 4; break;
+        }
+        h /= 6;
+    }
+    return l;
+}
 $(function() {
     var offset = $("#carrito").offset();
     var topPadding = 15;
@@ -240,10 +327,38 @@ $(function() {
                
 		<div id="content">
                     <section id="menucat">
+                        <?php if (!$this->Session->check('User')): ?>
+                        <div id="divloginizq">
+                            <span>Inicio Sesión</span>
+                            <form id="formloginleft">
+                                <table class="logintableizq">
+                                    <tr>
+                                        <td>Email:</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" id="usernamelogin" name="username"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Password:</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="password" id="passwordlogin" name="password"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span id="spnalertloginleft"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="centertable">                    
+                                            <div class="contbotones"><span id="entrarLogin" class="botones">Entrar</span></div>
+                                             <?php echo $this->Html->link('¿Olvidó su contraseña?', array('controller' => 'Users', 'action' => 'recuperacionpass'),array('class'=>'alinkolvidocont')) ?>
+                                        </td>
+                                    </tr>
+                                     
+                                </table>
+                            </form>
+                        </div>
+                        <?php endif; ?>
                         <div id='cssmenu'>
-                            <ul id="ulcat">
-                                
-                            </ul>
                         </div>
 
                         </section>
