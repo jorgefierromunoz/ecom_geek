@@ -79,9 +79,7 @@
         $(document).on("click", ".pagina", function(e) {
             e.preventDefault();
             var boton = $(this).attr('data-id');
-            console.log(boton);
             var pa = parseInt($(this).attr('data-pa'));
-            console.log(pa);
             if (boton=="atras"){
                 TodosProductos("id","asc",pa-1);
             }else if (boton=="siguiente"){
@@ -104,13 +102,19 @@
                 if (data != "") {
                     $('#ullistaproductos').html("");
                     var pagina="";
-                    if (data[2]==1){
+                    if (data[3] == 1){
+                        pagina='<table class="paginacion"><tr>';
+                        pagina+='<td></td>';
+                        pagina+='<td></td><td></td><td></td></tr>';
+                        pagina+='<tr><td colspan=4>Página '+data[2] +' de '+ data[3] +'</td></tr>';
+                        pagina+='</table>';
+                    }else if (data[2]==1){
                         pagina='<table class="paginacion"><tr>';
                         pagina+='<td><span class=pagina data-id=primera data-pa=1 > << </span></td>';
                         pagina+='<td>Atrás</td><td><span class=pagina data-id=siguiente data-pa=' + data[2]+' > Siguiente </span></td><td><span class=pagina data-id=ultima data-pa=' + data[3]+' > >> </span></td></tr>';
                         pagina+='<tr><td colspan=4>Página '+data[2] +' de '+ data[3] +'</td></tr>';
                         pagina+='</table>';
-                    }else if(data[2]==data[3]){
+                    }else if(data[2]==data[3]){                        
                         pagina='<table class="paginacion"><tr>';
                         pagina+='<td><span class=pagina data-id=primera data-pa=1 > << </span></td><td><span class=pagina data-id=atras data-pa=' + data[2] + ' >Atrás</span></td><td>Siguiente</td><td><span class=pagina data-id=ultima data-pa=' + data[3]+' > >> </span></td></tr>';
                         pagina+='<tr><td colspan=4>Página '+data[2] +' de '+ data[3] +'</td></tr>';
