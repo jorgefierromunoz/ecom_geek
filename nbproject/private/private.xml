@@ -2,6 +2,50 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="38">
         <file>
+            <url>app/View/SubCategorias/index.ctp</url>
+            <bookmark id="9">
+                <name/>
+                <line>124</line>
+                <key/>
+            </bookmark>
+            <bookmark id="8">
+                <name/>
+                <line>290</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>app/View/Tamanos/index.ctp</url>
+            <bookmark id="1">
+                <name/>
+                <line>18</line>
+                <key/>
+            </bookmark>
+            <bookmark id="2">
+                <name/>
+                <line>217</line>
+                <key/>
+            </bookmark>
+            <bookmark id="3">
+                <name/>
+                <line>252</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>app/View/Regiones/index.ctp</url>
+            <bookmark id="19">
+                <name/>
+                <line>124</line>
+                <key/>
+            </bookmark>
+            <bookmark id="20">
+                <name/>
+                <line>276</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
             <url>app/View/Productos/index.ctp</url>
             <bookmark id="34">
                 <name/>
@@ -20,12 +64,12 @@
             </bookmark>
             <bookmark id="33">
                 <name/>
-                <line>446</line>
+                <line>447</line>
                 <key/>
             </bookmark>
             <bookmark id="31">
                 <name/>
-                <line>586</line>
+                <line>587</line>
                 <key/>
             </bookmark>
         </file>
@@ -51,15 +95,10 @@
             </bookmark>
         </file>
         <file>
-            <url>app/View/SubCategorias/index.ctp</url>
-            <bookmark id="9">
+            <url>app/View/Fotos/index.ctp</url>
+            <bookmark id="27">
                 <name/>
-                <line>124</line>
-                <key/>
-            </bookmark>
-            <bookmark id="8">
-                <name/>
-                <line>290</line>
+                <line>1</line>
                 <key/>
             </bookmark>
         </file>
@@ -77,62 +116,10 @@
             </bookmark>
         </file>
         <file>
-            <url>app/View/Fotos/index.ctp</url>
-            <bookmark id="27">
-                <name/>
-                <line>1</line>
-                <key/>
-            </bookmark>
-        </file>
-        <file>
-            <url>app/View/Regiones/index.ctp</url>
-            <bookmark id="19">
-                <name/>
-                <line>124</line>
-                <key/>
-            </bookmark>
-            <bookmark id="20">
-                <name/>
-                <line>276</line>
-                <key/>
-            </bookmark>
-        </file>
-        <file>
-            <url>app/View/Tamanos/index.ctp</url>
-            <bookmark id="1">
-                <name/>
-                <line>18</line>
-                <key/>
-            </bookmark>
-            <bookmark id="2">
-                <name/>
-                <line>217</line>
-                <key/>
-            </bookmark>
-            <bookmark id="3">
-                <name/>
-                <line>252</line>
-                <key/>
-            </bookmark>
-        </file>
-        <file>
             <url>app/View/Direcciones/index.ctp</url>
             <bookmark id="36">
                 <name/>
                 <line>24</line>
-                <key/>
-            </bookmark>
-        </file>
-        <file>
-            <url>app/View/Paises/index.ctp</url>
-            <bookmark id="12">
-                <name/>
-                <line>5</line>
-                <key/>
-            </bookmark>
-            <bookmark id="13">
-                <name/>
-                <line>251</line>
                 <key/>
             </bookmark>
         </file>
@@ -156,6 +143,19 @@
             <bookmark id="26">
                 <name/>
                 <line>329</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>app/View/Paises/index.ctp</url>
+            <bookmark id="12">
+                <name/>
+                <line>5</line>
+                <key/>
+            </bookmark>
+            <bookmark id="13">
+                <name/>
+                <line>251</line>
                 <key/>
             </bookmark>
         </file>
