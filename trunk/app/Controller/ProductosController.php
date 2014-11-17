@@ -15,7 +15,7 @@ class ProductosController extends AppController{
      public function beforeFilter() {
         parent::beforeFilter();
         if ((!$this->Session->check('User')) || ($this->Session->read('User.0.Tipo_Use')=='cliente')) {
-            $this->Auth->allow('retornartotalescarro','detalle_carrito','cantidadcarrito','carrito','borrarcarro','detalleCarrito','eliminarproductocarro','versession','view','listaproductos','catsubcat','listaproductosComboBox','productosidsubcategoria','ver');
+            $this->Auth->allow('retornartotalescarro','detalle_carrito','cantidadcarrito','carrito','borrarcarro','detalleCarrito','eliminarproductocarro','versession','view','listaproductos','catsubcat','listaproductosComboBox','productosidsubcategoria','ver','listaproductossubcategoria');
         }elseif (($this->Session->check('User')) && ($this->Session->read('User.0.Tipo_Use') == 'admin')) {
             $this->Auth->allow();
         }
@@ -159,8 +159,13 @@ class ProductosController extends AppController{
     $this->layout = 'ajax';
 }
     function listaproductos($atributo='Producto.id',$orden='asc',$pagina=1) {
-        $totalProductos = $this->Producto->totalProductos();;
+        $totalProductos = $this->Producto->totalProductos();
         $this->set('productos',array($this->Producto->find('all',array('order'=>array($atributo=> $orden),'limit'=>20,'page'=>$pagina)),$totalProductos,$pagina, ceil($totalProductos / 20)));
+        $this->layout = 'ajax';
+    }
+    function listaproductossubcategoria($atributo='Producto.id',$orden='asc',$pagina=1,$subCategoria) {
+        $totalProductos = $this->Producto->totalProductosSubcategoria($subCategoria);
+        $this->set('productos',array($this->Producto->find('all',array('conditions'=>array('Producto.sub_categoria_id'=>$subCategoria),'order'=>array($atributo=> $orden),'limit'=>20,'page'=>$pagina)),$totalProductos,$pagina, ceil($totalProductos / 20)));
         $this->layout = 'ajax';
     }
    

@@ -347,6 +347,7 @@
             dataType: 'json',
             beforeSend:function(){ $("#cargando").dialog("open");},
             success: function(data) {
+                console.log(data);
                 $("#cargando").dialog("close");
                 if(data!=""){
                 var tabla = '<table>';
@@ -358,7 +359,7 @@
                 tabla += '<th class=ordenar data-id=prioridadPrecio>Prioridad Precio</th><th class=ordenar data-id=sub_categoria_id>Sub Categoria</th>';
                 tabla += '<th class=ordenar data-id=modelo_id>Modelo</th><th class=ordenar data-id=tamano_id>Tamaño</th><th>Ver</th><th>Editar</th><th>Eliminar</th>';
                 tabla += '</tr>';
-                $.each(data, function(index, item) {
+                $.each(data[0], function(index, item) {
                     tabla += '<tr>';
                     tabla += '<td>' + item.Producto.id + '</td>';
                     tabla += '<td>' + item.Producto.producto + '</td>';

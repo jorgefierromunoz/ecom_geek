@@ -24,6 +24,10 @@ class Producto extends AppModel{
         $count=$this->find("count");
         return $count;
     }
+     function totalProductosSubcategoria($id) {
+        $count=$this->find("count",array("conditions"=>array("sub_categoria_id"=>$id)));
+        return $count;
+    }
 }
 
 ?>

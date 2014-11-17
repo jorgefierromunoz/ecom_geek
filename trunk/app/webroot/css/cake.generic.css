@@ -19,7 +19,7 @@
 #cssmenu,
 #cssmenu ul,
 #cssmenu ul li,
-#cssmenu ul li a {
+#cssmenu ul li p {
   margin: 0;
   padding: 0;
   border: 0;
@@ -42,11 +42,11 @@
 .align-right {
   float: right;
 }
-#cssmenu > ul > li > a {
+#cssmenu > ul > li > p {
   padding: 15px 20px;
-  border-left: 1px solid #367889; /*1682ba*/
-  border-right: 1px solid #367889;
-  border-top: 1px solid #367889;
+  border-left: 1px solid #36aae7; /*1682ba*/
+  border-right: 1px solid #36aae7;
+  border-top: 1px solid #36aae7;
   cursor: pointer;
   z-index: 2;
   font-size: 14px;
@@ -54,7 +54,7 @@
   text-decoration: none;
   color: #ffffff;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
-  background: #36aae7;
+  background: #367889;
 /*  background: -webkit-linear-gradient(#36aae7, #367889);  1fa0e4
   background: -moz-linear-gradient(#36aae7, #367889);
   background: -o-linear-gradient(#36aae7, #367889);
@@ -62,23 +62,23 @@
   background: linear-gradient(#36aae7, #367889);*/
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
-#cssmenu > ul > li > a:hover,
-#cssmenu > ul > li.active > a,
-#cssmenu > ul > li.open > a {
+#cssmenu > ul > li > p:hover,
+#cssmenu > ul > li.active > p,
+#cssmenu > ul > li.open > p {
   color: #eeeeee;
-  background: #367889;
+  background: #36aae7;
 /*  background: -webkit-linear-gradient(#367889, #1992d1);
   background: -moz-linear-gradient(#367889, #1992d1);
   background: -o-linear-gradient(#367889, #1992d1);
   background: -ms-linear-gradient(#367889, #1992d1);
   background: linear-gradient(#367889, #1992d1);*/
 }
-#cssmenu > ul > li.open > a {
+#cssmenu > ul > li.open > p {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.15);
   border-bottom: 1px solid #367889;
 }
-#cssmenu > ul > li:last-child > a,
-#cssmenu > ul > li.last > a {
+#cssmenu > ul > li:last-child > p,
+#cssmenu > ul > li.last > p {
   border-bottom: 1px solid #367889;
 }
 .holder {
@@ -108,9 +108,9 @@
   border-top: 2px solid #ffffff;
   border-left: 2px solid #ffffff;
 }
-#cssmenu > ul > li > a:hover > span::after,
-#cssmenu > ul > li.active > a > span::after,
-#cssmenu > ul > li.open > a > span::after {
+#cssmenu > ul > li > p:hover > span::after,
+#cssmenu > ul > li.active > p > span::after,
+#cssmenu > ul > li.open > p > span::after {
   border-color: #eeeeee;
 }
 .holder::before {
@@ -120,7 +120,7 @@
   border-top-color: inherit;
   border-left-color: inherit;
 }
-#cssmenu ul ul li a {
+#cssmenu ul ul li p {
   cursor: pointer;
   border-bottom: 1px solid #32373e;
   border-left: 1px solid #32373e;
@@ -133,33 +133,33 @@
   background: #49505a;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
-#cssmenu ul ul li:hover > a,
-#cssmenu ul ul li.open > a,
-#cssmenu ul ul li.active > a {
+#cssmenu ul ul li:hover > p,
+#cssmenu ul ul li.open > p,
+#cssmenu ul ul li.active > p {
   background: #424852;
   color: #ffffff;
 }
-#cssmenu ul ul li:first-child > a {
+#cssmenu ul ul li:first-child > p {
   box-shadow: none;
 }
-#cssmenu ul ul ul li:first-child > a {
+#cssmenu ul ul ul li:first-child > p {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
-#cssmenu ul ul ul li a {
+#cssmenu ul ul ul li p {
   padding-left: 30px;
 }
-#cssmenu > ul > li > ul > li:last-child > a,
-#cssmenu > ul > li > ul > li.last > a {
+#cssmenu > ul > li > ul > li:last-child > p,
+#cssmenu > ul > li > ul > li.last > p {
   border-bottom: 0;
 }
-#cssmenu > ul > li > ul > li.open:last-child > a,
-#cssmenu > ul > li > ul > li.last.open > a {
+#cssmenu > ul > li > ul > li.open:last-child > p,
+#cssmenu > ul > li > ul > li.last.open > p {
   border-bottom: 1px solid #32373e;
 }
-#cssmenu > ul > li > ul > li.open:last-child > ul > li:last-child > a {
+#cssmenu > ul > li > ul > li.open:last-child > ul > li:last-child > p {
   border-bottom: 0;
 }
-#cssmenu ul ul li.has-sub > a::after {
+#cssmenu ul ul li.has-sub > p::after {
   display: block;
   position: absolute;
   content: "";
@@ -176,9 +176,9 @@
   -o-transform: rotate(-135deg);
   transform: rotate(-135deg);
 }
-#cssmenu ul ul li.active > a::after,
-#cssmenu ul ul li.open > a::after,
-#cssmenu ul ul li > a:hover::after {
+#cssmenu ul ul li.active > p::after,
+#cssmenu ul ul li.open > p::after,
+#cssmenu ul ul li > p:hover::after {
   border-color: #ffffff;
 }
 
