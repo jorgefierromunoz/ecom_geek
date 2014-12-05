@@ -8,7 +8,7 @@
         TodosProductos("id","asc",1);
         vercategorias();
         $(".btnver").click(function(){
-            
+            $("#detalle-producto").dialog();
         });
     });
     $(document).on("click", ".btnMenuCat", function() {
@@ -392,5 +392,5 @@ function rgbToHsl(r, g, b) {
             <div id="footermenuproductos"></div>
         </section>
     </section>    
-
+<div id="detalle-producto"></div>
 
