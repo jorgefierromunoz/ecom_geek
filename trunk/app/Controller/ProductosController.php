@@ -15,7 +15,7 @@ class ProductosController extends AppController{
      public function beforeFilter() {
         parent::beforeFilter();
         if ((!$this->Session->check('User')) || ($this->Session->read('User.0.Tipo_Use')=='cliente')) {
-            $this->Auth->allow('retornartotalescarro','detalle_carrito','cantidadcarrito','carrito','borrarcarro','detalleCarrito','eliminarproductocarro','versession','view','listaproductos','catsubcat','listaproductosComboBox','productosidsubcategoria','ver','listaproductossubcategoria');
+            $this->Auth->allow('totalcarrito','retornartotalescarro','detalle_carrito','cantidadcarrito','carrito','borrarcarro','detalleCarrito','eliminarproductocarro','versession','view','listaproductos','catsubcat','listaproductosComboBox','productosidsubcategoria','ver','listaproductossubcategoria');
         }elseif (($this->Session->check('User')) && ($this->Session->read('User.0.Tipo_Use') == 'admin')) {
             $this->Auth->allow();
         }
@@ -83,6 +83,24 @@ class ProductosController extends AppController{
             $arreglo="0";
         }
         $this->set('productos', $arreglo);
+        $this->layout = 'ajax';
+    }
+    public function totalcarrito(){
+        $total=0;
+        $totalptos=0;
+        if ($this->Session->check('carrito')){
+            $arreglo = $this->Session->read('carrito'); //PASO ACTUAL CARRITO A UN ARREGLO
+            for ($i = 0; $i < count($arreglo); $i++) {
+                $cantidad=$arreglo[$i]['Cantidad'];
+                $precio=$arreglo[$i]['Precio'];
+                $preciopto=$arreglo[$i]['PrecioPunto'];
+                $subtotalprecio=$precio*$cantidad;
+                $subtotalpto=$preciopto*$cantidad;
+                $total = $total + $subtotalprecio;
+                $totalptos = $totalptos + $subtotalpto;
+            }
+        }
+        $this->set('productos', array($total,$totalptos));
         $this->layout = 'ajax';
     }
     public function eliminarproductocarro($id = null) {
