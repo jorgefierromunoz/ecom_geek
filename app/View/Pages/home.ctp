@@ -1,8 +1,8 @@
 <script src="js/jquery.js"></script>
   <script src="js/jquery-ui.js"></script>
 <script type="text/javascript" src="js/fly-to-basket.js"></script>
-<script type="text/javascript" src="js/CoinSlider.js"></script>
-<link rel="stylesheet" type="text/css" href="js/CoinSlider.css">
+<!--<script type="text/javascript" src="js/CoinSlider.js"></script>-->
+<!--<link rel="stylesheet" type="text/css" href="js/CoinSlider.css">-->
 <script type="text/javascript">
     $(document).ready(function(){
         TodosProductos("id","asc",1);
@@ -19,7 +19,8 @@
            ListarProductoSubCategoria("id","asc",1,idsubcategoria);
        }
     });
-        $(document).on("click", ".btnadd", function() {
+        $(document).on("click", ".btnadd", function() {     
+            $("#spncarrito_0").remove();
             var idpro = $(this).attr('data-id');
             addToBasket(idpro);
             $.ajax({
@@ -35,8 +36,7 @@
                     var precio=parseInt(data[3]);
                     var cantidad=parseInt(data[2]);                    
                     var subtotal=precio*cantidad;
-                    var total=0;
-                    if ($("#prod_carrito"+id).length){
+                    if ($("#prod_carrito" + id).length){
                         $("#cant" + id).html("cant: " + cantidad);
                         $("#subtotal" + id).html("sub-total: " + subtotal);
                     }else{
@@ -44,13 +44,11 @@
                         lista+="<table class=tablecar><tr><td width=90% >" + nombreProducto + "</td><td><span class=cerrarcarrito><p class=cerr_car data-id=" + id + ">x</p></span></td></tr></table>";                             
                         lista+="<p>$ " + precio + "</p>"; 
                         lista+="<p id=cant" + id + ">cant: "+ cantidad + " </p>"; //<input class=cant data-id=" + data[item].Id  + " type=number value="+ cantidad +"></p>"; 
-                        lista+="<p id=subtotal" + id + ">sub-total: " + precio*cantidad + "</p>"; 
+                        lista+="<p id=subtotal" + id + ">sub-total: " + subtotal + "</p>"; 
                         lista+="</article>";
                         $(lista).hide().appendTo("#divcarrito").fadeIn("normal");
-
-                        //$("#divcarrito").html(lista);
-                        //$("#totalcarrito").html(total);            
                     }
+                    totalcarrito();
                 }
         
             });
@@ -124,7 +122,7 @@
         var listapromo='';
         $.ajax({
             beforeSend: function() {
-                 //$('#ullistaproductos').html("<img src='img/ajaxload2.gif'>");
+                 $('#ullistaproductos').html("<center><img src='img/ajaxload2.gif'></center>");
             },
             url: 'Productos/listaproductossubcategoria/Producto.'+atributo+'/'+orden+'/'+pagina+'/'+subcategoria,
             dataType: 'json',
@@ -196,7 +194,7 @@
         var listapromo='';
         $.ajax({
             beforeSend: function() {
-                 //$('#ullistaproductos').html("<img src='img/ajaxload2.gif'>");
+                 $('#ullistaproductos').html("<center><img src='img/ajaxload2.gif'></center>");
             },
             url: 'Productos/listaproductos/Producto.'+atributo+'/'+orden+'/'+pagina,
             dataType: 'json',
@@ -248,21 +246,21 @@
                         listaproductos += '<img src="img/ver.png" class="btnver" data-id=' + item2.Producto.id + '>';
                         listaproductos += '<img src="img/carrito.png" class="btnadd" data-id=' + item2.Producto.id + '>';
                         listaproductos += '</li>';
-                        $("#productpromo").append(listapromo);
-                                $("#productpromo").coinslider({
-                width:800,
-                height:175,
-                spw: 10, // squares per width
-                sph: 10, // squares per height
-                delay: 8000, // delay between images in ms
-                sDelay: 30, // delay beetwen squares in ms
-                opacity: 0.5, // opacity of title and navigation
-                titleSpeed: 800, // speed of title appereance in ms
-                effect: 'swirl', // random, swirl, rain, straight
-                navigation: false, // prev next and buttons
-                links : false, // show images as links
-                hoverPause: false // pause on hover
-            });
+                        //$("#productpromo").append(listapromo);
+//                        $("#productpromo").coinslider({
+//                            width:800,
+//                            height:175,
+//                            spw: 10, // squares per width
+//                            sph: 10, // squares per height
+//                            delay: 8000, // delay between images in ms
+//                            sDelay: 30, // delay beetwen squares in ms
+//                            opacity: 0.5, // opacity of title and navigation
+//                            titleSpeed: 800, // speed of title appereance in ms
+//                            effect: 'swirl', // random, swirl, rain, straight
+//                            navigation: false, // prev next and buttons
+//                            links : false, // show images as links
+//                            hoverPause: false // pause on hover
+//                        });
                         //$('#ullistaproductos').append(listaproductos); 
                         $(listaproductos).hide().appendTo("#ullistaproductos").fadeIn("normal");
                 });
