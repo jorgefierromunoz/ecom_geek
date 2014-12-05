@@ -52,7 +52,7 @@
 			// set panel
 			$(el).css({
 				'background-image':'url('+images[el.id][0]+')',
-				'width':800, //params[el.id].width,
+				'width':500, //params[el.id].width,
 				'height': 175,//params[el.id].height,
 				'position': 'relative',
 				'background-position': 'top left'
@@ -220,7 +220,7 @@
 				return;
 			}
 
-			$('#cs-'+el.id+sid).css({ opacity: 0, 'background-image': 'url('+images[el.id][imagePos[el.id]]+')' });
+			$('#cs-'+el.id+sid).css({ opacity: 0, 'background-image': 'url('+images[el.id][imagePos[el.id]]+')','background-repeat': 'no-repeat','background-size': '500px 175px' });
 			$('#cs-'+el.id+sid).animate({ opacity: 1 }, 300);
 			squarePos[el.id]++;
 			
