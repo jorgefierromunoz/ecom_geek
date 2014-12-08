@@ -1,5 +1,5 @@
 <script src="js/jquery.js"></script>
-  <script src="js/jquery-ui.js"></script>
+<script src="js/jquery-ui.js"></script>
 <script type="text/javascript" src="js/fly-to-basket.js"></script>
 <script type="text/javascript" src="js/CoinSlider.js"></script>
 <link rel="stylesheet" type="text/css" href="js/CoinSlider.css">
@@ -51,7 +51,7 @@
                         lista+="</article>";
                         $(lista).hide().appendTo("#divcarrito").fadeIn("normal");
                     }
-                    totalcarrito();
+                    totalcarrito("totalcarrito","");
                 }
         
             });
@@ -246,23 +246,23 @@
                             }                           
                             return false;
                         });             
-                        listaproductos += '<img src="img/ver.png" class="btnver" data-id=' + item2.Producto.id + '>';
+                        listaproductos += '<a href="<?php echo $this->Html->url(array('controller'=>'Productos','action'=>'verdetalleproducto')); ?>/'+ item2.Producto.id +'" ><img src="img/ver.png" class="btnver" data-id=' + item2.Producto.id + '></a>';
                         listaproductos += '<img src="img/carrito.png" class="btnadd" data-id=' + item2.Producto.id + '>';
                         listaproductos += '</li>';
                         $("#productpromo").append(listapromo);
                         $("#productpromo").coinslider({
                             width:500,
                             height:175,
-                            spw: 10, // squares per width
-                            sph: 10, // squares per height
-                            delay: 8000, // delay between images in ms
-                            sDelay: 30, // delay beetwen squares in ms
+                            spw: 1, // squares per width
+                            sph: 1, // squares per height
+                            delay: 3000, // delay between images in ms
+                            sDelay: 1, // delay beetwen squares in ms
                             opacity: 0.5, // opacity of title and navigation
                             titleSpeed: 800, // speed of title appereance in ms
-                            effect: 'swirl', // random, swirl, rain, straight
+                            effect: 'rain', // random, swirl, rain, straight
                             navigation: false, // prev next and buttons
                             links : false, // show images as links
-                            hoverPause: false // pause on hover
+                            hoverPause: true // pause on hover
                         });
                         //$('#ullistaproductos').append(listaproductos); 
                         $(listaproductos).hide().appendTo("#ullistaproductos").fadeIn("normal");

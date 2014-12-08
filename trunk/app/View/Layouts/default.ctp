@@ -68,7 +68,7 @@
                            $("#totalcarrito").html("0");
                        }else{
                            $("#prod_carrito" + idpro).remove();
-                           totalcarrito();
+                           totalcarrito("totalcarrito","");
                        }
                    }
                 });
@@ -146,7 +146,7 @@
                 
             });
         }
-        function totalcarrito(){
+        function totalcarrito(target,target2){
         $.ajax({                
                 url: '<?php echo $this->Html->url(array('controller'=>'Productos','action'=>'totalcarrito')); ?>',
                 dataType: 'json',
@@ -154,7 +154,8 @@
                          //$('#totalcarrito').html('<?php echo $this->Html->image('ajaxload2.gif'); ?>');
                     },    
                 success: function(data) {
-                    $("#totalcarrito").html(data[0]);        
+                    $("#"+target).html(data[0]);                    
+                    $("#"+target2).html(data[1]);
                 }
         });
         }
