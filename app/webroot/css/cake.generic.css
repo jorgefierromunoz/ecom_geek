@@ -207,7 +207,7 @@
     margin: 5px;
 }
 #footdetcarrito{
-    background-color: #000;
+    background-color: #367889;
     height: 150px;
 }
 #shopping_cart{
@@ -226,9 +226,6 @@
 .tablefootdetcarrito tr td{
     text-align: right;
     border-bottom:none;
-}
-.tablefootdetcarrito tr:nth-child(even) {	
-    background: #000;
 }
 .tabledetcar{
     width: 95%;
@@ -348,6 +345,19 @@ overflow: auto;
     cursor: pointer;
 }
 .cerr_car:hover{
+    opacity: 1;
+}
+
+.cerr_car_det{
+    background-color: #a00;
+    text-align:center;
+    width: 20px;
+    height: 20px;
+    opacity: 0.8;
+    color: #F0F0F0;
+    cursor: pointer;
+}
+.cerr_car_det:hover{
     opacity: 1;
 }
 .tablecar{

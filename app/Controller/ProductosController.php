@@ -15,13 +15,17 @@ class ProductosController extends AppController{
      public function beforeFilter() {
         parent::beforeFilter();
         if ((!$this->Session->check('User')) || ($this->Session->read('User.0.Tipo_Use')=='cliente')) {
-            $this->Auth->allow('totalcarrito','retornartotalescarro','detalle_carrito','cantidadcarrito','carrito','borrarcarro','detalleCarrito','eliminarproductocarro','versession','view','listaproductos','catsubcat','listaproductosComboBox','productosidsubcategoria','ver','listaproductossubcategoria');
+            $this->Auth->allow('verdetalleproducto','totalcarrito','retornartotalescarro','detalle_carrito','cantidadcarrito','carrito','borrarcarro','detalleCarrito','eliminarproductocarro','versession','view','listaproductos','catsubcat','listaproductosComboBox','productosidsubcategoria','ver','listaproductossubcategoria');
         }elseif (($this->Session->check('User')) && ($this->Session->read('User.0.Tipo_Use') == 'admin')) {
             $this->Auth->allow();
         }
     }
     public function index(){
       
+    }
+    public function verdetalleproducto($id){
+        $this->Producto->id = $id;
+        $this->set('productos', $this->Producto->read());
     }
     public function detalleCarrito(){
         
