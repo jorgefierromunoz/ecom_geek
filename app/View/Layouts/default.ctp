@@ -188,8 +188,9 @@ $(function() {
 		<div id="header">
                     <nav id="menu">
                         <ul>
-                            <li class="nivel1"><?php echo $this->Html->link('Home',array('controller' => 'Pages', 'action' => 'display')) ?></li>
                         <?php if ($this->Session->read('User.0.Tipo_Use')=='admin'): ?>                            
+                            <li class="nivel1"><?php echo $this->Html->link('Home',array('controller' => 'Pages', 'action' => 'display')) ?></li>
+                        
                             <li class="nivel1"><?php echo $this->Html->link('Productos', array('controller' => 'Productos', 'action' => 'index'), array('class' => 'nivel1')) ?>                            
                                 <ul>
                                     <li><?php echo $this->Html->link('Fotos', array('controller' => 'Fotos', 'action' => 'index')) ?></li>
@@ -219,10 +220,18 @@ $(function() {
                            <li class="nivel1"><?php echo $this->Html->link('Direcciones', array('controller' => 'Direcciones', 'action' => 'index'), array('class' => 'nivel1')) ?></li>                         
                            <li class="nivel1"><?php echo $this->Html->link('Usuarios', array('controller' => 'Users', 'action' => 'index'), array('class' => 'nivel1')) ?></li>  
                         <?php elseif ($this->Session->read('User.0.Tipo_Use')=='cliente'): ?>
+                            <li class="nivel1"><?php echo $this->Html->link('Home',array('controller' => 'Pages', 'action' => 'display')) ?></li>
+                        
                             <li class="nivel1"><?php echo $this->Html->link('Detalle Carrito', array('controller' => 'Productos', 'action' => 'detalleCarrito'), array('class' => 'nivel1')) ?></li>                          
                             <li class="nivel1"><?php echo $this->Html->link('Mi Cuenta', array('controller' => 'Productos', 'action' => 'detalleCarrito'), array('class' => 'nivel1')) ?></li>                          
                             <li class="nivel1"><?php echo $this->Html->link('Historial Compras', array('controller' => 'Productos', 'action' => 'detalleCarrito'), array('class' => 'nivel1')) ?></li>                          
                             <li class="nivel1"><?php echo $this->Html->link('Cerrar Sesión', array('controller' => 'Users', 'action' => 'logout'), array('class' => 'nivel1'))?></li>
+                        <?php else: ?>
+                            <li class="nivel1"><?php echo $this->Html->link('Home',array('controller' => 'Pages', 'action' => 'display')) ?></li>
+                            <li class="nivel1"><?php echo $this->Html->link('¿Quienes Somos?',array('controller' => 'QuienesSomos', 'action' => 'index')) ?></li>
+                            <li class="nivel1"><?php echo $this->Html->link('Contacto',array('controller' => 'Contacto', 'action' => 'index')) ?></li>
+                            <li class="nivel1"><?php echo $this->Html->link('¿Dónde Estamos?',array('controller' => 'DondeEstamos', 'action' => 'index')) ?></li>
+
                         <?php endif; ?>
                         </ul>
                     </nav>
@@ -233,15 +242,7 @@ $(function() {
                         <span><?php echo $this->Session->read('User.0.Email'); ?><br></span>
                         <span><?php echo $this->Html->link('Cerrar Sesión', array('controller' => 'Users', 'action' => 'logout'))?></span><br>
                     </div>
-                    <?php else: ?>
-                     <div id="datosusu">
-                        <div class="contbotones">
-                        <span><?php echo $this->Html->link('Registro Usuario', array('controller' => 'Users', 'action' => 'nuevousuario'),array('class'=>'botones'))?></span><br>
-                        </div>
-<!--                        <div class="contbotones">
-                        <span><?php echo $this->Html->link('Inicio de Sesión', array('controller' => 'Users', 'action' => 'login'),array('class'=>'botones'))?></span> 
-                        </div>-->
-                     </div>
+                    
                     <?php endif; ?>
 		</div>
                
@@ -271,10 +272,11 @@ $(function() {
                                     <tr>
                                         <td class="centertable">                    
                                             <div class="contbotones"><span id="entrarLogin" class="botones">Entrar</span></div>
-                                             <?php echo $this->Html->link('¿Olvidó su contraseña?', array('controller' => 'Users', 'action' => 'recuperacionpass'),array('class'=>'alinkolvidocont')) ?>
+                                             <p><?php echo $this->Html->link('¿Olvidó su contraseña?', array('controller' => 'Users', 'action' => 'recuperacionpass'),array('class'=>'alinkolvidocont')); ?></p>
+                                             <p><?php echo $this->Html->link('¿Nuevo Usuario?', array('controller' => 'Users', 'action' => 'nuevousuario'),array('class'=>'alinkolvidocont')); ?></p>
                                         </td>
-                                    </tr>
-                                     
+                                    </tr>                                                             
+                     </div>
                                 </table>
                             </form>
                         </div>
