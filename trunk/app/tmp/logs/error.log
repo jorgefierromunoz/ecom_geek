@@ -50385,3 +50385,39 @@ Request URL: /geek4y/undefined
 Stack Trace:
 #0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2014-12-15 02:50:29 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/js/carrousel.featureCarousel.js
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-12-15 02:51:19 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/js/carrousel.featureCarousel.js
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-12-15 02:51:28 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/js/carrousel.featureCarousel.js
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-12-15 02:52:04 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /geek4y/js/carrousel.featureCarousel.js
+Stack Trace:
+#0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
