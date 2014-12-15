@@ -33,7 +33,7 @@ Con este foreach se pueden recorrer todas las imagenes asociadas al producto
 <table>    
     <?php foreach ($productos['Foto'] as $imagenes): ?>
     <tr>
-        <td><?php var_dump($imagenes); ?>
+        <td><?php echo $imagenes['url']; ?>
             <?php ?></td>        
     </tr>
     <?php endforeach; ?>

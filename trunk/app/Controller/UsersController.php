@@ -18,7 +18,7 @@ class UsersController extends AppController{
         if (!$this->Session->check('User')){
             $this->Auth->allow('login','recuperacionpass','nuevousuario','nuevoPass','newPass','checkuser','checkemail','habilitar','loguear','add');
         }elseif (($this->Session->check('User')) && ($this->Session->read('User.0.Tipo_Use')=='cliente')) {
-            $this->Auth->allow('logout','edit');
+            $this->Auth->allow('logout','edit','MiCuenta','HistorialCompras','view');
         }elseif (($this->Session->check('User')) && ($this->Session->read('User.0.Tipo_Use') == 'admin')) {
             $this->Auth->allow();
         }
@@ -201,6 +201,12 @@ class UsersController extends AppController{
             $this->set('users', '0');
         }
         $this->layout = 'ajax';
+    }
+    function MiCuenta(){
+        
+    }
+    function HistorialCompras(){
+        
     }
     
     function delete($id) {
