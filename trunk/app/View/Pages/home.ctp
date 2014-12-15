@@ -1,8 +1,11 @@
 <script src="js/jquery.js"></script>
 <script src="js/jquery-ui.js"></script>
 <script type="text/javascript" src="js/fly-to-basket.js"></script>
-<script type="text/javascript" src="js/CoinSlider.js"></script>
-<link rel="stylesheet" type="text/css" href="js/CoinSlider.css">
+<!--<script type="text/javascript" src="js/CoinSlider.js"></script>
+<link rel="stylesheet" type="text/css" href="js/CoinSlider.css">-->
+<script type="text/javascript" src="js/carrousel.min.js"></script>
+<script type="text/javascript" src="js/jcarrousel.js"></script>
+<link rel="stylesheet" type="text/css" href="js/carrousel.css">
 <script type="text/javascript">
     $(document).ready(function(){
         TodosProductos("id","asc",1);
@@ -240,17 +243,17 @@
                         $.each(imagenes, function(item3) {                           
                             listaproductos += '<div class="caja_img" style="background-image:url(img/Fotos/s_' +  imagenes[item3].url + ')" data-id="' + item2.Producto.id + '"></div>';
                             if ((item2.Producto.prioridadPrecio)){
-                                listapromo+='<a href="img/Fotos/' + imagenes[item3].url + '"><img  src="img/Fotos/s_' + imagenes[item3].url + '" /><span>Description for '+ imagenes[item3].url +'</span></a>';
+                                listapromo+='<li><img  src="img/Fotos/s_' + imagenes[item3].url + '" /></li>';
                             }else if(item2.Producto.prioridadPunto) {
-                                listapromo+='<a href="img/Fotos/' + imagenes[item3].url + '"><img  src="img/Fotos/s_' + imagenes[item3].url + '" /><span>Description for '+ imagenes[item3].url +'</span></a>';
+                                listapromo+='<li><img  src="img/Fotos/s_' + imagenes[item3].url + '" /></li>';
                             }                           
                             return false;
                         });             
                         listaproductos += '<a href="<?php echo $this->Html->url(array('controller'=>'Productos','action'=>'verdetalleproducto')); ?>/'+ item2.Producto.id +'" ><img src="img/ver.png" class="btnver" data-id=' + item2.Producto.id + '></a>';
                         listaproductos += '<img src="img/carrito.png" class="btnadd" data-id=' + item2.Producto.id + '>';
                         listaproductos += '</li>';
-                        $("#productpromo").append(listapromo);
-                        $("#productpromo").coinslider({
+                        $("#ulproductpromo").append(listapromo);
+                        /*$("#productpromo").coinslider({
                             width:500,
                             height:175,
                             spw: 1, // squares per width
@@ -263,7 +266,7 @@
                             navigation: false, // prev next and buttons
                             links : false, // show images as links
                             hoverPause: true // pause on hover
-                        });
+                        });*/
                         //$('#ullistaproductos').append(listaproductos); 
                         $(listaproductos).hide().appendTo("#ullistaproductos").fadeIn("normal");
                 });
@@ -375,9 +378,15 @@ function rgbToHsl(r, g, b) {
 }
 </script>
     <section id="cuerpo">
-    <div id="contenedor-slide">
-        <div id="productpromo">
+    <div id="contenedor-slide" class="jcarousel-wrapper">
+        <div id="productpromo" class="jcarousel">
+        <ul id="ulproductpromo" style="left: -400px; top: 0px;">
+        </ul>
         </div>
+        <a href="#" class="jcarousel-control-prev" data-jcarouselcontrol="true">‹</a>
+                <a href="#" class="jcarousel-control-next" data-jcarouselcontrol="true">›</a>
+
+                <p class="jcarousel-pagination" data-jcarouselpagination="true"></p>
         </div>   
 
         <section id="bodyproductos">
