@@ -223,8 +223,12 @@ $(function() {
                             <li class="nivel1"><?php echo $this->Html->link('Home',array('controller' => 'Pages', 'action' => 'display')) ?></li>
                         
                             <li class="nivel1"><?php echo $this->Html->link('Detalle Carrito', array('controller' => 'Productos', 'action' => 'detalleCarrito'), array('class' => 'nivel1')) ?></li>                          
-                            <li class="nivel1"><?php echo $this->Html->link('Mi Cuenta', array('controller' => 'Productos', 'action' => 'detalleCarrito'), array('class' => 'nivel1')) ?></li>                          
-                            <li class="nivel1"><?php echo $this->Html->link('Historial Compras', array('controller' => 'Productos', 'action' => 'detalleCarrito'), array('class' => 'nivel1')) ?></li>                          
+                            <li class="nivel1"><?php echo $this->Html->link('Actualizar Mis Datos', array('controller' => 'Users', 'action' => 'MiCuenta'), array('class' => 'nivel1')) ?></li>                          
+                            <li class="nivel1"><?php echo $this->Html->link('Historial Compras', array('controller' => 'Users', 'action' => 'HistorialCompras'), array('class' => 'nivel1')) ?></li>                          
+                            <li class="nivel1"><?php echo $this->Html->link('¿Quienes Somos?',array('controller' => 'QuienesSomos', 'action' => 'index')) ?></li>
+                            <li class="nivel1"><?php echo $this->Html->link('Contacto',array('controller' => 'Contacto', 'action' => 'index')) ?></li>
+                            <li class="nivel1"><?php echo $this->Html->link('¿Dónde Estamos?',array('controller' => 'DondeEstamos', 'action' => 'index')) ?></li>
+
                             <li class="nivel1"><?php echo $this->Html->link('Cerrar Sesión', array('controller' => 'Users', 'action' => 'logout'), array('class' => 'nivel1'))?></li>
                         <?php else: ?>
                             <li class="nivel1"><?php echo $this->Html->link('Home',array('controller' => 'Pages', 'action' => 'display')) ?></li>
