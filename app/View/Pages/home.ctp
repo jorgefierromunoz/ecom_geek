@@ -3,9 +3,9 @@
 <script type="text/javascript" src="js/fly-to-basket.js"></script>
 <!--<script type="text/javascript" src="js/CoinSlider.js"></script>
 <link rel="stylesheet" type="text/css" href="js/CoinSlider.css">-->
+<link rel="stylesheet" type="text/css" href="js/carrousel.css">
 <script type="text/javascript" src="js/carrousel.min.js"></script>
 <script type="text/javascript" src="js/jcarrousel.js"></script>
-<link rel="stylesheet" type="text/css" href="js/carrousel.css">
 <script type="text/javascript">
     $(document).ready(function(){
         TodosProductos("id","asc",1);
@@ -268,6 +268,16 @@
                             hoverPause: true // pause on hover
                         });*/
                         //$('#ullistaproductos').append(listaproductos); 
+    $('.jcarousel').jcarousel({
+        // Configuration goes here
+    });
+    $('.jcarousel-prev').jcarouselControl({
+        target: '-=1'
+    });
+
+    $('.jcarousel-next').jcarouselControl({
+        target: '+=1'
+    });
                         $(listaproductos).hide().appendTo("#ullistaproductos").fadeIn("normal");
                 });
                 }else{
@@ -383,10 +393,8 @@ function rgbToHsl(r, g, b) {
         <ul id="ulproductpromo" style="left: -400px; top: 0px;">
         </ul>
         </div>
-        <a href="#" class="jcarousel-control-prev" data-jcarouselcontrol="true">‹</a>
-                <a href="#" class="jcarousel-control-next" data-jcarouselcontrol="true">›</a>
-
-                <p class="jcarousel-pagination" data-jcarouselpagination="true"></p>
+        <a class="jcarousel-prev" href="#">Prev</a>
+    <a class="jcarousel-next" href="#">Next</a>
         </div>   
 
         <section id="bodyproductos">
