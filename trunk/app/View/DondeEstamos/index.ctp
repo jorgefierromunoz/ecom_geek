@@ -11,7 +11,6 @@
 var map;
 function CargaMapa() {
   var dir=new google.maps.LatLng(-33.4407444,-70.6504026);
-  var rectangulo;
   var mapOptions = {
     zoom: 17,
     center: dir,
@@ -21,15 +20,10 @@ function CargaMapa() {
     var marker = new google.maps.Marker({
         position: dir,
         map: map,
-        title: 'Agustina 972 Oficina 1008'
+        title: 'Geek4y - Agustina 972 Oficina 1008'
     });
-    
-    rectangulo= new google.maps.Rectangle();
-    
 }
-
 google.maps.event.addDomListener(window, 'load', CargaMapa);
-
 </script>
 <h3>¿Dónde Estamos?</h3>
 <p>Estamos ubicados en Agustina 972 – Oficina 1008 – Santiago.</p>
