@@ -10,9 +10,11 @@
     $(document).ready(function(){
         TodosProductos("id","asc",1);
         vercategorias();
-        $(".btnver").click(function(){
-            $("#detalle-producto").dialog();
-        });
+        //
+    });
+    $(document).on("click", ".caja_img", function() {
+       var id = $(this).attr('data-id');
+       window.location.href ='<?php echo $this->Html->url(array('controller'=>'Productos','action'=>'verdetalleproducto')); ?>/'+ id;
     });
     $(document).on("click", ".btnMenuCat", function() {
        var idsubcategoria = $(this).attr('data-id');
@@ -25,7 +27,7 @@
            ListarProductoSubCategoria("id","asc",1,idsubcategoria);
        }
     });
-        $(document).on("click", ".btnadd", function() {     
+    $(document).on("click", ".btnadd", function() {     
             $("#spncarrito_0").remove();
             var idpro = $(this).attr('data-id');
             addToBasket(idpro);
@@ -59,8 +61,7 @@
         
             });
         });
-        
-        function carrito(idpro){
+    function carrito(idpro){
         $.ajax({
                 beforeSend: function() {
                      $('#divcarrito').html("<img src='img/ajaxload2.gif'>");
@@ -94,21 +95,21 @@
                 }
             });
         }
-          //PAGINA           
-        $(document).on("click", ".pagina", function(e) {
-            e.preventDefault();
-            var boton = $(this).attr('data-id');
-            var pa = parseInt($(this).attr('data-pa'));
-            if (boton=="atras"){
-                TodosProductos("id","asc",pa-1);
-            }else if (boton=="siguiente"){
-                TodosProductos("id","asc",pa+1);
-            }else if (boton=="ultima"||boton=="primera"){
-                TodosProductos("id","asc",pa);
-            }
-         });
-          //PAGINA SUB CATEGORIA       
-        $(document).on("click", ".paginacionsubcat", function(e) {
+    //PAGINA           
+    $(document).on("click", ".pagina", function(e) {
+      e.preventDefault();
+      var boton = $(this).attr('data-id');
+      var pa = parseInt($(this).attr('data-pa'));
+      if (boton=="atras"){
+          TodosProductos("id","asc",pa-1);
+      }else if (boton=="siguiente"){
+          TodosProductos("id","asc",pa+1);
+      }else if (boton=="ultima"||boton=="primera"){
+          TodosProductos("id","asc",pa);
+      }
+   });
+    //PAGINA SUB CATEGORIA       
+    $(document).on("click", ".paginacionsubcat", function(e) {
             e.preventDefault();
             var boton = $(this).attr('data-id');
             var pa = parseInt($(this).attr('data-pa'));
@@ -178,7 +179,7 @@
                             }                           
                             return false;
                         });             
-                        listaproductos += '<img src="img/ver.png" class="btnver" data-id=' + item2.Producto.id + '>';
+                        listaproductos += '<a href="<?php echo $this->Html->url(array('controller'=>'Productos','action'=>'verdetalleproducto')); ?>/'+ item2.Producto.id +'" ><img src="img/ver.png" class="btnver" data-id=' + item2.Producto.id + '></a>';
                         listaproductos += '<img src="img/carrito.png" class="btnadd" data-id=' + item2.Producto.id + '>';
                         listaproductos += '</li>';  
                         //$('#ullistaproductos').append(listaproductos);
@@ -194,7 +195,6 @@
 
         });
     }
-    
     function TodosProductos(atributo,orden,pagina) {
         var listaproductos = '';
         var listapromo='';
@@ -242,17 +242,22 @@
                         var imagenes = item2.Foto;
                         $.each(imagenes, function(item3) {                           
                             listaproductos += '<div class="caja_img" style="background-image:url(img/Fotos/s_' +  imagenes[item3].url + ')" data-id="' + item2.Producto.id + '"></div>';
-                            if ((item2.Producto.prioridadPrecio)){
-                                listapromo+='<li><img  src="img/Fotos/s_' + imagenes[item3].url + '" /></li>';
+                            
+                        if ((item2.Producto.prioridadPrecio)){
+                                listapromo+='<li><img src="img/Fotos/' + imagenes[item3].url + '" /></li>';
                             }else if(item2.Producto.prioridadPunto) {
-                                listapromo+='<li><img  src="img/Fotos/s_' + imagenes[item3].url + '" /></li>';
-                            }                           
+                                listapromo+='<li><img src="img/Fotos/' + imagenes[item3].url + '" /></li>';
+                            }     
                             return false;
                         });             
                         listaproductos += '<a href="<?php echo $this->Html->url(array('controller'=>'Productos','action'=>'verdetalleproducto')); ?>/'+ item2.Producto.id +'" ><img src="img/ver.png" class="btnver" data-id=' + item2.Producto.id + '></a>';
                         listaproductos += '<img src="img/carrito.png" class="btnadd" data-id=' + item2.Producto.id + '>';
                         listaproductos += '</li>';
-                        $("#ulproductpromo").append(listapromo);
+                        //$("#ulproductpromo").append(listapromo);
+                        
+                            $(listaproductos).hide().appendTo("#ullistaproductos").fadeIn("normal");
+                    });
+                    $(listapromo).hide().appendTo("#ulproductpromo").fadeIn("normal");
                         /*$("#productpromo").coinslider({
                             width:500,
                             height:175,
@@ -268,18 +273,16 @@
                             hoverPause: true // pause on hover
                         });*/
                         //$('#ullistaproductos').append(listaproductos); 
-    $('.jcarousel').jcarousel({
-        // Configuration goes here
-    });
-    $('.jcarousel-prev').jcarouselControl({
-        target: '-=1'
-    });
+                        $('.jcarousel').jcarousel({
+                            // Configuration goes here
+                        });
+                        $('.jcarousel-prev').jcarouselControl({
+                            target: '-=1'
+                        });
 
-    $('.jcarousel-next').jcarouselControl({
-        target: '+=1'
-    });
-                        $(listaproductos).hide().appendTo("#ullistaproductos").fadeIn("normal");
-                });
+                        $('.jcarousel-next').jcarouselControl({
+                            target: '+=1'
+                        });
                 }else{
                     listaproductos = "<p align=center>Actualmente no hay productos en la Base de datos</p>";
                     $('#listado_product_promo').html('<li>No hay productos en Promoción</li>');
@@ -289,7 +292,7 @@
 
         });
     }
-        function vercategorias(){
+    function vercategorias(){
         $.ajax({                
                 url: '<?php echo $this->Html->url(array('controller'=>'Categorias','action'=>'listacategorias','Categoria.id','asc')); ?>',
                 dataType: 'json',
@@ -343,9 +346,8 @@
                     console.log(xhr.responseText );
                 }                
             });
-        }
-            
-(function getColor() {
+        }        
+    (function getColor() {
     var r, g, b;
     var textColor = $('#cssmenu').css('color');
     textColor = textColor.slice(4);
@@ -365,8 +367,7 @@
             $('#cssmenu>ul>li>p>span').css('border-color', 'rgba(255, 255, 255, .35)');
     }
 })();
-
-function rgbToHsl(r, g, b) {
+    function rgbToHsl(r, g, b) {
     r /= 255, g /= 255, b /= 255;
     var max = Math.max(r, g, b), min = Math.min(r, g, b);
     var h, s, l = (max + min) / 2;

@@ -39,6 +39,7 @@
                     dataType:'json',
                     beforeSend:function(){ $("#cargando").dialog("open");},
                     success: function(n) {
+                        console.log(n);
                         $("#cargando").dialog("close");
                         if (n==1) {
                             mostrarDatos("id","asc");
@@ -57,34 +58,25 @@
    
     function mostrardatos(){
     $.ajax({
-                url: '<?php echo $this->Html->url(array('controller'=>'Users','action'=>'view/'.$this->Session->read('User.0.IdUsu'))); ?>',
+                url: '<?php echo $this->Html->url(array('controller'=>'Users','action'=>'viewmicuenta/'.$this->Session->read('User.0.Email'))); ?>',
                 dataType: 'json',
                 type: "POST",
                 beforeSend:function(){ $("#cargando").dialog("open");$("#list-edittipo").html("");},
                 success: function(data) {
+                console.log(data[0]);
                 $("#cargando").dialog("close");
-                $("#editrut").val(data.User.rut);
-                $("#editnombre").val(data.User.nombre);
-                $("#editapellidopaterno").val(data.User.apellidoPaterno);
-                $("#editapellidomaterno").val(data.User.apellidoMaterno);
-                if (data.User.sexo =="M"){
-                    $("#radiom").prop( "checked", true );
-                }else if(data.User.sexo=="F"){
-                    $("#radiof").prop( "checked", true );
+                $("#editrut").val(data[0].User.rut);
+                $("#editnombre").val(data[0].User.nombre);
+                $("#editapellidopaterno").val(data[0].User.apellidoPaterno);
+                $("#editapellidomaterno").val(data[0].User.apellidoMaterno);
+                if (data[0].User.sexo =="M"){
+                    $("#radiom").prop( "selected", true );
+                }else if(data[0].User.sexo=="F"){
+                    $("#radiof").prop( "selected", true );
                 }
-                $("#editpuntos").val(data.User.puntoAcumulado);
-                $("#editreferido").val(data.User.referido);
-                if (data.User.referido){
-                    $("#editreferido").prop("checked", true);
-                    $("#editrefhidd").val("true");
-                }else{
-                     $("#editreferido").prop("checked", false);
-                      $("#editrefhidd").val("");
-                }
-                $("#editemail").val(data.User.email);                
-                llenarlistboxcatvend(data.User.categoria_vendedore_id);
-                llenarlistboxtcbancos(data.User.tipo_cuentas_bancaria_id,"x");
-                $("#editnumerocuenta").val(data.User.numeroCuenta); 
+                //llenarlistboxcatvend(data.User.categoria_vendedore_id);
+                //llenarlistboxtcbancos(data.User.tipo_cuentas_bancaria_id,"x");
+                $("#editnumerocuenta").val(data[0].User.numeroCuenta); 
                 },
                 error: function(n) {
                     console.log(n);
@@ -109,41 +101,67 @@
 <!--EDITAR USUARIOS -->
 <div id="editaruser" title="Editar Usuario">
     <form id="formedit" method="POST">
-        <label>Rut:</label>   
-        <input id="editrut" type="text" name="rut">
-        <span id="spneditrut"></span>
-        <label>Nombre:</label>   
-        <input id="editnombre" type="text" name="nombre">
-        <span id="spneditnombre"></span>
-        <label>Ap. Paterno:</label>   
-        <input id="editapellidopaterno" type="text" name="apellidoPaterno">
-        <span id="spneditappaterno"></span>
-        <label>Ap. Materno:</label>   
-        <input id="editapellidomaterno" type="text" name="apellidoMaterno">
-        <label>Sexo:</label>   
-        <input id="radiom" type="radio" value="M" name="sexo">Masculino<br>
-        <input id="radiof" type="radio" value="F" name="sexo">Femenino<br>
-        <label>Total puntos:</label>   
-        <input id="editpuntos" type="text" name="puntoAcumulado">
-        <label>Referido:</label>   
-        <input id="editreferido" type="checkbox">
-        <input id="editrefhidd" type="hidden" name="referido">
-        <br>
-        <label>Email:</label>   
-        <input id="editemail" type="text" name="email">
-        <span id="spneditemail"></span>
-        <label>Categoria Vendedor:</label> 
-        <div id="list-editcatvendedor"></div>        
-        <label>Bancos:</label> 
-        <div id="list-editbanco"></div>
-        <label>Cuenta:</label> 
-        <div id="list-edittcbanco"></div>
-        <span id="spnedittipoctabancaria"></span>
-        <label>Numero cuenta Bancaria:</label>   
-        <input id="editnumerocuenta" type="text" name="numeroCuenta">
+    <table class="actualizarusuario">
+        <tr>
+            <td>
+                <label>Rut:</label><br>   
+                <input id="editrut" type="text" name="rut" maxlength="10">
+                <span id="spneditrut"></span>
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td> 
+                <label>Nombre:</label>   
+                <input id="editnombre" type="text" name="nombre">
+                <span id="spneditnombre"></span>
+            </td>
+            <td>
+                <label>Ap. Paterno:</label>   
+                <input id="editapellidopaterno" type="text" name="apellidoPaterno">
+                <span id="spneditappaterno"></span>
+            </td>
+            <td> 
+                <label>Ap. Materno:</label>   
+                <input id="editapellidomaterno" type="text" name="apellidoMaterno">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Sexo:</label>   
+                <select id="listboxsexo">
+                    <option id="radiom" value ="M">Masculino</option>
+                    <option id="radiof" value ="F">Femenino</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Categoria Vendedor:</label> 
+            </td>
+        </tr>
+        <tr>
+            <td><label>Bancos:</label></td>
+        </tr>
+        <tr>
+            <td><label>Cuenta:</label> </td>
+        </tr>        
+        <tr>
+            <td><label>Numero cuenta Bancaria:</label>
+            <input id="editnumerocuenta" type="text" name="numeroCuenta">
+            </td>
+        </tr>        
+        <tr>
+            <td></td>
+            <td></td>
+            <td><button id="editusersave" class="botones">Guardar</button>
+            <span id="spneditalert">Debe llenar los campos correctamente</span>
+            </td>
+        </tr>      
         
-        <hr>
-        <p align="right"><button id="editusersave" align="right">Guardar</button></p>
-        <span id="spneditalert">Debe llenar los campos correctamente</span>
+        
+    </table>
     </form>
 </div>

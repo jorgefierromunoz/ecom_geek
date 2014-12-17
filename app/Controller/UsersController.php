@@ -18,7 +18,7 @@ class UsersController extends AppController{
         if (!$this->Session->check('User')){
             $this->Auth->allow('login','recuperacionpass','nuevousuario','nuevoPass','newPass','checkuser','checkemail','habilitar','loguear','add');
         }elseif (($this->Session->check('User')) && ($this->Session->read('User.0.Tipo_Use')=='cliente')) {
-            $this->Auth->allow('logout','edit','MiCuenta','HistorialCompras','view');
+            $this->Auth->allow('viewmicuenta','logout','edit','MiCuenta','HistorialCompras','view');
         }elseif (($this->Session->check('User')) && ($this->Session->read('User.0.Tipo_Use') == 'admin')) {
             $this->Auth->allow();
         }
@@ -192,6 +192,12 @@ class UsersController extends AppController{
       $this->User->recursive = -1;
       $this->set('users', $this->User->read());
       $this->layout = 'ajax';
+    }
+    public function viewmicuenta($email = null) {
+        $useract = $this->User->find('all', array('conditions' => array('User.email' => $email),
+                'fields' => array('id', 'rut', 'nombre', 'apellidoPaterno', 'apellidoMaterno','numeroCuenta','sexo','tipo_cuentas_bancaria_id','categoria_vendedore_id' )));
+        $this->set('users',$useract);
+        $this->layout = 'ajax';
     }
     function edit($id = null) {
         $this->User->id = $id;

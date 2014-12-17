@@ -349,6 +349,7 @@ overflow: auto;
 }
 
 .cerr_car_det{
+    margin-left: 20px;
     background-color: #a00;
     text-align:center;
     width: 20px;
@@ -400,6 +401,23 @@ overflow: auto;
     padding: 5px;
     border: none;
 }
+.actualizarusuario{
+    text-align: center;
+    font-size: 100%;
+    width: 80%;
+    height: 80%;
+}
+.actualizarusuario input{
+    width: 70%;
+    height: 80%;
+}
+.actualizarusuario td{
+    color: #fff;
+    margin: 5px;
+    padding: 5px;
+    border: none;
+}
+
 #menu {  
 text-align: left;
 font-size: 0.7em;
