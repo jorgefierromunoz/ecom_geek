@@ -121,6 +121,9 @@
             <td><h3>Total Ptos: $</h3></td><td><h3><span id="totalptodetcar"></span></h3></td>
         </tr>
         <tr>
+            <td><h3>Total Despacho: $</h3></td><td><h3><span id="totaldespachodetcar"></span></h3></td>
+        </tr>
+        <tr>
             <td></td> <td><span class="botones">Comprar</span></td>
         </tr>
     </table>   
