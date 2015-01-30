@@ -81,7 +81,8 @@
                            $("#divcarrito").html("<span id='spncarrito_0'>No hay productos en el carrito</span>");
                            $("#totalcarrito").html("0");
                            $("#factor").html("0");
-                           pintar_foot_flete(0,0);
+                           pintar_foot_flete("0.00");
+                           $("#flete_num").html("1");
                        }else{
                            $("#prod_carrito" + idpro).remove();
                            totalcarrito("totalcarrito","","factor");
@@ -138,8 +139,6 @@
                     var factor=0;
                     var totfactor=0;
                     $.each(data, function(item) {
-                        console.log(parseFloat(data[item].Factor).toFixed(2));
-                        //parseFloat(yourString).toFixed(2)
                         id= data[item].Id;
                         nombreProducto=data[item].Producto.substring(0,8).toUpperCase();
                         precio=parseInt(data[item].Precio);
@@ -156,16 +155,17 @@
                         total+=subtotal;                            
                     });
                     $("#divcarrito").html(lista);
-                    $("#totalcarrito").html(total);
-                    $("#factor").html(totfactor);
-//                    if (totfactor < 1 && totfactor > 0.875 ) {
-//                        
-//                    }
+                    totalcarrito("totalcarrito","","factor");
+                    //$("#totalcarrito").html(total);
+//                    $("#factor").html(totfactor);
+//                    pintar_foot_flete(totfactor);                    
+//                    $("#flete_num").html(Math.ceil(parseFloat(totfactor)));
                 }else{
                     $("#divcarrito").html("<span id='spncarrito_0'>No hay productos en el carrito</span>");
                     $("#totalcarrito").html(" 0");
-                    $("#factor").html("0.00");
-                    
+                    $("#factor").html("0.00");                    
+                    pintar_foot_flete("0.00");
+                    $("#flete_num").html("1");
                     }                    
                 },  
                 error: function(xhr, status, error){
@@ -184,6 +184,7 @@
                     },    
                 success: function(data) {
                     console.log(data);
+                    //total precio ptos factor
                     if($("#"+target).length){
                         $("#"+target).html(data[0]);   
                     }                    
@@ -191,39 +192,62 @@
                         $("#"+target2).html(data[1]);   
                     }   
                     if($("#"+target3).length){
-                        $("#"+target3).html(data[2]);   
+                        $("#"+target3).html(data[2]); 
+                        pintar_foot_flete(data[2]);
+                        $("#flete_num").html(Math.ceil(parseFloat(data[2])));
                     }   
                 }
         });
         }
-        function pintar_foot_flete(numero,max){
+        function pintar_foot_flete(numero){
 //            $("#lvl1").css("background-color","#66ff00");
 //            $("#lvl2").css("background-color","#99ff00");
-//            
-            if(parseFloat(numero) >= parseFloat('0.125')){
-                $("#lvl1").css("background-color","#66ff00");
+//           
+            var pos = numero.toString().indexOf(".");
+            if (pos != -1){
+                numero = '0.' + String(numero).substring((pos+1), numero.length);    
             }
+            console.log(numero);
+            if(parseFloat(numero) > parseFloat('0')){
+                $("#lvl1").css("background-color","#66ff00");
+            }else{
+                $("#lvl1").css("background-color","#fff");
+            }            
             if(parseFloat(numero) >=parseFloat('0.25')){
                 $("#lvl2").css("background-color","#99ff00");
-            }
+            }else{
+                $("#lvl2").css("background-color","#fff");
+            }  
             if(parseFloat(numero) >= parseFloat('0.375')){
                 $("#lvl3").css("background-color","#ccff00");
-            }
+            }else{
+                $("#lvl3").css("background-color","#fff");
+            }  
             if(parseFloat(numero) >=parseFloat('0.5')){
                 $("#lvl4").css("background-color","#ffff00");                
-            }
+            }else{
+                $("#lvl4").css("background-color","#fff");
+            }  
             if(parseFloat(numero) >= parseFloat('0.625')){
                 $("#lvl5").css("background-color","#ffcc00");
-            }
+            }else{
+                $("#lvl5").css("background-color","#fff");
+            }  
             if(parseFloat(numero) >=parseFloat('0.75')){
                 $("#lvl6").css("background-color","#ff9900");
-            }
+            }else{
+                $("#lvl6").css("background-color","#fff");
+            }  
             if(parseFloat(numero) >= parseFloat('0.875')){
                  $("#lvl7").css("background-color","#ff6600");
-            }
-            if(parseFloat(numero) >=parseFloat('1')){
+            }else{
+                $("#lvl7").css("background-color","#fff");
+            }  
+            if(parseFloat(numero) ==parseFloat('1')){
                 $("#lvl8").css("background-color","#ff3300");
-            }
+            }else{
+                $("#lvl8").css("background-color","#fff");
+            }  
             
         }
 
@@ -386,7 +410,7 @@ $(function() {
                                                <td id="lvl6"></td>
                                                <td id="lvl7"></td>
                                                <td id="lvl8"></td>
-                                               <td style="width: 25px;"><span id="flete_num">1</span></td>
+                                               <td style="width: 25px;"><span id="flete_num"></span></td>
                                            </tr>
                                         </table>
                                         <div class="spancomprar" style="margin-top: 85px"><?php echo $this->Html->link('Comprar', array('controller' => 'Productos', 'action' => 'detalleCarrito'),array('class'=>'btncomprar'))?></div> 
