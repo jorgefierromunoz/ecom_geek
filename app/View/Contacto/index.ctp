@@ -38,7 +38,11 @@
             </tr>
             <tr>
                 <td>
-                    <button type="button" >Enviar </button>
+                                            
+                </td>
+                <td>
+                    <div class="spancomprar" style="text-align: right;"><a href="#" class="btncomprar">Enviar</a></div> 
+                                      
                 </td>
             </tr>
         </table>

@@ -38,6 +38,7 @@
                 url: 'Productos/carrito/'+idpro,
                 dataType: 'json',
                 success: function(data) {
+                    console.log(data);
                     var lista="";                    
                     var id= data[0];
                     var nombreProducto=data[1].substring(0,8).toUpperCase();
@@ -56,7 +57,7 @@
                         lista+="</article>";
                         $(lista).hide().appendTo("#divcarrito").fadeIn("normal");
                     }
-                    totalcarrito("totalcarrito","");
+                    totalcarrito("totalcarrito","","factor");
                 }
         
             });

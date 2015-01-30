@@ -51,36 +51,46 @@ class ProductosController extends AppController{
                     $this->Session->write('carrito',$arreglo);
                     $nombre=$this->Session->read('carrito.'.$numero.'.Producto');
                     $cantidad=$this->Session->read('carrito.'.$numero.'.Cantidad');
-                    $precio=$this->Session->read('carrito.'.$numero.'.Precio'); 
+                    $precio=$this->Session->read('carrito.'.$numero.'.Precio');
+                    $factor=$this->Session->read('carrito.'.$numero.'.Factor');
                     $subtotal= $cantidad * $precio;
-                    $arreglo=array($id,$nombre,$cantidad,$precio,$subtotal);
+                    $arreglo=array($id,$nombre,$cantidad,$precio,$subtotal,$factor*$cantidad);
+                    //arreglo= id nombre cantidad precio/unitario precio/unitario*cantidad factor*cantidad 
                 } else {
                     $idp = $this->Producto->field('id');
                     $nombre = $this->Producto->field('producto');
                     $precio = $this->Producto->field('precio');
                     $preciopto = $this->Producto->field('precioPunto');
+                    $factor= $this->Producto->find('all',array('conditions'=>array('Producto.id'=>$idp)));
                     $datosNuevos = array('Id' => $idp,
                         'Producto' => $nombre,
                         'Precio' => $precio,
                         'PrecioPunto' => $preciopto,
-                        'Cantidad' => 1);
+                        'Cantidad' => 1,
+                        'Factor'=>$factor[0]['Tamano']['factor']
+                        );
                     array_push($arreglo, $datosNuevos);
                     $this->Session->write('carrito',$arreglo); 
-                    $arreglo=array($idp,$nombre,1,$precio,$precio);
+                    $arreglo=array($idp,$nombre,1,$precio,$precio,$factor[0]['Tamano']['factor']);
+                    //arreglo= id nombre cantidad precio/unitario precio/unitario*cantidad factor*cantidad
                 }
             } else {//SI NO EXISTE LA SESSION CARRITO
-                 $idp = $this->Producto->field('id');
-                    $nombre = $this->Producto->field('producto');
-                    $precio = $this->Producto->field('precio');
-                    $preciopto = $this->Producto->field('precioPunto');
-                   
+                $idp = $this->Producto->field('id');
+                $nombre = $this->Producto->field('producto');
+                $precio = $this->Producto->field('precio');
+                $preciopto = $this->Producto->field('precioPunto');
+                //$factor= $this->Producto->find('all',array('conditions'=>array('Producto.id'=>$idp,'AND'=>array('Producto.tamano_id'=>$this->Producto->field('tamano_id')))));
+                $factor= $this->Producto->find('all',array('conditions'=>array('Producto.id'=>$idp)));                   
                 $arreglo = array('Id' => $idp,
                     'Producto' => $nombre,
                     'Precio' => $precio,                    
                     'PrecioPunto' => $preciopto,
-                    'Cantidad' => 1);
+                    'Cantidad' => 1,
+                    'Factor'=>$factor[0]['Tamano']['factor']
+                    );
                 $this->Session->write('carrito',array($arreglo));
-                $arreglo=array($idp,$nombre,1,$precio,$precio);
+                $arreglo=array($idp,$nombre,1,$precio,$precio,$factor[0]['Tamano']['factor']);
+                //arreglo= id nombre cantidad precio/unitario precio/unitario*cantidad factor*cantidad
             }
              //$arreglo = $this->Session->read('carrito');
         }else{
@@ -92,19 +102,23 @@ class ProductosController extends AppController{
     public function totalcarrito(){
         $total=0;
         $totalptos=0;
+        $totalfactor=0;
         if ($this->Session->check('carrito')){
             $arreglo = $this->Session->read('carrito'); //PASO ACTUAL CARRITO A UN ARREGLO
             for ($i = 0; $i < count($arreglo); $i++) {
                 $cantidad=$arreglo[$i]['Cantidad'];
                 $precio=$arreglo[$i]['Precio'];
                 $preciopto=$arreglo[$i]['PrecioPunto'];
+                $factor= $arreglo[$i]['Factor'];
                 $subtotalprecio=$precio*$cantidad;
                 $subtotalpto=$preciopto*$cantidad;
+                $subtotalfactor=$factor *$cantidad;
                 $total = $total + $subtotalprecio;
                 $totalptos = $totalptos + $subtotalpto;
+                $totalfactor= $totalfactor + $subtotalfactor;
             }
         }
-        $this->set('productos', array($total,$totalptos));
+        $this->set('productos', array($total,$totalptos,$totalfactor));
         $this->layout = 'ajax';
     }
     public function eliminarproductocarro($id = null) {

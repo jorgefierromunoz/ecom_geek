@@ -2,20 +2,15 @@
     $(document).ready(function() {        
         ocultarspanedit();
         mostrardatos();    
+        bancos();
+        $("#list-banco").change(function() {
+            tipo_cta_bancos($("#select-banco").val());
+        });
         /****************************************************/
         //EDITAR BUTTON DIALOG 
         $("#editusersave").click(function(e) {      
             e.preventDefault();
-//           if ( $("#editusuario").val().trim().length == 0 ) {
-//                $("#spneditusuario").html("Campo requerido");
-//                $("#spneditusuario").show();                
-//                $("#spneditalert").show();
-//            }else 
-            if ( $("#editrut").val().trim().length == 0 ){
-                $("#spneditrut").html("Campo requerido");
-                $("#spneditrut").show();
-                $("#spneditalert").show();
-            }else if ( $("#editnombre").val().trim().length == 0 ){
+            if ( $("#editnombre").val().trim().length == 0 ){
                 $("#spneditnombre").html("Campo requerido");
                 $("#spneditnombre").show();
                 $("#spneditalert").show();
@@ -33,23 +28,23 @@
 //                $("#spneditalert").show();
             }else{
                 $.ajax({
-                    url: 'Users/edit/' + idusers,
+                    url: 'edit/' + <?php echo $this->Session->read('User.0.IdUsu'); ?>,
                     type: "POST",
                     data: $("#formedit").serialize(),
                     dataType:'json',
                     beforeSend:function(){ $("#cargando").dialog("open");},
                     success: function(n) {
-                        console.log(n);
                         $("#cargando").dialog("close");
                         if (n==1) {
-                            mostrarDatos("id","asc");
-                            alert("Editado con exito");
-                            $("#formeditproductos").trigger("reset");
-                            $("#editaruser").dialog("close");
+                            mostrardatos();
+                            $("#spanAlertAct").html("Editado con éxito");
                         }else if (n==0){
-                            $("#spneditproductos").html("No se pudo editar, intentelo de nuevo");
+                            $("#spneditproductos").html("No se pudo editar, inténtelo de nuevo");
                             $("#spneditproductos").show();                                                  
                         }
+                    },error: function(n){
+                        alert("Error: inténtelo nuevamente");
+                        $("#cargando").dialog("close");
                     }
                  });
               }
@@ -63,7 +58,6 @@
                 type: "POST",
                 beforeSend:function(){ $("#cargando").dialog("open");$("#list-edittipo").html("");},
                 success: function(data) {
-                console.log(data[0]);
                 $("#cargando").dialog("close");
                 $("#editrut").val(data[0].User.rut);
                 $("#editnombre").val(data[0].User.nombre);
@@ -83,6 +77,47 @@
                 }
             });
     }
+    function bancos(){
+    $.ajax({
+                url: '<?php echo $this->Html->url(array('controller'=>'Bancos','action'=>'listabancosComboBox')); ?>',
+                dataType: 'json',
+                type: "POST",
+                beforeSend:function(){ $("#cargando").dialog("open");$("#list-edittipo").html("");},
+                success: function(data) {
+                var list='';
+                list += '<select id="select-banco"><option value="">Seleccione un Banco</option>';
+                $.each(data, function(item) {
+                    list+='<option value="' + data[item].Banco.id + '">' + data[item].Banco.banco + '</option>';
+                });
+                $("#list-banco").html(list);
+                },
+                error: function(n) {
+                    console.log(n);
+                }
+            });
+    
+    }
+    function tipo_cta_bancos(id){
+    $.ajax({
+                url: '<?php echo $this->Html->url(array('controller'=>'TipoCuentasBancarias','action'=>'listatcbancariasComboBox')); ?>/'+id,
+                dataType: 'json',
+                type: "POST",
+                beforeSend:function(){ },
+                success: function(data) {
+                var list='';
+                list += '<select id="select-tipo-banco"><option value="">Seleccione Tipo de Cuenta</option>';
+                $.each(data, function(item) {
+                    console.log(data[item].TipoCuentasBancaria.tipoCuentaBancaria);
+                    list+='<option value="' + data[item].TipoCuentasBancaria.id + '">' + data[item].TipoCuentasBancaria.tipoCuentaBancaria + '</option>';
+                });
+                $("#list-tipo-banco").html(list);
+                },
+                error: function(n) {
+                    console.log(n);
+                }
+            });
+    
+    }
     function ocultarspanedit(){
         //$("#spneditusuario").hide();
         $("#spneditrepassword").hide();
@@ -98,6 +133,7 @@
 //CIERRE USUARIOS          
     /********************************************************************/
 </script>
+<h3 id="spanAlertAct"></h3>
 <!--EDITAR USUARIOS -->
 <div id="editaruser" title="Editar Usuario">
     <form id="formedit" method="POST">
@@ -131,22 +167,22 @@
         <tr>
             <td>
                 <label>Sexo:</label>   
-                <select id="listboxsexo">
+                <select id="listboxsexo" name="sexo" >
                     <option id="radiom" value ="M">Masculino</option>
                     <option id="radiof" value ="F">Femenino</option>
                 </select>
+                <input id="estado" type="text" name="estado" value="habilitado">
             </td>
         </tr>
         <tr>
             <td>
-                <label>Categoria Vendedor:</label> 
             </td>
         </tr>
         <tr>
-            <td><label>Bancos:</label></td>
+            <td><label>Banco:</label><br><div id="list-banco"></div></td>
         </tr>
         <tr>
-            <td><label>Cuenta:</label> </td>
+            <td><label>Tipo de Cuenta:</label><br><div id="list-tipo-banco"></div> </td>
         </tr>        
         <tr>
             <td><label>Numero cuenta Bancaria:</label>
@@ -157,10 +193,13 @@
             <td></td>
             <td></td>
             <td><button id="editusersave" class="botones">Guardar</button>
-            <span id="spneditalert">Debe llenar los campos correctamente</span>
+            
             </td>
         </tr>      
-        
+        <tr>
+            <td coldspan="2">&nbsp</td>
+            <td><span id="spneditalert">Debe llenar los campos correctamente</span></td>
+        </tr> 
         
     </table>
     </form>
