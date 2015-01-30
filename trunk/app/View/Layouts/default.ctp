@@ -14,8 +14,23 @@
 	?>
 </head>
 <body>
+    <style>
+        #prog{
+            background:#0a0;
+        }
+        .tableflete{
+            border: none;
+            border-spacing: 0px;
+            width: 100%;
+        }
+        .tableflete tr td{
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
     <script type="text/javascript">
-    $(document).ready(function(){   
+    $(document).ready(function(){
+        $("#prog").hide();
         $("#cargando").dialog({
             dialogClass: "no-close",
             closeOnEscape: false,
@@ -37,7 +52,6 @@
          $('#cargando').submit(function(e) {
             e.preventDefault();
         });
-        $("#prog").hide();
         
         $("#entrarLogin").click(function(){
             login("spnalertloginleft","formloginleft");
@@ -66,9 +80,11 @@
                        if (data=="0"){                            
                            $("#divcarrito").html("<span id='spncarrito_0'>No hay productos en el carrito</span>");
                            $("#totalcarrito").html("0");
+                           $("#factor").html("0");
+                           pintar_foot_flete(0,0);
                        }else{
                            $("#prod_carrito" + idpro).remove();
-                           totalcarrito("totalcarrito","");
+                           totalcarrito("totalcarrito","","factor");
                        }
                    }
                 });
@@ -106,10 +122,11 @@
                 url: '<?php echo $this->Html->url(array('controller'=>'Productos','action'=>'versession')); ?>',
                 dataType: 'json',
                 beforeSend: function() {
-                         $('#divcarrito').html('<?php echo $this->Html->image('ajaxload2.gif'); ?>');
+//                         $('#divcarrito').html('<?php echo $this->Html->image('ajaxload2.gif'); ?>');
                     },    
                 success: function(data) {
                 if (data != '0'){
+                    console.log(data);
                     $("#divcarrito").html("");
                     var lista="";
                     var id="";
@@ -118,12 +135,18 @@
                     var cantidad=0;                    
                     var subtotal=0;
                     var total=0;
+                    var factor=0;
+                    var totfactor=0;
                     $.each(data, function(item) {
+                        console.log(parseFloat(data[item].Factor).toFixed(2));
+                        //parseFloat(yourString).toFixed(2)
                         id= data[item].Id;
                         nombreProducto=data[item].Producto.substring(0,8).toUpperCase();
                         precio=parseInt(data[item].Precio);
                         cantidad=parseInt(data[item].Cantidad);
                         subtotal= precio*cantidad;
+                        factor=parseFloat(data[item].Factor).toFixed(2); 
+                        totfactor=parseFloat(totfactor+factor);
                         lista+="<article class=prod_carrito id=prod_carrito" + id + ">"; 
                         lista+="<table class=tablecar><tr><td width=90% >" + nombreProducto + "</td><td><span class=cerrarcarrito><p class=cerr_car data-id=" + id + ">x</p></span></td></tr></table>";                             
                         lista+="<p>$ " + precio + "</p>"; 
@@ -134,9 +157,15 @@
                     });
                     $("#divcarrito").html(lista);
                     $("#totalcarrito").html(total);
+                    $("#factor").html(totfactor);
+//                    if (totfactor < 1 && totfactor > 0.875 ) {
+//                        
+//                    }
                 }else{
                     $("#divcarrito").html("<span id='spncarrito_0'>No hay productos en el carrito</span>");
                     $("#totalcarrito").html(" 0");
+                    $("#factor").html("0.00");
+                    
                     }                    
                 },  
                 error: function(xhr, status, error){
@@ -146,7 +175,7 @@
                 
             });
         }
-        function totalcarrito(target,target2){
+        function totalcarrito(target,target2,target3){
         $.ajax({                
                 url: '<?php echo $this->Html->url(array('controller'=>'Productos','action'=>'totalcarrito')); ?>',
                 dataType: 'json',
@@ -154,10 +183,48 @@
                          //$('#totalcarrito').html('<?php echo $this->Html->image('ajaxload2.gif'); ?>');
                     },    
                 success: function(data) {
-                    $("#"+target).html(data[0]);                    
-                    $("#"+target2).html(data[1]);
+                    console.log(data);
+                    if($("#"+target).length){
+                        $("#"+target).html(data[0]);   
+                    }                    
+                    if($("#"+target2).length){
+                        $("#"+target2).html(data[1]);   
+                    }   
+                    if($("#"+target3).length){
+                        $("#"+target3).html(data[2]);   
+                    }   
                 }
         });
+        }
+        function pintar_foot_flete(numero,max){
+//            $("#lvl1").css("background-color","#66ff00");
+//            $("#lvl2").css("background-color","#99ff00");
+//            
+            if(parseFloat(numero) >= parseFloat('0.125')){
+                $("#lvl1").css("background-color","#66ff00");
+            }
+            if(parseFloat(numero) >=parseFloat('0.25')){
+                $("#lvl2").css("background-color","#99ff00");
+            }
+            if(parseFloat(numero) >= parseFloat('0.375')){
+                $("#lvl3").css("background-color","#ccff00");
+            }
+            if(parseFloat(numero) >=parseFloat('0.5')){
+                $("#lvl4").css("background-color","#ffff00");                
+            }
+            if(parseFloat(numero) >= parseFloat('0.625')){
+                $("#lvl5").css("background-color","#ffcc00");
+            }
+            if(parseFloat(numero) >=parseFloat('0.75')){
+                $("#lvl6").css("background-color","#ff9900");
+            }
+            if(parseFloat(numero) >= parseFloat('0.875')){
+                 $("#lvl7").css("background-color","#ff6600");
+            }
+            if(parseFloat(numero) >=parseFloat('1')){
+                $("#lvl8").css("background-color","#ff3300");
+            }
+            
         }
 
 $(function() {
@@ -308,8 +375,22 @@ $(function() {
                                     </div>
                                     
                                     <div id=footercarrito>
-                                        <span class="spancomprar"><?php echo $this->Html->link('Detalle', array('controller' => 'Productos', 'action' => 'detalleCarrito'),array('class'=>'btncomprar'))?></span> 
-                        
+                                        Total Factor: <span id="factor">0.00</span>
+                                       <table class="tableflete">
+                                           <tr>
+                                               <td id="lvl1"></td>
+                                               <td id="lvl2"></td>
+                                               <td id="lvl3"></td>
+                                               <td id="lvl4"></td>
+                                               <td id="lvl5"></td>
+                                               <td id="lvl6"></td>
+                                               <td id="lvl7"></td>
+                                               <td id="lvl8"></td>
+                                               <td style="width: 25px;"><span id="flete_num">1</span></td>
+                                           </tr>
+                                        </table>
+                                        <div class="spancomprar" style="margin-top: 85px"><?php echo $this->Html->link('Comprar', array('controller' => 'Productos', 'action' => 'detalleCarrito'),array('class'=>'btncomprar'))?></div> 
+                                        
                                     </div>
 
                                 </div>

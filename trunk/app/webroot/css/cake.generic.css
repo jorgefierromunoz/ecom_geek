@@ -34,7 +34,6 @@
 #cssmenu {
   width: 100%;
   font-family: Helvetica, Arial, sans-serif;
-  color: #ffffff;
 }
 #cssmenu ul ul {
   display: none;
@@ -52,9 +51,8 @@
   font-size: 14px;
   font-weight: bold;
   text-decoration: none;
-  color: #ffffff;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
-  background: #367889;
+  background: #FFFFFF;
 /*  background: -webkit-linear-gradient(#36aae7, #367889);  1fa0e4
   background: -moz-linear-gradient(#36aae7, #367889);
   background: -o-linear-gradient(#36aae7, #367889);
@@ -137,7 +135,6 @@
 #cssmenu ul ul li.open > p,
 #cssmenu ul ul li.active > p {
   background: #424852;
-  color: #ffffff;
 }
 #cssmenu ul ul li:first-child > p {
   box-shadow: none;
@@ -207,7 +204,7 @@
     margin: 5px;
 }
 #footdetcarrito{
-    background-color: #367889;
+    background-color: #FFFFFF;
     height: 150px;
 }
 #shopping_cart{
@@ -218,15 +215,7 @@
 #detalleCarrito{
     background-color: #dfdfdf;
 }
-.tablefootdetcarrito {
-    margin: 0px;
-    padding: 0px;
-    width: 90%;
-}
-.tablefootdetcarrito tr td{
-    text-align: right;
-    border-bottom:none;
-}
+
 .tabledetcar{
     width: 95%;
     padding:5px;
@@ -237,6 +226,16 @@
 .tabledetcar tr:nth-child(even){
     background-color: #ccc;
 }
+
+
+.tablefootdetcarrito {
+    width: 95%;
+    padding: 5px;
+}
+.tablefootdetcarrito tr td{
+    text-align: right;
+}
+
 #detalle{
 width: 100%;
 height: 250px;
@@ -246,11 +245,11 @@ overflow: auto;
 
 #divlogin{
     height: 500px;
-    background-color: #367889;
+    background-color: #FFFFFF;
     padding: 50px;
 }
 #divloginizq{
-    background-color: #367889;
+    background-color: #FFFFFF;
     padding: 0px;
     margin: 0px;
     margin-bottom: 10px;
@@ -262,7 +261,6 @@ overflow: auto;
 }
 #formloginleft tr td{
     border: none;
-    color: #F0F0F0;
 }
 #logintableizq{
 }
@@ -278,7 +276,6 @@ overflow: auto;
 }
 .logintable td{
    border-bottom: none; 
-   background-color: #367889;
 }
 
 .botones{
@@ -295,14 +292,14 @@ overflow: auto;
     opacity: 1;
 }
 .spancomprar{
-    margin-top: 10px;
+    margin-top: 25px;
+    margin-left: 85px;
 }
 .btncomprar{
     cursor: pointer;
     background-color: #a00;
     color: #fff;
     opacity: 0.8;
-    margin-left: 70px;
     padding: 5px;
     text-decoration: none;
     
@@ -372,10 +369,8 @@ overflow: auto;
     padding: 0px;
 }
 #footercarrito{
-    padding: 20px;
-    background-color: #367889;
-    height: 15px;
-    margin:3px;
+    background-color: #FFFFFF;
+    height: 150px;
 }
 
 .no-close .ui-dialog-titlebar-close {
@@ -396,7 +391,6 @@ overflow: auto;
     height: 80%;
 }
 .nuevousuario td{
-    color: #fff;
     margin: 5px;
     padding: 5px;
     border: none;
@@ -412,7 +406,6 @@ overflow: auto;
     height: 80%;
 }
 .actualizarusuario td{
-    color: #fff;
     margin: 5px;
     padding: 5px;
     border: none;
@@ -429,19 +422,18 @@ float: left;
 #menucat{
     float: left;
     width: 13%;
-    color: #fff;
     margin: 5px;
 }
 
 /*******************************/
 #cssmenu{
-    background-color: #367889;
+    background-color: #FFFFFF;
 }
     
 #menucentral{
     float: left;
     width: 70%;
-    background-color: #367889;
+    background-color: #FFFFFF;
     overflow: auto;
     margin: 5px;
 }
@@ -453,12 +445,12 @@ float: left;
 #carrito{
     float: left;
     width: 100%;
-    background-color: #367889;
+    background-color: #FFFFFF;
 }
 #productpromo{
     float: left;
     width: 100%;
-    background-color: #367889;
+    background-color: #FFFFFF;
 }
 #menu ul { list-style-type: none;}
 
@@ -469,7 +461,7 @@ margin-right: 2px;
 #menu ul li a {
 display: block;
 text-decoration: none;
-color: #fff;
+color: #000000;
 padding: 8px;
 position: relative;
 font-size: 140%;
@@ -525,8 +517,8 @@ html{
     height: 100%;
 }
 body {
-    background-color: #000;
-    color: #fff;
+    background-color: #FFFFFF;
+    color: #000000;
     font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
     font-size:90%;
     margin: 0;
@@ -679,7 +671,7 @@ h2 {
 	font-size: 190%;
 }
 h3 {
-	color: #fff;
+	color: #000000;
 	font-family:'Gill Sans','lucida grande', helvetica, arial, sans-serif;
 	font-size: 165%;
 }
@@ -698,14 +690,14 @@ p {
 #container {
     text-align: left;
     width: 100%;
-    background-color: #f0f0f0;
+    background-color: #bbb;
 }
 
 #header{
     margin: 0px;
     width: 100%;
     height: 80px;
-    background-color: #367889;
+    background-color: #FFFFFF;
     border-radius: 1%;
 }
 #datosusu{    
@@ -713,7 +705,6 @@ p {
     width: 15%;    
     height: 80px;
     float: left;
-    color: #F0F0F0;
 }
 #header h1 {
 	line-height:20px;
@@ -744,10 +735,10 @@ p {
 	padding: 6px 10px;
         text-align: center;
         color: #2c6877;
-        background-color: #000;
+        background-color: #FFFFFF;
 }
 #header a, #footer a {
-	color: #fff;
+	/*color: #fff;*/
 }
 #cake-powered {
 	float: right;
@@ -1000,7 +991,7 @@ form .submit input[type=submit] {
 	background-image: -webkit-linear-gradient(top, #76BF6B, #3B8230);
 	background-image: -moz-linear-gradient(top, #76BF6B, #3B8230);
 	border-color: #2d6324;
-	color: #fff;
+	/*color: #fff;*/
 	text-shadow: rgba(0, 0, 0, 0.5) 0px -1px 0px;
 	padding: 8px 10px;
 }
