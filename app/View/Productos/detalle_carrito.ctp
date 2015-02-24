@@ -1,3 +1,8 @@
+<style>
+    #menucentral{
+        height: 550px;
+    }
+</style>
 <script type="text/javascript">
     $(document).ready(function() {
         verdetallecarro();
@@ -114,17 +119,27 @@
 </div>
 <div id="footdetcarrito">
     <table class="tablefootdetcarrito">
+<!--        <tr>
+            <td style="width: 70%; text-align: right;">Totales:</td>
+            <td style="text-align: left;">awqqwe</td>
+        </tr>-->
         <tr>
-            <td width="70%"><h3>Total: $</h3></td> <td><h3><span id="totaldetcar"></span></h3></td>
+            <td style="width:80%;"><h3>Total: $</h3></td> <td><h3><span id="totaldetcar"></span></h3></td>
         </tr>
         <tr>
             <td><h3>Total Ptos: $</h3></td><td><h3><span id="totalptodetcar"></span></h3></td>
         </tr>
         <tr>
-            <td><h3>Total Despacho: $</h3></td><td><h3><span id="totaldespachodetcar"></span></h3></td>
-        </tr>
+            <td><h3>Total Flete: $</h3></td> <td><h3>0</h3></td>
+        </tr>        
         <tr>
-            <td></td> <td><span class="botones">Comprar</span></td>
+            <?php if ($this->Session->check('User')): ?>
+                <td></td> <td><div class="botones" style="margin-left: 90px;position: static;">Comprar Logueado</div></td>
+            <?php else: ?>
+                <td></td> <td><div class="botones" style="margin-left: 90px;position: static;">Comprar sin logueo</div></td>
+            <?php endif; ?>
+         
         </tr>
+        
     </table>   
 </div>
