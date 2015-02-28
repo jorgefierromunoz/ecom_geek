@@ -50590,3 +50590,28 @@ Request URL: /geek4y/img/Fotos/s_24_IMAGENES%20DE%20PRUEBA.png
 Stack Trace:
 #0 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2015-03-05 03:00:35 Error: [SocketException] Unable to find the socket transport "ssl" - did you forget to enable it when you configured PHP?
+Request URL: /geek4y/Mensajes/send
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\Network\Email\SmtpTransport.php(154): CakeSocket->connect()
+#1 C:\wamp\www\geek4y\lib\Cake\Network\Email\SmtpTransport.php(95): SmtpTransport->_connect()
+#2 C:\wamp\www\geek4y\lib\Cake\Network\Email\CakeEmail.php(1149): SmtpTransport->send(Object(CakeEmail))
+#3 C:\wamp\www\geek4y\app\Controller\MensajesController.php(38): CakeEmail->send()
+#4 [internal function]: MensajesController->send()
+#5 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(MensajesController), Array)
+#6 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#7 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(MensajesController), Object(CakeRequest))
+#8 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2015-03-05 03:09:04 Error: [MissingViewException] View file "C:\wamp\www\geek4y\app\View\Productos\pago_puntos.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\geek4y\\app\\View\\Productos\\pago_puntos.ctp',
+)
+Request URL: /geek4y/Productos/pagoPuntos
+Stack Trace:
+#0 C:\wamp\www\geek4y\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 C:\wamp\www\geek4y\lib\Cake\Controller\Controller.php(954): View->render(NULL, NULL)
+#2 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(198): Controller->render()
+#3 C:\wamp\www\geek4y\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(ProductosController), Object(CakeRequest))
+#4 C:\wamp\www\geek4y\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}

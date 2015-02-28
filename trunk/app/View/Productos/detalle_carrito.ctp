@@ -55,6 +55,9 @@
             }
             });
     }); 
+$(document).on("click", "#pagaPuntos", function() {
+    window.location="/geek4y/Productos/pagoPuntos";
+});
     function verdetallecarro(){
         $.ajax({                
                 url: '<?php echo $this->Html->url(array('controller'=>'Productos','action'=>'versession')); ?>',
@@ -134,9 +137,9 @@
         </tr>        
         <tr>
             <?php if ($this->Session->check('User')): ?>
-                <td></td> <td><div class="botones" style="margin-left: 90px;position: static;">Comprar Logueado</div></td>
+                <td></td> <td><div class="botones" id="pagaPuntos" style="margin-left: 90px;position: static;">Comprar</div></td>
             <?php else: ?>
-                <td></td> <td><div class="botones" style="margin-left: 90px;position: static;">Comprar sin logueo</div></td>
+                <td></td> <td><div class="botones" id="pagaPuntos" style="margin-left: 90px;position: static;">Comprar</div></td>
             <?php endif; ?>
          
         </tr>
