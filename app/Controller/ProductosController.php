@@ -15,7 +15,7 @@ class ProductosController extends AppController{
      public function beforeFilter() {
         parent::beforeFilter();
         if ((!$this->Session->check('User')) || ($this->Session->read('User.0.Tipo_Use')=='cliente')) {
-            $this->Auth->allow('todosproductos','verdetalleproducto','totalcarrito','retornartotalescarro','detalle_carrito','cantidadcarrito','carrito','borrarcarro','detalleCarrito','eliminarproductocarro','versession','view','listaproductos','catsubcat','listaproductosComboBox','productosidsubcategoria','ver','listaproductossubcategoria');
+            $this->Auth->allow('todosproductos', 'pagoPuntos','verdetalleproducto','totalcarrito','retornartotalescarro','detalle_carrito','cantidadcarrito','carrito','borrarcarro','detalleCarrito','eliminarproductocarro','versession','view','listaproductos','catsubcat','listaproductosComboBox','productosidsubcategoria','ver','listaproductossubcategoria');
         }elseif (($this->Session->check('User')) && ($this->Session->read('User.0.Tipo_Use') == 'admin')) {
             $this->Auth->allow();
         }
@@ -270,6 +270,10 @@ class ProductosController extends AppController{
             $this->set('productos', $cant);
         }
         $this->layout = 'ajax';
+    }
+    function pagoPuntos()
+    {
+
     }
 }
 
