@@ -56,8 +56,27 @@
             });
     }); 
 $(document).on("click", "#pagaPuntos", function() {
-    window.location="/geek4y/Productos/pagoPuntos";
+          $.ajax({                
+                url: '<?php echo $this->Html->url(array('controller'=>'Productos','action'=>'validarcompra')); ?>',
+                dataType: 'json',
+                success: function(data) {
+                    alert(data);
+                    if(data == '0'){
+                        $("#spanAlert").html("Primero debe iniciar sesión");
+                        $('#divloginizq').animate({backgroundColor: '#94FF94'}, 'slow');
+                        $('#divloginizq').animate({backgroundColor: '#FFFFFF'}, 'slow');
+                    }else if(data=='1'){
+                        
+                    }
+                    
+                },
+                error: function(xhr, status, error){
+                    //var err = eval("(" + xhr.responseText + ")");
+                    console.log(xhr.responseText );
+                }
+            });
 });
+               
     function verdetallecarro(){
         $.ajax({                
                 url: '<?php echo $this->Html->url(array('controller'=>'Productos','action'=>'versession')); ?>',
@@ -135,14 +154,8 @@ $(document).on("click", "#pagaPuntos", function() {
         <tr>
             <td><h3>Total Flete: $</h3></td> <td><h3>0</h3></td>
         </tr>        
-        <tr>
-            <?php if ($this->Session->check('User')): ?>
-                <td></td> <td><div class="botones" id="pagaPuntos" style="margin-left: 90px;position: static;">Comprar</div></td>
-            <?php else: ?>
-                <td></td> <td><div class="botones" id="pagaPuntos" style="margin-left: 90px;position: static;">Comprar</div></td>
-            <?php endif; ?>
-         
+        <tr>           
+            <td class="tdspanalert"><span id="spanAlert"></span></td> <td><div class="botones" id="pagaPuntos" style="margin-left: 90px;position: static;">Comprar</div></td>
         </tr>
-        
     </table>   
 </div>
