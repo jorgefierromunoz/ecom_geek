@@ -15,13 +15,28 @@ class ProductosController extends AppController{
      public function beforeFilter() {
         parent::beforeFilter();
         if ((!$this->Session->check('User')) || ($this->Session->read('User.0.Tipo_Use')=='cliente')) {
-            $this->Auth->allow('todosproductos', 'pagoPuntos','verdetalleproducto','totalcarrito','retornartotalescarro','detalle_carrito','cantidadcarrito','carrito','borrarcarro','detalleCarrito','eliminarproductocarro','versession','view','listaproductos','catsubcat','listaproductosComboBox','productosidsubcategoria','ver','listaproductossubcategoria');
+            $this->Auth->allow('validarcompra','todosproductos', 'pagoPuntos','verdetalleproducto','totalcarrito','retornartotalescarro','detalle_carrito','cantidadcarrito','carrito','borrarcarro','detalleCarrito','eliminarproductocarro','versession','view','listaproductos','catsubcat','listaproductosComboBox','productosidsubcategoria','ver','listaproductossubcategoria');
         }elseif (($this->Session->check('User')) && ($this->Session->read('User.0.Tipo_Use') == 'admin')) {
             $this->Auth->allow();
         }
     }
     public function index(){
       
+    }
+    public function validarcompra(){
+        if ($this->Session->check('User')){
+           $idusu= $this->Session->read('User.0.IdUsu'); 
+           $pass= $this->Session->read('User.0.Pass'); 
+           $user = $this->Producto->validausuario($idusu,$pass);
+           
+           if (!$user == null) {
+              $this->set('productos', $this->Producto->totalcompra($this->Session->read('carrito')));
+           }         
+        }else{
+            $this->set('productos', '0');
+            
+        }
+        $this->layout = 'ajax';
     }
     public function confirmacionCompra(){
                     

@@ -97,17 +97,19 @@
     });
      
     function login(spanalert,formSerialize){
+        var form = $('#'+formSerialize).serializeArray();
+        form.push({name: 'url', value: window.location.href });
         $.ajax({
                 url: '<?php echo $this->Html->url(array('controller'=>'Users','action'=>'loguear')); ?>',
                 type: "POST",
                 dataType: 'json',
-                data: $("#"+formSerialize).serialize(),
+                data: form,
                 beforeSend: function(){$("#" + spanalert).html('<?php echo $this->Html->image('ajaxload2.gif'); ?>Cargando Sesión...')},
                 success: function(data) {
                     console.log(data);
                     if (data=='1'){
                          $("#" + spanalert).html("");
-                         window.location.href = '<?php echo $this->Html->url(array('controller' => 'Pages', 'action' => 'display')); ?>';
+                         window.location.href = '<?php echo $this->Session->read('User.0.URL'); ?>';
                     }else{
                     $("#" + spanalert).html(data);
                     }
@@ -332,7 +334,8 @@ $(function() {
                     </nav>
                     <?php if ($this->Session->check('User')): ?>
                     <div id="datosusu">
-                        <span><?php echo $this->Session->read('User.0.Rut'); ?><br></span>
+                        <span><?php var_dump($this->Session->read('carrito')); ?><br></span>
+                        <span><?php echo $this->Session->read('User.0.PtosAcumu'); ?><br></span>
                         <span><?php echo strtoupper($this->Session->read('User.0.Nombre')." ".$this->Session->read('User.0.ApPaterno'));?><br></span> 
                         <span><?php echo $this->Session->read('User.0.Email'); ?><br></span>
                         <span><?php echo $this->Html->link('Cerrar Sesión', array('controller' => 'Users', 'action' => 'logout'))?></span><br>

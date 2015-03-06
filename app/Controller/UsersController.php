@@ -119,7 +119,8 @@ class UsersController extends AppController{
     public function loguear() {
         if (!empty($this->request->data)) {
             $username = $this->data['username'];
-            $password = $this->data['password'];;
+            $password = $this->data['password'];
+            $url=$this->data['url'];
         }
         if (($username != "") && ($password != "")) {
             $pas = Security::hash($password, null, true);
@@ -140,7 +141,9 @@ class UsersController extends AppController{
                         'Email' => $user[0]['User']['email'],
                         'Referido' => $user[0]['User']['referido'],
                         'PtosAcumu' => $user[0]['User']['puntoAcumulado'],
-                        'CatVenId'=> $user[0]['User']['categoria_vendedore_id'],                        
+                        'CatVenId'=> $user[0]['User']['categoria_vendedore_id'], 
+                        'Pass'=>$pas,
+                        'URL'=>$url
                     );
                     $this->Session->write('User', array($arreglouser));
                     $this->set('users','1');

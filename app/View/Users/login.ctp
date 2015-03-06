@@ -1,3 +1,9 @@
+<style type="text/css">
+    #divloginizq{
+        display: none;
+    }
+    
+</style>
 <script>
     $(document).on('ready', function() {
         $("#entrar").click(function(){
