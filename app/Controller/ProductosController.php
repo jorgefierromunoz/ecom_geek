@@ -24,8 +24,11 @@ class ProductosController extends AppController{
       
     }
     public function validarcompra(){
+        if ($this->Session->check('carrito')){
+            
+        }
         if ($this->Session->check('User')){
-           $idusu= $this->Session->read('User.0.IdUsu'); 
+            $idusu= $this->Session->read('User.0.IdUsu'); 
            $pass= $this->Session->read('User.0.Pass'); 
            $user = $this->Producto->validausuario($idusu,$pass);
            
