@@ -56,17 +56,21 @@
             });
     }); 
 $(document).on("click", "#pagaPuntos", function() {
-          $.ajax({                
+          var totalptos= $("#totalptodetcar").text();
+          if (totalptos==0){
+              $("#spanAlert").html("Elija almenos un producto de la página");
+          }else{
+               $.ajax({                
                 url: '<?php echo $this->Html->url(array('controller'=>'Productos','action'=>'validarcompra')); ?>',
                 dataType: 'json',
-                success: function(data) {
-                    alert(data);
+                success: function(data) {   
+                    console.log(data);
                     if(data == '0'){
                         $("#spanAlert").html("Primero debe iniciar sesión");
                         $('#divloginizq').animate({backgroundColor: '#94FF94'}, 'slow');
                         $('#divloginizq').animate({backgroundColor: '#FFFFFF'}, 'slow');
                     }else if(data=='1'){
-                        
+                        window.location.href = '<?php echo $this->Html->url(array('controller'=>'Productos','action'=>'confirmacionCompra')); ?>';
                     }
                     
                 },
@@ -75,6 +79,7 @@ $(document).on("click", "#pagaPuntos", function() {
                     console.log(xhr.responseText );
                 }
             });
+          } 
 });
                
     function verdetallecarro(){
@@ -154,8 +159,8 @@ $(document).on("click", "#pagaPuntos", function() {
         <tr>
             <td><h3>Total Flete: $</h3></td> <td><h3>0</h3></td>
         </tr>        
-        <tr>           
-            <td class="tdspanalert"><span id="spanAlert"></span></td> <td><div class="botones" id="pagaPuntos" style="margin-left: 90px;position: static;">Comprar</div></td>
+        <tr>
+            <td class="tdspanalert"><span id="spanAlert"></span></td> <td><div class="botones" id="pagaPuntos" style="margin-left: 90px;position: static; width:50%; ">Comprar con Puntos</div></td>
         </tr>
     </table>   
 </div>

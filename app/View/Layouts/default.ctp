@@ -334,7 +334,6 @@ $(function() {
                     </nav>
                     <?php if ($this->Session->check('User')): ?>
                     <div id="datosusu">
-                        <span><?php var_dump($this->Session->read('carrito')); ?><br></span>
                         <span><?php echo $this->Session->read('User.0.PtosAcumu'); ?><br></span>
                         <span><?php echo strtoupper($this->Session->read('User.0.Nombre')." ".$this->Session->read('User.0.ApPaterno'));?><br></span> 
                         <span><?php echo $this->Session->read('User.0.Email'); ?><br></span>

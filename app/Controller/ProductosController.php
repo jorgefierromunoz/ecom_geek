@@ -24,25 +24,27 @@ class ProductosController extends AppController{
       
     }
     public function validarcompra(){
-        if ($this->Session->check('carrito')){
-            
-        }
-        if ($this->Session->check('User')){
-            $idusu= $this->Session->read('User.0.IdUsu'); 
-           $pass= $this->Session->read('User.0.Pass'); 
-           $user = $this->Producto->validausuario($idusu,$pass);
-           
-           if (!$user == null) {
-              $this->set('productos', $this->Producto->totalcompra($this->Session->read('carrito')));
-           }         
-        }else{
-            $this->set('productos', '0');
-            
+        if ($this->Session->check('carrito.0')){           
+            if ($this->Session->check('User')){
+               $idusu= $this->Session->read('User.0.IdUsu');  
+               $pass= $this->Session->read('User.0.Pass');
+               $user = $this->Producto->validausuario($idusu,$pass);
+               //Si el usuario no es correcto
+               if ($user == null) {
+                   $this->set('productos','0');
+               }else{ 
+                   $productos= $this->Session->read('carrito');
+                   $this->Session->write('Tot_Compra', array('precios'=>$this->Producto->totalcompra($productos),'usuario'=>$user[0]));
+                   $this->set('productos','1');
+               }         
+            }else{
+                $this->set('productos', '0');
+            } 
         }
         $this->layout = 'ajax';
     }
     public function confirmacionCompra(){
-                    
+           $this->set('productos',$this->Session->read('Tot_Compra'));         
       
     }
     public function verdetalleproducto($id){

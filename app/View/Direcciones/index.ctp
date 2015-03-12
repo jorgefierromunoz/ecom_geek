@@ -271,49 +271,6 @@
             }
         });
     }
-    
-    function llenarlistboxcomunas(resp) {
-        $.ajax({
-            url: 'Comunas/listacomunasComboBox',
-            dataType: 'json',
-            type:'POST',
-            beforeSend: function(){ if (resp=="x"){
-                    $('#list-comunas').html("<img src='img/ajaxload2.gif'>");}
-                else{
-                    $('#list-editcomunas').html("<img src='img/ajaxload2.gif'>");
-                }},
-            success: function(data) {
-                if(data!=""){
-                    var list =""; 
-                    if (resp=="x") {
-                        list = '<select id="select-comunas" name=comuna_id ><option value="">Seleccione una comuna</option>';
-                    }else{
-                        list ='<select id="select-editcomunas" name=comuna_id >';
-                    }     
-                    $.each(data, function(item) {
-                        if(resp==data[item].Comuna.id){ 
-                            list += '<option selected=selected value=' + data[item].Comuna.id + '>' + data[item].Comuna.comuna + '</option>';
-                        }else{
-                            list += '<option value=' +  data[item].Comuna.id + '>' +data[item].Comuna.comuna + '</option>';
-                        }                       
-                    });
-                    list += '</select>';
-                    if (resp=="x") {
-                        $('#list-comunas').html(list);
-                    }else{
-                        $('#list-editcomunas').html(list);
-                    }
-                }else{
-                    var list = '<select id="select-editcomunas"><option>No hay comunas en la BD</option>';
-                    if (resp=="x"){
-                         $('#list-comunas').html(list);
-                    }else{
-                         $('#list-editcomunas').html(list);
-                    }
-                }
-               }
-         });
-    }
      
     function ocultarspan(){   
         $("#spnaddcalle").hide();
