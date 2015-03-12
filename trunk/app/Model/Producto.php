@@ -37,17 +37,25 @@ class Producto extends AppModel{
         return $user;
     }
     function totalcompra($array){
-        $precio=0;
-        $totalP=0;        
+        $totalPrecio=0;  
+        $totalPrecioPuntos=0;
         foreach ($array as $p) {  
             $idproducto=$p['Id'];
-            $precio= $this->find('all', array('conditions' => array(
-            'id' => $idproducto)));
+            $producto= $this->find('first', 
+                    array(
+                        'conditions' => array('Producto.id' => $idproducto),
+                        'recursive'=>-1
+                        )
+            );
+            $precio=$producto['Producto']['precio'];
+            $preciopto=$producto['Producto']['precioPunto'];
             $cant=$p['Cantidad'];
             $subtota=$precio*$cant;
-            $totalP=$totalP + $subtota;
+            $subtotapto=$preciopto*$cant;
+            $totalPrecio=$totalPrecio + $subtota;
+            $totalPrecioPuntos = $totalPrecioPuntos +$subtotapto;
         }
-    return $precio;
+    return array('totalprecio'=>$totalPrecio,'totalpuntos'=>$totalPrecioPuntos);
     }
 }
 
