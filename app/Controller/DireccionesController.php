@@ -16,13 +16,18 @@ class DireccionesController extends AppController{
     public function beforeFilter() {
         parent::beforeFilter();
         if ((!$this->Session->check('User')) || ($this->Session->read('User.0.Tipo_Use')=='cliente')) {
-            $this->Auth->allow('listadirecciones', 'listadireccionesComboBox','view','add','edit','delete');
+            $this->Auth->allow('misdirecciones','listadirecciones', 'listadireccionesComboBox','view','add','edit','delete');
         }elseif (($this->Session->check('User')) && ($this->Session->read('User.0.Tipo_Use') == 'admin')) {
             $this->Auth->allow();
         }
     }
     public function index(){
-      
+        
+    }
+    public function misdirecciones(){
+        $id_usu=$this->Session->read('Tot_Compra.usuario.User.id');
+        $this->set('direcciones',$this->Direccione->misdirecciones($id_usu)); 
+        $this->layout = 'ajax';  
     }
     function listadirecciones($atributo=null,$orden=null) {
         $this->set('direcciones', $this->Direccione->find('all',array('order'=>array($atributo=> $orden))));

@@ -1,33 +1,108 @@
-<?php var_dump($productos); ?>
+
 <script type="text/javascript">
 $(document).ready(function(){
+    ocultarspan();
+    misdirecciones();
     $("#carrito").remove();
-   $("#divadddirecciones").dialog({
-            height: '500',
-            width: '40%',
-            autoOpen: false,
-            modal: true,
-            show: {
-                effect: "blind",
-                duration: 300
-            },
-            hide: {
-                effect: "blind",
-                duration: 300
-            }
-        }).css("font-size", "15px", "width", "auto");
-         $('#formadddirecciones').submit(function(e) {
-            e.preventDefault();
-        });
-    verdetallecarro();
-    $("#adddireccion").click(function() {
-            $("#formadddirecciones").trigger("reset");
-            $("#iptpestado").val("");      
-            llenarlistboxcomunas();
-            $("#divadddirecciones").dialog("open");
+    $("#divadddirecciones").dialog({
+             height: '500',
+             width: '40%',
+             autoOpen: false,
+             modal: true,
+             show: {
+                 effect: "blind",
+                 duration: 300
+             },
+             hide: {
+                 effect: "blind",
+                 duration: 300
+             }
+         }).css("font-size", "15px", "width", "auto");
+    $('#formadddirecciones').submit(function(e) {
+        e.preventDefault();
     });
+    verdetallecarro();
+    $("#addnuevadireccion").click(function() {
+        ocultarspan();
+        $("#formadddirecciones").trigger("reset");
+        llenarlistboxcomunas();
+        $("#divadddirecciones").dialog("open");
+     });
+     $("#adddireccionessave").click(function(e) {
+            e.preventDefault();
+              if ( $("#iptcalle").val().trim().length == 0) {
+                $("#spnaddcalle").html("Campo requerido");
+                $("#spnaddcalle").show();
+                $("#spnaddalert").show();
+                
+              }else if ( $("#iptnumero").val().trim().length == 0) {
+                $("#spnaddnumero").html("Campo requerido");
+                $("#spnaddnumero").show();
+                $("#spnaddalert").show();
+              }else if ( $("#select-comunas").val().trim().length == 0){
+                $("#spnaddcomuna").html("Campo requerido");
+                $("#spnaddcomuna").show();
+                $("#spnaddalert").show();
+              }else{
+                $.ajax({
+                    url: '<?php echo $this->Html->url(array('controller'=>'Direcciones','action'=>'add')); ?>',
+                    type: "POST",
+                    data: $("#formadddirecciones").serialize(),
+                    dataType:'json',
+                    beforeSend:function(){ $("#cargando").dialog("open");},
+                    success: function(n) {
+                        $("#cargando").dialog("close");
+                        if (n==1){
+                           $("#formadddirecciones").trigger("reset");                           
+                           $("#divadddirecciones").dialog("close");
+                           misdirecciones();
+                           $("#spndireccion").html("Dirección agregada con éxito");
+                        }else if (n==0){
+                            $("#spndireccion").html("No se pudo guardar, intentelo de nuevo");
+                        }
+                    }
+                    ,
+                    error: function(xhr, status, error){
+                    //var err = eval("(" + xhr.responseText + ")");
+                    $("#cargando").dialog("close");
+                    $("#spndireccion").html("Error con el servidor intentelo denuevo");
+                    console.log(xhr.responseText );
+                }
+                });
+             }
+        });
 });
- function verdetallecarro(){
+$(document).on("click", "#deletedireccion", function(e) {
+            e.preventDefault();
+            var id = $("#combodirecciones").val();
+            $.ajax({
+                url: '<?php echo $this->Html->url(array('controller'=>'Direcciones','action'=>'delete')); ?>/' + id,
+                type: "POST",
+                dataType:'json',
+                beforeSend:function(){ $("#cargando").dialog("open");},
+                success: function(n) {
+                    $("#cargando").dialog("close");
+                    if (n=='1'){          
+                        $("#spndireccion").html("Dirección eliminada con éxito");               
+                        misdirecciones();
+                    }else{
+                        $("#spndireccion").html("No se pudo eliminar la dirección, inténtelo de nuevo");   
+                    }
+                },  
+                    error: function(xhr, status, error){
+                    //var err = eval("(" + xhr.responseText + ")");
+                    console.log(xhr.responseText );
+                }
+                
+            });
+        });
+function ocultarspan(){
+    $("#spnaddcomuna").hide(); 
+    $("#spnaddcalle").hide(); 
+    $("#spnaddnumero").hide(); 
+    $("#spnaddalert").hide(); 
+}
+function verdetallecarro(){
         $.ajax({                
                 url: '<?php echo $this->Html->url(array('controller'=>'Productos','action'=>'versession')); ?>',
                 dataType: 'json',
@@ -67,8 +142,7 @@ $(document).ready(function(){
                 error: function(xhr, status, error){
                     //var err = eval("(" + xhr.responseText + ")");
                     console.log(xhr.responseText );
-                }
-                
+                }                
             });
         }
 function llenarlistboxcomunas() {
@@ -93,9 +167,42 @@ function llenarlistboxcomunas() {
                     var list = '<select id="select-editcomunas"><option>No hay comunas en la BD</option>';
                     $('#list-comunas').html(list);
                 }
-               }
+               }, error: function(xhr, status, error){
+                    //var err = eval("(" + xhr.responseText + ")");
+                    console.log(xhr.responseText );
+                }
+                
          });
     }
+function misdirecciones(){
+$.ajax({
+            url:'<?php echo $this->Html->url(array('controller'=>'Direcciones','action'=>'misdirecciones')); ?>',
+            dataType: 'json',
+            type:'POST',
+            beforeSend: function(){ 
+                    $('#combodirecciones').html('<?php echo $this->Html->image('ajaxload2.gif'); ?>');
+                },
+            success: function(data) {
+                if(data!=""){
+                    $("#deletedireccion").show();
+                    var list =""; 
+                    $.each(data, function(item) {
+                            list += '<option value=' +  data[item].Direccione.id + '>' +data[item].Direccione.calle + ' ' +data[item].Direccione.numero + '</option>';                     
+                    });
+                    $('#combodirecciones').html(list);
+                }else{
+                    $("#deletedireccion").hide();
+                    var list = '<option>No ha ingresado ninguna dirección de despacho</option>';
+                    $('#combodirecciones').html(list);
+                }
+               }, error: function(xhr, status, error){
+                    //var err = eval("(" + xhr.responseText + ")");
+                    console.log(xhr.responseText );
+                }
+                       
+         });
+}
+
 </script>
 
 
@@ -110,46 +217,41 @@ function llenarlistboxcomunas() {
  </table>
 </div>
 <span><h3>Direccion de despacho</h3></span>
-<?php if(empty($productos['usuario']['User']['Direccione'])): ?>
-<div>No tienes Direcciones asociadas. 
-<div class="botones" id="adddireccion" style="display: inline-block;">Agregar una nueva dirección</div>
+<table>
+    <tr>    
+        <td style='width: 20%;'>
+            <select id='combodirecciones'>
+            </select>
+        </td>
+        <td style="text-align:left; width: 5%;"><div class="botones" id="addnuevadireccion" style='width: 20px;'>+</div></td>
+        <td style="text-align:left; width: 5%;"><div class="botones" id="deletedireccion" style='width: 20px;'>-</div></td>
+        <td><span id="spndireccion"></span> </td>
+    </tr>
+    
+</table>
+
 <!-- AGREGAR  -->
 <div id="divadddirecciones" title="Nueva Dirección"> 
     <form id="formadddirecciones" method="POST">
-        <label>Calle:</label> 
+        <label>*Calle:</label> 
         <input id="iptcalle" type="text" name="calle">
         <span id="spnaddcalle"></span>
-        <label>Número:</label> 
+        <label>*Número:</label> 
         <input id="iptnumero" type="text" name="numero">
         <span id="spnaddnumero"></span> 
         <label>Departamento:</label> 
         <input id="iptdpto" type="text" name="dpto"> 
-        <label>Resto de la Dirección:</label> 
+        <label>Referencias de la Dirección:</label> 
         <input id="iptrestodireccion" type="text" name="restoDireccion">
         <label>Código Postal:</label> 
         <input id="iptcodigoPostal" type="text" name="codigoPostal">
         <label>Geo-Referencia:</label> 
-        <input id="iptgeoreferencia" type="text" name="georeferencia"> 
-        <br><br>
-        <input type="checkbox" id="checkestado"><label for="check">Estado</label>
-        <input id="iptestado" type="hidden" name="estado">
-        
-        <label>Usuario:</label> 
-        <input id="iptuser_id" type="text" name="user_id">
+        <input id="iptgeoreferencia" type="text" name="georeferencia">
         <label>Comuna:</label> 
         <div id="list-comunas"></div>  
         <span id="spnaddcomuna"></span> 
         <hr>
+        <span id="spnaddalert">Procure llenar los campos correctamente</span> 
         <p align="right"><button id="adddireccionessave">Guardar</button></p>
     </form>
 </div>
-
-</div>
-<?php else: ?>
-Elije una dirección de despacho
-<div id="direcciondespacho">
-    
-
-</div>
-
-<?php endif; ?>
