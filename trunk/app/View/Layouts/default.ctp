@@ -106,7 +106,6 @@
                 data: form,
                 beforeSend: function(){$("#" + spanalert).html('<?php echo $this->Html->image('ajaxload2.gif'); ?>Cargando Sesión...')},
                 success: function(data) {
-                    console.log(data);
                     if (data=='1'){
                          $("#" + spanalert).html("");
                          window.location.href = '<?php echo $this->Session->read('User.0.URL'); ?>';
@@ -129,7 +128,6 @@
                     },    
                 success: function(data) {
                 if (data != '0'){
-                    console.log(data);
                     $("#divcarrito").html("");
                     var lista="";
                     var id="";
@@ -185,7 +183,6 @@
                          //$('#totalcarrito').html('<?php echo $this->Html->image('ajaxload2.gif'); ?>');
                     },    
                 success: function(data) {
-                    console.log(data);
                     //total precio ptos factor
                     if($("#"+target).length){
                         $("#"+target).html(data[0]);   
@@ -209,7 +206,6 @@
             if (pos != -1){
                 numero = '0.' + String(numero).substring((pos+1), numero.length);    
             }
-            console.log(numero);
             if(parseFloat(numero) > parseFloat('0')){
                 $("#lvl1").css("background-color","#66ff00");
             }else{

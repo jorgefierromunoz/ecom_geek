@@ -21,7 +21,7 @@ class ProductosController extends AppController{
         }
     }
     public function index(){
-      
+
     }
     public function validarcompra(){
         if ($this->Session->check('carrito.0')){           
