@@ -156,9 +156,7 @@ $(document).on("click", "#pagaPuntos", function() {
         <tr>
             <td><h3>Total Ptos: $</h3></td><td><h3><span id="totalptodetcar"></span></h3></td>
         </tr>
-        <tr>
-            <td><h3>Total Flete: $</h3></td> <td><h3>0</h3></td>
-        </tr>        
+          
         <tr>
             <td class="tdspanalert"><span id="spanAlert"></span></td> <td><div class="botones" id="pagaPuntos" style="margin-left: 90px;position: static; width:50%; ">Comprar con Puntos</div></td>
         </tr>

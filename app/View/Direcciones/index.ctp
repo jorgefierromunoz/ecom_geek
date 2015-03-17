@@ -237,7 +237,8 @@
                 tabla += '<th class=ordenar data-id=calle>Calle</th>';
                 tabla += '<th class=ordenar data-id=numero>numero</th><th class=ordenar data-id=dpto>Departamento</th>';
                 tabla += '<th class=ordenar data-id=restoDireccion>Resto Dirección</th><th class=ordenar data-id=codigoPostal>Código Postal</th><th class=ordenar data-id=georeferencia>Georeferencia</th>';
-                tabla += '<th class=ordenar data-id=estado>Estado</th><th class=ordenar data-id=user_id>Usuario</th>';
+                tabla += '<th class=ordenar data-id=estado>Estado</th>';
+                //tabla += '<th class=ordenar data-id=user_id>Usuario</th>';
                 tabla += '<th class=ordenar data-id=comuna_id>Comuna</th><th>Editar</th><th>Eliminar</th>';
                 tabla += '</tr>';
                 $.each(data, function(index, item) {
@@ -255,7 +256,7 @@
                     }else{
                         tabla += '<td ><input type=checkbox disabled></td>';
                     }
-                    tabla += '<td>' + item.User.username +'</td>';
+                    //tabla += '<td>' + item.User.username +'</td>';
                     tabla += '<td>' + item.Comuna.comuna +'</td>';
 
                     tabla += '<td><button type="button" class="editar" data-id="' + item.Direccione.id + '">Editar</button></td>';
