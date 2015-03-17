@@ -21,11 +21,12 @@ class Direccione extends AppModel{
         }
         return true;
     }
+    
     function misdirecciones($id){
         $direcciones= $this->find('all', 
                     array(
                         'conditions' => array('Direccione.user_id' => $id),
-                        'recursive'=>-1
+                        'recursive'=>2
                         )
             );
         return $direcciones;
