@@ -1,4 +1,15 @@
-
+<style type="text/css">
+    .tablatotales{
+        width: 50%;
+        margin-left: 25%;
+    }
+    .tablatotales tr td{
+        text-align: right;
+    }
+    .tdtablatotalesdesc{
+        text-align: left !important;
+    }
+</style>
 <script type="text/javascript">
 $(document).ready(function(){
     ocultarspan();
@@ -212,7 +223,6 @@ $.ajax({
                        
          });
 }
-
 </script>
 
 
@@ -221,36 +231,45 @@ $.ajax({
     <div id="detalle">
     
     </div>
- <table>
-     <tr><td style='text-align:right;'>Total Compra: </td><td><?php echo $productos['precios']['totalpuntos']; ?></td></tr>
+    <table style="margin-left: 57%; width: 30%;">
+        <tr><td>Total Compra: </td><td style="text-align: right;"><?php echo $productos['precios']['totalpuntos']; ?></td></tr>
  </table>
 <table>
     <tr style="background-color: #ffffff;"><td colspan="6"><h3>Direccion de despacho</h3></td></tr>
     <tr>    
-        <td style='width: 20%;'>
+        <td>
             <select id='combodirecciones'>
             </select>
+            <div class="botones" id="addnuevadireccion" style='display:inline; width: 20px; margin-left: 1%;'>+</div>
+            <div class="botones" id="deletedireccion" style='display:inline; width: 20px;margin-left: 50px;'>-</div>
         </td>
-        <td style="text-align:left; width: 5%;"><div class="botones" id="addnuevadireccion" style='width: 20px;'>+</div></td>
-        <td style="text-align:left; width: 5%;"><div class="botones" id="deletedireccion" style='width: 20px;'>-</div></td>
-        <td style="width: 70%;"><span id="spndireccion"></span></td>        
-    </tr>
-    <tr>
-        <td colspan="3"></td>
-        <td><div style="text-align: right; margin-right: 185px;">Costo Flete: <span id="valorflete" class="valorflete"></span></div></td>
+        <td><span id="spndireccion"></span></td>          
     </tr>
 </table>
-<table>
-    <tr style="background-color: #ffffff;"><td colspan="3"><h3>Totales</h3></td></tr>
-    <tr><td style="width: 50%;"></td><td>Total Compra: </td><td><span id="totalcomprar"><?php echo $productos['precios']['totalpuntos']; ?></span></td></tr>
-    <tr><td></td><td>Flete: </td><td><span id="totalflete" class="valorflete"></span></td></tr>
-    <tr><td></td><td>Totales: </td><td><span id="resultadofinal"></td></tr>
-    <tr><td></td><td>Tus Puntos: </td><td><span id="mispuntos"><?php echo $productos['usuario']['User']['puntoAcumulado']; ?></td></tr>
-    <tr><td></td><td>Referencia: </td><td><span id="ptosdespuescompra"></span></td></tr>
-    <tr>
-        <td class="tdspanalert"><span id="spanAlert"></span></td> <td><div class="botones" id="pagaPuntos" style="margin-left: 90px;position: static; width:50%; ">Comprar con Puntos</div></td>
+<table style="margin-left: 57%; width: 30%;">
+    <tr >
+        <td>Costo Flete: </td><td style="text-align: right;"><span id="valorflete" class="valorflete"></span></td>
     </tr>
 </table>
+    <span><h3 style="background-color: #fff;">Totales</h3></span>
+    <table class="tablatotales">
+    <!--    <tr style="background-color: #ffffff;"><td colspan="3"></td></tr>-->
+        <tr><td class="tdtablatotalesdesc">Total Compra: </td><td><span id="totalcomprar"><?php echo $productos['precios']['totalpuntos']; ?></span></td></tr>
+        <tr><td class="tdtablatotalesdesc">Flete: </td><td><span id="totalflete" class="valorflete"></span></td></tr>
+        <tr><td class="tdtablatotalesdesc" colspan="2"><hr> </td></tr>
+        <tr><td class="tdtablatotalesdesc">Totales: </td><td><span id="resultadofinal"></td></tr>
+        <tr><td class="tdtablatotalesdesc" colspan="2"><hr> </td></tr>
+        <tr><td class="tdtablatotalesdesc">Tus Puntos: </td><td><span id="mispuntos"><?php echo $productos['usuario']['User']['puntoAcumulado']; ?></td></tr>
+        <tr>
+            <td colspan="2"><div class="botones" id="pagaPuntos" style="position: static; width:40%;margin-left: 140px; ">Confirmar Compra</div></td>
+        </tr>
+        <tr>
+            <td colspan="2"><span id="respuestacompra"></span></td>
+        </tr>
+        <tr><td colspan="2" class="tdspanalert"><span id="spanAlert"></span></td></tr>
+        <tr><td class="tdtablatotalesdesc">Ref. después compra: </td><td><span id="ptosdespuescompra"></span></td></tr>
+     
+    </table>
 </div>
 <!-- AGREGAR  -->
 <div id="divadddirecciones" title="Nueva Dirección"> 

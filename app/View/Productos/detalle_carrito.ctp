@@ -156,9 +156,11 @@ $(document).on("click", "#pagaPuntos", function() {
         <tr>
             <td><h3>Total Ptos: $</h3></td><td><h3><span id="totalptodetcar"></span></h3></td>
         </tr>
-          
         <tr>
-            <td class="tdspanalert"><span id="spanAlert"></span></td> <td><div class="botones" id="pagaPuntos" style="margin-left: 90px;position: static; width:50%; ">Comprar con Puntos</div></td>
+            <td><h3>Tus Puntos:  </h3></td><td><h3><?php echo $this->Session->read('User.0.PtosAcumu'); ?></h3></td>
+        </tr>  
+        <tr>
+            <td class="tdspanalert"><span id="spanAlert"></span></td> <td><div class="botones" id="pagaPuntos" style="margin-left: 90px;position: static; width:50%; ">Comprar</div></td>
         </tr>
     </table>   
 </div>

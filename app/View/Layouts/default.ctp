@@ -411,7 +411,7 @@ $(function() {
                                                <td style="width: 25px;"><span id="flete_num"></span></td>
                                            </tr>
                                         </table>
-                                        <div class="spancomprar" style="margin-top: 85px"><?php echo $this->Html->link('Comprar', array('controller' => 'Productos', 'action' => 'detalleCarrito'),array('class'=>'btncomprar'))?></div> 
+                                        <div style="margin-left: 40%;margin-top: 45%;margin-right: 5px;"><div style="width: 90px;"><?php echo $this->Html->link('Ver Carro', array('controller' => 'Productos', 'action' => 'detalleCarrito'),array('class'=>'btncomprar'))?></div></div> 
                                         
                                     </div>
 
