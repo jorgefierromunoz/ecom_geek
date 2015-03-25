@@ -13,7 +13,7 @@
 class User extends AppModel{
     //put your code here
     public $name='User';
-    public $hasMany=array('OrdenesCompra','Direccione');
+    public $hasMany=array('OrdenesCompra','Direccione','OrdenesCompra');
     public $belongsTo=array('TipoCuentasBancaria','CategoriaVendedore');
     
     function hasdirecciones($id){

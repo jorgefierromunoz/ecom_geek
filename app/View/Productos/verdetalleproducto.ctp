@@ -121,7 +121,7 @@
         <input id="iptfoto" type="text" name="url">
         <span id="spnaddfoto"></span>
         <label>Producto:</label> 
-        <input id="iptproductoadd" type="text" value="<?php echo $productos['Producto']['id'];?>" name="producto_id">  
+        <input id="iptproductoadd" type="text" value="<?php echo $productos['Producto']['id'];?>" name="producto_id" style="display:none;">  
         
         <button id="addfotosave">Guardar</button>
         <span id="spnaddalert">Debe llenar los campos correctamente</span>

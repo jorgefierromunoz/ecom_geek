@@ -23,6 +23,29 @@ class ProductosController extends AppController{
     public function index(){
 
     }
+    public function pagarpuntos(){
+       if ($this->Session->check('carrito.0')){           
+            if ($this->Session->check('User')){
+               $idusu= $this->Session->read('User.0.IdUsu');  
+               $pass= $this->Session->read('User.0.Pass');
+               $user = $this->Producto->validausuario($idusu,$pass);
+               //Si el usuario no es correcto
+               if ($user != null){ 
+                   $productos= $this->Session->read('carrito');
+                   $arreglo=$this->Producto->totalcompra($productos);
+                   $totalpuntoscompra=floatval($arreglo['totalpuntos']);
+                   $totalpuntosusuario=floatval($user[0]['User']['puntoAcumulado']);
+                   if($totalpuntoscompra>$totalpuntosusuario){
+                       $this->set('productos','-1');
+                   }else{
+                       
+                       $this->set('productos','1');
+                   }                   
+               }         
+            }
+        }
+        $this->layout = 'ajax'; 
+    }
     public function validarcompra(){
         if ($this->Session->check('carrito.0')){           
             if ($this->Session->check('User')){

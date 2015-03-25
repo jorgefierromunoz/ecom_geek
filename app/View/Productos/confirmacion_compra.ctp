@@ -39,7 +39,7 @@ $(document).ready(function(){
         llenarlistboxcomunas();
         $("#divadddirecciones").dialog("open");
      });
-     $("#adddireccionessave").click(function(e) {
+    $("#adddireccionessave").click(function(e) {
             e.preventDefault();
               if ( $("#iptcalle").val().trim().length == 0) {
                 $("#spnaddcalle").html("Campo requerido");
@@ -82,6 +82,9 @@ $(document).ready(function(){
                 });
              }
         });
+    $("#pagaPuntos").click(function(){
+    pagar()
+    });
 });
 $(document).on("click", "#deletedireccion", function(e) {
             e.preventDefault();
@@ -222,6 +225,19 @@ $.ajax({
                 }
                        
          });
+}
+function pagar(){
+ $.ajax({                
+    url: '<?php echo $this->Html->url(array('controller'=>'Productos','action'=>'versession')); ?>',
+    dataType: 'json',
+    success: function(data) {
+    
+    },  
+    error: function(xhr, status, error){
+        //var err = eval("(" + xhr.responseText + ")");
+        console.log(xhr.responseText );
+    }                
+});
 }
 </script>
 
