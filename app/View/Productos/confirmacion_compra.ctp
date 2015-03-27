@@ -210,7 +210,7 @@ $.ajax({
                             list += '<option data-precio=' + data[item].Comuna.Zona.precio + ' value=' +  data[item].Direccione.id + '>' +data[item].Direccione.calle + ' ' +data[item].Direccione.numero + '</option>';                     
                     });
                     $('#combodirecciones').html(list);
-                    $(".valorflete").html(data[0].Comuna.Zona.precio);
+                    $(".valorflete").html(data[0].Comuna.Zona.precioPunto);
                     var totalcompra=parseInt($("#totalcomprar").text()) + parseInt($("#totalflete").text());
                     $("#resultadofinal").html(totalcompra);
                     $("#ptosdespuescompra").html(parseInt($("#mispuntos").text()) - totalcompra);
@@ -227,11 +227,14 @@ $.ajax({
          });
 }
 function pagar(){
+ var url='<?php echo $this->Html->url(array('controller'=>'OrdenesCompras','action'=>'agregarcompraorden')); ?>' + "/";
+ var totalflete= parseFloat($("#totalflete").text()).toFixed(2);
+ alert(url + totalflete);
  $.ajax({                
-    url: '<?php echo $this->Html->url(array('controller'=>'Productos','action'=>'versession')); ?>',
+    url:  url + totalflete,
     dataType: 'json',
     success: function(data) {
-    
+        alert(data);
     },  
     error: function(xhr, status, error){
         //var err = eval("(" + xhr.responseText + ")");
@@ -240,7 +243,6 @@ function pagar(){
 });
 }
 </script>
-
 
 <span><h3>Confirmar Compra</h3></span>
 <div id="detalleCarrito">

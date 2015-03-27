@@ -23,6 +23,23 @@ class UsersController extends AppController{
             $this->Auth->allow();
         }
     }
+    public function updateptosusuariocompra($id,$num,$usuarioPtosDispo){
+        //$arregloprecios=$this->Session->read('Tot_Compra');
+        //$usuarioPtosDispo=floatval($arregloprecios['usuario']['User']['puntoAcumulado']);
+        $resta= $usuarioPtosDispo - floatval($num);
+        $this->User->id=$id;
+        if ($this->User->saveField("puntoAcumulado",$resta)){
+//            
+//            $arreglo = $this->Session->read('User'); 
+            $this->Session->delete('User');
+//            $arreglo[0]['PtosAcumu']=$resta;
+//            $this->Session->write('User',$arreglo);
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
     public function recuperacionpass(){
         
     }

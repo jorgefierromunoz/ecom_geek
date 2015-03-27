@@ -23,6 +23,16 @@ class ProductosController extends AppController{
     public function index(){
 
     }
+    public function editstockproductos($id,$cant){
+        $this->Producto->id=$id; 
+        $stock = $this->Producto->field('stock');
+        $resta= floatval($stock)- floatval($cant);
+        if ($this->Producto->saveField("stock",$resta)){
+            return true;
+        }else{
+            return false;
+        }
+    }
     public function pagarpuntos(){
        if ($this->Session->check('carrito.0')){           
             if ($this->Session->check('User')){

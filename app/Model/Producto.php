@@ -85,7 +85,7 @@ class Producto extends AppModel{
             $subtotapto=$preciopto*$cant;
             $totalPrecio=$totalPrecio + $subtota;
             $totalPrecioPuntos = $totalPrecioPuntos +$subtotapto;
-            $arr= array("id"=>$idproducto,"cantidad"=>$cant,"precio"=>$precio,"subtotalprecio"=>$subtota,"subtotalpunto"=>$subtotapto);
+            $arr= array("id"=>$idproducto,"cantidad"=>$cant,"precio"=>$precio,"subtotalprecio"=>$subtota,"subtotalpunto"=>$subtotapto,"preciopunto"=>$preciopto);
             array_push($respuesta,$arr);
         }
         return $respuesta;
